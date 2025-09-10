@@ -22,10 +22,10 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-      - name: Build website
-        run: npm run build
       - name: Install search plugin
         run: npm install @easyops-cn/docusaurus-search-local
+      - name: Build website
+        run: npm run build
 
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v3
