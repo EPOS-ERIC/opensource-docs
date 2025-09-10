@@ -24,6 +24,8 @@ jobs:
         run: npm ci
       - name: Build website
         run: npm run build
+      - name: Install search plugin
+        run: npm install @easyops-cn/docusaurus-search-local
 
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v3
