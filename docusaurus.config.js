@@ -9,7 +9,7 @@ const config = {
   title: 'EPOS',
   favicon: 'img/favicon.ico',
   projectName: 'epos-documentation', // Usually your repo name.
-  organizationName: 'AleCrocetta', // Usually your GitHub org/user name.
+  organizationName: 'epos-eu', // Usually your GitHub org/user name.
   trailingSlash:false, // URLs without trailing slashes
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -17,7 +17,7 @@ const config = {
   },
 
   // Set the production url of your site here
-  url: 'https://AleCrocetta.github.io',
+  url: 'https://epos-eu.github.io',
 
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
