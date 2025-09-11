@@ -8,7 +8,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 const config = {
   title: 'EPOS',
   favicon: 'img/favicon.ico',
-  projectName: 'epos-documentation', // Usually your repo name.
+  projectName: 'opensource-docs', // Usually your repo name.
   organizationName: 'epos-eu', // Usually your GitHub org/user name.
   trailingSlash:false, // URLs without trailing slashes
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -21,7 +21,7 @@ const config = {
 
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/epos-documentation/',
+  baseUrl: '/opensource-docs/',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
