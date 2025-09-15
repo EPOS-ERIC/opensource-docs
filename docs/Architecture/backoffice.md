@@ -4,6 +4,8 @@ id: backoffice
 title: Backoffice
 ---
 
+TODO: rewrite this to be more documentation-like
+
 In the current release of the open-source EPOS Platform, the metadata description of web services is managed manually through Turtle files. Contributors are required to modify service descriptions using the EPOS-DCAT-AP extension of DCAT-AP. These metadata files are then ingested into the internal metadata database via the ingestor service, which provides an endpoint to add new metadata entries to the catalog.
 
 This manual process presents several limitations that hinder both service integration and platform evolution:

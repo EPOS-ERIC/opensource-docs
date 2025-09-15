@@ -1,8 +1,8 @@
-# CoverageJSON Scatter Plot Guide
+# Scatter Plot
 
 The EPOS GUI supports displaying time series as scatter plots, enhancing the visualization of your data:
 
-![Scatter Plot](../../static/img/covjson_scatter_plot.png)
+![Scatter Plot](../../../static/img/covjson_scatter_plot.png)
 
 ## Usage
 

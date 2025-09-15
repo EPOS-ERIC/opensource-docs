@@ -1,8 +1,8 @@
-# CoverageJSON Error Bars Guide
+# Error Bars
 
 The EPOS GUI supports displaying time series with error bars, enhancing the visualization of data uncertainties:
 
-![Error bars](../../static/img/covjson_error_bars.png)
+![Error bars](../../../static/img/covjson_error_bars.png)
 
 ## Usage
 

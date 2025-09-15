@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 id: quickstart
 title: Quickstart
 ---
@@ -36,8 +36,11 @@ epos-opensource version v0.2.4
 
 ### Step 3: Deploy the system
 
-> \[!NOTE]
-> Make sure Docker is running before you continue.
+:::note
+
+Make sure Docker is running before you continue.
+
+:::
 
 Run the following command, replacing `my-test-environment` with any name you prefer:
 
@@ -51,12 +54,29 @@ This will start an EPOS Platform environment locally using Docker Compose. At th
 
 Once the environment is running, populate it with example metadata:
 
-```bash
-# TODO: add exact command
-```
+TODO
 
 ---
 
 ## Access the web interface
 
-Open the `Data Portal` URL shown after the population step in your browser. Usually [http://locahost:32000/](http://locahost:32000/)
+Open the `Data Portal` URL shown after the deployment step in your browser. The default URL is [http://localhost:32000/](http://localhost:32000/)
+
+### What you'll see
+
+- **Data Portal**: Main interface for browsing and searching geospatial services
+- **Service Catalog**: View available web services and their metadata
+- **Interactive Maps**: Preview geospatial data on interactive maps
+- **API Documentation**: Access the REST API documentation at `http://localhost:32001/docs`
+
+### Next Steps
+
+Now that you have EPOS Platform running:
+
+1. **[Getting Started](./user-guide/getting-started)** - Learn how to use the platform features
+2. **[Installation Overview](./installation/overview)** - Explore advanced deployment options
+3. **[System Architecture](./architecture/overview)** - Understand the system design
+
+---
+
+> **Troubleshooting**: If you encounter issues, check the [Docker Installation](./installation/docker) troubleshooting section or visit our [GitHub repository](https://github.com/epos-eu/epos-opensource) for support.
