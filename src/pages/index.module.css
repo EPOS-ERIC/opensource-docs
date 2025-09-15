@@ -3,21 +3,99 @@
  * and scoped locally.
  */
 
+/* --- Hero Section --- */
 .heroBanner {
   padding: 4rem 0;
+  background: var(--ifm-background-color); /* responsive to dark/light mode */
+  transition: background-color 0.3s ease;
   text-align: center;
-  position: relative;
-  overflow: hidden;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+/* Logo */
+.heroLogo {
+  height: 200px;
+  margin-bottom: 1rem;
 }
 
+/* Title & Subtitle */
+.hero__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.hero__subtitle {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+/* Description */
+.heroDescription {
+  font-size: 1.3rem;          /* bigger text */
+  font-weight: 400;           /* medium weight */
+  color: #222;                /* dark text for light mode */
+  margin: 1.5rem auto 2.5rem auto;
+  max-width: 900px;           /* wider text block */
+  line-height: 1.8;           /* more breathing space */
+  text-align: center;         /* centered */
+  transition: color 0.3s ease;
+}
+
+.heroDescription strong {
+  color: #2b422d;             /* accent color for key words */
+}
+
+/* Dark mode description */
+html[data-theme='dark'] .heroDescription {
+  color: #ddd;                /* light text in dark mode */
+}
+
+html[data-theme='dark'] .heroDescription strong {
+  color: #375b3a;             /* bright accent in dark mode */
+}
+
+/* --- Buttons --- */
 .buttons {
+  margin: 2rem 0;
   display: flex;
-  align-items: center;
+  gap: 1rem;
   justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Primary button overrides for dark mode */
+html[data-theme='dark'] .button--primary {
+  background-color: var(--ifm-color-primary);
+  color: #000;
+}
+
+html[data-theme='dark'] .button--primary:hover {
+  background-color: var(--ifm-color-primary-light);
+}
+
+/* Secondary button overrides for dark mode */
+html[data-theme='dark'] .button--secondary {
+  background-color: var(--ifm-color-primary-lightest);
+  color: #000;
+}
+
+html[data-theme='dark'] .button--secondary:hover {
+  background-color: var(--ifm-color-primary-lighter);
+}
+
+/* --- Screenshot --- */
+.screenshotWrapper {
+  margin-top: 3rem;
+}
+
+.screenshot {
+  width: 100%;
+  max-width: 800px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transition: box-shadow 0.3s ease;
+}
+
+html[data-theme='dark'] .screenshot {
+  box-shadow: 0 8px 20px rgba(255,255,255,0.05);
 }
