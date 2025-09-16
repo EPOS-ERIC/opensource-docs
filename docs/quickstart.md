@@ -73,10 +73,6 @@ Open the `Data Portal` URL shown after the deployment step in your browser. The 
 
 Now that you have EPOS Platform running:
 
-1. **[Getting Started](./user-guide/getting-started)** - Learn how to use the platform features
-2. **[Installation Overview](./installation/overview)** - Explore advanced deployment options
-3. **[System Architecture](./architecture/overview)** - Understand the system design
-
----
-
-> **Troubleshooting**: If you encounter issues, check the [Docker Installation](./installation/docker) troubleshooting section or visit our [GitHub repository](https://github.com/epos-eu/epos-opensource) for support.
+1. **[Getting Started](./user-guide.md)** - Learn how to use the platform features
+2. **[Installation Overview](./installation/installation.md)** - Explore advanced deployment options
+3. **[System Architecture](./architecture/architecture.md)** - Understand the system design

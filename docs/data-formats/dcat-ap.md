@@ -134,6 +134,3 @@ EPOS-DCAT-AP continues to evolve:
 - **Tool Support**: Enhanced validation and editing tools
 - **Community Input**: Feedback from EPOS Platform users and contributors
 
----
-
-> **Related**: Learn about [EPOS GeoJSON Extensions](./geojson-extensions) for data visualization or explore the [System Architecture](../architecture/overview) to understand how metadata fits into the platform.

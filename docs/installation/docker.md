@@ -69,5 +69,3 @@ TODO: log monitoring & observability
 ### Common Issues
 
 TODO: add common issues
-
-> **Next**: Learn how to [Use the Platform](../user-guide) or explore [Architecture Details](../Architecture/backoffice) for deeper understanding.

@@ -17,11 +17,11 @@ The EPOS Platform installer supports multiple deployment scenarios:
 
 ## Quick Installation
 
-For the fastest way to get started, see our [Quickstart Guide](./quickstart) which will have you running EPOS Platform in minutes.
+For the fastest way to get started, see our [Quickstart Guide](../quickstart.md) which will have you running EPOS Platform in minutes.
 
 ## Detailed Installation
 
-For comprehensive installation instructions covering all deployment options, system requirements, and configuration details, see our [Docker Installation](./docker) guide.
+For comprehensive installation instructions covering all deployment options, system requirements, and configuration details, see our [Docker Installation](./docker.md) guide.
 
 ## Source Repository
 
@@ -38,16 +38,12 @@ Before installing EPOS Platform, ensure you have:
 - **Kubernetes**: Version 1.20+ (for orchestrated deployments)
 - **System Resources**: Minimum 4GB RAM, 2 CPU cores, 20GB storage
 
-For detailed system requirements and platform-specific instructions, refer to the [Docker Installation](./docker) guide.
+For detailed system requirements and platform-specific instructions, refer to the [Docker Installation](./docker.md) guide.
 
 ## Next Steps
 
 Once you have EPOS Platform installed:
 
-1. **[Getting Started](./user-guide/getting-started)** - Learn how to use the platform
-2. **[System Architecture](./architecture/overview)** - Understand the system design
-3. **[Data Format Documentation](./data-formats/geojson-extensions)** - Learn about supported data formats
-
----
-
-> **Need help with installation?** Check our [Docker Installation](./docker) for detailed instructions and troubleshooting tips.
+1. **[Getting Started](../quickstart.md)** - Learn how to use the platform
+2. **[System Architecture](../architecture/architecture.md)** - Understand the system design
+3. **[Data Format Documentation](../data-formats/data-formats.md)** - Learn about supported data formats

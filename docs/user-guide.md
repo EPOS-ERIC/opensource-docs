@@ -232,7 +232,3 @@ TODO
 
 - **GitHub Issues**: Report bugs and ask questions
 - **Documentation**: Contribute to improving documentation
-
----
-
-> **Next**: Explore [System Architecture](../architecture/overview) to understand how EPOS Platform works, or check out [Installation Overview](../installation/overview) for deployment guidance.

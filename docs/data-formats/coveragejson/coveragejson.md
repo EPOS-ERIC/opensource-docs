@@ -117,9 +117,8 @@ The extensions support advanced data processing:
 
 For more information about CoverageJSON extensions:
 
-- **[Error Bars Guide](./coveragejson-details/error_bars)** - Detailed information about error bar implementation
-- **[Scatter Plot Guide](./coveragejson-details/scatter_plot_guide)** - Scatter plot visualization with CoverageJSON
-- **[EPOS GeoJSON Extensions](./geojson-extensions)** - Similar extensions for GeoJSON format
+- **[Error Bars Guide](./error_bars.md)** - Detailed information about error bar implementation
+- **[Scatter Plot Guide](./scatter_plot_guide.md)** - Scatter plot visualization with CoverageJSON
 
 ## Standards Compliance
 
@@ -138,7 +137,3 @@ EPOS CoverageJSON extensions continue to evolve:
 - **Performance Optimization**: Improved rendering and processing
 - **Tool Integration**: Enhanced development and validation tools
 - **Community Feedback**: User-driven feature development
-
----
-
-> **Related**: Learn about [EPOS GeoJSON Extensions](./geojson-extensions) for vector data or explore the [System Architecture](../architecture/overview) to understand how data formats fit into the platform.

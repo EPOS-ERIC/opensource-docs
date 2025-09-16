@@ -87,7 +87,3 @@ The plugin configuration is defined in JSON format:
 ## Repository and Documentation
 
 **GitHub Repository**: [https://github.com/epos-eu/epos-plugin-populator](https://github.com/epos-eu/epos-plugin-populator)
-
----
-
-> **Related**: Learn about [Plugin Development](./plugins) or explore the [Converter System Overview](./overview) for the complete architecture.

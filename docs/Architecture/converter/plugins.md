@@ -142,7 +142,3 @@ Plugins are associated with specific distributions (web services):
 - **Error Tracking**: Track conversion failures and issues
 - **Performance Metrics**: Monitor conversion times and resource usage
 - **Update Management**: Keep plugins updated with latest versions
-
----
-
-> **Related**: Learn about [Plugin Populator](./plugin-populator) for bulk plugin management or explore the [Converter System Overview](./overview) for the complete architecture.

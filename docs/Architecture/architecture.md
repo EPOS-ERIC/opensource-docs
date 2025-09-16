@@ -73,9 +73,9 @@ TODO
 
 For detailed information about specific components:
 
-- **[Converter System](./converter-system/overview)** - Data format conversion and plugin management
-- **[Backoffice](./backoffice)** - Metadata management interface
-- **[Data Model](./data_model)** - EPOS data structure and relationships
+- **[Converter System](./converter/converter.md)** - Data format conversion and plugin management
+- **[Backoffice](./backoffice.md)** - Metadata management interface
+- **[Data Model](./data_model.md)** - EPOS data structure and relationships
 
 ## Deployment Architecture
 
@@ -116,7 +116,3 @@ The EPOS Platform architecture is designed to evolve:
 
 - **Backoffice Integration**: Enhanced metadata management capabilities
 - **Machine Learning**: Intelligent service discovery and recommendations
-
----
-
-> **Next**: Learn about specific components like the [Converter System](./converter-system/overview) or explore [Data Formats](../data-formats/geojson-extensions) to understand supported data types.

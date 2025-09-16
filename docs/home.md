@@ -45,8 +45,3 @@ If you need assistance:
 - **GitHub Repository**: [epos-eu/epos-opensource](https://github.com/epos-eu/epos-opensource) - Source code and issue tracking
 - **Documentation Issues**: Report documentation problems via GitHub issues
 - **Community**: Join discussions with other users and contributors
-
----
-
-> **Ready to get started?** Begin with our [Quickstart Guide](./quickstart) to deploy EPOS Platform in minutes!
-
