@@ -7,7 +7,7 @@ id: geojson
 
 ## Purpose
 
-A number of work packages have requested additional features to be supported by the GUI. Currently, the GUI supports GeoJSON, but GeoJSON doesn't support the desired features. At this late stage, it has been deemed too risky to introduce another format and associated development effort; therefore, an alternative solution is to propose EPOS-specific extensions to the GeoJSON format.
+A number of external service providers have requested additional features to be supported by the GUI. Currently, the GUI supports GeoJSON, but GeoJSON doesn't support the desired features. At this late stage, it has been deemed too risky to introduce another format and associated development effort; therefore, an alternative solution is to propose EPOS-specific extensions to the GeoJSON format.
 
 ## Requirements
 
@@ -40,7 +40,7 @@ The styling of map markers and map legends for GeoJSON points is defined by the 
 
 ### Example
 
-In the example below there is a feature with an @epos_type = station, this matches the attribute station within the the @epos_style object, hence in this case stations would be rendered on the map as pins with an 's'
+In the example below there is a feature with an `@epos_type = station`, this matches the attribute station within the the `@epos_style` object, hence in this case stations would be rendered on the map as pins with an 's'
 
 ![Font Awesome marker with pin](../../static/img/fontAwesomeMarkerWithPin.png)
 
@@ -84,23 +84,23 @@ A corresponding legend would be generated, looking something like:
 
 Each @epos_type defined in the @epos_style object defines the following:
 
-| Attribute         | Description                                                                                                                               |
-| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| label             | If provided, this is used as the text to associate with the map marker in the legend; else the `@epos_type` is used as the legend text.   |
-| marker (object)   | If provided, attributes of this object define the marker for the `@epos_style`; else a default point marker will be used.                 |
-| marker.pin        | Defaults to `true` if absent; if true, the map symbol will be drawn with a pin.                                                           |
-| marker.clustering | Defaults to `true` if absent; if true, map markers in close proximity to each other will be "clustered".                                  |
-| marker.anchor     | If `pin` = `false`, the anchor point for the symbol can be defined using the eight points of the compass (N, NE, E, SE, S, SW, W, NW, C). |
+| Attribute           | Description                                                                                                                               |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `label`             | If provided, this is used as the text to associate with the map marker in the legend; else the `@epos_type` is used as the legend text.   |
+| `marker (object)`   | If provided, attributes of this object define the marker for the `@epos_style`; else a default point marker will be used.                 |
+| `marker.pin`        | Defaults to `true` if absent; if true, the map symbol will be drawn with a pin.                                                           |
+| `marker.clustering` | Defaults to `true` if absent; if true, map markers in close proximity to each other will be "clustered".                                  |
+| `marker.anchor`     | If `pin` = `false`, the anchor point for the symbol can be defined using the eight points of the compass (N, NE, E, SE, S, SW, W, NW, C). |
 
 ## Symbols
 
 There are three types of symbol that can be used (only one should be used), these are defined by setting the appropriately named attribute within the `marker` object:
 
-| Type                     | Example                   | pin = false                                                                          | pin = true                                                                      |
-| ------------------------ | ------------------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
-| marker.href              | "www.thing.com/thing.png" | ![Marker href without pin](../../static/img/markerHrefWithoutPin.png)                | ![Marker href with pin](../../static/img/markerHrefWithPin.png)                 |
-| marker.fontawesome_class | "fas fa-star"             | ![Font Awesome marker without pin](../../static/img/fontAwesomeMarkerWithoutPin.png) | ![Font Awesome marker with pin](../../static/img/fontAwesomeMarkerWithStar.png) |
-| marker.character         | "S"                       | ![Character marker without pin](../../static/img/markerCharacter.png)                | ![Character marker with pin](../../static/img/fontAwesomeMarkerWithPin.png)     |
+| Type                       | Example                   | pin = false                                                                          | pin = true                                                                       |
+| -------------------------- | ------------------------- | ------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- |
+| `marker.href`              | `www.thing.com/thing.png` | ![Marker href without pin](../../static/img/markerHrefWithoutPin.png)                | ![Marker href with pin](../../static/img/markerHrefWithPin.png)                  |
+| `marker.fontawesome_class` | `fas fa-star`             | ![Font Awesome marker without pin](../../static/img/fontAwesomeMarkerWithoutPin.png) | ![Font Awesome marker with pin](../../static/img/fontAwesomeMarkerWithStar.png)  |
+| `marker.character`         | `S`                       | ![Character marker without pin](../../static/img/markerCharacter.png)                | ![Character marker with pin](../../static/img/fontAwesomeMarkerWithPinSmall.png) |
 
 ### Image Example
 
@@ -150,7 +150,7 @@ There are three types of symbol that can be used (only one should be used), thes
 
 ### Colour
 
-A note on colour, to prevent accidental reuse of the same colour by multiple map layers in the EPOS GUI, colours will be automatically assigned.
+A note on color, to prevent accidental reuse of the same color by multiple map layers in the EPOS GUI, colors will be automatically assigned.
 
 ### Legends
 
