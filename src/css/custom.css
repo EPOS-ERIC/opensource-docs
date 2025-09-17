@@ -80,6 +80,19 @@
     var(--ifm-color-emphasis-100) 100%
   );
 }
+/* --- Footer Titles --- */
+.footer .footer__links .footer__title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-font-color-base); /* light mode text */
+}
+/* Dark mode */
+[data-theme='dark'] .footer .footer__links .footer__title {
+  color: #ffffff; /* dark mode text */
+}
+
 /* --- Footer in dark mode --- */
 .footer .footer__links .footer__col:last-child {
   font-family: 'Roboto', sans-serif;
@@ -104,3 +117,5 @@
   display: block;
   margin-top: 4px;
 }
+
+
