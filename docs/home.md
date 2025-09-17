@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-id: docs-home
+id: home
 title: EPOS Platform Documentation
 ---
 
