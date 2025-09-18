@@ -5,26 +5,27 @@ import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 
 import styles from './index.module.css';
+import EposLogo from '../components/EposLogo'; // ✅ import your typing effect
+// Adjust the relative path if needed: 
+// - if index.js is inside src/pages, then ../components/EposLogo is correct
+// - if inside another folder, update accordingly
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <header className={clsx('hero', styles.heroBanner)}>
       <div className="container text--center">
-         {/* Epos logo at the top */}
-        <img
-          src="img/epos-logo.svg"
-          alt="EPOS Logo"
-          className={styles.heroLogo}
-        />
+        
+        {/* Replace the static logo with your animated component */}
+        <EposLogo />
+
         {/* Description under the logo */}
         <p className={styles.heroDescription}>
-        The <strong>EPOS Platform</strong> is an open-source, service-based data integration 
-        and visualization system built on a microservices architecture. This website provides 
-        general information about <strong>EPOS</strong>, technical documentation on the platform's architecture, 
-        and source code for each microservice.
+          The <strong>EPOS Platform</strong> is an open-source, service-based data integration 
+          and visualization system built on a microservices architecture. This website provides 
+          general information about <strong>EPOS</strong>, technical documentation on the platform's architecture, 
+          and source code for each microservice.
         </p>
-
 
         {/* Buttons below the title */}
         <div className={styles.buttons}>
@@ -66,4 +67,3 @@ export default function Home() {
     </Layout>
   );
 }
-

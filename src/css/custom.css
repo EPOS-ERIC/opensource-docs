@@ -1,12 +1,6 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
-/* Import Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
-/* You can override the default Infima variables here. */
+/* Base Variables & Overrides */
 :root {
   --ifm-color-primary: #2e8555;
   --ifm-color-primary-dark: #29784c;
@@ -19,7 +13,35 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
-/* --- Dark Mode Variables --- */
+/*Light Mode*/
+[data-theme='light'] .DocSearch {
+  --docsearch-primary-color: var(--ifm-color-primary); 
+  --docsearch-text-color: var(--ifm-font-color-base); 
+  --docsearch-muted-color: var(--ifm-color-secondary-darkest);
+  --docsearch-container-background: rgba(94, 100, 112, 0.7);
+  /* Modal */
+  --docsearch-modal-background: var(--ifm-color-secondary-lighter);
+  /* Search box */
+  --docsearch-searchbox-background: var(--ifm-color-secondary);
+  --docsearch-searchbox-focus-background: var(--ifm-color-white);
+  /* Hit */
+  --docsearch-hit-color: var(--ifm-font-color-base);
+  --docsearch-hit-active-color: var(--ifm-color-white);
+  --docsearch-hit-background: var(--ifm-color-white);
+  /* Footer */
+  --docsearch-footer-background: var(--ifm-color-white);
+}
+
+/* Footer titles */
+.footer .footer__links .footer__title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-font-color-base); /* light mode text */
+}
+
+/*Dark Mode*/
 [data-theme='dark'] {
   /* Backgrounds */
   --ifm-background-color: #000000;          /* Main page background */
@@ -44,25 +66,8 @@
   /* Code block highlight */
   --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.05);
 }
-[data-theme='light'] .DocSearch {
-  --docsearch-primary-color: var(--ifm-color-primary); 
-  --docsearch-text-color: var(--ifm-font-color-base); 
-  --docsearch-muted-color: var(--ifm-color-secondary-darkest);
-  --docsearch-container-background: rgba(94, 100, 112, 0.7);
-  /* Modal */
-  --docsearch-modal-background: var(--ifm-color-secondary-lighter);
-  /* Search box */
-  --docsearch-searchbox-background: var(--ifm-color-secondary);
-  --docsearch-searchbox-focus-background: var(--ifm-color-white);
-  /* Hit */
-  --docsearch-hit-color: var(--ifm-font-color-base);
-  --docsearch-hit-active-color: var(--ifm-color-white);
-  --docsearch-hit-background: var(--ifm-color-white);
-  /* Footer */
-  --docsearch-footer-background: var(--ifm-color-white);
-}
 
-/* --- DocSearch adjustments in dark mode --- */
+/* DocSearch adjustments in dark mode */
 [data-theme='dark'] .DocSearch {
   --docsearch-text-color: var(--ifm-font-color-base);
   --docsearch-muted-color: var(--ifm-font-color-secondary);
@@ -80,21 +85,13 @@
     var(--ifm-color-emphasis-100) 100%
   );
 }
-/* --- Footer Titles --- */
-.footer .footer__links .footer__title {
-  font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-  color: var(--ifm-font-color-base); /* light mode text */
-}
 
-/* Dark mode */
+/* Footer titles in dark mode */
 [data-theme='dark'] .footer .footer__links .footer__title {
   color: #ffffff; /* dark mode text */
 }
 
-/* --- Footer in dark mode --- */
+/* Footer in dark mode */
 .footer .footer__links .footer__col:last-child {
   font-family: 'Roboto', sans-serif;
   font-size: 0.95rem;
