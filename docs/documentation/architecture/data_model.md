@@ -178,7 +178,7 @@ class Service:::baseline
 classDef Pine :,stroke-width:1px, stroke-dasharray:none, stroke:#254336, fill:#27654A, color:#FFFFFF
 `}
 />
-![EPOS Data Model](../../static/img/epos_data_model.png)
+![EPOS Data Model](../../../static/img/epos_data_model.png)
 
 The EPOS data model was discussed and defined in EPOS-IP as of 2018 in the document “Second (Final) Report on EPOS-ICS Architecture” and is here reported for reader’s convenience in the following class diagram.
 
