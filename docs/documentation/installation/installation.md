@@ -45,5 +45,5 @@ For detailed system requirements and platform-specific instructions, refer to th
 Once you have EPOS Platform installed:
 
 1. **[Getting Started](../quickstart.md)** - Learn how to use the platform
-2. **[System Architecture](../architecture/architecture.md)** - Understand the system design
+2. **[System Architecture](/architecture/architecture.md)** - Understand the system design
 3. **[Data Format Documentation](../data-formats/data-formats.md)** - Learn about supported data formats
