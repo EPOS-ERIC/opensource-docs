@@ -1,5 +1,5 @@
 // src/components/MermaidFullscreen.tsx
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, JSX } from 'react';
 import mermaid from 'mermaid';
 
 interface MermaidFullscreenProps {
