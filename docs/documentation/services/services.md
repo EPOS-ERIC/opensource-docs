@@ -1,10 +1,10 @@
 ---
 sidebar_position: 5
-id: architecture
-title: Architecture
+id: services
+title: Services
 ---
 
-# Architecture
+# Services
 
 This section provides a comprehensive overview of the EPOS Platform's technical architecture, explaining how the various components work together to provide a robust geospatial data integration system.
 

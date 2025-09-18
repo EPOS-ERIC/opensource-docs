@@ -70,9 +70,9 @@ const config = {
 					},
 					{
 						type: 'docSidebar',
-						sidebarId: 'downloadSidebar',
+						sidebarId: 'architectureSidebar',
 						position: 'left',
-						label: 'Download',
+						label: 'Architecture',
 					},
 					{
 						href: 'https://github.com/epos-eu',
