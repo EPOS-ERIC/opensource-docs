@@ -204,7 +204,7 @@ export default function MermaidFullscreen({
                         style={{
                           width: "100%",
                           height: "100%",
-                          minWidth: "2450px",
+                          minWidth: "1900px",
                           minHeight: "1000px",
                           display: "flex",
                           justifyContent: "center",
