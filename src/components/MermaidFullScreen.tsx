@@ -1,6 +1,7 @@
 // src/components/MermaidFullscreen.tsx
 import React, { useState, useRef, useEffect, JSX } from 'react';
 import mermaid from 'mermaid';
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 interface MermaidFullscreenProps {
   chart: string;
@@ -24,9 +25,7 @@ export default function MermaidFullscreen({
   useEffect(() => {
     if (normalRef.current) {
       mermaid.render('mermaid-normal', chart).then(({ svg }) => {
-        if (normalRef.current) {
-          normalRef.current.innerHTML = svg;
-        }
+        if (normalRef.current) normalRef.current.innerHTML = svg;
       });
     }
   }, [chart]);
@@ -34,9 +33,7 @@ export default function MermaidFullscreen({
   useEffect(() => {
     if (isModalOpen && modalRef.current) {
       mermaid.render('mermaid-modal', chart).then(({ svg }) => {
-        if (modalRef.current) {
-          modalRef.current.innerHTML = svg;
-        }
+        if (modalRef.current) modalRef.current.innerHTML = svg;
       });
     }
   }, [isModalOpen, chart]);
@@ -44,19 +41,13 @@ export default function MermaidFullscreen({
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
-  // Handle ESC key for modal
+  // ESC key closes modal
   useEffect(() => {
     const handleEscapeKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isModalOpen) {
-        closeModal();
-      }
+      if (e.key === 'Escape' && isModalOpen) closeModal();
     };
-
     document.addEventListener('keydown', handleEscapeKey);
-    
-    return () => {
-      document.removeEventListener('keydown', handleEscapeKey);
-    };
+    return () => document.removeEventListener('keydown', handleEscapeKey);
   }, [isModalOpen]);
 
   const modalStyles: React.CSSProperties = {
@@ -70,14 +61,14 @@ export default function MermaidFullscreen({
     justifyContent: 'center',
     alignItems: 'center',
     zIndex: 9999,
-    padding: '10px' // Small external margin
+    padding: '10px'
   };
 
   const modalContentStyles: React.CSSProperties = {
     backgroundColor: 'white',
     borderRadius: '12px',
-    width: '98vw', // Almost full screen
-    height: '96vh', // Almost full screen
+    width: '98vw',
+    height: '96vh',
     display: 'flex',
     flexDirection: 'column',
     overflow: 'hidden',
@@ -96,7 +87,7 @@ export default function MermaidFullscreen({
 
   const modalBodyStyles: React.CSSProperties = {
     flex: 1,
-    padding: '3rem', // Increased padding from 2rem to 3rem
+    padding: '3rem',
     overflow: 'auto',
     display: 'flex',
     justifyContent: 'center',
@@ -118,7 +109,7 @@ export default function MermaidFullscreen({
 
   return (
     <div className={className}>
-      {/* Normal diagram with buttons */}
+      {/* Normal diagram */}
       <div style={{ position: 'relative', border: '1px solid #e1e4e8', borderRadius: '8px', overflow: 'hidden' }}>
         <div style={{ 
           display: 'flex', 
@@ -141,12 +132,8 @@ export default function MermaidFullscreen({
               transition: 'all 0.2s ease'
             }} 
             title="Open in full screen"
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#f3f4f6';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'transparent';
-            }}
+            onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#f3f4f6'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; }}
           >
             ⛶ Full Screen
           </button>
@@ -156,9 +143,15 @@ export default function MermaidFullscreen({
         </div>
       </div>
 
-      {/* Large Modal */}
+      {/* Modal */}
       {isModalOpen && (
-        <div style={modalStyles} onClick={closeModal}>
+        <div
+          style={modalStyles}
+          onMouseDown={(e) => {
+            // Only close if the click is on the overlay itself
+            if (e.target === e.currentTarget) closeModal();
+          }}
+        >
           <div style={modalContentStyles} onClick={e => e.stopPropagation()}>
             {/* Modal Header */}
             <div style={modalHeaderStyles}>
@@ -166,18 +159,12 @@ export default function MermaidFullscreen({
                 {title}
               </h2>
               <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
-                <span style={{ fontSize: '12px', color: '#6b7280' }}>
-                  Press ESC to close
-                </span>
+                <span style={{ fontSize: '12px', color: '#6b7280' }}>Press ESC to close</span>
                 <button 
                   onClick={closeModal}
                   style={closeButtonStyles}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#dc2626';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = '#ef4444';
-                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#dc2626'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#ef4444'; }}
                 >
                   ✕ Close
                 </button>
@@ -186,19 +173,50 @@ export default function MermaidFullscreen({
             
             {/* Modal Body */}
             <div style={modalBodyStyles}>
-              <div 
-                ref={modalRef} 
-                style={{ 
-                  width: '100%',
-                  height: '100%',
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'flex-start', // Align to top for better scrolling
-                  padding: '2rem',
-                  boxSizing: 'border-box',
-                  overflow: 'auto' // Enable scrolling again
-                }} 
-              />
+              <TransformWrapper
+                initialScale={1}
+                minScale={0.5}
+                maxScale={4}
+                wheel={{ step: 0.1 }}
+                doubleClick={{ disabled: true }}
+              >
+                {({ zoomIn, zoomOut, resetTransform }) => (
+                  <>
+                    {/* Zoom Controls */}
+                    <div style={{
+                      position: "absolute",
+                      top: "100px", 
+                      right: "30px",
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "10px",
+                      zIndex: 10000,
+                    }}>
+                      <button onClick={() => zoomIn()} style={{ padding: "8px 12px", borderRadius: "6px", border: "1px solid #ccc", backgroundColor: "#f9fafb", cursor: "pointer", fontSize: "14px", fontWeight: "600" }}>➕</button>
+                      <button onClick={() => zoomOut()} style={{ padding: "8px 12px", borderRadius: "6px", border: "1px solid #ccc", backgroundColor: "#f9fafb", cursor: "pointer", fontSize: "14px", fontWeight: "600" }}>➖</button>
+                      <button onClick={() => resetTransform()} style={{ padding: "8px 12px", borderRadius: "6px", border: "1px solid #ccc", backgroundColor: "#f9fafb", cursor: "pointer", fontSize: "25px", fontWeight: "600" }}>⦾</button>
+                    </div>
+
+                    {/* Zoomable diagram */}
+                    <TransformComponent>
+                      <div
+                        ref={modalRef}
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          minWidth: "2450px",
+                          minHeight: "1000px",
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "flex-start",
+                          padding: "2rem",
+                          boxSizing: "border-box",
+                        }}
+                      />
+                    </TransformComponent>
+                  </>
+                )}
+              </TransformWrapper>
             </div>
           </div>
         </div>
