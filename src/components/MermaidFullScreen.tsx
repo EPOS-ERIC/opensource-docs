@@ -14,6 +14,7 @@ export default function MermaidFullscreen({ chart, title = 'Diagram', className 
   const normalRef = useRef<HTMLDivElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
 
+  // Initialize mermaid
   useEffect(() => {
     mermaid.initialize({
       startOnLoad: false,
@@ -22,6 +23,7 @@ export default function MermaidFullscreen({ chart, title = 'Diagram', className 
     });
   }, []);
 
+  // Render normal preview
   useEffect(() => {
     if (normalRef.current) {
       mermaid.render('mermaid-normal', chart).then(({ svg }) => {
@@ -35,6 +37,7 @@ export default function MermaidFullscreen({ chart, title = 'Diagram', className 
     }
   }, [chart]);
 
+  // Render modal preview
   useEffect(() => {
     if (isModalOpen && modalRef.current) {
       mermaid.render('mermaid-modal', chart).then(({ svg }) => {
@@ -55,29 +58,30 @@ export default function MermaidFullscreen({ chart, title = 'Diagram', className 
     return () => document.removeEventListener('keydown', handleEscapeKey);
   }, [isModalOpen]);
 
+  // Modal styles
   const modalStyles: React.CSSProperties = {
     position: 'fixed',
     top: 0,
     left: 0,
     width: '100%',
     height: '100%',
-    backgroundColor: 'rgba(0,0,0,0.95)',
+    backgroundColor: 'var(--ifm-background-color)',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     zIndex: 9999,
     padding: '10px'
   };
-
+ //colour of the side in full screen
   const modalContentStyles: React.CSSProperties = {
     backgroundColor: 'white',
     borderRadius: '12px',
-    width: '98vw',
-    height: '96vh',
+    width: '100vw',
+    height: '100vh',
     display: 'flex',
     flexDirection: 'column',
     overflow: 'hidden',
-    boxShadow: '0 25px 50px -12px rgba(0,0,0,0.25)'
+    boxShadow: '0 25px 50px -12px var(--ifm-background-color)'
   };
 
   const modalHeaderStyles: React.CSSProperties = {
@@ -85,9 +89,10 @@ export default function MermaidFullscreen({ chart, title = 'Diagram', className 
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: '1.5rem 2rem',
-    borderBottom: '1px solid #e5e7eb',
-    backgroundColor: '#f9fafb',
-    borderRadius: '12px 12px 0 0'
+    borderBottom: '1px solid var(--ifm-color-emphasis-300)',
+    backgroundColor: 'var(--ifm-background-color)',
+    borderRadius: '12px 12px 0 0',
+    color: 'var(--ifm-color-emphasis-900)'
   };
 
   const modalBodyStyles: React.CSSProperties = {
@@ -101,7 +106,7 @@ export default function MermaidFullscreen({ chart, title = 'Diagram', className 
   };
 
   const closeButtonStyles: React.CSSProperties = {
-    backgroundColor: '#ef4444',
+    backgroundColor: 'var(--ifm-color-danger)',
     color: 'white',
     border: 'none',
     borderRadius: '8px',
@@ -111,23 +116,37 @@ export default function MermaidFullscreen({ chart, title = 'Diagram', className 
     fontWeight: '500',
     transition: 'all 0.2s ease'
   };
+  const zoomButtonStyles: React.CSSProperties = {
+  backgroundColor: '#efefef',
+  color: 'white',
+  border: '1.5px solid #333',
+  cursor: 'pointer',
+  };
+  const resetButtonStyles: React.CSSProperties = {
+  backgroundColor: '#efefef',
+  color: 'black',
+  border: '1.5px solid #333',
+  cursor: 'pointer',
+  fontSize:'18px'
+  };
+
 
   return (
     <div className={className}>
       {/* Preview with Reset + Fullscreen */}
       <TransformWrapper initialScale={1} minScale={0.5} maxScale={4}>
         {({ resetTransform }) => (
-          <div style={{ position: 'relative', border: '1px solid #e1e4e8', borderRadius: '8px', overflow: 'hidden' }}>
+          <div style={{ position: 'relative', border: '1px solid var(--ifm-color-emphasis-400)', borderRadius: '8px', overflow: 'hidden' }}>
             {/* Header */}
             <div style={{
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
               padding: '12px 16px',
-              borderBottom: '1px solid #e1e4e8',
-              backgroundColor: '#f8f9fa'
+              borderBottom: '1px solid var(--ifm-color-emphasis-300)',
+              backgroundColor: 'var(--ifm-background-color)'
             }}>
-              <span style={{ fontSize: '14px', fontWeight: '600', color: '#24292f' }}>
+              <span style={{ fontSize: '14px', fontWeight: '600', color: 'var(--ifm-color-emphasis-900)' }}>
                 {title}
               </span>
               <div style={{ display: 'flex', gap: '8px' }}>
@@ -135,11 +154,12 @@ export default function MermaidFullscreen({ chart, title = 'Diagram', className 
                   onClick={() => resetTransform()}
                   style={{
                     background: 'none',
-                    border: '1px solid #ccc',
+                    border: '1px solid var(--ifm-color-emphasis-400)',
                     borderRadius: '6px',
                     padding: '6px 12px',
                     cursor: 'pointer',
                     fontSize: '12px',
+                    color: 'var(--ifm-color-emphasis-900)',
                     transition: 'all 0.2s ease'
                   }}
                   title="Reset zoom"
@@ -150,11 +170,12 @@ export default function MermaidFullscreen({ chart, title = 'Diagram', className 
                   onClick={openModal}
                   style={{
                     background: 'none',
-                    border: '1px solid #ccc',
+                    border: '1px solid var(--ifm-color-emphasis-300)',
                     borderRadius: '6px',
                     padding: '6px 12px',
                     cursor: 'pointer',
                     fontSize: '12px',
+                    color: 'var(--ifm-color-emphasis-900)',
                     transition: 'all 0.2s ease'
                   }}
                   title="Open in full screen"
@@ -186,9 +207,9 @@ export default function MermaidFullscreen({ chart, title = 'Diagram', className 
         <div style={modalStyles} onMouseDown={(e) => { if (e.target === e.currentTarget) closeModal(); }}>
           <div style={modalContentStyles} onClick={(e) => e.stopPropagation()}>
             <div style={modalHeaderStyles}>
-              <h2 style={{ margin: 0, fontSize: '20px', fontWeight: '700', color: '#111827' }}>{title}</h2>
+              <h2 style={{ margin: 0, fontSize: '20px', fontWeight: '700' }}>{title}</h2>
               <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
-                <span style={{ fontSize: '12px', color: '#6b7280' }}>Press ESC to close</span>
+                <span style={{ fontSize: '12px', color: 'var(--ifm-color-emphasis)' }}>Press ESC to close</span>
                 <button onClick={closeModal} style={closeButtonStyles}>
                   ✕ Close
                 </button>
@@ -208,9 +229,9 @@ export default function MermaidFullscreen({ chart, title = 'Diagram', className 
                       gap: "10px",
                       zIndex: 10000,
                     }}>
-                      <button onClick={() => zoomIn()}>➕</button>
-                      <button onClick={() => zoomOut()}>➖</button>
-                      <button onClick={() => resetTransform()}>⦾</button>
+                      <button style={zoomButtonStyles} onClick={() => zoomIn()}>➕</button>
+                      <button style={zoomButtonStyles} onClick={() => zoomOut()}>➖</button>
+                      <button style={resetButtonStyles} onClick={() => resetTransform()}>⦾</button>   
                     </div>
 
                     <TransformComponent>
