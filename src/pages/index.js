@@ -5,30 +5,38 @@ import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 
 import styles from './index.module.css';
-import EposLogo from '../components/EposLogo'; // ✅ import your typing effect
-// Adjust the relative path if needed: 
-// - if index.js is inside src/pages, then ../components/EposLogo is correct
-// - if inside another folder, update accordingly
+import EposLogo from '../components/EposLogo'; 
 
 function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
   return (
     <header className={clsx('hero', styles.heroBanner)}>
-      <div className="container text--center">
-        
-        {/* Replace the static logo with your animated component */}
-        <EposLogo />
+      <div className="container2">
 
-        {/* Description under the logo */}
-        <p className={styles.heroDescription}>
+        {/* 🔹 Flex row: Logo + Screenshot */}
+        <div className={styles.topRow}>
+          
+        <EposLogo />
+          
+          <div className={styles.screenshotWrapper}>
+            <img
+              src="img/dataportal_screenshot.png"
+              alt="EPOS Data Portal"
+              className={styles.screenshot}
+            />
+          </div>
+        </div>
+
+        {/* 🔹 Description under both */}
+        <p className={clsx('text--center', styles.heroDescription)}>
           The <strong>EPOS Platform</strong> is an open-source, service-based data integration 
           and visualization system built on a microservices architecture. This website provides 
           general information about <strong>EPOS</strong>, technical documentation on the platform's architecture, 
           and source code for each microservice.
         </p>
 
-        {/* Buttons below the title */}
-        <div className={styles.buttons}>
+        {/* 🔹 Buttons under description */}
+        <div className={clsx('text--center', styles.buttons)}>
           <Link
             className="button button--primary button--lg"
             to="https://www.epos-eu.org/dataportal"
@@ -42,22 +50,13 @@ function HomepageHeader() {
             Documentation
           </Link>
         </div>
-
-        {/* Screenshot below buttons */}
-        <div className={styles.screenshotWrapper}>
-          <img
-            src="img/dataportal_screenshot.png" 
-            alt="EPOS Data Portal"
-            className={styles.screenshot}
-          />
-        </div>
       </div>
     </header>
   );
 }
 
 export default function Home() {
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
       title={`${siteConfig.title}`}

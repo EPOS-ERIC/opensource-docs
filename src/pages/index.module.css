@@ -5,10 +5,12 @@
 
 /* --- Hero Section --- */
 .heroBanner {
-  padding: 4rem 0;
+  padding: 2rem;
   background: var(--ifm-background-color); /* responsive to dark/light mode */
   transition: background-color 0.3s ease;
+  display: inline;
   text-align: center;
+  padding-bottom: 9rem;
 }
 
 /* Logo */
@@ -86,11 +88,14 @@ html[data-theme='dark'] .button--secondary:hover {
 /* --- Screenshot --- */
 .screenshotWrapper {
   margin-top: 3rem;
+  margin:0;
+  padding:0;
+
 }
 
 .screenshot {
-  width: 100%;
-  max-width: 800px;
+  width: 970px;
+  height: 500px;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
   transition: box-shadow 0.3s ease;
@@ -98,4 +103,19 @@ html[data-theme='dark'] .button--secondary:hover {
 
 html[data-theme='dark'] .screenshot {
   box-shadow: 0 8px 20px rgba(255,255,255,0.05);
+}
+.topRow{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  padding-top: 8rem;
+  padding-bottom: 2rem;
+}
+.container2{
+  width: 100vw;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  
 }
