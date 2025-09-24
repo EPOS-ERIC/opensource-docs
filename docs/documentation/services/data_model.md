@@ -1,4 +1,4 @@
-import MermaidFullscreen from '@site/src/components/MermaidFullscreen';
+import MermaidFullscreen from '@site/src/components/MermaidFullScreen';
 
 # EPOS Data Model
 

@@ -4,7 +4,7 @@ id: architecture
 title: Architecture
 ---
 
-import MermaidFullscreen from '@site/src/components/MermaidFullscreen.tsx';
+import MermaidFullscreen from '@site/src/components/MermaidFullScreen';
 
 TODO: explain how the architecture works. point to the individual services pages
 
