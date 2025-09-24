@@ -220,13 +220,14 @@ export default function MermaidFullscreen({ chart, title = 'Diagram', className 
 						</div>
 
 						{/* Preview body */}
-						<div style={{ height: '600px', backgroundColor: 'white', padding: '20px', boxSizing: 'border-box' }}>
+						<div style={{ height: '600px', backgroundColor: 'white', boxSizing: 'border-box' }}>
 							<TransformComponent>
 								<div
 									ref={normalRef}
 									style={{
 										height: '700px',
 										width: '900px',
+										padding: '20px',
 										justifyContent: 'center'
 									}}
 								/>
