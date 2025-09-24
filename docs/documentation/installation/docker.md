@@ -6,8 +6,8 @@ This comprehensive guide covers different deployment scenarios for EPOS Platform
 
 EPOS Platform supports multiple deployment strategies:
 
-- **[Docker Compose](#docker-compose)** - Recommended for development and testing
-- **[Kubernetes](#kubernetes)** - Production-ready container orchestration
+- **[Docker Compose](#docker-compose-deployment)** - Recommended for development and testing
+- **[Kubernetes](#kubernetes-deployment)** - Production-ready container orchestration
 
 ## Prerequisites
 
