@@ -83,14 +83,24 @@ const config = {
 			},
 			footer: {
 				style: 'light',
-				logo: {
-					alt: 'EPOS Logo',
-					src: 'img/epos-logo.svg',
-				},
+					
 				links: [
 					{
+						title: ' ',
+      					items: [
+        					{
+          					html: `
+           					<div class="firstcolumn">
+                			<img src="/opensource-docs/img/epos-logo.svg" alt="EPOS Logo" style="height:100px;"/>
+            				</div>`,
+        					},
+      					],
+					},
+					{ 
 						title: 'EPOS ERIC',
 						items: [
+							
+							
 							{
 								label: 'About',
 								href: 'https://www.epos-eu.org/about-epos',
@@ -147,16 +157,16 @@ const config = {
 							{
 								html: `
         <a href="https://www.facebook.com/EPOSeu" target="_blank" rel="noopener noreferrer">
-          <img src="/opensource-docs/img/facebook-logo.svg" alt="Facebook" style="height:55px; margin-right:0.5rem"/> 
+          <img src="/opensource-docs/img/facebook-logo.svg" alt="Facebook" style="height:30px; margin-right:0.5rem"/> 
         </a> 
         <a href="https://www.linkedin.com/company/eposeu" target="_blank" rel="noopener noreferrer">
-            <img src="/opensource-docs/img/linkedin.svg" alt="LinkedIn" style="height:55px;margin-right:0.5rem"/>
+            <img src="/opensource-docs/img/linkedin.svg" alt="LinkedIn" style="height:30px;margin-right:0.5rem"/>
           </a>
         <a href="https://www.youtube.com/c/EposProjectEu" target="_blank" rel="noopener noreferrer">
-            <img src="/opensource-docs/img/YouTube.svg" alt="YouTube" style="height:55px;margin-right:0.5rem"/>
+            <img src="/opensource-docs/img/YouTube.svg" alt="YouTube" style="height:30px;margin-right:0.5rem"/>
           </a>
          <a href="https://www.flickr.com/photos/eposeu/" target="_blank" rel="noopener noreferrer">
-            <img src="/opensource-docs/img/Flickr.svg" alt="YouTube" style="height:55px;"/>
+            <img src="/opensource-docs/img/Flickr.svg" alt="YouTube" style="height:30px;"/>
           </a>
           `,
 							},

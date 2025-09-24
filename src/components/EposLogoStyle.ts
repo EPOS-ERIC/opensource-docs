@@ -7,13 +7,13 @@ export const Demo = styled.div`
   color: white;
   border: 5px solid #457945;
   border-radius: 5px;
-  font-size: 8px;            
+  font-size: 2px;            
   line-height: 1.4;           
   text-align: left;           
   padding: 20px;              
   width: 100%;                
-  max-width: 970px;          
-  height: 380px;              /* FIXED height */
+  max-width: 300px;          
+  height: 135px;              /* FIXED height */
   overflow-x: visible;        
   overflow-y: auto;           /* scroll if content exceeds box */
   margin: 40px auto;          

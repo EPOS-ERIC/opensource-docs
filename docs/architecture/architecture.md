@@ -1,12 +1,10 @@
-import MermaidFullscreen from '@site/src/components/MermaidFullScreen';
-
 ---
-
 sidebar_position: 1
 id: architecture
 title: Architecture
-
 ---
+
+import MermaidFullscreen from '@site/src/components/MermaidFullscreen';
 
 TODO: explain how the architecture works. point to the individual services pages
 

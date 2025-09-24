@@ -115,3 +115,16 @@
   display: block;
   margin-top: 4px;
 }
+.firstcolumn{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+.theme-layout-footer-column.col.footer__col:first-child{
+  display:flex;
+  flex-direction: column;
+  justify-content: center; 
+  margin-right: 70px;
+
+}
