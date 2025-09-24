@@ -121,11 +121,13 @@ export default function MermaidFullscreen({ chart, title = 'Diagram', className 
   color: 'white',
   border: '1.5px solid #333',
   cursor: 'pointer',
+  borderRadius: '6px',
   };
   const resetButtonStyles: React.CSSProperties = {
   backgroundColor: '#efefef',
   color: 'black',
   border: '1.5px solid #333',
+  borderRadius: '6px',
   cursor: 'pointer',
   fontSize:'18px'
   };

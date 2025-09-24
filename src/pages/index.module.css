@@ -9,6 +9,7 @@
   background: var(--ifm-background-color); /* responsive to dark/light mode */
   transition: background-color 0.3s ease;
   text-align: center;
+  margin-bottom: 10rem;
 }
 
 /* Logo */
@@ -90,10 +91,11 @@ html[data-theme='dark'] .button--secondary:hover {
 
 .screenshot {
   width: 100%;
-  max-width: 800px;
+  max-width: 1000px;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
   transition: box-shadow 0.3s ease;
+  margin: 25px;
 }
 
 html[data-theme='dark'] .screenshot {
