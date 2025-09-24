@@ -12,7 +12,7 @@ Welcome to the EPOS Platform documentation! EPOS Platform is an open-source, sel
 
 EPOS (European Plate Observing System) is a long-term plan to facilitate integrated use of data, data products, and facilities from distributed research infrastructures for solid Earth science in Europe. The EPOS Platform represents the open-source implementation of this vision, enabling organizations to deploy their own geospatial data catalogues and services.
 
-TODO: add url to the website
+[https://www.ics-c.epos-eu.org/](https://www.ics-c.epos-eu.org/)
 
 ## What is the EPOS Platform?
 
