@@ -32,12 +32,7 @@ The Plugin Populator operates as a separate Docker container that:
 
 ```bash
 # Run the plugin populator
-docker run -it --rm \
-  --network epos-platform-network \
-  -v /path/to/plugin-configs:/configs \
-  epos-eu/epos-plugin-populator:latest \
-  --config /configs/plugins.json \
-  --api-url http://converter-service:8080
+docker run --rm --network host -v ./populate.json:/populate.json epos/epos-plugin-populator populate /populate.json --gateway http://localhost:33000/api/v1
 ```
 
 ### Configuration File
@@ -45,29 +40,29 @@ docker run -it --rm \
 The plugin configuration is defined in JSON format:
 
 ```json
-{
-  "plugins": [
-    {
-      "name": "seismic-data-converter",
-      "description": "Converts seismic data to GeoJSON",
-      "repository": "https://github.com/epos-eu/seismic-converter",
-      "version": "main",
-      "version_type": "branch",
-      "runtime": "python",
-      "executable": "convert.py",
-      "arguments": "--format geojson",
-      "enabled": true
-    }
-  ],
-  "distributions": [
-    {
-      "distribution_id": "seismic-service-001",
-      "plugin_id": "seismic-data-converter",
-      "input_format": "application/xml",
-      "output_format": "application/geo+json"
-    }
-  ]
-}
+
+[
+  {
+    "version": "main",
+    "name": "plugin1",
+    "description": "plugin description",
+    "version_type": "branch",
+    "repository": "https://github.com/somerepository/plugin",
+    "runtime": "java",
+    "executable": "plugin.jar",
+    "arguments": "org.example.com.plugin1",
+    "enabled": true,
+    "inputFormat": "application/json",
+    "outputFormat": "application/epos.geo+json",
+    "relations": [
+      {
+        "relationId": "operation/uid/of/distribution1"
+      },
+      {
+        "relationId": "operation/uid/of/distribution2"
+      }
+    ]
+  },
 ```
 
 ## When to Use
