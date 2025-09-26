@@ -1,6 +1,5 @@
 ---
 sidebar_position: 4
-id: installation
 title: Installation
 ---
 
@@ -45,5 +44,5 @@ For detailed system requirements and platform-specific instructions, refer to th
 Once you have EPOS Platform installed:
 
 1. **[Getting Started](../quickstart.md)** - Learn how to use the platform
-2. **[System Architecture](../architecture.md)** - Understand the system design
-3. **[Data Format Documentation](../data-formats/data-formats.md)** - Learn about supported data formats
+2. **[System Architecture](../system-reference/architecture.md)** - Understand the system design
+3. **[Data Format Documentation](../system-reference/data-formats/index.md)** - Learn about supported data formats

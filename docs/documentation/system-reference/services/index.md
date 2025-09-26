@@ -1,6 +1,5 @@
 ---
 sidebar_position: 5
-id: services
 title: Services
 ---
 

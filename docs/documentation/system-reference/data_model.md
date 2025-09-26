@@ -178,7 +178,7 @@ class Service:::baseline
 classDef Pine :,stroke-width:1px, stroke-dasharray:none, stroke:#254336, fill:#27654A, color:#FFFFFF
 `}
 />
-![EPOS Data Model](../../static/img/epos_data_model.png)
+![EPOS Data Model](/img/epos_data_model.png)
 
 The EPOS data model was discussed and defined in EPOS-IP as of 2018 in the document “Second (Final) Report on EPOS-ICS Architecture” and is here reported for reader’s convenience in the following class diagram.
 
@@ -196,4 +196,4 @@ The EPOS Data model includes the following concepts:
 
 The data model defines the objects that the user will have to deal with in the EPOS ecosystem. Therefore, the User experience and associated functionalities implemented by the system modules must adhere to the data structure defined in the model.
 
-<a href="./Documents/EPOS_DATA_MODEL.pdf" download="EPOS_DATA_MODEL.pdf">**Download EPOS Data Model PDF**</a>
+<a href="/documents/epos_data_model.pdf" download="EPOS_DATA_MODEL.pdf">**Download EPOS Data Model PDF**</a>

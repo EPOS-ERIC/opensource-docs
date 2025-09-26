@@ -42,11 +42,11 @@ The styling of map markers and map legends for GeoJSON points is defined by the 
 
 In the example below there is a feature with an `@epos_type = station`, this matches the attribute station within the the `@epos_style` object, hence in this case stations would be rendered on the map as pins with an 's'
 
-![Font Awesome marker with pin](../../../static/img/fontAwesomeMarkerWithPin.png)
+![Font Awesome marker with pin](/img/fontAwesomeMarkerWithPin.png)
 
 A corresponding legend would be generated, looking something like:
 
-![Font Awesome marker with pin and legend](../../../static/img/fontAwesomeMarkerWithPinAndLegend.png)
+![Font Awesome marker with pin and legend](/img/fontAwesomeMarkerWithPinAndLegend.png)
 
 **feature:**
 
@@ -98,9 +98,9 @@ There are three types of symbol that can be used (only one should be used), thes
 
 | Type                       | Example                   | pin = false                                                                             | pin = true                                                                          |
 | -------------------------- | ------------------------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| `marker.href`              | `www.thing.com/thing.png` | ![Marker href without pin](../../../static/img/markerHrefWithoutPin.png)                | ![Marker href with pin](../../../static/img/markerHrefWithPin.png)                  |
-| `marker.fontawesome_class` | `fas fa-star`             | ![Font Awesome marker without pin](../../../static/img/fontAwesomeMarkerWithoutPin.png) | ![Font Awesome marker with pin](../../../static/img/fontAwesomeMarkerWithStar.png)  |
-| `marker.character`         | `S`                       | ![Character marker without pin](../../../static/img/markerCharacter.png)                | ![Character marker with pin](../../../static/img/fontAwesomeMarkerWithPinSmall.png) |
+| `marker.href`              | `www.thing.com/thing.png` | ![Marker href without pin](/img/markerHrefWithoutPin.png)                | ![Marker href with pin](/img/markerHrefWithPin.png)                  |
+| `marker.fontawesome_class` | `fas fa-star`             | ![Font Awesome marker without pin](/img/fontAwesomeMarkerWithoutPin.png) | ![Font Awesome marker with pin](/img/fontAwesomeMarkerWithStar.png)  |
+| `marker.character`         | `S`                       | ![Character marker without pin](/img/markerCharacter.png)                | ![Character marker with pin](/img/fontAwesomeMarkerWithPinSmall.png) |
 
 ### Image Example
 
@@ -146,7 +146,7 @@ There are three types of symbol that can be used (only one should be used), thes
 
 ### Symbol Logic
 
-![Font Awesome marker with pin](../../../static/img/markerFlow.png)
+![Font Awesome marker with pin](/img/markerFlow.png)
 
 ### Colour
 
@@ -156,11 +156,11 @@ A note on color, to prevent accidental reuse of the same color by multiple map l
 
 Legends are constructed by combining the map marker and label from the corresponding @epos_type within the the @epos_style object.
 
-![Character marker without pin](../../../static/img/fontAwesomeMarkerWithPinAndLegend.png)
+![Character marker without pin](/img/fontAwesomeMarkerWithPinAndLegend.png)
 
 ### Legend Logic
 
-![Character marker without pin](../../../static/img/legendLogic.png)
+![Character marker without pin](/img/legendLogic.png)
 
 ## Image Overlays
 

@@ -39,7 +39,7 @@ epos-opensource --version
 # Deploy a complete EPOS Platform instance
 epos-opensource docker deploy my-epos-platform
 ```
-![Epos_Deploy](../../../static/img/epos_deploy.png)
+![Epos_Deploy](/img/epos_deploy.png)
 TODO: more deployment info
 
 ### Configuration Options
@@ -53,15 +53,15 @@ Once the environment is running, populate it with example metadata:
 epos-opensource docker populate my-epos-platform ./my_sample_data   
 ```
 
-![Epos_ingestion](../../../static/img/docker_populate_ingestion.png)
-![Epos_ingestion](../../../static/img/docker_populate.png)
+![Epos_ingestion](/img/docker_populate_ingestion.png)
+![Epos_ingestion](/img/docker_populate.png)
 
 ---
 
 ## Access the web interface
 
 Open the `Data Portal` URL shown after the deployment step in your browser. The default URL is [http://localhost:32000/](http://localhost:32000/)
-![Epos_Dataportal](../../../static/img/dataportal_after_populate.png)
+![Epos_Dataportal](/img/dataportal_after_populate.png)
 The Example Metadata is on the top-left side of the `Data Portal`, it might take a few seconds to show.
 In the case that the data does not show try stopping and restarting the ingestor-service
 
@@ -81,7 +81,7 @@ Give it a few seconds and refresh the page
 ## API Documentation
 To access the API Documentation go at: `http://localhost:33000/api/v1/ui`
 
-![API_Documentation](../../../static/img/swagger_page.png)
+![API_Documentation](/img/swagger_page.png)
 
 In this page you can see all the endpoints of the API and also have a chance to try out the end poins
 directly from the swagger page
