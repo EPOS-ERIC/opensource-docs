@@ -4,92 +4,101 @@ id: quickstart
 title: Quickstart
 ---
 
-This guide shows you the fastest way to install and try the EPOS Platform. Once you are familiar, you can explore other installation options.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-## Requirements
+This guide will get you up and running with a local instance of the EPOS Platform in just a few minutes. By the end, you'll have a fully functional data catalogue populated with sample data.
 
-- Linux or macOS with at least 4GB RAM, 2 CPU cores, and 10GB free storage
-- [Docker](https://docs.docker.com/get-started/get-docker/) installed and running
-- Internet connection
+## Prerequisites
+
+Before you begin, make sure you have the following installed and running:
+
+- **Docker:** The EPOS Platform runs in containers, so you'll need Docker. [Learn how to install Docker](https://docs.docker.com/get-started/get-docker/).
+- **System Requirements:** At least 4GB of RAM, 2 CPU cores, and 10GB of free storage.
+- **A command-line terminal:** The installation is done via the command line.
 
 ---
 
-## Installation
+## 1. Install the EPOS CLI
 
-### Step 1: Install the CLI
+First, you need to install the `epos-opensource` command-line interface (CLI). This tool will handle the deployment and management of your platform. Choose the tab for your operating system below.
 
-```bash
-curl -fsSL https://raw.githubusercontent.com/epos-eu/epos-opensource/main/install.sh | bash
-```
+<Tabs>
+  <TabItem value="linux-macos" label="Linux / macOS">
+    <p>You can install the CLI with a single command in your terminal:</p>
+    <pre><code>curl -fsSL https://raw.githubusercontent.com/epos-eu/epos-opensource/main/install.sh | bash</code></pre>
+  </TabItem>
+  <TabItem value="windows" label="Windows">
+    <p>For Windows, you'll download the command-line tool directly:</p>
+    <ol>
+      <li>Go to the <a href="https://github.com/epos-eu/epos-opensource/releases">EPOS Open-Source Releases page</a>.</li>
+      <li>Download the latest file named <code>epos-opensource-windows-amd64.exe</code>.</li>
+      <li>Rename the downloaded file to <code>epos-opensource.exe</code>.</li>
+      <li>Move this file to a memorable location, for example, <code>C:\epos</code>.</li>
+    </ol>
+    <p>To use the CLI, you will need to open a terminal (like Command Prompt or PowerShell) and navigate to the folder where you saved <code>epos-opensource.exe</code>. For example:</p>
+    <pre><code>cd C:\epos</code></pre>
+    <p>All subsequent <code>epos-opensource</code> commands in this guide should be run from that terminal session.</p>
+  </TabItem>
+</Tabs>
 
-### Step 2: Verify installation
+To make sure it's installed correctly, open a new terminal and run:
 
 ```bash
 epos-opensource --version
 ```
 
-Expected output (version may vary):
+You should see an output like `epos-opensource version v0.2.4` (the version number may vary).
 
-```text
-epos-opensource version v0.2.4
-```
+## 2. Deploy the Platform
 
-### Step 3: Deploy the system
+Now, with Docker running, you can deploy the entire EPOS Platform with a single command.
 
-:::note
-
-Make sure Docker is running before you continue.
-
-:::
-
-Run the following command, replacing `my-epos-platform` with any name you prefer:
+Choose a name for your platform instance (e.g., `my-epos-platform`) and run:
 
 ```bash
 epos-opensource docker deploy my-epos-platform
 ```
 
-This will start an EPOS Platform environment locally using Docker Compose. At the end, you will see the access URLs.
+This command will download all the necessary Docker images and start the services. It might take a few minutes depending on your internet connection.
 
+When it's done, you'll see a confirmation message with the access URLs for your new platform.
 
-![Epos_Deploy](../../static/img/epos_deploy.png) 
+![EPOS Platform Deployment](/img/epos_deploy.png)
 
-### Step 4: Populate with sample data
+## 3. Populate with Sample Data
 
-Once the environment is running, populate it with example metadata:
-
-```bash
-epos-opensource docker populate my-epos-platform ./my_sample_data   
-```
-
-![Epos_ingestion](../../static/img/docker_populate_ingestion.png)
-![Epos_ingestion](../../static/img/docker_populate.png)
-
----
-
-## Access the web interface
-
-Open the `Data Portal` URL shown after the deployment step in your browser. The default URL is [http://localhost:32000/](http://localhost:32000/)
-![Epos_Dataportal](../../static/img/dataportal_after_populate.png)
-The Example Metadata is on the top-left side of the `Data Portal`, it might take a few seconds to show.
-In the case that the data does not show try stopping and restarting the ingestor-service
+To see your platform in action, you can populate it with some sample metadata. This will create a few example entries in your data catalogue.
 
 ```bash
-docker stop my-epos-platform-ingestor-service
-docker start my-epos-platform-ingestor-service
+epos-opensource docker populate my-epos-platform ./my_sample_data
 ```
-Give it a few seconds and refresh the page
 
-### What you'll see
+![Populating with sample data](/img/docker_populate_ingestion.png)
+![Population complete](/img/docker_populate.png)
 
-- **Data Portal**: Main interface for browsing and searching geospatial services
-- **Service Catalog**: View available web services and their metadata
-- **Interactive Maps**: Preview geospatial data on interactive maps
-- **API Documentation**: Access the REST API documentation at `http://localhost:33000/api/v1/ui ` 
+## 4. Explore Your New Platform
 
-### Next Steps
+Congratulations, your EPOS Platform is live!
 
-Now that you have EPOS Platform running:
+Open your web browser and go to the **Data Portal URL** provided at the end of the deployment step. The default URL is [http://localhost:32000/](http://localhost:32000/).
 
-1. **[Getting Started](./user-guide.md)** - Learn how to use the platform features
-2. **[Installation Overview](./installation/installation.md)** - Explore advanced deployment options
-3. **[System Architecture](architecture.md)** - Understand the system design
+![The EPOS Data Portal](/img/dataportal_after_populate.png)
+
+You should see the main interface for browsing and searching for geospatial services. The sample metadata will appear on the top-left side of the portal.
+
+**A quick note:** It might take a few seconds for the sample data to appear after populating. If it doesn't show up, you can try restarting the `resources-service`:
+
+```bash
+docker restart my-epos-platform-resources-service
+```
+
+You can also explore the **API Documentation** at `http://localhost:33000/api/v1/ui`.
+
+## Next Steps
+
+Now that you have a running instance, you can:
+
+- **[Learn how to use the platform](./guides/user-guide.md)** with our User Guide.
+- **[Explore advanced deployment options](./installation/index.md)** in the Installation Guide.
+- **[Understand the system design](./system-reference/architecture.md)** by reading about the architecture.

@@ -7,12 +7,17 @@ interface MermaidFullscreenProps {
 	chart: string;
 	title?: string;
 	className?: string;
+	maxPreviewHeight?: number; // New optional prop
 }
 
-export default function MermaidFullscreen({ chart, title = 'Diagram', className }: MermaidFullscreenProps): JSX.Element {
+export default function MermaidFullscreen({ chart, title = 'Diagram', className, maxPreviewHeight = 600 }: MermaidFullscreenProps): JSX.Element {
 	const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+	const [previewHeight, setPreviewHeight] = useState<number>(500); // Default height
 	const normalRef = useRef<HTMLDivElement>(null);
 	const modalRef = useRef<HTMLDivElement>(null);
+
+	// Generate a unique ID for each instance
+	const uniqueId = useRef(`mermaid-${Math.random().toString(36).substr(2, 9)}`).current;
 
 	// Initialize mermaid
 	useEffect(() => {
@@ -23,28 +28,78 @@ export default function MermaidFullscreen({ chart, title = 'Diagram', className 
 		});
 	}, []);
 
+	// Helper function to configure SVG for proper panning
+	const configureSVG = (container: HTMLDivElement, isModal = false) => {
+		const svgElement = container.querySelector('svg');
+		if (!svgElement) return;
+
+		// Get the SVG's natural dimensions before modifying
+		const svgWidth = svgElement.getAttribute('width');
+		const svgHeight = svgElement.getAttribute('height');
+		const viewBox = svgElement.getAttribute('viewBox');
+
+		let naturalHeight = 500; // Default fallback
+
+		// Calculate natural height from various sources
+		if (svgHeight && !isNaN(parseFloat(svgHeight))) {
+			naturalHeight = parseFloat(svgHeight);
+		} else if (viewBox) {
+			const viewBoxParts = viewBox.split(' ');
+			if (viewBoxParts.length === 4) {
+				naturalHeight = parseFloat(viewBoxParts[3]);
+			}
+		}
+
+		// For preview (non-modal), calculate adaptive height
+		if (!isModal) {
+			// Add padding (40px total) and ensure reasonable bounds
+			const adaptiveHeight = Math.max(200, Math.min(maxPreviewHeight, naturalHeight + 40));
+			setPreviewHeight(adaptiveHeight);
+		}
+
+		// Remove any fixed width/height attributes from SVG
+		svgElement.removeAttribute('width');
+		svgElement.removeAttribute('height');
+
+		// Set SVG to be responsive but maintain aspect ratio
+		svgElement.style.width = '100%';
+		svgElement.style.height = 'auto'; // Changed from 100% to auto for proper scaling
+		svgElement.style.maxWidth = 'none';
+		svgElement.style.maxHeight = 'none';
+
+		// Ensure the container has minimum dimensions for proper panning
+		if (isModal) {
+			container.style.minWidth = '100%';
+			container.style.minHeight = '100%';
+		} else {
+			container.style.minWidth = '800px';
+			container.style.minHeight = `${Math.min(naturalHeight + 40, maxPreviewHeight)}px`;
+		}
+
+		container.style.display = 'flex';
+		container.style.justifyContent = 'flex-start';
+		container.style.alignItems = 'flex-start'; // Ensure top alignment
+	};
+
 	// Render normal preview
 	useEffect(() => {
 		if (normalRef.current) {
-			mermaid.render('mermaid-normal', chart).then(({ svg }) => {
+			mermaid.render(`${uniqueId}-normal`, chart).then(({ svg }) => {
 				normalRef.current!.innerHTML = svg;
-				const svgElement = normalRef.current!.querySelector('svg')!;
-				svgElement.style.width = '100%';
-				svgElement.style.height = 'auto';
-				svgElement.style.transform = 'scale(1)';
-				svgElement.style.transformOrigin = 'top left';
+				configureSVG(normalRef.current!, false);
 			});
 		}
-	}, [chart]);
+	}, [chart, uniqueId]);
 
 	// Render modal preview
 	useEffect(() => {
 		if (isModalOpen && modalRef.current) {
-			mermaid.render('mermaid-modal', chart).then(({ svg }) => {
+			mermaid.render(`${uniqueId}-modal`, chart).then(({ svg }) => {
 				modalRef.current!.innerHTML = svg;
+				configureSVG(modalRef.current!, true);
 			});
 		}
-	}, [isModalOpen, chart]);
+	}, [isModalOpen, chart, uniqueId]);
 
 	const openModal = () => setIsModalOpen(true);
 	const closeModal = () => setIsModalOpen(false);
@@ -72,12 +127,12 @@ export default function MermaidFullscreen({ chart, title = 'Diagram', className 
 		zIndex: 9999,
 		padding: '10px'
 	};
-	//colour of the side in full screen
+
 	const modalContentStyles: React.CSSProperties = {
 		backgroundColor: 'white',
 		borderRadius: '12px',
-		width: '90vw',
-		height: '90vh',
+		width: '95vw',
+		height: '95vh',
 		display: 'flex',
 		flexDirection: 'column',
 		overflow: 'hidden',
@@ -89,21 +144,21 @@ export default function MermaidFullscreen({ chart, title = 'Diagram', className 
 		display: 'flex',
 		justifyContent: 'space-between',
 		alignItems: 'center',
-		padding: '1.5rem 2rem',
+		padding: '1rem 1.5rem',
 		borderBottom: '1px solid var(--ifm-color-emphasis-300)',
 		backgroundColor: 'var(--ifm-background-color)',
 		borderRadius: '12px 12px 0 0',
-		color: 'var(--ifm-color-emphasis-900)'
+		color: 'var(--ifm-color-emphasis-900)',
+		flexShrink: 0
 	};
 
 	const modalBodyStyles: React.CSSProperties = {
 		flex: 1,
 		overflow: 'hidden',
 		display: 'flex',
-		justifyContent: 'center',
-		alignItems: 'center',
 		backgroundColor: 'white',
-		position: 'relative'
+		position: 'relative',
+		minHeight: 0 // Important for flex child to shrink
 	};
 
 	const closeButtonStyles: React.CSSProperties = {
@@ -168,7 +223,15 @@ export default function MermaidFullscreen({ chart, title = 'Diagram', className 
 	return (
 		<div className={className}>
 			{/* Preview with Reset + Fullscreen */}
-			<TransformWrapper initialScale={1} minScale={0.5} maxScale={4}>
+			<TransformWrapper
+				initialScale={1}
+				minScale={0.1}
+				maxScale={5}
+				limitToBounds={false}
+				centerOnInit={false}
+				wheel={{ step: 0.05 }}
+				panning={{ velocityDisabled: true }}
+			>
 				{({ resetTransform }) => (
 					<div style={{ position: 'relative', border: '1px solid var(--ifm-color-emphasis-400)', borderRadius: '8px', overflow: 'hidden' }}>
 						{/* Header */}
@@ -220,15 +283,33 @@ export default function MermaidFullscreen({ chart, title = 'Diagram', className 
 						</div>
 
 						{/* Preview body */}
-						<div style={{ height: '600px', backgroundColor: 'white', boxSizing: 'border-box' }}>
-							<TransformComponent>
+						<div style={{
+							height: `${previewHeight}px`,
+							backgroundColor: 'white',
+							boxSizing: 'border-box',
+							overflow: 'hidden',
+							transition: 'height 0.3s ease' // Smooth height transitions
+						}}>
+							<TransformComponent
+								wrapperStyle={{
+									width: '100%',
+									height: '100%'
+								}}
+								contentStyle={{
+									width: '100%',
+									height: '100%',
+									display: 'flex',
+									alignItems: 'flex-start', // Top align content
+									justifyContent: 'flex-start'
+								}}
+							>
 								<div
 									ref={normalRef}
 									style={{
-										height: '700px',
-										width: '900px',
+										width: '100%',
+										height: '100%',
 										padding: '20px',
-										justifyContent: 'center'
+										boxSizing: 'border-box',
 									}}
 								/>
 							</TransformComponent>
@@ -251,20 +332,34 @@ export default function MermaidFullscreen({ chart, title = 'Diagram', className 
 							</div>
 						</div>
 						<div style={modalBodyStyles}>
-							<TransformWrapper initialScale={1} minScale={0.5} maxScale={4} wheel={{ step: 0.1 }} doubleClick={{ disabled: true }}>
+							<TransformWrapper
+								initialScale={1}
+								minScale={0.1}
+								maxScale={10}
+								wheel={{ step: 0.1 }}
+								doubleClick={{ disabled: true }}
+								limitToBounds={false}
+								centerOnInit={false}
+								panning={{ velocityDisabled: true }}
+							>
 								{({ zoomIn, zoomOut, resetTransform }) => (
 									<>
-										<TransformComponent>
+										<TransformComponent
+											wrapperStyle={{
+												width: '100%',
+												height: '100%'
+											}}
+											contentStyle={{
+												width: '100%',
+												height: '100%',
+												cursor: 'grab'
+											}}
+										>
 											<div
 												ref={modalRef}
 												style={{
 													width: '100%',
 													height: '100%',
-													minWidth: '1900px',
-													minHeight: '1000px',
-													display: 'flex',
-													justifyContent: 'center',
-													alignItems: 'flex-start',
 													padding: '2rem',
 													boxSizing: 'border-box',
 												}}
