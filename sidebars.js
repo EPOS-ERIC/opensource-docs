@@ -86,6 +86,7 @@ const sidebars = {
 						},
 					],
 				},
+				'documentation/system-reference/repositories'
 			],
 		},
 		'documentation/license',
