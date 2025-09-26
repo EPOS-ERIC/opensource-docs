@@ -6,139 +6,109 @@ title: Converter Plugins
 
 # Converter Plugins
 
-Converter plugins are the core mechanism that enables EPOS Platform to transform data from external services into formats that can be visualized by the GUI. These plugins provide the flexibility to integrate any data format without requiring changes to the core platform.
+Converter plugins are the core mechanism that enables the EPOS Platform to transform data from external services into formats that can be visualized by the GUI. These plugins provide the flexibility to integrate any data format without requiring changes to the core platform.
 
 ## What are Converter Plugins?
 
-Converter plugins are standalone programs that:
-
-- **Transform Data**: Convert data from one format to another
-- **Handle Custom Formats**: Support proprietary or non-standard data formats
-- **Enable Integration**: Allow external services to work with EPOS Platform
-- **Maintain Flexibility**: Keep the platform extensible without core modifications
+Converter plugins are standalone programs designed to act as intermediaries between external data services and the EPOS GUI. They perform the crucial task of data transformation, allowing the platform to support a wide array of data formats, including proprietary or non-standard ones. This design ensures the platform remains highly extensible without requiring modifications to its core codebase.
 
 ## Plugin Architecture
 
 ### Execution Model
 
-Plugins are executed as separate processes with a standardized interface:
+Plugins are executed as separate processes with a standardized command-line interface. The Converter Service invokes each plugin with specific arguments:
 
 ```bash
 ./plugin-executable [custom-arguments] input-file output-file
 ```
 
+*   **`plugin-executable`**: The path to the plugin's executable file (e.g., a compiled binary, a Java JAR, or a Python script).
+*   **`custom-arguments`**: Optional, plugin-specific parameters defined in the plugin's metadata.
+*   **`input-file`**: The absolute path to a temporary file containing the original data payload from the external service. Plugins must read their input from this file.
+*   **`output-file`**: The absolute path to a temporary file where the plugin must write the converted data. Plugins are responsible for creating this file if it doesn't exist.
+
 ### Supported Runtimes
 
-- **Java/Kotlin**: Precompiled JAR files
-- **Python**: Source files with optional requirements.txt
-- **Binary**: Self-contained executables for Linux x86
+The Converter system supports plugins developed in various technologies:
 
-### Plugin Interface
+*   **Java/Kotlin**: Packaged as precompiled JAR files.
+*   **Python**: Provided as source files, with dependencies managed via a `requirements.txt` file.
+*   **Binary**: Any self-contained executable compiled for Linux x86.
 
-All plugins must conform to a simple command-line interface:
+### Plugin Interface Guidelines
 
-1. **Custom Arguments**: Plugin-specific parameters (e.g., main class for Java)
-2. **Input File**: Path to file containing original payload
-3. **Output File**: Path where converted result should be written
+All plugins, regardless of their runtime, must adhere to the following command-line interface guidelines:
 
-## Official EPOS Plugins
-
-The EPOS project maintains a collection of official converter plugins:
-
-**GitLab Repository**: [https://gitlab.com/epos-eric/epos/converter-plugins](https://gitlab.com/epos-eric/epos/converter-plugins)
-
-### Using Official Plugins
-
-You can use these plugins in several ways:
-
-1. **Direct Use**: Deploy plugins as-is for your specific data formats
-2. **Template Reference**: Study the code to understand plugin development patterns
-3. **Customization**: Modify existing plugins for your specific requirements
-4. **Learning Resource**: Use as examples for developing your own plugins
+*   **Input Handling:** Read the original data payload from the specified `input-file` path.
+*   **Output Handling:** Write the converted data to the specified `output-file` path.
+*   **Error Handling:** Provide meaningful error messages to `stderr` and exit with a non-zero status code for failures.
+*   **Clean Exit:** Exit with a zero status code (`0`) upon successful completion.
 
 ## Developing Custom Plugins
 
-### Plugin Requirements
+Developing a custom converter plugin involves creating a standalone program that adheres to the Plugin Interface Guidelines described above. The choice of programming language or runtime is flexible, as long as the plugin can be executed via the command line and respects the input/output file contract.
 
-#### Java/Kotlin Plugins
-
-```java
-TODO
-```
-
-#### Python Plugins
-
-```python
-TODO
-```
-
-#### Binary Plugins
-
-```go
-TODO
-```
+{/* TODO: Add a simple example plugin in a common language (e.g., Python) to illustrate the interface. */}
 
 ### Plugin Development Guidelines
 
-#### Input/Output Handling
-
-- **Read Only**: Plugins should only read from the input file
-- **Create Output**: Plugins must create the output file if it doesn't exist
-- **Error Handling**: Provide meaningful error messages for failures
-- **Clean Exit**: Use appropriate exit codes (0 for success, non-zero for errors)
-
-#### Performance Considerations
-
-- **Efficiency**: Optimize for reasonable execution times
-- **Memory Usage**: Avoid excessive memory consumption
-- **Resource Cleanup**: Clean up temporary resources
-- **Timeout Handling**: Complete within reasonable time limits. By default a 30 seconds timeout is set for every plugin execution.
-
-## Plugin Registration
-
-### Metadata Model
-
-Plugins are registered using a JSON metadata structure:
-
-```json
-{
-  "name": "my-data-converter",
-  "description": "Converts MyData format to GeoJSON",
-  "repository": "https://github.com/myorg/my-converter",
-  "version": "v1.0.0",
-  "version_type": "tag",
-  "runtime": "python",
-  "executable": "convert.py",
-  "arguments": "--format geojson",
-  "enabled": true
-}
-```
-
-### Distribution Association
-
-Plugins are associated with specific distributions (web services):
-
-```json
-{
-  "input_format": "application/xml",
-  "output_format": "application/geo+json",
-  "plugin_id": "my-data-converter",
-  "relation_id": "distribution-service-001"
-}
-```
+*   **Input/Output Handling:**
+    *   Plugins should only read from the provided input file.
+    *   Plugins must create the output file if it doesn't exist and write the converted result to it.
+*   **Performance Considerations:**
+    *   Optimize for reasonable execution times, as plugins are executed dynamically at request time.
+    *   Avoid excessive memory consumption.
+    *   Ensure proper resource cleanup (e.g., closing file handles).
+    *   Plugins have a default timeout of 30 seconds; ensure your plugin completes within this limit.
+*   **Error Handling:**
+    *   Implement robust error handling within your plugin.
+    *   Return appropriate exit codes (0 for success, non-zero for failure).
+    *   Log detailed error messages to `stderr` for easier debugging.
 
 ## Plugin Management
 
-### Version Control
+Plugins are managed through a centralized catalogue, defined by a metadata model, and can be associated with specific data distributions.
 
-- **Git Integration**: Plugins are stored in Git repositories
-- **Version Support**: Both branch and tag-based versioning
-- **Automatic Updates**: Plugin populator can update plugin versions
-- **Rollback**: Ability to revert to previous plugin versions
+### Plugin Metadata Model
 
-### Monitoring and Maintenance
+To register a new plugin, its metadata is described using the following JSON structure. This metadata is used by the `converter-routine` for provisioning and by the `converter-service` for execution.
 
-- **Execution Logs**: Monitor plugin execution and performance
-- **Error Tracking**: Track conversion failures and issues
-- **Performance Metrics**: Monitor conversion times and resource usage
-- **Update Management**: Keep plugins updated with latest versions
+```json
+{
+  "arguments": "string",       // Custom execution arguments (excluding input/output paths)
+  "description": "string",     // Plugin description
+  "enabled": true,             // Whether the plugin is active
+  "executable": "string",      // Entry point: JAR file, Python main script, or binary name
+  "name": "string",            // Unique name for the plugin
+  "repository": "string",      // Git URL hosting the plugin's source code
+  "runtime": "binary",         // Runtime environment: "java", "python", or "binary"
+  "version_type": "branch",    // Git versioning strategy: "branch" or "tag"
+  "version": "string"          // Git branch or tag name (e.g., "main" or "v1.0.0")
+}
+```
+
+### Plugin-Distribution Relation Model
+
+Once registered, a plugin can be associated with one or more **distributions** (web services) that require its conversion capabilities. This association is defined by the following relation model:
+
+```json
+{
+  "input_format": "string",    // MIME type of the original payload the plugin expects
+  "output_format": "string",   // MIME type of the converted payload the plugin produces
+  "plugin_id": "string",       // The unique ID of the plugin from the catalogue
+  "relation_id": "string"      // The unique ID of the distribution instance to associate with
+}
+```
+
+## Official EPOS Plugins
+
+The EPOS project maintains a collection of official converter plugins that serve as examples and ready-to-use solutions:
+
+*   **GitLab Repository**: [https://gitlab.com/epos-eric/epos/converter-plugins](https://gitlab.com/epos-eric/epos/converter-plugins)
+
+These official plugins can be used in several ways:
+
+*   **Direct Use**: Deploy them as-is for your specific data formats.
+*   **Template Reference**: Study their code to understand plugin development patterns.
+*   **Customization**: Modify existing plugins to fit your unique requirements.
+*   **Learning Resource**: Use them as practical examples for developing your own custom plugins.
