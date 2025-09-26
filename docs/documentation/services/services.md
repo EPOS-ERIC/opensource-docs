@@ -75,7 +75,7 @@ For detailed information about specific components:
 
 - **[Converter System](./converter/converter.md)** - Data format conversion and plugin management
 - **[Backoffice](./backoffice.md)** - Metadata management interface
-- **[Data Model](../../architecture/data_model.md)** - EPOS data structure and relationships
+- **[Data Model](../data_model.md)** - EPOS data structure and relationships
 
 ## Deployment Architecture
 

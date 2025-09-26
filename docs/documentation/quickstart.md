@@ -92,4 +92,4 @@ Now that you have EPOS Platform running:
 
 1. **[Getting Started](./user-guide.md)** - Learn how to use the platform features
 2. **[Installation Overview](./installation/installation.md)** - Explore advanced deployment options
-3. **[System Architecture](/architecture/architecture.md)** - Understand the system design
+3. **[System Architecture](architecture.md)** - Understand the system design
