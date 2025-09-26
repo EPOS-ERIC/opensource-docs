@@ -69,8 +69,8 @@ const config = {
 						label: 'Documentation',
 					},
 					{
-						type: 'docSidebar',
-						sidebarId: 'contributorSidebar',
+						type: 'doc',
+						docId: 'documentation/contributors',
 						position: 'right',
 						label: 'Contributors',
 					},
