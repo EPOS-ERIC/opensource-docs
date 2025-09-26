@@ -1,117 +1,35 @@
 ---
-sidebar_position: 5
-title: Services
+title: Services Overview
 ---
 
-# Services
+# EPOS Platform Services Overview
 
-This section provides a comprehensive overview of the EPOS Platform's technical architecture, explaining how the various components work together to provide a robust geospatial data integration system.
+The EPOS Platform is built as a collection of interconnected microservices, each designed to perform a specific function within the system. This document provides a high-level overview of these core services, explaining their roles and how they contribute to the overall functionality of the platform.
 
-## Overview
+For a broader understanding of how these services fit into the overall system, please refer to the [Architecture Overview](../architecture.md).
 
-EPOS Platform is built as a microservices-based architecture that provides a unified interface for discovering, accessing, and visualizing geospatial data services. The system is designed to be scalable, maintainable, and extensible, allowing organizations to deploy their own geospatial data catalogues.
+## Core Services
 
-## Core Components
+*   **EPOS API Gateway:** This service acts as the central entry point for all client requests, routing them to the appropriate backend microservice, handles authentication, and provides a unified API for the entire platform.
+    {/* TODO: Add link to dedicated API Gateway documentation page when available. */}
 
-The EPOS Platform consists of several key components that work together:
+*   **External Access Service:** Responsible for managing interactions with external geospatial data providers. It handles data retrieval from various external sources and prepares it for further processing within the EPOS Platform.
+    {/* TODO: Add link to dedicated External Access Service documentation page when available. */}
 
-### Frontend Services
+*   **[Converter Service](./converter/index.md):** This service is crucial for data interoperability. It transforms data payloads from external services into formats compatible with the EPOS GUI, ensuring that diverse data sources can be visualized and utilized within the platform.
+    {/* TODO: Add more details about the Converter Service's role and capabilities. */}
 
-- **Data Portal**: Web-based user interface for browsing and searching services
-- **Backoffice**: Administrative interface for metadata management (in development)
+*   **Ingestor Service:** Manages the process of ingesting metadata into the EPOS Platform. It handles the parsing and storage of metadata (from `.ttl` files) into the system's Metadata Catalogue.
+    {/* TODO: Add link to dedicated Ingestor Service documentation page when available. */}
 
-### Backend Services
+*   **Backoffice Service:** A web-based interface and its supporting backend service designed to provide intuitive, graphical management of metadata. It allows users to create, edit, and delete service descriptions, streamlining metadata curation and overcoming the complexities of manual file editing. It also includes robust user and group management for secure operations.
+    {/* TODO: Add link to dedicated Backoffice Service documentation page when available. */}
 
-- **API Gateway**: Central entry point for all API requests
-- **Resources Service**: Manages service descriptions and catalog information
-- **External Access Service**: Handles requests to external geospatial services
-- **Converter System**: Transforms data formats for visualization
-- **Ingestor Service**: Handles metadata ingestion into the system from `.ttl` files
+*   **Resources Service:** This service is responsible for managing the descriptions and catalogue information of all available data products and services within the EPOS Platform. It acts as the central registry for discoverable resources.
+    {/* TODO: Add link to dedicated Resources Service documentation page when available. */}
 
-TODO
+*   **Queueing System:** (e.g., RabbitMQ) Facilitates asynchronous communication and task processing between the various microservices. This ensures efficient and reliable operation, especially for long-running tasks like data ingestion or conversion.
+    {/* TODO: Add more details about the Queueing System's implementation and role. */}
 
-### Data Layer
-
-TODO
-
-- **Metadata Database**: Stores service descriptions and catalog information
-- **Plugin Database**: TODO
-
-### Infrastructure
-
-- **Message Queue**: RabbitMQ for asynchronous processing
-- **Container Orchestration**: Docker and Kubernetes support
-
-## Data Flow
-
-The typical data flow in EPOS Platform follows this pattern:
-
-TODO
-
-## Key Architectural Principles
-
-### Microservices Design
-
-- **Single Responsibility**: Each service has a focused, well-defined purpose
-- **Loose Coupling**: Services communicate through well-defined APIs
-- **Independent Deployment**: Services can be deployed and scaled independently
-
-### Extensibility
-
-- **Plugin System**: Converter plugins allow support for custom data formats
-- **Standards Compliance**: Built on open standards (OGC, DCAT-AP, etc.)
-- **API-First Design**: All functionality accessible through REST APIs
-
-### Scalability
-
-- **Horizontal Scaling**: Services can be replicated across multiple instances
-- **Load Balancing**: Distribute traffic across service instances
-- **Caching**: Multiple levels of caching for improved performance
-
-## Component Details
-
-For detailed information about specific components:
-
-- **[Converter System](./converter/converter.md)** - Data format conversion and plugin management
-- **[Backoffice](./backoffice.md)** - Metadata management interface
-- **[Data Model](../data_model.md)** - EPOS data structure and relationships
-
-## Deployment Architecture
-
-EPOS Platform supports multiple deployment patterns:
-
-### Development Environment
-
-- Single-node Docker Compose deployment
-- All services running on local machine
-- Suitable for development and testing
-
-### Production Environment
-
-- Multi-node Kubernetes deployment
-- High availability and load balancing
-- Scalable and fault-tolerant
-
-## Security Considerations
-
-The architecture includes several security measures:
-
-TODO
-
-## Monitoring and Observability
-
-TODO
-The system provides comprehensive monitoring capabilities:
-
-- **Health Checks**: Service availability monitoring
-- **Metrics**: Performance and usage statistics
-- **Logging**: Centralized log aggregation
-- **Tracing**: Request flow tracking across services
-
-## Future Architecture
-
-TODO
-The EPOS Platform architecture is designed to evolve:
-
-- **Backoffice Integration**: Enhanced metadata management capabilities
-- **Machine Learning**: Intelligent service discovery and recommendations
+*   **Metadata Catalogue:** The central repository where all metadata about data products and services is stored. It's the backbone for data discovery and management within the EPOS Platform.
+    {/* TODO: Add more details about the Metadata Catalogue's structure and how it's managed. */}

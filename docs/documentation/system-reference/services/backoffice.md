@@ -1,27 +1,120 @@
 ---
-# sidebar_position: 1
+sidebar_position: 1
 id: backoffice
-title: Backoffice
+title: Backoffice Service
 ---
 
-TODO: rewrite this to be more documentation-like
+import MermaidFullscreen from '@site/src/components/MermaidFullScreen';
 
-In the current release of the open-source EPOS Platform, the metadata description of web services is managed manually through Turtle files. Contributors are required to modify service descriptions using the EPOS-DCAT-AP extension of DCAT-AP. These metadata files are then ingested into the internal metadata database via the ingestor service, which provides an endpoint to add new metadata entries to the catalog.
+# Backoffice Service
 
-This manual process presents several limitations that hinder both service integration and platform evolution:
+![Backoffice Interface](/img/backoffice.png)
 
-- The ingestor service currently supports only the addition of metadata. It does not allow editing or deletion of existing records. As a result, modifying metadata requires a full redeployment of the application.
+The Backoffice Service is a web-based interface designed to provide intuitive and comprehensive management of the EPOS Platform's metadata. It works in conjunction with a dedicated backend service to streamline the process of curating and maintaining service descriptions within your data catalogue.
 
-- Users must manually edit the EPOS-DCAT-AP descriptions. This task is complex due to the learning curve associated with the Turtle syntax, and it is prone to human error despite the availability of validation tools.
+## Why the Backoffice?
 
-- Any modification to the metadata necessitates the deletion and reinitialization of the metadata database.
+Previously, managing metadata involved manual editing of complex Turtle files, a process prone to errors and requiring significant technical expertise. The Backoffice was developed to overcome these challenges by:
 
-- Metadata management is conducted through a private GitLab repository. Users must submit changes via pull requests, which are reviewed manually by Metadata Curators. These curators test the updates in custom environments before approving them. Once accepted, changes are queued for inclusion in the next platform redeployment cycle.
+*   **Simplifying Metadata Management:** Eliminating the need for direct interaction with Turtle files or the EPOS-DCAT-AP specification.
+*   **Enabling Direct Manipulation:** Allowing users to create, edit, and publish EPOS Data Model Entities (service descriptions) directly through a user-friendly graphical interface.
+*   **Streamlining Updates:** Facilitating immediate reflection of approved changes in the main Data Portal, without requiring full application redeployments.
+*   **Ensuring Data Integrity:** Reducing human error through an intuitive interface and built-in validation, while exploiting Git version control for tracking changes.
 
-To overcome these challenges, we have initiated the development of a new component within the EPOS Platform called the Backoffice. This web-based interface works in conjunction with a new backend service to enable direct manipulation of the metadata deployed in any given environment. The system incorporates a robust model of groups, users, and objects to ensure secure and structured metadata management.
+## Key Features
 
-Through the Backoffice interface, users can create, edit, and delete service descriptions using an intuitive graphical interface specifically designed for this purpose. This eliminates the need to interact directly with Turtle files or the EPOS-DCAT-AP specification. Once changes are made, they appear in a dedicated preview section of the portal, accessible only to authorized users. After verifying that the updates function correctly, users can submit them for review. Upon approval by a Metadata Curator, the changes are immediately reflected in the main portal without requiring a new ingestion cycle.
+The Backoffice provides a robust set of features for metadata administration:
 
-The development of the Backoffice and its supporting services is currently ongoing and in an advanced stage. We expect to deliver a first version in the staging environment by the end of June, allowing for testing and feedback from early users. A production release is planned for December, pending successful completion of the testing and review phases. When the service is deployed in production, we also plan to release the open-source version of the new application, which will include the full implementation of the Backoffice.
+*   **Graphical Metadata Editor:** Create, edit, and delete service descriptions using an intuitive web interface.
+*   **Metadata Versioning:** Leverage Git-like version control to track all changes to metadata entities.
+*   **Secure Access Control:** Implement a robust model of groups, users, and roles to manage permissions for metadata operations.
+*   **Metadata Workflow:** Manage metadata through a defined lifecycle (Draft, Submitted, Discarded, Published, Archived) with review and approval processes.
+*   **Metadata Preview:** Review changes in a dedicated preview section before they are published to the main Data Portal.
 
-This modernized approach significantly simplifies metadata management for users and enables administrators to track changes in a continuous and streamlined manner. It removes the need for manual redeployments and supports a more agile and collaborative development process.
+## Metadata Workflow and Entity Lifecycle
+
+The Backoffice introduces a structured workflow for managing metadata entities, ensuring quality control and traceability. Each metadata instance progresses through a defined lifecycle:
+
+### Possible Statuses
+
+*   **Draft:** The instance has been edited but not yet submitted for review. It can be freely edited or removed.
+*   **Submitted:** The instance has been submitted and is awaiting approval to be published.
+*   **Discarded:** The instance has not been approved by a reviewer and needs further editing. An editor can create a new draft from this state.
+*   **Published:** The instance is public and visible in the production EPOS Data Portal.
+*   **Archived:** The instance is no longer actively used but is retained for historical purposes, allowing for potential rollbacks.
+
+### Life Cycle of an Entity
+
+<MermaidFullscreen
+title="Entity Lifecycle"
+chart={`
+flowchart LR
+    A[DRAFT] --> B[SUBMITTED] --> C[PUBLISHED] --> D[ARCHIVED]
+    
+    classDef draft fill:#FFD700,stroke:#333,stroke-width:2px,color:#000
+    classDef submitted fill:#FF8C00,stroke:#333,stroke-width:2px,color:#000
+    classDef published fill:#228B22,stroke:#333,stroke-width:2px,color:#fff
+    classDef archived fill:#A9A9A9,stroke:#333,stroke-width:2px,color:#000
+    
+    class A draft
+    class B submitted
+    class C published
+    class D archived
+`}
+/>
+
+1.  **Drafting:** An editor drafts a new entity or edits an existing one. (DRAFT state)
+2.  **Submission:** When the editor is satisfied, they submit the entity for review. (SUBMITTED state)
+3.  **Review and Publication:** A reviewer checks the submitted instance. If approved, the changes are published (PUBLISHED state), and the previously published version is moved to ARCHIVED state.
+4.  **Discarding:** If the reviewer disapproves, the changes are discarded (DISCARDED state). An editor can then create a new draft from this discarded version.
+
+<MermaidFullscreen
+title="Metadata Approval Flow"
+chart={`
+flowchart TD
+    A[DRAFT] --> |The editor submit the draft| B[SUBMITTED]
+    B --> |The reviewer approve a submitted instance| C[PUBLISHED]
+    B --> |The reviewer discard a submitted instance| D[DISCARDED]
+    D --> |The editor decide to edit again a discarded instance| A
+    C --> |The old published instance is archived| E[ARCHIVED]
+`}
+/>
+
+## Access Control and Roles
+
+The Backoffice implements a granular access control system based on users, roles, and user groups to ensure secure and structured metadata management.
+
+### Roles
+
+Every user interacting with the system is assigned a role, defining their permissions:
+
+*   **Viewer:** Can only view information without modification rights. Allowed to see drafted, submitted, discarded, and archived data within their assigned groups.
+*   **Editor:** Can edit metadata, create new drafts, and remove their own drafts. Operations are restricted to data within their assigned user groups.
+*   **Reviewer:** Can approve or disapprove submitted instances. Allowed to make changes only to data within their assigned user groups.
+*   **Admin:** Has full administrative privileges, capable of performing all actions across the system.
+
+### User Groups
+
+Roles define *what* a user can do, while user groups define *on which data* a user can operate with a specific role.
+
+*   Each metadata instance belongs to at least one user group.
+*   Only users who belong to the same user group as an instance can operate on it. For example, a user group can correspond to a TCS (Thematic Core Service), allowing only users from that TCS to modify its entities.
+
+### Permission Matrix
+
+| External User | View | Draft | Submit | Publish | Discard |
+|---------------|------|-------|--------|---------|---------|
+| Viewer        | ✓ |   |        |         |         |
+| Editor        | ✓ | ✓ | ✓      |         |         |
+| Reviewer      | ✓ |   |        | ✓       | ✓       |
+| Admin         | ✓ | ✓ | ✓      | ✓       | ✓       |
+
+{/* TODO: Add a detailed permission matrix table here, outlining which roles can perform which actions on entities in different states. */}
+
+## Accessing the Backoffice
+
+{/* TODO: Provide instructions on how to access the Backoffice interface, including the URL and any login procedures. */}
+
+## Benefits
+
+By centralizing and simplifying metadata management, the Backoffice significantly enhances the usability and maintainability of the EPOS Platform for both data providers and administrators. It promotes a more agile and collaborative approach to data curation, ensuring that your data catalogue remains accurate and up-to-date with minimal effort.
