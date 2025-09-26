@@ -24,10 +24,10 @@ function HomepageHeader() {
         </div>
         {/* Description under the logo */}
         <p className={styles.heroDescription}>
-          The <strong>EPOS Platform</strong> is an open-source, service-based data integration 
+          <strong>The <big>EPOS Platform</big> is an open-source, service-based data integration 
           and visualization system built on a microservices architecture. This website provides 
-          general information about <strong>EPOS</strong>, technical documentation on the platform's architecture, 
-          and source code for each microservice.
+          general information about <big>EPOS</big>, technical documentation on the platform's architecture, 
+          and source code for each microservice</strong>.
         </p>
 
         {/* Buttons below the title */}
@@ -39,8 +39,9 @@ function HomepageHeader() {
             Data Portal
           </Link>
           <Link
-            className="button button--secondary button--lg"
+            className={clsx('button button--lg', styles.documentationButton)}
             to="/documentation/home"
+            
           >
             Documentation
           </Link>
