@@ -24,10 +24,7 @@ function HomepageHeader() {
         </div>
         {/* Description under the logo */}
         <p className={styles.heroDescription}>
-          The <strong>EPOS Platform</strong> is an open-source, service-based data integration 
-          and visualization system built on a microservices architecture. This website provides 
-          general information about <strong>EPOS</strong>, technical documentation on the platform's architecture, 
-          and source code for each microservice.
+The <strong>EPOS Platform</strong> is an open-source, service-based data integration and visualization system built on a microservices architecture. This website provides general information about <strong>EPOS</strong>, technical documentation on the platform's architecture, and source code for each microservice. <strong>EPOS Platform Open Source</strong> is released under the <a href='/opensource-docs/documentation/license'>GPLv3 license</a>. Go to the <a href='/opensource-docs/documentation/quickstart'>Quickstart</a> section to start right away.
         </p>
 
         {/* Buttons below the title */}
