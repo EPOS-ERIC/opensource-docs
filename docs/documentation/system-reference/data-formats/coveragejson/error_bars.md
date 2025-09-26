@@ -1,6 +1,6 @@
 # Error Bars
 
-The EPOS GUI supports displaying time series with error bars, enhancing the visualization of data uncertainties:
+Error bars are a crucial component in scientific data visualization, as they graphically represent the variability or uncertainty of reported measurements. The EPOS GUI supports displaying time series with error bars, significantly enhancing the visualization of data uncertainties and aiding in more robust data interpretation:
 
 ![Error bars](/img/covjson_error_bars.png)
 
@@ -140,7 +140,7 @@ Below is an example illustrating the correct structure:
 
 - **Actual Value Parameter (`vpvs_value`)**:
   - Represents the main time series data.
-  - Defined with a unique `observedProperty.id` (e.g., `"vpvs_value"`). This value could be anyting, it is not important.
+  - Defined with a unique `observedProperty.id` (e.g., `"vpvs_value"`). The specific value of this `id` is flexible, as its role is defined by its inclusion in the `ParameterGroup`.
 
 - **Error Parameters (`vpvs_error_min` and `vpvs_error_max`)**:
   - Both have `observedProperty.id` set exactly to `"error_min"` and `"error_max"`, respectively.
@@ -157,24 +157,19 @@ Below is an example illustrating the correct structure:
   - The keys in the `ranges` object match the parameter keys in the `parameters` object.
   - Each `range` contains the data values for that parameter following the standard CoverageJSON structure.
 
-**Important Notes**:
+:::info Important Notes
 
-- **Consistency of Keys**:
-  - Ensure that the keys used in the `parameters` object match those in the `ranges` object and the `members` array of the `ParameterGroup`.
+-   **Consistency of Keys**: Ensure that the keys used in the `parameters` object match those in the `ranges` object and the `members` array of the `ParameterGroup`.
+-   **No Direct Linking in Error Parameters**: The error parameters (`error_min`, `error_max`) do not directly reference the actual value parameter. Their association with the actual value is established *solely* through their inclusion in the `ParameterGroup`.
+-   **Single Time Series with Errors**: The GUI will display the `ParameterGroup` as a single time series with error bars. The error parameters will not be displayed separately.
 
-- **No Direct Linking in Error Parameters**:
-  - The error parameters do not need to reference the actual value directly.
-  - The association is made through the `ParameterGroup`.
-
-- **Single Time Series with Errors**:
-  - The GUI will display the `ParameterGroup` as a single time series with error bars.
-  - The error parameters will not be displayed separately.
+:::
 
 ## Summary
 
-To have the EPOS GUI display error bars for a time series:
+To have the EPOS GUI display error bars for a time series, follow these key steps:
 
-- **Define the actual value and its error bounds as separate parameters**.
-- **Set the `observedProperty.id` of error parameters exactly to `"error_min"` or `"error_max"`**.
-- **Create a `ParameterGroup` that includes the actual value and error parameters**.
-- **Ensure each parameter (except the `ParameterGroup`) has a corresponding `range`**.
+1.  Define the actual value and its error bounds as separate parameters.
+2.  Set the `observedProperty.id` of error parameters exactly to `"error_min"` or `"error_max"`.
+3.  Create a `ParameterGroup` that includes the actual value and error parameters.
+4.  Ensure each parameter (except the `ParameterGroup`) has a corresponding `range`.

@@ -3,22 +3,13 @@ sidebar_position: 1
 id: geojson
 ---
 
+import MermaidFullscreen from '@site/src/components/MermaidFullScreen';
+
 # EPOS GeoJSON
 
 ## Purpose
 
-A number of external service providers have requested additional features to be supported by the GUI. Currently, the GUI supports GeoJSON, but GeoJSON doesn't support the desired features. At this late stage, it has been deemed too risky to introduce another format and associated development effort; therefore, an alternative solution is to propose EPOS-specific extensions to the GeoJSON format.
-
-## Requirements
-
-| Requirement                | Description                                                                                                                       |
-| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| Map Markers                | The GeoJSON can optionally specify the styling and behaviour of map markers.                                                      |
-| Image Overlays             | The GeoJSON can contain image references that will be displayed as overlays on the map (not geo-tiff).                            |
-| Legends                    | Information derived from the Map Markers and Image Overlays can be used to generate map legends.                                  |
-| Map Popup content          | The GeoJSON can express some control over the properties used to dynamically generate map popups.                                 |
-| Data Visualisation Columns | The GeoJSON can express some control over the properties used to dynamically generate data visualisation columns.                 |
-| Links                      | The GeoJSON properties can include additional information on (hyper)links to include in the map popups and/or data visualisation. |
+The EPOS Platform extends the standard GeoJSON format to support additional features required for enhanced visualization and functionality within the EPOS GUI. These EPOS-specific extensions allow for richer representation of geographic data, enabling capabilities beyond the standard GeoJSON specification without introducing entirely new data formats.
 
 ## @epos JSON Objects
 
@@ -34,13 +25,13 @@ All new root JSON objects introduced to support EPOS functionality will be acces
 }
 ```
 
-## Styling
+## Styling: Map Markers and Legends
 
-The styling of map markers and map legends for GeoJSON points is defined by the `@epos_style` object. The object contains attributes named such that they correspond to the value(s) of the `@epos_type` attribute defined within the `properties` objects of GeoJSON features.
+The EPOS GeoJSON extensions allow for detailed control over the styling and behavior of map markers and the generation of associated legends. This is primarily managed through the `@epos_style` object, which defines styling rules based on the `@epos_type` attribute found within the `properties` of GeoJSON features.
 
 ### Example
 
-In the example below there is a feature with an `@epos_type = station`, this matches the attribute station within the the `@epos_style` object, hence in this case stations would be rendered on the map as pins with an 's'
+For instance, if a feature has `@epos_type = station`, it will match the `station` attribute within the `@epos_style` object. This would render stations on the map as pins with an 'S'.
 
 ![Font Awesome marker with pin](/img/fontAwesomeMarkerWithPin.png)
 
@@ -94,10 +85,10 @@ Each @epos_type defined in the @epos_style object defines the following:
 
 ## Symbols
 
-There are three types of symbol that can be used (only one should be used), these are defined by setting the appropriately named attribute within the `marker` object:
+The EPOS GeoJSON extensions support three distinct types of map markers, configured by setting the appropriate attribute within the `marker` object of your `@epos_style` definition. Only one symbol type should be specified per marker.
 
-| Type                       | Example                   | pin = false                                                                             | pin = true                                                                          |
-| -------------------------- | ------------------------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| Type                       | Example                   | pin = false                                                              | pin = true                                                           |
+| -------------------------- | ------------------------- | ------------------------------------------------------------------------ | -------------------------------------------------------------------- |
 | `marker.href`              | `www.thing.com/thing.png` | ![Marker href without pin](/img/markerHrefWithoutPin.png)                | ![Marker href with pin](/img/markerHrefWithPin.png)                  |
 | `marker.fontawesome_class` | `fas fa-star`             | ![Font Awesome marker without pin](/img/fontAwesomeMarkerWithoutPin.png) | ![Font Awesome marker with pin](/img/fontAwesomeMarkerWithStar.png)  |
 | `marker.character`         | `S`                       | ![Character marker without pin](/img/markerCharacter.png)                | ![Character marker with pin](/img/fontAwesomeMarkerWithPinSmall.png) |
@@ -160,11 +151,46 @@ Legends are constructed by combining the map marker and label from the correspon
 
 ### Legend Logic
 
-![Character marker without pin](/img/legendLogic.png)
+<MermaidFullscreen
+title="Legend logic"
+maxPreviewHeight={600}
+chart={`
+flowchart TD
+A([Start]) --> B{Feature properties\nhas @epos.type?}
+B -->|no| C[❌ Not in Legend]
+B -->|yes| D{ @epos.type in\n @epos.style?}
+D -->|no| E[✅ Legend use @epos.type]
+D -->|yes| F{label in @epos.style\n@epos.type?}
+F -->|no| E
+F -->|yes| G{label is\nValid?}
+G -->|no| E
+G -->|yes| H[✅ Legend uses label from\n @epos.style@epos.type]
+
+    style A fill:#d81b60,color:#fff,stroke:#ad1457,stroke-width:3px
+    style B fill:#e91e63,color:#fff,stroke:#c2185b,stroke-width:2px
+    style D fill:#e91e63,color:#fff,stroke:#c2185b,stroke-width:2px
+    style F fill:#e91e63,color:#fff,stroke:#c2185b,stroke-width:2px
+    style G fill:#e91e63,color:#fff,stroke:#c2185b,stroke-width:2px
+    style C fill:#43a047,color:#fff,stroke:#2e7d32,stroke-width:2px
+    style E fill:#43a047,color:#fff,stroke:#2e7d32,stroke-width:2px
+    style H fill:#43a047,color:#fff,stroke:#2e7d32,stroke-width:2px
+
+    linkStyle 0 stroke:#666,stroke-width:3px
+    linkStyle 1 stroke:#f44336,stroke-width:2px
+    linkStyle 2 stroke:#4caf50,stroke-width:2px
+    linkStyle 3 stroke:#f44336,stroke-width:2px
+    linkStyle 4 stroke:#4caf50,stroke-width:2px
+    linkStyle 5 stroke:#f44336,stroke-width:2px
+    linkStyle 6 stroke:#4caf50,stroke-width:2px
+    linkStyle 7 stroke:#f44336,stroke-width:2px
+    linkStyle 8 stroke:#4caf50,stroke-width:2px
+
+`}
+/>
 
 ## Image Overlays
 
-Image overlays (geo-referenced images) are supported by adding an `@epos_image_overlay` object to a GeoJSON feature. There is a 1:1 mapping between the feature and the overlay - that way, the `properties` for the feature can be used for the image overlay.
+The EPOS GeoJSON extensions provide robust support for image overlays, allowing you to display geo-referenced images directly on the map. This is achieved by adding an `@epos_image_overlay` object to a GeoJSON feature, establishing a direct link between the feature's properties and the overlay's characteristics.
 
 ### Example
 
@@ -204,11 +230,11 @@ Each @epos_image_overlay object defined should have the following:
 
 ### Image Types
 
-A conscious decision has been made to not support GeoTIFF in this iteration of development of the EPOS GUI, hence it assumed that Leaflet https://leafletjs.com/ will support the same image types as commonly supported by browsers.
+The EPOS GUI supports common image types that are typically rendered by web browsers (e.g., PNG, JPEG, GIF), **including GeoTIFF for image overlays**.
 
 ### Geometry
 
-The geometry for the feature containing the @epos_image_overlay object will be ignored, therefore should ideally be set to null. The reason for this is that it is essential the image overlay has rectangular geographic bounds, hence a bbox has been defined in the @epos_image_overlay object.
+For image overlays, the geometry defined in the GeoJSON feature will be ignored. This is because image overlays require rectangular geographic bounds, which are explicitly defined by the `bbox` attribute within the `@epos_image_overlay` object. Therefore, it is recommended to set the feature's `geometry` to `null` when using image overlays.
 
 ### bbox
 
@@ -218,16 +244,18 @@ The order of the values is [lat1, lon1, lat2, lon2].
 
 Caution: if the area crosses the antimeridian (often confused with the International Date Line), you must specify corners outside the [-180, 180] degrees longitude range.
 
-### https://leafletjs.com/reference-1.5.0.html#latlngbounds
+### Leaflet `LatLngBounds` Reference
 
-## Feature Properties
+For more details on bounding box definitions, refer to the [Leaflet `LatLngBounds` documentation](https://leafletjs.com/reference-1.5.0.html#latlngbounds).
 
-In GeoJSON a feature can define a properties object, this object contains metadata about the feature.
+## Feature Properties: Controlling Map Popups, Data Visualization, and Links
 
-The EPOS GeoJSON extension adds three ways in which the data-author can express some control over how those properties are used within the EPOS GUI. The approach taken is to introduce @epos_xxx attributes that reference other true properties of the feature, the reason for this are to:
+The EPOS GeoJSON extensions enhance the standard GeoJSON `properties` object by providing mechanisms for data authors to control how feature metadata is presented in the EPOS GUI. This includes defining content for map popups, specifying columns for data visualization tables, and embedding rich links.
 
-- prevent duplication of metadata just to satisfy the EPOS GUI.
-- maintain the true GeoJSON properties that may be needed in other contexts.
+This is achieved by introducing `@epos_xxx` attributes that reference other true properties of the feature, thereby:
+
+- Preventing duplication of metadata solely for EPOS GUI requirements.
+- Maintaining the integrity of true GeoJSON properties for other contexts.
 
 ### @epos_label_key
 
@@ -345,18 +373,6 @@ As mentioned above, in general the only properties that the EPOS GUI will suppor
     }
 ]
 ```
-
-## Summary
-
-| Type                                             | Context              | Example                                                                                                                                                  |
-| ------------------------------------------------ | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| boolean                                          | Map \| Data          | "Active": true                                                                                                                                           |
-| number                                           | Map \| Data          | "Height": 123                                                                                                                                            |
-| string                                           | Label \| Map \| Data | "Title": "my title"                                                                                                                                      |
-| HTML - string                                    | Map                  | "Summary": "Properties can contain HTML &lt;img src=\"smiley.gif\"&gt;"                                                                                  |
-| array [ boolean / number / string]               | Map \| Data          | "Institutions": [ "Insitution 1", "Insitution 2", "Insitution 3" ]                                                                                       |
-| array [ boolean / number / string / HTML-string] | Map                  | "Institutions": [ "Insitution &lt;img src=\"smiley.gif\"&gt;" ]                                                                                          |
-| @epos_links object                               | Map \| Data          | "@epos_links": [ "href": "http://volobsis.ipgp.fr/volcano-bullexcep.pdf", "label": "Download","type": "application/pdf", "authenticatedDownload": true ] |
 
 ## Full Sample
 
