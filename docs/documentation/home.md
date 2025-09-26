@@ -4,44 +4,42 @@ id: home
 title: EPOS Platform Documentation
 ---
 
-# Welcome to EPOS Platform
+# EPOS Platform: Your Open-Source Geospatial Data Catalogue
 
-Welcome to the EPOS Platform documentation! EPOS Platform is an open-source, self-hostable microservice-based system designed to integrate geographic and geophysical data. It provides a comprehensive catalogue of web services that enables search, discovery, and preview of geospatial data services.
+Welcome to the official documentation for the EPOS Platform, an open-source, self-hostable system for integrating and managing geospatial data services.
 
-## About EPOS
+The EPOS Platform allows you to create a centralized catalogue of web services, making it easy for your users to discover, visualize, and access a wide range of geographic and geophysical data. 
 
-EPOS (European Plate Observing System) is a long-term plan to facilitate integrated use of data, data products, and facilities from distributed research infrastructures for solid Earth science in Europe. The EPOS Platform represents the open-source implementation of this vision, enabling organizations to deploy their own geospatial data catalogues and services.
+## Why Use the EPOS Platform?
 
-[https://www.ics-c.epos-eu.org/](https://www.ics-c.epos-eu.org/)
-
-## What is the EPOS Platform?
-
-EPOS Platform is a sophisticated data integration system that:
-
-- **Catalogue Services**: Provides a unified interface to discover and access geospatial web services
-- **Data Visualization**: Offers interactive maps and data previews for various geospatial data formats
-- **Service Integration**: Supports multiple service types including WMS, WFS, REST APIs, and custom formats
-- **Metadata Management**: Uses EPOS-DCAT-AP standard for comprehensive service descriptions
-- **Self-Hostable**: Deploy on your own infrastructure with Docker or Kubernetes
+*   **Unify Your Data Services:** Bring all your distributed data services (like WMS, WFS, and custom APIs) into a single, searchable catalogue. Stop juggling different endpoints and provide a single source of truth for your users.
+*   **Empower Your Users:** With an intuitive web interface, users can easily search for data, preview it on interactive maps, and access it directly, without needing to be experts in geospatial technology.
+*   **Stay Flexible and Open:** Built on open standards, the EPOS Platform is designed to be extended. A powerful plugin system allows you to integrate almost any data format, ensuring you're not locked into a proprietary ecosystem.
+*   **Own Your Infrastructure:** As a self-hostable solution, you have full control over your deployment. Run it on your own servers, in a private cloud, or wherever you need it, ensuring data sovereignty and security.
 
 ## Key Features
 
-- **Multi-Format Support**: Native support for GeoJSON, CoverageJSON, WMS, WFS, and custom formats through converter plugins
-- **Interactive Visualization**: Rich web interface with maps, charts, and data tables
-- **Flexible Deployment**: Deploy locally, on-premises, or in the cloud
-- **Extensible Architecture**: Plugin-based converter system for custom data formats
-- **Standards Compliant**: Built on open standards and specifications
+*   **Unified Catalogue:** A central discovery portal for all your geospatial data services.
+*   **Interactive Visualization:** A web-based data portal with interactive maps for data preview.
+*   **Broad Format Support:** Native support for OGC standards (WMS, WFS) and common formats (GeoJSON, CoverageJSON).
+*   **Extensible Converters:** A plugin-based architecture to transform custom data formats on the fly.
+*   **Standardized Metadata:** Uses the EPOS-DCAT-AP standard for rich, searchable service descriptions.
+*   **Flexible Deployment:** Deploy with Docker or Kubernetes for scalability and easy management.
 
 ## Getting Started
 
-New to EPOS Platform? We recommend following this path:
+Ready to dive in? Here’s how you can get started:
 
-TODO
+*   **[Quickstart](./quickstart.md):** The fastest way to get a local instance of the EPOS Platform up and running in minutes.
+*   **[Installation Guide](./installation/index.md):** Detailed instructions for deploying the platform in different environments.
 
-## Need Help?
+## About the EPOS Project
 
-If you need assistance:
+The EPOS Platform is the open-source heart of the **European Plate Observing System (EPOS)**, a long-term plan to facilitate the integrated use of data from solid Earth science research infrastructures across Europe. You can learn more about the broader EPOS initiative [here](https://www.epos-eu.org/).
 
-- **GitHub Repository**: [epos-eu/epos-opensource](https://github.com/epos-eu/epos-opensource) - Source code and issue tracking
-- **Documentation Issues**: Report documentation problems via GitHub issues
-- **Community**: Join discussions with other users and contributors
+## Community and Support
+
+Have questions or want to get involved?
+
+*   **[GitHub Repository](https://github.com/epos-eu/epos-opensource):** Find the source code, report issues, and contribute.
+*   **Community Discussions:** Join the conversation on our GitHub repository.

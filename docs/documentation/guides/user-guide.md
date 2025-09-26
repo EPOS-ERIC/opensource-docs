@@ -1,234 +1,57 @@
 ---
-sidebar_position: 3
-id: user-guide
-title: Getting Started
+title: User Guide
 ---
 
-# User Guide
+# Data Portal User Guide
 
-This guide will help you get the most out of EPOS Platform once it's installed and running. Learn how to navigate the interface, discover data, manage metadata, and integrate your own services.
+Welcome to the EPOS Platform! This guide is for end-users and will walk you through how to use the Data Portal to discover, visualize, and access the geospatial data services available in the catalogue.
 
-## Getting Started
+## Discovering Data
 
-### Accessing the Platform
+The Data Portal is designed to make it easy to find the data you're looking for. You can discover data by either searching or browsing.
 
-Once EPOS Platform is deployed, you can access it through your web browser:
+![The EPOS Data Portal](/img/dataportal_screenshot.png)
 
-- **Data Portal**: `http://localhost:32000` (or your configured domain)
-- **API Documentation**: `http://localhost:33000/api/v1/ui`
+### Using the Search Bar
 
-## Data Discovery
+The most direct way to find data is to use the search bar at the top of the page. You can search by:
 
-### Browsing the Catalog
+*   **Keywords:** e.g., "seismology", "volcano"
+*   **Service Name:** If you know the name of the data service you're looking for.
+*   **Description:** The search will also match terms in the description of the services.
 
-The EPOS Platform provides several ways to discover geospatial data:
+{/* TODO: Add more complex search query examples */}
 
-#### Catalog Overview
+### Filtering and Browsing
 
-TODO
+{/* TODO: Expand the "Filtering and Browsing" section. We need to document the advanced filtering capabilities of the data portal. This should include screenshots and examples of filtering spatially, by time, and other. */}
 
-#### Search Functionality
+You can also browse the available services in the catalogue. The portal will display a list of all available data services, which you can explore to see what's available.
 
-**Basic Search:**
+## Visualizing Data
 
-- Use the search bar at the top of the page
-- Search by service name, description, or keywords
+Once you've found a data service you're interested in, you can preview it directly on an interactive map.
 
-**Advanced Search:**
+### The Map Interface
 
-TODO
+The map allows you to:
 
-### Data Preview
+*   **Zoom and pan** to explore the geographic area covered by the data.
+*   **View data layers** from the service directly on the map.
+*   **Click on map features** (like points or shapes) to get more information about them in a popup.
 
-#### Interactive Maps
+{/* TODO: Add a more detailed screenshot or a diagram that labels the different parts of the map interface, like the layer controls, time slider, and feature popups. */}
 
-- **Zoom and pan** to explore geographic data
-- **Layer controls** to show/hide different data layers
-- **Feature information** by clicking on map elements
-- **Time controls** for temporal data visualization
+![Data Visualization on the map](/img/dataportal_after_populate.png)
 
-## Metadata Management
+{/* TODO: Add a section on "Table View" for visualizing data in a tabular format. Explain how to sort, filter, and export data from the table. Include screenshots. */}
 
-### Understanding Metadata
+{/* TODO: Add a section on "Graph View" for visualizing compatible data as charts (e.g., time series, scatter plots). Explain how to interact with the graphs and any compatibility requirements for the data. Include screenshots. */}
 
-EPOS Platform uses the **EPOS-DCAT-AP** standard for metadata, which extends the DCAT-AP specification for geospatial data.
+## Accessing the Data
 
-#### Key Metadata Fields
+The EPOS Platform is a catalogue that points to the original data services. While you can preview the data on the map, you can also access the data service directly.
 
-TODO
+{/* TODO: Add a screenshot showing where the "Access URL" or "Endpoint URL" is located in the service details view. */}
 
-### Adding Your Own Data
-
-#### Method 1: Using the Backoffice (Recommended)
-
-The Backoffice provides a user-friendly interface for metadata management:
-
-TODO
-
-#### Method 2: Manual Metadata Files
-
-TODO
-
-**Example Turtle file:**
-
-```turtle
-TODO
-```
-
-### Metadata Validation
-
-TODO
-
-## Service Integration
-
-### Supported Service Types
-
-EPOS Platform supports various geospatial service types:
-
-#### Web Map Service (WMS)
-
-- **Standard**: OGC WMS 1.3.0
-- **Use case**: Raster map images
-- **Integration**: Automatic layer detection and preview
-
-#### Web Feature Service (WFS)
-
-- **Standard**: OGC WFS 2.0
-- **Use case**: Vector data access
-- **Integration**: Feature preview and download
-
-#### REST APIs
-
-- **Format**: JSON/XML responses
-- **Use case**: Custom data services
-- **Integration**: Through converter plugins
-
-#### File-based Services
-
-- **Formats**: GeoJSON, CoverageJSON, Shapefile
-- **Use case**: Static data files
-- **Integration**: Direct visualization
-
-### Adding Custom Services
-
-#### Step 1: Prepare Your Service
-
-Ensure your service meets basic requirements:
-
-- **Accessible URL**: Service must be publicly accessible
-- **CORS enabled**: For web-based access
-- **Documentation**: Clear API documentation
-- **Error handling**: Proper HTTP status codes
-
-#### Step 2: Create Metadata
-
-Use the Backoffice or create Turtle files with:
-
-TODO
-
-- **Service endpoint**: URL to your service
-- **Service type**: WMS, WFS, REST API, etc.
-- **Data format**: Supported output formats
-- **Geographic coverage**: Bounding box or regions
-- **Temporal coverage**: Time period of data
-
-#### Step 3: Submit for Integration
-
-**Via Backoffice:**
-
-1. Log into the Backoffice interface
-2. Create new service entry
-3. Fill in metadata form
-4. Preview and submit
-
-**Via File Upload:**
-
-1. Create validated Turtle file
-2. Upload to platform
-3. Wait for ingestion process
-
-#### Step 4: Test Integration
-
-After submission:
-
-1. **Search for your service** in the catalog
-2. **Preview data** using the web interface
-3. **Test API access** through the platform
-4. **Verify metadata** accuracy
-
-### Custom Data Formats
-
-If your service uses non-standard data formats:
-
-#### Using Converter Plugins
-
-1. **Identify conversion needs**: What format do you need to convert to?
-2. **Find existing plugins**: Check the plugin catalog
-3. **Develop custom plugin**: If none exists
-4. **Register plugin**: Add to the converter system
-5. **Associate with service**: Link plugin to your service
-
-#### Plugin Development
-
-TODO: point to relevant page
-
-## User Management
-
-TODO: whole backoffice user management guide
-
-## API Usage
-
-### REST API Access
-
-EPOS Platform provides a comprehensive REST API for programmatic access:
-
-TODO
-
-## Best Practices
-
-### Data Quality
-
-#### Metadata Quality
-
-- **Complete information**: Fill in all relevant metadata fields
-- **Accurate descriptions**: Provide clear, detailed descriptions
-- **Proper keywords**: Use relevant, searchable keywords
-- **Geographic accuracy**: Ensure bounding boxes are correct
-- **Temporal accuracy**: Provide accurate time coverage
-
-#### Service Reliability
-
-- **Stable URLs**: Use permanent, stable service URLs
-- **Error handling**: Implement proper error responses
-- **Performance**: Optimize for reasonable response times
-- **Documentation**: Provide clear API documentation
-- **Versioning**: Use versioned APIs for stability
-
-## Troubleshooting
-
-### Common Issues
-
-#### Service Not Appearing
-
-TODO
-
-#### Data Preview Issues
-
-TODO
-
-#### API Access Problems
-
-TODO
-
-### Getting Help
-
-#### Documentation
-
-- **API Documentation**: Check the interactive API docs
-- **User Guide**: Refer to this guide for common tasks
-- **Architecture Guide**: Understand system components
-
-#### Community Support
-
-- **GitHub Issues**: Report bugs and ask questions
-- **Documentation**: Contribute to improving documentation
+In the details for each service, you will find a link to the original **Access URL** or **Endpoint URL**. This will take you to the source of the data, where you can perform more advanced queries or download the raw data, depending on what the service provider offers.

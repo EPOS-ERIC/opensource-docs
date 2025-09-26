@@ -1,15 +1,20 @@
+---
+title: Data Model
+---
+
 import MermaidFullscreen from '@site/src/components/MermaidFullScreen';
 
 # EPOS Data Model
 
-The EPOS Data Model defines the structure of the information provided by the system to the end user. The Model’s components of the model are accessible through appropriate interfaces (e.g. web APIs) and they implement specific functionalities. In particular, they represent a guideline to define inputs and outputs of different system components.
+The EPOS Data Model defines the fundamental structure of information managed and presented by the EPOS Platform. It serves as a crucial guideline for defining the inputs and outputs of various system components and ensures consistency across all data interactions. Understanding this model is key to comprehending how data is organized and utilized within the EPOS ecosystem.
 
-The EPOS Data Model defines the structure of the information provided by the system to the end user. The Model’s components are accessible through appropriate interfaces (e.g. web APIs) and they implement specific functionalities. In particular, they offer guidelines to define inputs and outputs of different system components.
+## Data Model Diagram
+
+The following class diagram provides a comprehensive overview of the EPOS Data Model, illustrating the key entities and their relationships.
 
 <MermaidFullscreen
-title="EPOS Data Model"
+title="EPOS Data Model Overview"
 chart={`
-
 classDiagram
 direction LR
 class Distribution {
@@ -175,25 +180,37 @@ class Organization:::baseline
 class Facility:::baseline
 class Equipment:::baseline
 class Service:::baseline
-classDef Pine :,stroke-width:1px, stroke-dasharray:none, stroke:#254336, fill:#27654A, color:#FFFFFF
 `}
 />
-![EPOS Data Model](/img/epos_data_model.png)
 
-The EPOS data model was discussed and defined in EPOS-IP as of 2018 in the document “Second (Final) Report on EPOS-ICS Architecture” and is here reported for reader’s convenience in the following class diagram.
+## Core Concepts
 
-The EPOS Data model includes the following concepts:
+The EPOS Data Model is built around several core concepts, each represented as a class in the diagram above:
 
-- Person
-- Equipment
-- Facility
-- Service
-- Web service
-- Organization
-- Data
-- Software and mode code
-- Publication
+*   **DataProduct:** Represents the fundamental unit of scientific data within the EPOS ecosystem. It includes metadata such as title, description, identifier, and version.
+*   **Distribution:** Describes how a `DataProduct` can be accessed, including its format, license, and access URLs. A `DataProduct` can have multiple `Distributions`.
+*   **WebService:** Represents a web service that provides access to `DataProduct`s. It includes information about its endpoint, documentation, and supported operations.
+*   **Operation:** Defines a specific action or query that can be performed on a `WebService`.
+*   **Mapping:** Describes how data fields from an `Operation` are mapped to the EPOS Data Model.
+*   **Person:** Represents individuals involved in the EPOS ecosystem, such as authors, contact points, or data providers.
+*   **Organization:** Represents institutions or groups associated with data products, services, or facilities.
+*   **Facility:** Describes a research facility or infrastructure.
+*   **Equipment:** Represents scientific equipment used in data collection.
+*   **Service:** A generic representation of a service provided by an `Organization`.
+*   **Software:** Describes software components related to data processing or analysis.
+*   **Publication:** Represents scientific publications associated with data products.
 
-The data model defines the objects that the user will have to deal with in the EPOS ecosystem. Therefore, the User experience and associated functionalities implemented by the system modules must adhere to the data structure defined in the model.
+## Usage within the EPOS Platform
+
+The EPOS Data Model is central to the platform's functionality:
+
+*   **Metadata Ingestion:** All metadata ingested into the platform (e.g., via `.ttl` files) must conform to this data model.
+*   **Data Discovery:** The Data Portal uses this model to enable comprehensive search and filtering of available data products and services.
+*   **Service Integration:** The model guides how external web services are integrated and how their data is mapped for consistent presentation.
+*   **Data Visualization:** The structure defined by the model informs how data is visualized in the GUI, ensuring that relevant information is displayed effectively.
+
+## Download the Full Data Model
+
+For a more in-depth understanding, you can download the complete EPOS Data Model specification:
 
 <a href="/documents/epos_data_model.pdf" download="EPOS_DATA_MODEL.pdf">**Download EPOS Data Model PDF**</a>

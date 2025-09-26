@@ -5,44 +5,29 @@ title: Installation
 
 # Installation
 
-EPOS Platform can be installed locally or on a server using our command-line interface (CLI) tool. The CLI supports deployment using Docker or Kubernetes, making it easy to get started regardless of your infrastructure preferences.
+The EPOS Platform is designed to be installed on your own infrastructure. This section provides a comprehensive overview of the different ways you can deploy and manage your instance.
 
-## Installation Methods
+All installation and management operations are handled by the **EPOS Open-Source CLI (`epos-opensource`)**. This command-line tool simplifies the process of deploying, populating, and managing your platform, whether you're running a small local instance or a large-scale production deployment.
 
-The EPOS Platform installer supports multiple deployment scenarios:
+If you haven't installed the CLI yet, please see the [Quickstart Guide](../quickstart.md) for platform-specific instructions.
 
-- **Docker Compose**: Recommended for development, testing, and small-scale deployments
-- **Kubernetes**: Production-ready container orchestration for scalable deployments
+## Deployment Methods
 
-## Quick Installation
+The EPOS Platform supports two primary deployment methods:
 
-For the fastest way to get started, see our [Quickstart Guide](../quickstart.md) which will have you running EPOS Platform in minutes.
-
-## Detailed Installation
-
-For comprehensive installation instructions covering all deployment options, system requirements, and configuration details, see our [Docker Installation](./docker.md) guide.
-
-## Source Repository
-
-TODO:
-
-**CLI GitHub Repository**: [https://github.com/epos-eu/epos-opensource](https://github.com/epos-eu/epos-opensource)
+*   **[Docker Compose](./docker.md):** This is the recommended method for local development, testing, and small-scale deployments. It's the easiest way to get a complete EPOS environment running on a single machine.
+*   **Kubernetes:** For production environments that require high availability, scalability, and fault tolerance, the EPOS Platform can be deployed to a Kubernetes cluster. (Documentation for this is forthcoming).
 
 ## Prerequisites
 
-Before installing EPOS Platform, ensure you have:
+The system requirements depend on the deployment method you choose. As a general guideline, you will need:
 
-- **Docker**: Version 20.10+ (for containerized deployments)
-- **Docker Compose**: Version 2.0+ (for multi-container deployments)
-- **Kubernetes**: Version 1.20+ (for orchestrated deployments)
-- **System Resources**: Minimum 4GB RAM, 2 CPU cores, 20GB storage
+*   A Linux, macOS, or Windows environment.
+*   At least 4GB of RAM, 2 CPU cores, and 20GB of free storage for a basic installation.
+*   Docker (for Docker Compose deployments) or a running Kubernetes cluster.
 
-For detailed system requirements and platform-specific instructions, refer to the [Docker Installation](./docker.md) guide.
+For detailed requirements, please refer to the specific installation guide for your chosen deployment method.
 
-## Next Steps
+## Installation Guides
 
-Once you have EPOS Platform installed:
-
-1. **[Getting Started](../quickstart.md)** - Learn how to use the platform
-2. **[System Architecture](../system-reference/architecture.md)** - Understand the system design
-3. **[Data Format Documentation](../system-reference/data-formats/index.md)** - Learn about supported data formats
+*   **[Docker Installation Guide](./docker.md):** A step-by-step guide to deploying the EPOS Platform using Docker Compose.
