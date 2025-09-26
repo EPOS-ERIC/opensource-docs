@@ -32,7 +32,7 @@
 
 /* Description */
 .heroDescription {
-  font-size: 1.3rem;          /* bigger text */
+  font-size: 1.5rem;          /* bigger text */
   font-weight: 400;           /* medium weight */
   color: #222;                /* dark text for light mode */
   margin: 1.5rem auto 2.5rem auto;
@@ -43,7 +43,7 @@
 }
 
 .heroDescription strong {
-  color: #2b422d;             /* accent color for key words */
+  color: #236943;             /* accent color for key words */
 }
 
 /* Dark mode description */
@@ -52,7 +52,7 @@ html[data-theme='dark'] .heroDescription {
 }
 
 html[data-theme='dark'] .heroDescription strong {
-  color: #375b3a;             /* bright accent in dark mode */
+  color: #e5a10e;             /* bright accent in dark mode */
 }
 
 /* --- Buttons --- */
@@ -62,6 +62,23 @@ html[data-theme='dark'] .heroDescription strong {
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
+}
+.dataportalButton {
+  background-color: #33925d; 
+  border-color: #33925d;     
+}
+.dataportalButton:hover {
+  background-color: #33925d; 
+  border-color: #33925d;     
+}
+.documentationButton {
+  background-color: #e5a10e; 
+  border-color: #e5a10e;     
+}
+
+.documentationButton:hover {
+  background-color: #d4940d; 
+  border-color: #d4940d;
 }
 
 /* Primary button overrides for dark mode */
@@ -95,7 +112,7 @@ html[data-theme='dark'] .button--secondary:hover {
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
   transition: box-shadow 0.3s ease;
-  margin: 25px;
+  margin: 10px;
 }
 
 html[data-theme='dark'] .screenshot {

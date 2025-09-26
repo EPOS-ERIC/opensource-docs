@@ -33,13 +33,13 @@ function HomepageHeader() {
         {/* Buttons below the title */}
         <div className={styles.buttons}>
           <Link
-            className="button button--primary button--lg"
+            className={clsx("button button--primary button--lg",styles.dataportalButton)}
             to="https://www.epos-eu.org/dataportal"
           >
             Data Portal
           </Link>
           <Link
-            className="button button--secondary button--lg"
+            className={clsx('button button--lg', styles.documentationButton)}
             to="/documentation/home"
           >
             Documentation
