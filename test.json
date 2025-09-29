@@ -118,6 +118,178 @@
     {
       "type": "Feature",
       "properties": {
+        "@epos_type": "station_char",
+        "@epos_label_key": "FeatureType",
+        "@epos_map_keys": [
+          "FeatureType",
+          "Description",
+          "MarkerType",
+          "PinEnabled",
+          "ClusteringEnabled",
+          "@epos_links"
+        ],
+        "@epos_data_keys": [
+          "FeatureType",
+          "Description",
+          "MarkerType",
+          "PinEnabled",
+          "ClusteringEnabled",
+          "@epos_links"
+        ],
+        "FeatureType": "Character Marker",
+        "Description": "Demonstrates using a single character ('S') as a map marker with pin",
+        "MarkerType": "character",
+        "PinEnabled": "true",
+        "ClusteringEnabled": "true",
+        "@epos_links": [
+          {
+            "href": "https://placehold.co/100x100.png?text=Preview",
+            "label": "Image Preview (PNG)",
+            "type": "image/png",
+            "authenticatedDownload": false
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4100,
+          52.5250
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@epos_type": "station_char",
+        "@epos_label_key": "FeatureType",
+        "@epos_map_keys": [
+          "FeatureType",
+          "Description",
+          "MarkerType",
+          "PinEnabled",
+          "ClusteringEnabled",
+          "@epos_links"
+        ],
+        "@epos_data_keys": [
+          "FeatureType",
+          "Description",
+          "MarkerType",
+          "PinEnabled",
+          "ClusteringEnabled",
+          "@epos_links"
+        ],
+        "FeatureType": "Character Marker",
+        "Description": "Demonstrates using a single character ('S') as a map marker with pin",
+        "MarkerType": "character",
+        "PinEnabled": "true",
+        "ClusteringEnabled": "true",
+        "@epos_links": [
+          {
+            "href": "https://placehold.co/100x100.png?text=Preview",
+            "label": "Image Preview (PNG)",
+            "type": "image/png",
+            "authenticatedDownload": false
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4000,
+          52.5180
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@epos_type": "station_char",
+        "@epos_label_key": "FeatureType",
+        "@epos_map_keys": [
+          "FeatureType",
+          "Description",
+          "MarkerType",
+          "PinEnabled",
+          "ClusteringEnabled",
+          "@epos_links"
+        ],
+        "@epos_data_keys": [
+          "FeatureType",
+          "Description",
+          "MarkerType",
+          "PinEnabled",
+          "ClusteringEnabled",
+          "@epos_links"
+        ],
+        "FeatureType": "Character Marker",
+        "Description": "Demonstrates using a single character ('S') as a map marker with pin",
+        "MarkerType": "character",
+        "PinEnabled": "true",
+        "ClusteringEnabled": "true",
+        "@epos_links": [
+          {
+            "href": "https://placehold.co/100x100.png?text=Preview",
+            "label": "Image Preview (PNG)",
+            "type": "image/png",
+            "authenticatedDownload": false
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4080,
+          52.5220
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@epos_type": "station_char",
+        "@epos_label_key": "FeatureType",
+        "@epos_map_keys": [
+          "FeatureType",
+          "Description",
+          "MarkerType",
+          "PinEnabled",
+          "ClusteringEnabled",
+          "@epos_links"
+        ],
+        "@epos_data_keys": [
+          "FeatureType",
+          "Description",
+          "MarkerType",
+          "PinEnabled",
+          "ClusteringEnabled",
+          "@epos_links"
+        ],
+        "FeatureType": "Character Marker",
+        "Description": "Demonstrates using a single character ('S') as a map marker with pin",
+        "MarkerType": "character",
+        "PinEnabled": "true",
+        "ClusteringEnabled": "true",
+        "@epos_links": [
+          {
+            "href": "https://placehold.co/100x100.png?text=Preview",
+            "label": "Image Preview (PNG)",
+            "type": "image/png",
+            "authenticatedDownload": false
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4020,
+          52.5190
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "@epos_type": "raw_image_marker",
         "@epos_label_key": "FeatureType",
         "@epos_map_keys": [
