@@ -82,16 +82,14 @@
           "Description",
           "MarkerType",
           "PinEnabled",
-          "ClusteringEnabled",
-          "@epos_links"
+          "ClusteringEnabled"
         ],
         "@epos_data_keys": [
           "FeatureType",
           "Description",
           "MarkerType",
           "PinEnabled",
-          "ClusteringEnabled",
-          "@epos_links"
+          "ClusteringEnabled"
         ],
         "FeatureType": "Character Marker",
         "Description": "Demonstrates using a single character ('S') as a map marker with pin",
@@ -117,16 +115,14 @@
           "Description",
           "MarkerType",
           "PinEnabled",
-          "ClusteringEnabled",
-          "@epos_links"
+          "ClusteringEnabled"
         ],
         "@epos_data_keys": [
           "FeatureType",
           "Description",
           "MarkerType",
           "PinEnabled",
-          "ClusteringEnabled",
-          "@epos_links"
+          "ClusteringEnabled"
         ],
         "FeatureType": "Character Marker",
         "Description": "Demonstrates using a single character ('S') as a map marker with pin",
@@ -152,16 +148,14 @@
           "Description",
           "MarkerType",
           "PinEnabled",
-          "ClusteringEnabled",
-          "@epos_links"
+          "ClusteringEnabled"
         ],
         "@epos_data_keys": [
           "FeatureType",
           "Description",
           "MarkerType",
           "PinEnabled",
-          "ClusteringEnabled",
-          "@epos_links"
+          "ClusteringEnabled"
         ],
         "FeatureType": "Character Marker",
         "Description": "Demonstrates using a single character ('S') as a map marker with pin",
@@ -187,16 +181,14 @@
           "Description",
           "MarkerType",
           "PinEnabled",
-          "ClusteringEnabled",
-          "@epos_links"
+          "ClusteringEnabled"
         ],
         "@epos_data_keys": [
           "FeatureType",
           "Description",
           "MarkerType",
           "PinEnabled",
-          "ClusteringEnabled",
-          "@epos_links"
+          "ClusteringEnabled"
         ],
         "FeatureType": "Character Marker",
         "Description": "Demonstrates using a single character ('S') as a map marker with pin",
@@ -222,16 +214,14 @@
           "Description",
           "MarkerType",
           "PinEnabled",
-          "ClusteringEnabled",
-          "@epos_links"
+          "ClusteringEnabled"
         ],
         "@epos_data_keys": [
           "FeatureType",
           "Description",
           "MarkerType",
           "PinEnabled",
-          "ClusteringEnabled",
-          "@epos_links"
+          "ClusteringEnabled"
         ],
         "FeatureType": "Character Marker",
         "Description": "Demonstrates using a single character ('S') as a map marker with pin",
@@ -300,16 +290,14 @@
           "Description",
           "MarkerType",
           "PinEnabled",
-          "ClusteringEnabled",
-          "@epos_links"
+          "ClusteringEnabled"
         ],
         "@epos_data_keys": [
           "FeatureType",
           "Description",
           "MarkerType",
           "PinEnabled",
-          "ClusteringEnabled",
-          "@epos_links"
+          "ClusteringEnabled"
         ],
         "FeatureType": "Image Overlay",
         "Description": "Demonstrates displaying a geo-referenced image overlay using bounding box coordinates",
