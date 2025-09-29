@@ -27,49 +27,60 @@ All new root JSON objects introduced to support EPOS functionality will be acces
 
 ## Styling: Map Markers and Legends
 
-The EPOS GeoJSON extensions allow for detailed control over the styling and behavior of map markers and the generation of associated legends. This is primarily managed through the `@epos_style` object, which defines styling rules based on the `@epos_type` attribute found within the `properties` of GeoJSON features.
+The EPOS GeoJSON extensions allow for detailed control over the styling and behavior of map markers and the generation of associated legends. This is primarily managed through the `@epos_style` object.
 
-### Example
+The `@epos_style` object can contain a collection of named styles. Each style is an object that defines the appearance and behavior of a marker. The name of the style is used as a key. This allows for multiple different styles to be defined in the same GeoJSON payload.
 
-For instance, if a feature has `@epos_type = station`, it will match the `station` attribute within the `@epos_style` object. This would render stations on the map as pins with an 'S'.
+A feature can then reference one of these styles by setting its `@epos_type` property to the name of the desired style. If a feature's `@epos_type` matches a key in the `@epos_style` object, that style will be applied to the feature.
 
-![Font Awesome marker with pin](/img/fontAwesomeMarkerWithPin.png)
+### Multi-Style Example
 
-A corresponding legend would be generated, looking something like:
+Here is an example of an `@epos_style` object with multiple styles defined. The keys for each style are unique identifiers.
 
-![Font Awesome marker with pin and legend](/img/fontAwesomeMarkerWithPinAndLegend.png)
+**style:**
+
+```json
+" @epos_style": {
+  "quakeml:eu.emsc/event/20250813_0000293": {
+    "label": "quakeml:eu.emsc/event/20250813_0000293",
+    "marker": {
+      "character": "A",
+      "pin": true
+    }
+  },
+  "quakeml:eu.emsc/event/20250813_0000392": {
+    "label": "quakeml:eu.emsc/event/20250813_0000392",
+    "marker": {
+      "character": "B",
+      "pin": true
+    }
+  }
+}
+```
+
+A feature can then use one of these styles by referencing the key in its `@epos_type` property.
 
 **feature:**
 
 ```json
-"features": [
-    {
-        "type": "Feature",
-        "properties": {
-            "@epos_type": "station",//used to lookup @epos_style attributes
-            ...
-        }
-    }
-]
+{
+  "geometry": {
+    "coordinates": [
+      159.679,
+      51.5039
+    ],
+    "type": "Point"
+  },
+  "properties": {
+    ...
+    "@epos_type": "quakeml:eu.emsc/event/20250813_0000293",
+    ...
+  },
+  "type": "Feature"
+}
 ```
 
-### style:
-
-```json
-"type": "FeatureCollection",
-    "@epos_style": {
-        //attribute names to match with @epos_type values
-        "station": {
-            "label": "This is a station", //use for legend
-            "marker": {
-                "character": "S", //character type value
-                "pin": true, //true|false
-                "clustering": true  //true|false
-                //"anchor":"C"  not needed when pin=true
-            }
-        },
-        ...
-```
+In this example, the feature will be styled using the `quakeml:eu.emsc/event/20250813_0000293` style definition from the `@epos_style` object.
 
 ## Style Attributes
 
@@ -85,13 +96,14 @@ Each @epos_type defined in the @epos_style object defines the following:
 
 ## Symbols
 
-The EPOS GeoJSON extensions support three distinct types of map markers, configured by setting the appropriate attribute within the `marker` object of your `@epos_style` definition. Only one symbol type should be specified per marker.
+The EPOS GeoJSON extensions support four distinct types of map markers, configured by setting the appropriate attribute within the `marker` object of your `@epos_style` definition. Only one symbol type should be specified per marker.
 
 | Type                       | Example                   | pin = false                                                              | pin = true                                                           |
 | -------------------------- | ------------------------- | ------------------------------------------------------------------------ | -------------------------------------------------------------------- |
 | `marker.href`              | `www.thing.com/thing.png` | ![Marker href without pin](/img/markerHrefWithoutPin.png)                | ![Marker href with pin](/img/markerHrefWithPin.png)                  |
 | `marker.fontawesome_class` | `fas fa-star`             | ![Font Awesome marker without pin](/img/fontAwesomeMarkerWithoutPin.png) | ![Font Awesome marker with pin](/img/fontAwesomeMarkerWithStar.png)  |
 | `marker.character`         | `S`                       | ![Character marker without pin](/img/markerCharacter.png)                | ![Character marker with pin](/img/fontAwesomeMarkerWithPinSmall.png) |
+| `marker.raw`               | `iVBORw0KGgo...`          | The raw image is rendered as-is.                                         | The raw image is rendered inside a pin.                              |
 
 ### Image Example
 
@@ -133,6 +145,22 @@ The EPOS GeoJSON extensions support three distinct types of map markers, configu
         //"anchor":"C"  not needed when pin=true
     }
 },
+```
+
+### Raw Image Example
+
+This example uses a base64 encoded image as the marker. The `raw` property should contain the raw data of an image, for example a base64 encoded PNG.
+
+```json
+"quakeml:eu.emsc/event/20250813_0000293": {
+  "label": "quakeml:eu.emsc/event/20250813_0000293",
+  "marker": {
+    "anchor": "C",
+    "clustering": false,
+    "pin": false,
+    "raw": "iVBORw0KGgoAAAANSUhEUgAA...ADnoNlQAAAFJklEQVR4nOyd..."
+  }
+}
 ```
 
 ### Symbol Logic

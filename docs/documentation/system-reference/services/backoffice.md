@@ -18,7 +18,7 @@ Previously, managing metadata involved manual editing of complex Turtle files, a
 
 *   **Simplifying Metadata Management:** Eliminating the need for direct interaction with Turtle files or the EPOS-DCAT-AP specification.
 *   **Enabling Direct Manipulation:** Allowing users to create, edit, and publish EPOS Data Model Entities (service descriptions) directly through a user-friendly graphical interface.
-*   **Streamlining Updates:** Facilitating immediate reflection of approved changes in the main Data Portal, without requiring full application redeployments.
+*   **Streamlining Updates:** Facilitating immediate reflection of approved changes in the main Platform GUI, without requiring full application redeployments.
 *   **Ensuring Data Integrity:** Reducing human error through an intuitive interface and built-in validation, while exploiting Git version control for tracking changes.
 
 ## Key Features
@@ -29,7 +29,7 @@ The Backoffice provides a robust set of features for metadata administration:
 *   **Metadata Versioning:** Leverage Git-like version control to track all changes to metadata entities.
 *   **Secure Access Control:** Implement a robust model of groups, users, and roles to manage permissions for metadata operations.
 *   **Metadata Workflow:** Manage metadata through a defined lifecycle (Draft, Submitted, Discarded, Published, Archived) with review and approval processes.
-*   **Metadata Preview:** Review changes in a dedicated preview section before they are published to the main Data Portal.
+*   **Metadata Preview:** Review changes in a dedicated preview section before they are published to the main Platform GUI.
 
 ## Metadata Workflow and Entity Lifecycle
 
@@ -40,7 +40,7 @@ The Backoffice introduces a structured workflow for managing metadata entities, 
 *   **Draft:** The instance has been edited but not yet submitted for review. It can be freely edited or removed.
 *   **Submitted:** The instance has been submitted and is awaiting approval to be published.
 *   **Discarded:** The instance has not been approved by a reviewer and needs further editing. An editor can create a new draft from this state.
-*   **Published:** The instance is public and visible in the production EPOS Data Portal.
+*   **Published:** The instance is public and visible in the production EPOS Platform.
 *   **Archived:** The instance is no longer actively used but is retained for historical purposes, allowing for potential rollbacks.
 
 ### Life Cycle of an Entity

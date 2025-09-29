@@ -2,15 +2,15 @@
 title: User Guide
 ---
 
-# Data Portal User Guide
+# EPOS Platform User Guide
 
-Welcome to the EPOS Platform! This guide is for end-users and will walk you through how to use the Data Portal to discover, visualize, and access the geospatial data services available in the catalogue.
+Welcome to the EPOS Platform! This guide is for end-users and will walk you through how to use the Platform to discover, visualize, and access the geospatial data services available in the catalogue.
 
 ## Discovering Data
 
-The Data Portal is designed to make it easy to find the data you're looking for. You can discover data by either searching or browsing.
+The EPOS Platform is designed to make it easy to find the data you're looking for. You can discover data by either searching or browsing.
 
-![The EPOS Data Portal](/img/dataportal_screenshot.png)
+![The EPOS Platform](/img/dataportal_screenshot.png)
 
 ### Using the Search Bar
 
@@ -24,9 +24,9 @@ The most direct way to find data is to use the search bar at the top of the page
 
 ### Filtering and Browsing
 
-{/* TODO: Expand the "Filtering and Browsing" section. We need to document the advanced filtering capabilities of the data portal. This should include screenshots and examples of filtering spatially, by time, and other. */}
+{/* TODO: Expand the "Filtering and Browsing" section. We need to document the advanced filtering capabilities of the GUI. This should include screenshots and examples of filtering spatially, by time, and other. */}
 
-You can also browse the available services in the catalogue. The portal will display a list of all available data services, which you can explore to see what's available.
+You can also browse the available services in the catalogue. The GUI will display a list of all available data services, which you can explore to see what's available.
 
 ## Visualizing Data
 

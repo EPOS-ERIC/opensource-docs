@@ -113,11 +113,11 @@ For more advanced use cases, you may want to customize the Docker Compose config
 
 Once deployed, you can access the different parts of the platform via your web browser:
 
-*   **Data Portal:** The main user interface for searching and visualizing data.
+*   **Platform GUI:** The main user interface for searching and visualizing data.
     *   Default URL: `http://localhost:32000/`
 *   **API Documentation:** An interactive Swagger UI for the platform's REST API.
     *   Default URL: `http://localhost:33000/api/v1/ui`
 
-![The EPOS Data Portal](/img/dataportal_after_populate.png)
+![The EPOS Platform](/img/dataportal_after_populate.png)
 ![The EPOS APIs](/img/swagger_page.png)
 ![The EPOS Backoffice](/img/backoffice.png)

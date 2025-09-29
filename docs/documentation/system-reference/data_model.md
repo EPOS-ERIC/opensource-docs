@@ -206,7 +206,7 @@ The EPOS Data Model is built around several core concepts, each represented as a
 The EPOS Data Model is central to the platform's functionality:
 
 *   **Metadata Ingestion:** All metadata ingested into the platform (e.g., via `.ttl` files) must conform to this data model.
-*   **Data Discovery:** The Data Portal uses this model to enable comprehensive search and filtering of available data products and services.
+*   **Data Discovery:** The EPOS Platform GUI uses this model to enable comprehensive search and filtering of available data products and services.
 *   **Service Integration:** The model guides how external web services are integrated and how their data is mapped for consistent presentation.
 *   **Data Visualization:** The structure defined by the model informs how data is visualized in the GUI, ensuring that relevant information is displayed effectively.
 

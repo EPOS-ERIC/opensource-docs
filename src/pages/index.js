@@ -18,7 +18,7 @@ function HomepageHeader() {
          <div className={styles.screenshotWrapper}>
           <img
             src="img/dataportal_screenshot.png" 
-            alt="EPOS Data Portal"
+            alt="EPOS Platform GUI"
             className={styles.screenshot}
           />
         </div>
@@ -33,7 +33,7 @@ The <strong>EPOS Platform</strong> is an open-source, service-based data integra
             className={clsx("button button--primary button--lg",styles.dataportalButton)}
             to="https://www.epos-eu.org/dataportal"
           >
-            Data Portal
+            Platform
           </Link>
           <Link
             className={clsx('button button--lg', styles.documentationButton)}
@@ -52,7 +52,7 @@ export default function Home() {
   return (
     <Layout
       title={`${siteConfig.title}`}
-      description="EPOS Open Source - Documentation and Data Portal"
+      description="EPOS Open Source - Documentation"
     >
       <HomepageHeader />
     </Layout>

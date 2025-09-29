@@ -21,6 +21,6 @@ The EPOS Platform natively supports or extends the following key data formats:
 ## Importance of Data Formats in EPOS
 
 *   **Interoperability:** Standardized formats ensure that data can be seamlessly exchanged and understood across different systems and applications.
-*   **Visualization:** The structure of the data format directly influences how it can be visualized in the EPOS Data Portal, enabling interactive maps, charts, and tables.
+*   **Visualization:** The structure of the data format directly influences how it can be visualized in the EPOS Platform, enabling interactive maps, charts, and tables.
 *   **Data Integration:** Understanding the supported formats helps data providers prepare their data for optimal integration into the EPOS ecosystem.
 *   **Extensibility:** The platform's converter service allows for the integration of even more formats through custom plugins, further enhancing its flexibility.

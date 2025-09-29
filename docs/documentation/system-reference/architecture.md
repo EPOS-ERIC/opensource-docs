@@ -19,7 +19,7 @@ flowchart TB
     TCS[TCS Services]
     subgraph EPOS[EPOS System]
         subgraph Clients[ ]
-            GUI[GUI Epos Data Portal]
+            GUI[EPOS Platform GUI]
             Other[Any other client]
             BackofficeGUI[GUI Backoffice]
         end

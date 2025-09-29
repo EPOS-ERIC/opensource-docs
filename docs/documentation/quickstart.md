@@ -85,11 +85,11 @@ epos-opensource docker populate my-epos-platform ./my_sample_data
 
 Congratulations, your EPOS Platform is live!
 
-Open your web browser and go to the **Data Portal URL** provided at the end of the deployment step. The default URL is [http://localhost:32000/](http://localhost:32000/).
+Open your web browser and go to the **EPOS Platform GUI** provided at the end of the deployment step. The default URL is [http://localhost:32000/](http://localhost:32000/).
 
-![The EPOS Data Portal](/img/dataportal_after_populate.png)
+![The EPOS Platform](/img/dataportal_after_populate.png)
 
-You should see the main interface for browsing and searching for geospatial services. The sample metadata will appear on the top-left side of the portal.
+You should see the main interface for browsing and searching for geospatial services. The sample metadata will appear on the top-left side of the interface.
 
 **A quick note:** It might take a few seconds for the sample data to appear after populating. If it doesn't show up, you can try restarting the `resources-service`:
 

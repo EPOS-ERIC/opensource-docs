@@ -19,8 +19,8 @@ The EPOS Platform allows you to create a centralized catalogue of web services, 
 
 ## Key Features
 
-- **Unified Catalogue:** A central discovery portal for all your geospatial data services.
-- **Interactive Visualization:** A web-based data portal with interactive maps for data preview.
+- **Unified Catalogue:** A central discovery interface for all your geospatial data services.
+- **Interactive Visualization:** A web-based platform with interactive maps for data preview.
 - **Broad Format Support:** Native support for OGC standards (WMS, WFS) and common formats (GeoJSON, CoverageJSON).
 - **Extensible Converters:** A plugin-based architecture to transform custom data formats on the fly.
 - **Standardized Metadata:** Uses the EPOS-DCAT-AP standard for rich, searchable service descriptions.
