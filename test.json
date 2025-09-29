@@ -108,74 +108,26 @@
     {
       "type": "Feature",
       "properties": {
-        "@epos_data_keys": [
-          "Name",
-          "Authors",
-          "Volcano ID",
-          "Volcano Lat",
-          "Volcano Long",
-          "Date of creation",
-          "@epos_links"
-        ],
-        "@epos_label_key": "Lava flow inundation Hazard Map EL Hierro Island",
-        "@epos_links": [
-          {
-            "authenticatedDownload": false,
-            "group": "Access to map",
-            "href": "https://volcanichazardmaps.eu/volcanoes/ElHierro/downloads/lavaflow.zip",
-            "label": "lavaflow.zip",
-            "type": ".zip"
-          },
-          {
-            "authenticatedDownload": false,
-            "group": "Png file",
-            "href": "https://volcanichazardmaps.eu/volcanoes/ElHierro/PNG/lavaflow_hazard_map_ElHierro_10mx10m.png",
-            "label": "lavaflow_hazard_map_ElHierro_10mx10m.png",
-            "type": ".png"
-          },
-          {
-            "authenticatedDownload": false,
-            "group": "Tif file",
-            "href": "https://volcanichazardmaps.eu/volcanoes/ElHierro/TIFF/lavaflow_hazard_map_ElHierro_10mx10m.tif",
-            "label": "lavaflow_hazard_map_ElHierro_10mx10m.tif",
-            "type": ".tif"
-          },
-          {
-            "authenticatedDownload": false,
-            "group": "Tif file aux",
-            "href": "https://volcanichazardmaps.eu/volcanoes/ElHierro/TIFF/lavaflow_hazard_map_ElHierro_10mx10m.tif.aux.xml",
-            "label": "lavaflow_hazard_map_ElHierro_10mx10m.tif.aux.xml",
-            "type": ".xml"
-          }
-        ],
+        "@epos_type": "raw_image_marker",
+        "@epos_label_key": "RawMarkerExample",
         "@epos_map_keys": [
-          "Name",
-          "Authors",
-          "Volcano ID",
-          "Volcano Lat",
-          "Volcano Long",
-          "Date of creation"
+          "RawMarkerExample",
+          "Description"
         ],
-        "Authors": "Group of Volcanology of Barcelona -GVB, ICTJA-CSIC",
-        "Date of creation": "2014-07-28 00:00:00",
-        "Name": "Lava flow inundation Hazard Map EL Hierro Island",
-        "Volcano ID": "383020",
-        "Volcano Lat": "27.73°N",
-        "Volcano Long": "18.03°W"
-      },
-      "@epos_image_overlay": {
-        "bbox": [
-          27.63267,
-          -18.15965,
-          27.867939,
-          -17.878188
+        "@epos_data_keys": [
+          "RawMarkerExample",
+          "Description"
         ],
-        "href": "https://placehold.co/400x400?text=Hello+World",
-        "legend": {
-          "href": ""
-        }
+        "RawMarkerExample": "Custom Raw Image Point",
+        "Description": "This point uses a base64 encoded image as its marker."
       },
-      "geometry": null
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.4964,
+          41.9028
+        ]
+      }
     },
     {
       "type": "Feature",
