@@ -37,18 +37,24 @@
         "@epos_map_keys": [
           "FeatureType",
           "Description",
-          "DisplayMechanism",
+          "MarkerType",
+          "PinEnabled",
+          "ClusteringEnabled",
           "@epos_links"
         ],
         "@epos_data_keys": [
           "FeatureType",
           "Description",
-          "DisplayMechanism",
+          "MarkerType",
+          "PinEnabled",
+          "ClusteringEnabled",
           "@epos_links"
         ],
-        "FeatureType": "Seismic Event Example",
-        "Description": "This feature demonstrates the use of a Font Awesome icon as a map marker.",
-        "DisplayMechanism": "Uses 'fas fa-star' icon, without a pin, and clustering is disabled.",
+        "FeatureType": "Font Awesome Icon Marker",
+        "Description": "Demonstrates using a Font Awesome icon (fas fa-star) as a map marker",
+        "MarkerType": "fontawesome_class",
+        "PinEnabled": "false",
+        "ClusteringEnabled": "false",
         "@epos_links": [
           {
             "href": "http://www.africau.edu/images/default/sample.pdf",
@@ -80,16 +86,38 @@
         "@epos_map_keys": [
           "FeatureType",
           "Description",
-          "DisplayMechanism"
+          "MarkerType",
+          "PinEnabled",
+          "ClusteringEnabled",
+          "@epos_links"
         ],
         "@epos_data_keys": [
           "FeatureType",
           "Description",
-          "DisplayMechanism"
+          "MarkerType",
+          "PinEnabled",
+          "ClusteringEnabled",
+          "@epos_links"
         ],
-        "FeatureType": "Seismic Station Example",
-        "Description": "This feature showcases a character-based marker for a seismic station.",
-        "DisplayMechanism": "Uses character 'S' as a marker, with a pin, and clustering is enabled."
+        "FeatureType": "Character Marker",
+        "Description": "Demonstrates using a single character ('S') as a map marker with pin",
+        "MarkerType": "character",
+        "PinEnabled": "true",
+        "ClusteringEnabled": "true",
+        "@epos_links": [
+          {
+            "href": "http://www.africau.edu/images/default/sample.pdf",
+            "label": "Download Full Report (PDF)",
+            "type": "application/pdf",
+            "authenticatedDownload": true
+          },
+          {
+            "href": "https://placehold.co/100x100.png?text=Preview",
+            "label": "Image Preview (PNG)",
+            "type": "image/png",
+            "authenticatedDownload": false
+          }
+        ]
       },
       "geometry": {
         "type": "Point",
@@ -107,16 +135,38 @@
         "@epos_map_keys": [
           "FeatureType",
           "Description",
-          "DisplayMechanism"
+          "MarkerType",
+          "PinEnabled",
+          "ClusteringEnabled",
+          "@epos_links"
         ],
         "@epos_data_keys": [
           "FeatureType",
           "Description",
-          "DisplayMechanism"
+          "MarkerType",
+          "PinEnabled",
+          "ClusteringEnabled",
+          "@epos_links"
         ],
-        "FeatureType": "Raw Image Marker Example",
-        "Description": "This feature demonstrates using a base64 encoded image directly as a marker.",
-        "DisplayMechanism": "Uses a small base64 encoded PNG image, without a pin, and clustering is disabled."
+        "FeatureType": "Base64 Raw Image Marker",
+        "Description": "Demonstrates using a base64 encoded PNG image directly as a marker",
+        "MarkerType": "raw",
+        "PinEnabled": "false",
+        "ClusteringEnabled": "false",
+        "@epos_links": [
+          {
+            "href": "http://www.africau.edu/images/default/sample.pdf",
+            "label": "Download Full Report (PDF)",
+            "type": "application/pdf",
+            "authenticatedDownload": true
+          },
+          {
+            "href": "https://placehold.co/100x100.png?text=Preview",
+            "label": "Image Preview (PNG)",
+            "type": "image/png",
+            "authenticatedDownload": false
+          }
+        ]
       },
       "geometry": {
         "type": "Point",
@@ -134,16 +184,38 @@
         "@epos_map_keys": [
           "FeatureType",
           "Description",
-          "DisplayMechanism"
+          "MarkerType",
+          "PinEnabled",
+          "ClusteringEnabled",
+          "@epos_links"
         ],
         "@epos_data_keys": [
           "FeatureType",
           "Description",
-          "DisplayMechanism"
+          "MarkerType",
+          "PinEnabled",
+          "ClusteringEnabled",
+          "@epos_links"
         ],
-        "FeatureType": "Image Overlay Example",
-        "Description": "This feature illustrates how to display a geo-referenced image as an overlay on the map.",
-        "DisplayMechanism": "Image overlay defined by a bounding box. Geometry is null as per overlay specification."
+        "FeatureType": "Image Overlay",
+        "Description": "Demonstrates displaying a geo-referenced image overlay using bounding box coordinates",
+        "MarkerType": "image_overlay",
+        "PinEnabled": "N/A (overlay uses bbox)",
+        "ClusteringEnabled": "N/A (overlay uses bbox)",
+        "@epos_links": [
+          {
+            "href": "http://www.africau.edu/images/default/sample.pdf",
+            "label": "Download Full Report (PDF)",
+            "type": "application/pdf",
+            "authenticatedDownload": true
+          },
+          {
+            "href": "https://placehold.co/100x100.png?text=Preview",
+            "label": "Image Preview (PNG)",
+            "type": "image/png",
+            "authenticatedDownload": false
+          }
+        ]
       },
       "@epos_image_overlay": {
         "href": "https://placehold.co/800x600.png?text=Image+Overlay",
@@ -161,3 +233,4 @@
     }
   ]
 }
+
