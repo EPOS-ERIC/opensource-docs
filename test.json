@@ -153,10 +153,10 @@
       "@epos_image_overlay": {
         "href": "https://placehold.co/800x600.png?text=Image+Overlay",
         "bbox": [
-          22.63267,
-          -23.15965,
-          32.867939,
-          -12.878188
+          36.68169,
+          12.42425,
+          39.908134,
+          15.650694
         ],
 
         "legend": {
