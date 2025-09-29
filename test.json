@@ -57,9 +57,9 @@
         "ClusteringEnabled": "false",
         "@epos_links": [
           {
-            "href": "https://placehold.co/100x100.png?text=Preview",
-            "label": "Image Preview (PNG)",
-            "type": "image/png",
+            "href": "https://www.example.com",
+            "label": "Example Link",
+            "type": "text/html",
             "authenticatedDownload": false
           }
         ]
@@ -315,9 +315,9 @@
         "ClusteringEnabled": "false",
         "@epos_links": [
           {
-            "href": "https://placehold.co/100x100.png?text=Preview",
-            "label": "Image Preview (PNG)",
-            "type": "image/png",
+            "href": "https://www.example.com",
+            "label": "Example Link",
+            "type": "text/html",
             "authenticatedDownload": false
           }
         ]
@@ -358,9 +358,9 @@
         "ClusteringEnabled": "N/A (overlay uses bbox)",
         "@epos_links": [
           {
-            "href": "https://placehold.co/100x100.png?text=Preview",
-            "label": "Image Preview (PNG)",
-            "type": "image/png",
+            "href": "https://www.example.com",
+            "label": "Example Link",
+            "type": "text/html",
             "authenticatedDownload": false
           }
         ]
