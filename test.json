@@ -57,12 +57,6 @@
         "ClusteringEnabled": "false",
         "@epos_links": [
           {
-            "href": "http://www.africau.edu/images/default/sample.pdf",
-            "label": "Download Full Report (PDF)",
-            "type": "application/pdf",
-            "authenticatedDownload": true
-          },
-          {
             "href": "https://placehold.co/100x100.png?text=Preview",
             "label": "Image Preview (PNG)",
             "type": "image/png",
@@ -105,12 +99,6 @@
         "PinEnabled": "true",
         "ClusteringEnabled": "true",
         "@epos_links": [
-          {
-            "href": "http://www.africau.edu/images/default/sample.pdf",
-            "label": "Download Full Report (PDF)",
-            "type": "application/pdf",
-            "authenticatedDownload": true
-          },
           {
             "href": "https://placehold.co/100x100.png?text=Preview",
             "label": "Image Preview (PNG)",
@@ -155,12 +143,6 @@
         "ClusteringEnabled": "false",
         "@epos_links": [
           {
-            "href": "http://www.africau.edu/images/default/sample.pdf",
-            "label": "Download Full Report (PDF)",
-            "type": "application/pdf",
-            "authenticatedDownload": true
-          },
-          {
             "href": "https://placehold.co/100x100.png?text=Preview",
             "label": "Image Preview (PNG)",
             "type": "image/png",
@@ -203,12 +185,6 @@
         "PinEnabled": "N/A (overlay uses bbox)",
         "ClusteringEnabled": "N/A (overlay uses bbox)",
         "@epos_links": [
-          {
-            "href": "http://www.africau.edu/images/default/sample.pdf",
-            "label": "Download Full Report (PDF)",
-            "type": "application/pdf",
-            "authenticatedDownload": true
-          },
           {
             "href": "https://placehold.co/100x100.png?text=Preview",
             "label": "Image Preview (PNG)",
