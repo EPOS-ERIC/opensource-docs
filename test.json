@@ -33,27 +33,29 @@
       "type": "Feature",
       "properties": {
         "@epos_type": "event_fa",
-        "@epos_label_key": "EventTitle",
+        "@epos_label_key": "FeatureType",
         "@epos_map_keys": [
-          "EventTitle",
-          "Magnitude",
-          "Depth",
+          "FeatureType",
           "Description",
-          "@epos_links"
+          "LocationDetails",
+          "TechnicalInfo",
+          "DisplayOptions",
+          "AssociatedLinks"
         ],
         "@epos_data_keys": [
-          "EventTitle",
-          "Magnitude",
-          "Depth",
-          "Timestamp",
-          "@epos_links"
+          "FeatureType",
+          "Description",
+          "LocationDetails",
+          "TechnicalInfo",
+          "DisplayOptions",
+          "AssociatedLinks"
         ],
-        "EventTitle": "Major Earthquake in Pacific",
-        "Magnitude": 7.2,
-        "Depth": "15 km",
-        "Timestamp": "2025-09-29T10:30:00Z",
-        "Description": "A significant seismic event recorded near the Ring of Fire. <br> <i>Further analysis pending.</i>",
-        "@epos_links": [
+        "FeatureType": "Seismic Event Example",
+        "Description": "Demonstrates a seismic event using a Font Awesome star marker.",
+        "LocationDetails": "Coordinates: [2.3522, 48.8566] (Paris, France)",
+        "TechnicalInfo": "Magnitude: 7.2, Depth: 15 km, Timestamp: 2025-09-29T10:30:00Z",
+        "DisplayOptions": "Marker: Font Awesome 'fas fa-star', No Pin, No Clustering",
+        "AssociatedLinks": [
           {
             "href": "http://www.africau.edu/images/default/sample.pdf",
             "label": "Download Full Report",
@@ -80,22 +82,27 @@
       "type": "Feature",
       "properties": {
         "@epos_type": "station_char",
-        "@epos_label_key": "StationName",
+        "@epos_label_key": "FeatureType",
         "@epos_map_keys": [
-          "StationName",
-          "Location",
-          "OperatingSince"
+          "FeatureType",
+          "Description",
+          "LocationDetails",
+          "TechnicalInfo",
+          "DisplayOptions"
         ],
         "@epos_data_keys": [
-          "StationName",
-          "Location",
-          "OperatingSince",
-          "SensorType"
+          "FeatureType",
+          "Description",
+          "LocationDetails",
+          "TechnicalInfo",
+          "DisplayOptions"
         ],
-        "StationName": "EPOS Monitoring Station Alpha",
-        "Location": "Andes Mountains",
-        "OperatingSince": "2020-01-01",
-        "SensorType": "Broadband Seismometer"
+        "FeatureType": "Seismic Station Example",
+        "Description": "Illustrates a seismic monitoring station with a character marker.",
+        "LocationDetails": "Coordinates: [13.4050, 52.5200] (Berlin, Germany)",
+        "TechnicalInfo": "Operating Since: 2020-01-01, Sensor Type: Broadband Seismometer",
+        "DisplayOptions": "Marker: Character 'S', With Pin, With Clustering",
+        "AssociatedLinks": []
       },
       "geometry": {
         "type": "Point",
@@ -109,17 +116,27 @@
       "type": "Feature",
       "properties": {
         "@epos_type": "raw_image_marker",
-        "@epos_label_key": "RawMarkerExample",
+        "@epos_label_key": "FeatureType",
         "@epos_map_keys": [
-          "RawMarkerExample",
-          "Description"
+          "FeatureType",
+          "Description",
+          "LocationDetails",
+          "TechnicalInfo",
+          "DisplayOptions"
         ],
         "@epos_data_keys": [
-          "RawMarkerExample",
-          "Description"
+          "FeatureType",
+          "Description",
+          "LocationDetails",
+          "TechnicalInfo",
+          "DisplayOptions"
         ],
-        "RawMarkerExample": "Custom Raw Image Point",
-        "Description": "This point uses a base64 encoded image as its marker."
+        "FeatureType": "Raw Image Marker Example",
+        "Description": "Shows how to use a base64 encoded image as a custom marker.",
+        "LocationDetails": "Coordinates: [12.4964, 41.9028] (Rome, Italy)",
+        "TechnicalInfo": "Marker Data: Base64 encoded 5x5 PNG",
+        "DisplayOptions": "Marker: Raw Image, No Pin, No Clustering",
+        "AssociatedLinks": []
       },
       "geometry": {
         "type": "Point",
@@ -133,22 +150,29 @@
       "type": "Feature",
       "properties": {
         "@epos_type": "overlay",
-        "@epos_label_key": "OverlayName",
+        "@epos_label_key": "FeatureType",
         "@epos_map_keys": [
-          "OverlayName",
+          "FeatureType",
           "Description",
-          "Source"
+          "LocationDetails",
+          "TechnicalInfo",
+          "AcquisitionDate",
+          "AssociatedLinks"
         ],
         "@epos_data_keys": [
-          "OverlayName",
+          "FeatureType",
           "Description",
-          "Source",
-          "DateAcquired"
+          "LocationDetails",
+          "TechnicalInfo",
+          "AcquisitionDate",
+          "AssociatedLinks"
         ],
-        "OverlayName": "Satellite Imagery of Mount Etna",
-        "Description": "Recent satellite imagery showing volcanic activity.",
-        "Source": "European Space Agency",
-        "DateAcquired": "2025-09-20"
+        "FeatureType": "Image Overlay Example",
+        "Description": "Demonstrates displaying a geo-referenced image directly on the map.",
+        "LocationDetails": "Bounding Box: [35.861734, 12.42425, 39.088178, 15.650694] (Mount Etna region)",
+        "TechnicalInfo": "Image URL: https://placehold.co/800x600.png, Legend URL: https://placehold.co/150x50.png",
+        "AcquisitionDate": "2025-09-20",
+        "AssociatedLinks": []
       },
       "@epos_image_overlay": {
         "href": "https://placehold.co/800x600.png?text=Image+Overlay",
