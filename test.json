@@ -303,7 +303,7 @@
         "Description": "Demonstrates displaying a geo-referenced image overlay using bounding box coordinates",
         "MarkerType": "image_overlay",
         "PinEnabled": "N/A (overlay uses bbox)",
-        "ClusteringEnabled": "N/A (overlay uses bbox)",
+        "ClusteringEnabled": "N/A (overlay uses bbox)"
       },
       "@epos_image_overlay": {
         "href": "https://placehold.co/800x600.png?text=Image+Overlay",
