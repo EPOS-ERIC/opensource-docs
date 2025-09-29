@@ -25,8 +25,10 @@ First, you need to install the `epos-opensource` command-line interface (CLI). T
 
 <Tabs>
   <TabItem value="linux-macos" label="Linux / macOS">
-    <p>You can install the CLI with a single command in your terminal:</p>
-    <pre><code>curl -fsSL https://raw.githubusercontent.com/epos-eu/epos-opensource/main/install.sh | bash</code></pre>
+        You can install the CLI with a single command in your terminal:
+        ```bash
+        curl -fsSL https://raw.githubusercontent.com/epos-eu/epos-opensource/main/install.sh | bash
+        ```
   </TabItem>
   <TabItem value="windows" label="Windows">
     <p>For Windows, you'll download the command-line tool directly:</p>
@@ -37,7 +39,9 @@ First, you need to install the `epos-opensource` command-line interface (CLI). T
       <li>Move this file to a memorable location, for example, <code>C:\epos</code>.</li>
     </ol>
     <p>To use the CLI, you will need to open a terminal (like Command Prompt or PowerShell) and navigate to the folder where you saved <code>epos-opensource.exe</code>. For example:</p>
-    <pre><code>cd C:\epos</code></pre>
+        ```
+cd C:\epos
+        ```
     <p>All subsequent <code>epos-opensource</code> commands in this guide should be run from that terminal session.</p>
   </TabItem>
 </Tabs>
