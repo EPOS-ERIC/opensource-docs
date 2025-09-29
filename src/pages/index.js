@@ -9,16 +9,16 @@ import styles from './index.module.css';
 
 // --- Data for Sections ---
 const provenInProductionLinks = [
-	{ label: 'EPOS ERIC', href: '#' },
-	{ label: 'ENVRI Hub-Next', href: '#' },
-	{ label: 'IPSES', href: '#' },
+	{ label: 'EPOS ERIC', href: 'https://www.ics-c.epos-eu.org/' },
+	{ label: 'ENVRI-Hub NEXT', href: 'https://catalogue.staging.envri.eu/' },
+	{ label: 'IPSES', href: 'https://prod.ipses-softdth.it:9091/' },
 ];
 
 const featureList = [
 	{
 		title: 'A Modern Map-Based Interface',
 		imageUrl: '/img/dataportal_screenshot.png',
-		    description: 'Search, discover, and visualize geospatial data through an intuitive and modern web portal. This interface was originally developed for and is proven in the production environment of EPOS ERIC. Built for researchers and data scientists.',		link: '/documentation/guides/user-guide',
+		description: 'Search, discover, and visualize geospatial data through an intuitive and modern web portal. This interface was originally developed for and is proven in the production environment of EPOS ERIC. Built for researchers and data scientists.', link: '/documentation/guides/user-guide',
 		linkLabel: 'Read the User Guide',
 	},
 	{
@@ -68,8 +68,8 @@ function SeeItInActionSection() {
 	return (
 		<section className={styles.seeItInAction}>
 			<div className="container">
-				        <Heading as="h3" className="text--center">Who's Using EPOS?</Heading>				<div className={styles.actionLinks}>
-					{provenInProductionLinks.map((link, idx) => <a key={idx} href={link.href}>{link.label}</a>)}
+				<Heading as="h3" className="text--center">Who's Using EPOS?</Heading>				<div className={styles.actionLinks}>
+					{provenInProductionLinks.map((link, idx) => <a key={idx} href={link.href} target="_blank" rel="noopener noreferrer">{link.label}</a>)}
 				</div>
 			</div>
 		</section>

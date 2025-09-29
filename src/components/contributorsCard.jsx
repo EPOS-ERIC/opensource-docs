@@ -23,7 +23,7 @@ export default function ContributorCard({ name, role, href, avatar }) {
         fontSize: 18,
         fontWeight: 600,
         color: '#fff',
-        background: '#6b7280',
+        background: 'var(--ifm-color-primary)',
         overflow: 'hidden'
       }}>
         {avatar

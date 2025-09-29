@@ -2,13 +2,13 @@
 
 /* Base Variables & Overrides */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-primary: #004926;
+  --ifm-color-primary-dark: #004122;
+  --ifm-color-primary-darker: #003c20;
+  --ifm-color-primary-darkest: #00321a;
+  --ifm-color-primary-light: #00512a;
+  --ifm-color-primary-lighter: #00562c;
+  --ifm-color-primary-lightest: #006432;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
@@ -44,19 +44,19 @@
 /*Dark Mode*/
 [data-theme='dark'] {
   /* Backgrounds */
-  --ifm-background-color: #000000;          /* Main page background */
-  --ifm-background-surface-color: #121212;  /* Cards, panels, surfaces */
-  --ifm-color-emphasis-100: #1a1a1a;        /* Highlighted panels */
-  --ifm-color-emphasis-200: #222222;        /* Slightly lighter surfaces */
+  --ifm-background-color: #0d1117;          /* Main page background */
+  --ifm-background-surface-color: #161b22;  /* Cards, panels, surfaces */
+  --ifm-color-emphasis-100: #161b22;        /* For first-level section backgrounds */
+  --ifm-color-emphasis-200: #21262d;        /* For second-level section backgrounds */
   
   /* Primary colors (green) */
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  --ifm-color-primary: #2ecc71;
+  --ifm-color-primary-dark: #29b765;
+  --ifm-color-primary-darker: #27ad60;
+  --ifm-color-primary-darkest: #208f4f;
+  --ifm-color-primary-light: #33e17d;
+  --ifm-color-primary-lighter: #35e481;
+  --ifm-color-primary-lightest: #4be992;
   
   /* Text colors */
   --ifm-font-color-base: #ffffff;           /* Main text */

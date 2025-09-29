@@ -1,6 +1,6 @@
 /* Hero Section */
 .heroBanner {
-  background-color: #fff;
+  background-color: var(--ifm-background-color);
   padding: 4rem 0;
   text-align: center;
   position: relative;
