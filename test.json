@@ -165,12 +165,12 @@
       },
       "@epos_image_overlay": {
         "bbox": [
-          27.867939,
-          -18.15965,
           27.63267,
+          -18.15965,
+          27.867939,
           -17.878188
         ],
-        "href": "https://volcanichazardmaps.eu/volcanoes/ElHierro/PNG/lavaflow_hazard_map_ElHierro_10mx10m.png",
+        "href": "https://placehold.co/400x400?text=Hello+World",
         "legend": {
           "href": ""
         }
