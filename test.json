@@ -37,34 +37,28 @@
         "@epos_map_keys": [
           "FeatureType",
           "Description",
-          "LocationDetails",
-          "TechnicalInfo",
-          "DisplayOptions",
-          "AssociatedLinks"
+          "DisplayMechanism",
+          "@epos_links"
         ],
         "@epos_data_keys": [
           "FeatureType",
           "Description",
-          "LocationDetails",
-          "TechnicalInfo",
-          "DisplayOptions",
-          "AssociatedLinks"
+          "DisplayMechanism",
+          "@epos_links"
         ],
         "FeatureType": "Seismic Event Example",
-        "Description": "Demonstrates a seismic event using a Font Awesome star marker.",
-        "LocationDetails": "Coordinates: [2.3522, 48.8566] (Paris, France)",
-        "TechnicalInfo": "Magnitude: 7.2, Depth: 15 km, Timestamp: 2025-09-29T10:30:00Z",
-        "DisplayOptions": "Marker: Font Awesome 'fas fa-star', No Pin, No Clustering",
-        "AssociatedLinks": [
+        "Description": "This feature demonstrates the use of a Font Awesome icon as a map marker.",
+        "DisplayMechanism": "Uses 'fas fa-star' icon, without a pin, and clustering is disabled.",
+        "@epos_links": [
           {
             "href": "http://www.africau.edu/images/default/sample.pdf",
-            "label": "Download Full Report",
+            "label": "Download Full Report (PDF)",
             "type": "application/pdf",
             "authenticatedDownload": true
           },
           {
             "href": "https://placehold.co/100x100.png?text=Preview",
-            "label": "Seismic Data Preview",
+            "label": "Image Preview (PNG)",
             "type": "image/png",
             "authenticatedDownload": false
           }
@@ -86,23 +80,16 @@
         "@epos_map_keys": [
           "FeatureType",
           "Description",
-          "LocationDetails",
-          "TechnicalInfo",
-          "DisplayOptions"
+          "DisplayMechanism"
         ],
         "@epos_data_keys": [
           "FeatureType",
           "Description",
-          "LocationDetails",
-          "TechnicalInfo",
-          "DisplayOptions"
+          "DisplayMechanism"
         ],
         "FeatureType": "Seismic Station Example",
-        "Description": "Illustrates a seismic monitoring station with a character marker.",
-        "LocationDetails": "Coordinates: [13.4050, 52.5200] (Berlin, Germany)",
-        "TechnicalInfo": "Operating Since: 2020-01-01, Sensor Type: Broadband Seismometer",
-        "DisplayOptions": "Marker: Character 'S', With Pin, With Clustering",
-        "AssociatedLinks": []
+        "Description": "This feature showcases a character-based marker for a seismic station.",
+        "DisplayMechanism": "Uses character 'S' as a marker, with a pin, and clustering is enabled."
       },
       "geometry": {
         "type": "Point",
@@ -120,23 +107,16 @@
         "@epos_map_keys": [
           "FeatureType",
           "Description",
-          "LocationDetails",
-          "TechnicalInfo",
-          "DisplayOptions"
+          "DisplayMechanism"
         ],
         "@epos_data_keys": [
           "FeatureType",
           "Description",
-          "LocationDetails",
-          "TechnicalInfo",
-          "DisplayOptions"
+          "DisplayMechanism"
         ],
         "FeatureType": "Raw Image Marker Example",
-        "Description": "Shows how to use a base64 encoded image as a custom marker.",
-        "LocationDetails": "Coordinates: [12.4964, 41.9028] (Rome, Italy)",
-        "TechnicalInfo": "Marker Data: Base64 encoded 5x5 PNG",
-        "DisplayOptions": "Marker: Raw Image, No Pin, No Clustering",
-        "AssociatedLinks": []
+        "Description": "This feature demonstrates using a base64 encoded image directly as a marker.",
+        "DisplayMechanism": "Uses a small base64 encoded PNG image, without a pin, and clustering is disabled."
       },
       "geometry": {
         "type": "Point",
@@ -154,25 +134,16 @@
         "@epos_map_keys": [
           "FeatureType",
           "Description",
-          "LocationDetails",
-          "TechnicalInfo",
-          "AcquisitionDate",
-          "AssociatedLinks"
+          "DisplayMechanism"
         ],
         "@epos_data_keys": [
           "FeatureType",
           "Description",
-          "LocationDetails",
-          "TechnicalInfo",
-          "AcquisitionDate",
-          "AssociatedLinks"
+          "DisplayMechanism"
         ],
         "FeatureType": "Image Overlay Example",
-        "Description": "Demonstrates displaying a geo-referenced image directly on the map.",
-        "LocationDetails": "Bounding Box: [35.861734, 12.42425, 39.088178, 15.650694] (Mount Etna region)",
-        "TechnicalInfo": "Image URL: https://placehold.co/800x600.png, Legend URL: https://placehold.co/150x50.png",
-        "AcquisitionDate": "2025-09-20",
-        "AssociatedLinks": []
+        "Description": "This feature illustrates how to display a geo-referenced image as an overlay on the map.",
+        "DisplayMechanism": "Image overlay defined by a bounding box. Geometry is null as per overlay specification."
       },
       "@epos_image_overlay": {
         "href": "https://placehold.co/800x600.png?text=Image+Overlay",
