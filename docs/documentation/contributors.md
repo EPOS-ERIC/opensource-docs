@@ -7,7 +7,9 @@ import ContributorCard from '@site/src/components/contributorsCard';
 
 # Meet the Team
 
-EPOS open source projects thrive on collaboration and the collective efforts of diverse individuals from around the world. Contributors bring their unique skills, perspectives, and expertise to create , build, improve, and maintain software that benefits the broader community. These contributions can range from writing code, fixing bugs, and improving documentation to designing user interfaces, testing features, and providing feedback. By participating in EPOS open source, people not only help create accessible, innovative, and sustainable solutions but also gain valuable experience, enhance their technical skills, and build a global network of like-minded professionals. Together, they foster a spirit of knowledge sharing and innovation that drives the EPOS open source movement forward.
+The EPOS open-source platform is built by a diverse team of contributors from across the globe. The individuals listed on this page have shaped the project through a wide range of contributions: from writing code and fixing bugs to improving documentation and testing new features.
+
+Their collective effort is what makes it possible to provide a free and open platform for integrating geospatial data. We are immensely grateful for their dedication and for fostering a spirit of innovation and knowledge sharing within the geoscience community.
 
 {(() => {
 const contributors = [

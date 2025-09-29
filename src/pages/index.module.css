@@ -1,120 +1,96 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
-
-/* --- Hero Section --- */
+/* Hero Section */
 .heroBanner {
+  background-color: #fff;
   padding: 4rem 0;
-  background: var(--ifm-background-color); /* responsive to dark/light mode */
-  transition: background-color 0.3s ease;
   text-align: center;
-  margin-bottom: 10rem;
+  position: relative;
 }
 
-/* Logo */
 .heroLogo {
-  height: 200px;
+  max-width: 200px;
   margin-bottom: 1rem;
 }
 
-/* Title & Subtitle */
-.hero__title {
-  font-size: 2.5rem;
+.heroTitle {
+  font-size: 3rem;
   font-weight: 700;
 }
 
-.hero__subtitle {
-  font-size: 1.2rem;
-  color: #555;
-  margin-bottom: 2rem;
+.heroSubtitle {
+  font-size: 1.25rem;
+  max-width: 650px;
+  margin: 1rem auto 2rem auto;
+  color: var(--ifm-color-secondary-darkest);
 }
 
-/* Description */
-.heroDescription {
-  font-size: 1.5rem;          /* bigger text */
-  font-weight: 400;           /* medium weight */
-  color: #222;                /* dark text for light mode */
-  margin: 1.5rem auto 2.5rem auto;
-  max-width: 900px;           /* wider text block */
-  line-height: 1.8;           /* more breathing space */
-  text-align: center;         /* centered */
-  transition: color 0.3s ease;
-}
-
-.heroDescription strong {
-  color: #236943;             /* accent color for key words */
-}
-
-/* Dark mode description */
-html[data-theme='dark'] .heroDescription {
-  color: #ddd;                /* light text in dark mode */
-}
-
-html[data-theme='dark'] .heroDescription strong {
-  color: #e5a10e;             /* bright accent in dark mode */
-}
-
-/* --- Buttons --- */
 .buttons {
-  margin: 2rem 0;
   display: flex;
-  gap: 1rem;
+  align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-}
-.dataportalButton {
-  background-color: #33925d; 
-  border-color: #33925d;     
-}
-.dataportalButton:hover {
-  background-color: #33925d; 
-  border-color: #33925d;     
-}
-.documentationButton {
-  background-color: #e5a10e; 
-  border-color: #e5a10e;     
+  gap: 1rem;
 }
 
-.documentationButton:hover {
-  background-color: #d4940d; 
-  border-color: #d4940d;
+
+/* See It In Action Section */
+.seeItInAction {
+  padding: 2rem 0;
+  background-color: var(--ifm-color-emphasis-100);
 }
 
-/* Primary button overrides for dark mode */
-html[data-theme='dark'] .button--primary {
-  background-color: var(--ifm-color-primary);
-  color: #000;
+.seeItInAction h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ifm-color-secondary-darkest);
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
-html[data-theme='dark'] .button--primary:hover {
-  background-color: var(--ifm-color-primary-light);
+.actionLinks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 1rem;
 }
 
-/* Secondary button overrides for dark mode */
-html[data-theme='dark'] .button--secondary {
-  background-color: var(--ifm-color-primary-lightest);
-  color: #000;
+.actionLinks a {
+  font-weight: 600;
+  color: var(--ifm-color-secondary-darkest);
 }
 
-html[data-theme='dark'] .button--secondary:hover {
-  background-color: var(--ifm-color-primary-lighter);
+/* Features Section */
+.featuresSection {
+  padding: 5rem 0;
 }
 
-/* --- Screenshot --- */
-.screenshotWrapper {
-  margin-top: 3rem;
+.featureRow {
+  align-items: center;
+  margin-bottom: 5rem;
 }
 
-.screenshot {
-  width: 100%;
-  max-width: 1000px;
+.featureRow:last-child {
+  margin-bottom: 0;
+}
+
+.featureRowReversed {
+  flex-direction: row-reverse;
+}
+
+.featureImage {
+  max-width: 100%;
   border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  transition: box-shadow 0.3s ease;
-  margin: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-html[data-theme='dark'] .screenshot {
-  box-shadow: 0 8px 20px rgba(255,255,255,0.05);
+.featureTextContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Community Section */
+.communitySection {
+  padding: 4rem 0;
+  background-color: var(--ifm-color-emphasis-200);
+  text-align: center;
 }

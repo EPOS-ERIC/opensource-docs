@@ -1,11 +1,13 @@
-.features {
-  display: flex;
-  align-items: center;
-  padding: 2rem 0;
-  width: 100%;
+.featureCard {
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  height: 100%;
 }
 
-.featureSvg {
-  height: 200px;
-  width: 200px;
+.featureCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  text-decoration: none;
+  color: var(--ifm-color-primary);
 }

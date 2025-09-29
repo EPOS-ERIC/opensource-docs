@@ -173,7 +173,7 @@ const config = {
 						],
 					},
 				],
-				copyright: `Copyright © ${new Date().getFullYear()} EPOS Open Source`,
+				copyright: `Copyright © ${new Date().getFullYear()} EPOS Open Source. Released under the <a href="/documentation/license">GPLv3 license</a>.`,
 			},
 			prism: {
 				theme: prismThemes.github,
