@@ -42,7 +42,7 @@ The map allows you to:
 
 {/* TODO: Add a more detailed screenshot or a diagram that labels the different parts of the map interface, like the layer controls, time slider, and feature popups. */}
 
-![Data Visualization on the map](/img/dataportal_after_populate.png)
+![Data Visualization on the map](/img/dataportal_example_1.png)
 
 {/* TODO: Add a section on "Table View" for visualizing data in a tabular format. Explain how to sort, filter, and export data from the table. Include screenshots. */}
 

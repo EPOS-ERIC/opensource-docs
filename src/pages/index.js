@@ -17,7 +17,7 @@ const provenInProductionLinks = [
 const featureList = [
 	{
 		title: 'A Modern Map-Based Interface',
-		imageUrl: '/img/dataportal_screenshot.png',
+		imageUrl: '/img/dataportal_example.png',
 		description: 'Search, discover, and visualize geospatial data through an intuitive and modern web portal. This interface was originally developed for and is proven in the production environment of EPOS ERIC. Built for researchers and data scientists.', link: '/documentation/guides/user-guide',
 		linkLabel: 'Read the User Guide',
 	},
