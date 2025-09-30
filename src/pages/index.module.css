@@ -37,19 +37,23 @@
   background-color: var(--ifm-color-emphasis-100);
 }
 
-.seeItInAction h3 {
-  font-size: 1rem;
+.seeItInAction img{
+  width: 200px;
+}
+
+.seeItInAction h2 {
   font-weight: 600;
   color: var(--ifm-color-secondary-darkest);
   letter-spacing: 1px;
   text-transform: uppercase;
+  margin-bottom: 25px;
 }
 
 .actionLinks {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 6rem;
   margin-top: 1rem;
 }
 
