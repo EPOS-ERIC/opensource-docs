@@ -75,6 +75,11 @@ const config = {
 						label: 'Contributors',
 					},
 					{
+						href: 'https://www.epos-eu.org/',
+						label: 'EPOS EU',
+						position: 'right',
+					},
+					{
 						href: 'https://github.com/epos-eu',
 						label: 'GitHub',
 						position: 'right',

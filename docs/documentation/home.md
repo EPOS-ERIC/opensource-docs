@@ -1,10 +1,10 @@
 ---
 sidebar_position: 1
 id: home
-title: EPOS Platform Documentation
+title: EPOS Platform Open Source
 ---
 
-# EPOS Platform Opensource
+# EPOS Platform Open Source
 
 Welcome to the official documentation for the EPOS Platform, an open-source, self-hostable system for integrating and managing geospatial data services.
 
