@@ -10,15 +10,16 @@ import styles from './index.module.css';
 // --- Data for Sections ---
 const provenInProductionLinks = [
 	{ label: 'EPOS ERIC', href: 'http://www.ics-c.epos-eu.org/', src: 'img/epos-logo.svg' },
-	{ label: 'ENVRI-Hub NEXT', href: 'https://catalogue.staging.envri.eu/', src:'img/envri-hub-next-logo.png' },
-	{ label: 'IPSES', href: 'https://prod.ipses-softdth.it:9091/', src:'img/ipses-logo.png' },
+	{ label: 'ENVRI-Hub NEXT', href: 'https://catalogue.staging.envri.eu/', src: 'img/envri-hub-next-logo.png' },
+	{ label: 'IPSES', href: 'https://prod.ipses-softdth.it:9091/', src: 'img/ipses-logo.png' },
 ];
 
 const featureList = [
 	{
 		title: 'A Modern Map-Based Interface',
 		imageUrl: '/img/dataportal_screenshot.png',
-		description: 'Search, discover, and visualize geospatial data through an intuitive and modern web portal. This interface was originally developed for and is proven in the production environment of EPOS ERIC. Built for researchers and data scientists.', link: '/documentation/guides/user-guide',
+		description: 'Search, discover, and visualize geospatial data through an intuitive and modern web portal. This interface was originally developed for and is proven in the production environment of EPOS ERIC. Built for researchers and data scientists.',
+		link: '/documentation/guides/user-guide',
 		linkLabel: 'Read the User Guide',
 	},
 	{
@@ -29,6 +30,22 @@ const featureList = [
 		linkLabel: 'Explore Back-Office Docs',
 		isReversed: true,
 	},
+	{
+		title: 'Contribute & Extend',
+		imageUrl: '/img/components.png',
+		description: 'Built on modern microservices architecture using Docker and Kubernetes. Extend the platform with custom services, contribute improvements, report issues, or fork it for your own research infrastructure needs.',
+		link: '/documentation/contributors',
+		linkLabel: 'Learn how to contribute',
+		isReversed: false,
+	},
+	{
+		title: 'Free & Open Source',
+		imageUrl: '/img/epos-github.png',
+		description: 'The entire EPOS Platform is released under GPL v3, making it completely free to deploy, modify, and use for your research infrastructure. Every component and library is open source and community-owned.',
+		link: '/documentation/license',
+		linkLabel: 'View License Details',
+		isReversed: true,
+	}
 ];
 
 // --- Reusable Components ---
@@ -53,7 +70,7 @@ function HeroSection() {
 		<header className={clsx('hero', styles.heroBanner)}>
 			<div className="container">
 				<img src={useBaseUrl('/img/epos-logo.svg')} alt="EPOS Logo" className={styles.heroLogo} />
-				<Heading as="h1" className={styles.heroTitle}>EPOS Platform</Heading>
+				<Heading as="h1" className={styles.heroTitle}>EPOS Platform Open Source</Heading>
 				<p className={styles.heroSubtitle}>The EPOS Platform is an open-source, service-based data integration and visualization system built on a microservices architecture.</p>
 				<div className={styles.buttons}>
 					<Link className="button button--primary button--lg" to="/documentation/quickstart">Quickstart</Link>
@@ -61,19 +78,6 @@ function HeroSection() {
 				</div>
 			</div>
 		</header>
-	);
-}
-
-function SeeItInActionSection() {
-	return (
-		<section className={styles.seeItInAction}>
-			<div className="container">
-				<Heading as="h2" className="text--center">Powered by EPOS OpenSource</Heading>				
-				<div className={styles.actionLinks}>
-					{provenInProductionLinks.map((link, idx) => <a href={link.href}><img src={ link.src } ></img> </a>)}
-				</div>
-			</div>
-		</section>
 	);
 }
 
@@ -87,15 +91,41 @@ function AlternatingFeaturesSection() {
 	);
 }
 
-function CommunitySection() {
+function ProductionDeploymentsSection() {
 	return (
-		<section className={styles.communitySection}>
-			<div className="container text--center">
-				<Heading as="h2">Join the Community</Heading>
-				<p>Our project is open-source and we welcome contributions from everyone.</p>
+		<section className={styles.deploymentsSection}>
+			<div className="container">
+				<div className={styles.deploymentsHeader}>
+					<Heading as="h2">In Production</Heading>
+					<p>The EPOS Platform Open Source is actively powering research infrastructures across Europe</p>
+				</div>
+				<div className={styles.deploymentsLogos}>
+					{provenInProductionLinks.map((link, idx) => (
+						<a key={idx} href={link.href} className={styles.deploymentLogo} target="_blank" rel="noopener noreferrer">
+							<img src={useBaseUrl(link.src)} alt={link.label} />
+						</a>
+					))}
+				</div>
+			</div>
+		</section>
+	);
+}
+
+function AboutSection() {
+	return (
+		<section className={styles.aboutSection}>
+			<div className="container">
+				<Heading as="h2">About EPOS</Heading>
+				<p className={styles.aboutDescription}>
+					The EPOS Platform is backed by EPOS ERIC (European Plate Observing System), a long-term
+					research infrastructure supported by the European Commission. This open-source release
+					makes the same technology powering pan-European Earth science data accessible to research
+					communities worldwide.
+				</p>
 				<div className={styles.buttons}>
-					<Link className="button button--primary button--lg" href="https://github.com/epos-eu">View on GitHub</Link>
-					<Link className="button button--secondary button--lg" to="/documentation/contributors">Meet the Team</Link>
+					<Link href="https://www.epos-eu.org/about-epos">
+						Learn About EPOS ERIC &rarr;
+					</Link>
 				</div>
 			</div>
 		</section>
@@ -111,9 +141,9 @@ export default function Home() {
 			description="An open-source, service-based data integration and visualization system.">
 			<HeroSection />
 			<main>
-				<SeeItInActionSection />
 				<AlternatingFeaturesSection />
-				<CommunitySection />
+				<ProductionDeploymentsSection />
+				<AboutSection />
 			</main>
 		</Layout>
 	);

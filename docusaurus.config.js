@@ -83,24 +83,21 @@ const config = {
 			},
 			footer: {
 				style: 'light',
-					
 				links: [
 					{
 						title: ' ',
-      					items: [
-        					{
-          					html: `
+						items: [
+							{
+								html: `
            					<div class="firstcolumn">
                 			<img src="/opensource-docs/img/epos-logo.svg" alt="EPOS Logo" style="height:100px;"/>
             				</div>`,
-        					},
-      					],
+							},
+						],
 					},
-					{ 
-						title: 'EPOS ERIC',
+					{
+						title: 'EPOS',
 						items: [
-							
-							
 							{
 								label: 'About',
 								href: 'https://www.epos-eu.org/about-epos',
@@ -137,7 +134,7 @@ const config = {
 						items: [
 							{
 								html: `Address: <a href="https://www.google.com/maps/place/Via+di+Vigna+Murata,+605,+00143+Roma+RM,+Italia/@41.8280015,12.5125637,802m/data=!3m2!1e3!4b1!4m6!3m5!1s0x13258a330330f5fd:0x66d9979de69f7f8b!8m2!3d41.8280015!4d12.515218!16s%2Fg%2F11c3q1z4v7?entry=ttu&g_ep=EgoyMDI1MDkwOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">
-                            Via di Vigna Murata, 605,<br/>00143 Rome, Italy
+                            <br> Via di Vigna Murata, 605, 00143 Rome, Italy
                         </a>`,
 							},
 							{
