@@ -91,11 +91,19 @@ Open your web browser and go to the **EPOS Platform GUI** provided at the end of
 
 You should see the main interface for browsing and searching for geospatial services. The sample metadata will appear on the top-left side of the interface.
 
-**A quick note:** It might take a few seconds for the sample data to appear after populating. If it doesn't show up, you can try restarting the `resources-service`:
+:::warning
+There is a known issue with the system where sometimes populated data might not show up immediatly. We are aware of this and currently working on a fix. In the meantime you can easily fix it by simply restarting the `resources-service` container.
+
+Try running:
 
 ```bash
 docker restart my-epos-platform-resources-service
 ```
+
+Remember to change `my-epos-platform` with the name you used when deploying the environment.
+
+If that doesn't work feel free to open an issue on [GitHub](https://github.com/epos-eu/epos-opensource/issues).
+:::
 
 You can also explore the **API Documentation** at `http://localhost:33000/api/v1/ui`.
 
