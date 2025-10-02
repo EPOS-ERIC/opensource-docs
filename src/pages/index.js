@@ -96,7 +96,7 @@ function ProductionDeploymentsSection() {
 		<section className={styles.deploymentsSection}>
 			<div className="container">
 				<div className={styles.deploymentsHeader}>
-					<Heading as="h2">In Production</Heading>
+					<Heading as="h2">Adopted Across Europe</Heading>
 					<p>The EPOS Platform Open Source is actively powering research infrastructures across Europe</p>
 				</div>
 				<div className={styles.deploymentsLogos}>
@@ -124,7 +124,7 @@ function AboutSection() {
 				</p>
 				<div className={styles.buttons}>
 					<Link href="https://www.epos-eu.org/about-epos">
-						Learn About EPOS ERIC &rarr;
+						Learn More About EPOS &rarr;
 					</Link>
 				</div>
 			</div>

@@ -125,8 +125,8 @@ const config = {
 						title: 'Useful Links',
 						items: [
 							{
-								label: 'GitHub Repository',
-								href: 'https://github.com/epos-eu/epos-open-source',
+								label: 'GitHub',
+								href: 'https://github.com/epos-eu',
 							},
 							{
 								label: 'Issue Tracker',
