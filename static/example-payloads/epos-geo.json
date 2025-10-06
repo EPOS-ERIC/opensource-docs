@@ -30,7 +30,7 @@
     "image_url_marker": {
       "label": "Image URL Marker with Pin",
       "marker": {
-        "href": "https://placehold.co/200x200/white/black/png/?text=Image+Marker",
+        "href": "https://raw.githubusercontent.com/epos-eu/opensource-docs/refs/heads/test-geojson/static/example-payloads/image-marker.png",
         "pin": true,
         "clustering": false
       }
@@ -404,7 +404,7 @@
         ]
       },
       "@epos_image_overlay": {
-        "href": "https://placehold.co/800x600/white/black/png?text=Image+Overlay+Example",
+        "href": "https://raw.githubusercontent.com/epos-eu/opensource-docs/refs/heads/test-geojson/static/example-payloads/image-overlay.png",
         "bbox": [
           36.461734,
           12.42425,
@@ -412,7 +412,7 @@
           15.650694
         ],
         "legend": {
-          "href": "https://placehold.co/150x50/white/black/png?text=Legend"
+          "href": "https://raw.githubusercontent.com/epos-eu/opensource-docs/refs/heads/test-geojson/static/example-payloads/legend.png"
         }
       },
       "geometry": null
