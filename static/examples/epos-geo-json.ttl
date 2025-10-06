@@ -193,6 +193,6 @@
     hydra:method "GET"^^xsd:string;
     hydra:returns "application/geo+json";
     hydra:property[ a hydra:IriTemplate;
-        hydra:template "https://raw.githubusercontent.com/epos-eu/opensource-docs/refs/heads/test-geojson/static/example-payloads/epos-geo.json"^^xsd:string;
+        hydra:template "https://raw.githubusercontent.com/EPOS-ERIC/opensource-docs/refs/heads/test-geojson/static/examples/epos-geo-json.ttl"^^xsd:string;
     ] ;
 .
