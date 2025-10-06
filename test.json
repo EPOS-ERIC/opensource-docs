@@ -97,6 +97,62 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          13.0058,
+          52.0285
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@epos_type": "character_marker",
+        "@epos_label_key": "FeatureType",
+        "@epos_map_keys": [
+          "FeatureType",
+          "Description",
+          "StyleDetails"
+        ],
+        "@epos_data_keys": [
+          "FeatureType",
+          "Description",
+          "GeometryType"
+        ],
+        "FeatureType": "Character Marker (Clustered)",
+        "Description": "Another character marker nearby to demonstrate the clustering feature. When multiple markers are close together, they automatically group into a cluster marker.",
+        "StyleDetails": "This marker shares the same @epos_type, so it will cluster with other character_marker features when zoomed out.",
+        "GeometryType": "Point"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.0058,
+          52.4285
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@epos_type": "character_marker",
+        "@epos_label_key": "FeatureType",
+        "@epos_map_keys": [
+          "FeatureType",
+          "Description",
+          "StyleDetails"
+        ],
+        "@epos_data_keys": [
+          "FeatureType",
+          "Description",
+          "GeometryType"
+        ],
+        "FeatureType": "Character Marker (Clustered)",
+        "Description": "Another character marker nearby to demonstrate the clustering feature. When multiple markers are close together, they automatically group into a cluster marker.",
+        "StyleDetails": "This marker shares the same @epos_type, so it will cluster with other character_marker features when zoomed out.",
+        "GeometryType": "Point"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           13.5058,
           52.4285
         ]
