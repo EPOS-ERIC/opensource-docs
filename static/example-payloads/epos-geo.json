@@ -406,9 +406,9 @@
       "@epos_image_overlay": {
         "href": "https://placehold.co/800x600.png?text=Image+Overlay+Example",
         "bbox": [
-          36.861734,
+          36.461734,
           12.42425,
-          39.088178,
+          38.588178,
           15.650694
         ],
         "legend": {
