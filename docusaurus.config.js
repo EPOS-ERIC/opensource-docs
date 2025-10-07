@@ -5,7 +5,7 @@ const config = {
 	title: 'EPOS',
 	favicon: 'img/favicon.ico',
 	projectName: 'opensource-docs',
-	organizationName: 'epos-eu',
+	organizationName: 'EPOS-ERIC',
 	trailingSlash: false,
 	markdown: {
 		mermaid: true,
@@ -14,7 +14,7 @@ const config = {
 	future: {
 		v4: true,
 	},
-	url: 'https://epos-eu.github.io',
+	url: 'https://epos-eric.github.io',
 	baseUrl: '/opensource-docs/',
 	i18n: {
 		defaultLocale: 'en',
@@ -80,7 +80,7 @@ const config = {
 						position: 'right',
 					},
 					{
-						href: 'https://github.com/epos-eu',
+						href: 'https://github.com/EPOS-ERIC',
 						label: 'GitHub',
 						position: 'right',
 					},
@@ -126,7 +126,7 @@ const config = {
 						items: [
 							{
 								label: 'GitHub',
-								href: 'https://github.com/epos-eu',
+								href: 'https://github.com/EPOS-ERIC',
 							},
 							{
 								label: 'Issue Tracker',

@@ -109,4 +109,4 @@ Plugin definitions are provided in a JSON array format. Each object in the array
 
 The source code and further documentation for the Plugin Populator can be found on its GitHub repository:
 
-*   **GitHub Repository**: [https://github.com/epos-eu/epos-plugin-populator](https://github.com/epos-eu/epos-plugin-populator)
+*   **GitHub Repository**: [https://github.com/EPOS-ERIC/epos-plugin-populator](https://github.com/EPOS-ERIC/epos-plugin-populator)
