@@ -27,7 +27,7 @@ First, you need to install the `epos-opensource` command-line interface (CLI). T
   <TabItem value="linux-macos" label="Linux / macOS">
         You can install the CLI with a single command in your terminal:
         ```bash
-        curl -fsSL https://raw.githubusercontent.com/epos-eu/epos-opensource/main/install.sh | bash
+        curl -fsSL https://raw.githubusercontent.com/EPOS-ERIC/epos-opensource/main/install.sh | bash
         ```
   </TabItem>
   <TabItem value="windows" label="Windows">
