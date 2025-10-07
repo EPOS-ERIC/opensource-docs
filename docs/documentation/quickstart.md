@@ -33,7 +33,7 @@ First, you need to install the `epos-opensource` command-line interface (CLI). T
   <TabItem value="windows" label="Windows">
     <p>For Windows, you'll download the command-line tool directly:</p>
     <ol>
-      <li>Go to the <a href="https://github.com/epos-eu/epos-opensource/releases">EPOS Open-Source Releases page</a>.</li>
+      <li>Go to the <a href="https://github.com/EPOS-ERIC/epos-opensource/releases">EPOS Open-Source Releases page</a>.</li>
       <li>Download the latest file named <code>epos-opensource-windows-amd64.exe</code>.</li>
       <li>Rename the downloaded file to <code>epos-opensource.exe</code>.</li>
       <li>Move this file to a memorable location, for example, <code>C:\epos</code>.</li>
@@ -102,7 +102,7 @@ docker restart my-epos-platform-resources-service
 
 Remember to change `my-epos-platform` with the name you used when deploying the environment.
 
-If that doesn't work feel free to open an issue on [GitHub](https://github.com/epos-eu/epos-opensource/issues).
+If that doesn't work feel free to open an issue on [GitHub](https://github.com/EPOS-ERIC/epos-opensource/issues).
 :::
 
 You can also explore the **API Documentation** at `http://localhost:33000/api/v1/ui`.
