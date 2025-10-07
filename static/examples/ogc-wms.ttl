@@ -1,0 +1,265 @@
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix epos: <https://www.epos-eu.org/epos-dcat-ap#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix hydra: <http://www.w3.org/ns/hydra/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <http://schema.org/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix cnt: <http://www.w3.org/2011/content#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix http: <http://www.w3.org/2006/http#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix gsp: <http://www.opengis.net/ont/geosparql#> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix foaf: <http://xmlns.com/foaf/spec/#term_> .
+
+#########
+# Dataset Top Concept Scheme
+#########
+<category:facets/dataset-theme> a skos:Concept ;
+       skos:definition  "Dataset" ;
+       skos:prefLabel   "Dataset"
+ .
+
+
+#########
+# Concept Scheme
+#########
+
+<category:ogcexample> a skos:ConceptScheme;
+ skos:prefLabel "OGC Example" ; 
+ dct:title "OGC Example" ;
+ dct:description "Some OGC example" ;
+ foaf:logo "https://raw.githubusercontent.com/epos-eu/platform-gui-icons/refs/heads/main/Open_Geospatial_Consortium_logo.png" ; 
+ #foaf:homepage "" ; #todo
+ schema:color "#2e3486";
+ schema:orderItemNumber "2";
+ skos:hasTopConcept <category:facets/dataset-theme>;
+.
+
+
+#########
+# Concepts
+#########
+
+<category:ogcexamplewms> a skos:Concept;
+ skos:prefLabel "OGC WMS Example"; #GUI
+ skos:definition "This is an example";
+ skos:inScheme <category:ogcexample>;
+.
+
+
+
+<PIC:999844476> a schema:Organization;
+  schema:identifier [ a schema:PropertyValue;
+    schema:propertyID "PIC";
+    schema:value "999844476";
+  ];
+  schema:legalName "Fondazione EUCENTRE";
+  schema:address [ a schema:PostalAddress;
+    schema:streetAddress "Via Ferrata, 1";
+    schema:addressLocality "Pavia";
+    schema:postalCode "27100";
+    schema:addressCountry "IT";
+  ];
+  schema:logo "https://www.eucentre.it/wp-content/uploads/2018/03/logo_eucentre_100px.png"^^xsd:anyURI;
+  schema:url "http://www.eucentre.it/"^^xsd:anyURI;
+  schema:email "info@eucentre.it";
+.
+
+
+
+<https://www.epos-eu.org/epos-dcat-ap/Seismology/Dataset/EFEHR/EU_SeismicRiskIndex> a dcat:Dataset;
+	dct:identifier "https://www.epos-eu.org/epos-dcat-ap/Seismology/Dataset/EFEHR/EU_SeismicRiskIndex";
+    	adms:identifier [ a adms:Identifier;
+		adms:schemeAgency "DOI";
+		skos:notation "10.7414/EUC-ESRM20-RISK-INDEX-VIEWER";
+	];
+    dct:title "European Seismic Risk Index (ESRM20)";
+	dct:description "A map of the European Seismic Risk Index calculated using the European Seismic Risk Model (ESRM20). The index is calculated by dividing the average annual loss by the GDP per capita. Two types of loss are considered: economic loss (in Euros) and loss of life.";
+	dct:type "http://purl.org/dc/dcmitype/Dataset"^^xsd:anyURI;
+    dct:accrualPeriodicity "http://purl.org/cld/freq/irregular"^^xsd:anyURI ;
+	dct:spatial [ a dct:Location;
+		locn:geometry "POLYGON((-32.5 73.5,45.0 73.5,45.0 32.5,-32.5 32.5,-32.5 73.5))"^^gsp:wktLiteral;
+	];
+	dcat:theme <category:ogcexamplewms>;
+	dcat:keyword "seismic risk", "buildings", "population", "map", "earthquake";
+	dct:publisher <PIC:999844476>;
+	dcat:distribution <https://www.epos-eu.org/epos-dcat-ap/Seismology/Distribution/EFEHR/OGC/WMS/EU_SeismicRiskIndex>;
+	dqv:hasQualityAnnotation [ a oa:Annotation ;
+       		oa:hasBody "http://risk.efehr.org/qa"^^xsd:anyURI  ;
+        ];
+.
+
+<https://www.epos-eu.org/epos-dcat-ap/Seismology/Distribution/EFEHR/OGC/WMS/EU_SeismicRiskIndex> a dcat:Distribution;
+	dct:identifier "https://www.epos-eu.org/epos-dcat-ap/Seismology/Distribution/EFEHR/OGC/WMS/EU_SeismicRiskIndex";
+	dct:description "The OGC WMS web service providing a raster layer presenting the geographical distribution of the European seismic risk index calculated with the European Seismic Risk Model (ESRM20).";
+	dct:title "European Seismic Risk Index (ESRM20)";
+	dct:type "http://publications.europa.eu/resource/authority/distribution-type/WEB_SERVICE"^^xsd:anyURI;
+	dct:conformsTo <https://www.epos-eu.org/epos-dcat-ap/Seismology/WebService/EFEHR/OGC/WMS/EU_SeismicRiskIndex>;
+	dcat:accessURL <https://www.epos-eu.org/epos-dcat-ap/Seismology/WebService/EFEHR/OGC/WMS/EU_SeismicRiskIndex/Operation>;
+	dct:license "https://creativecommons.org/licenses/by/4.0/"^^xsd:anyURI;
+	dct:format "http://publications.europa.eu/resource/authority/file-type/PNG"^^xsd:anyURI;
+.
+
+
+<https://www.epos-eu.org/epos-dcat-ap/Seismology/WebService/EFEHR/OGC/WMS/EU_SeismicRiskIndex> a epos:WebService;
+	schema:identifier "https://www.epos-eu.org/epos-dcat-ap/Seismology/WebService/EFEHR/OGC/WMS/EU_SeismicRiskIndex";
+	schema:description "The OGC WMS web service providing a raster layer presenting the geographical distribution of the European seismic risk index calculated with the European Seismic Risk Model (ESRM20).";
+	schema:name "European Seismic Risk Index (ESRM20)";
+	hydra:entrypoint "https://maps.eu-risk.eucentre.it/mapproxy/European_Risk_Index_Gridded/ows?"^^xsd:anyURI;
+	schema:provider <PIC:999844476>;
+	hydra:supportedOperation <https://www.epos-eu.org/epos-dcat-ap/Seismology/WebService/EFEHR/OGC/WMS/EU_SeismicRiskIndex/Operation>;
+	schema:keywords "seismic risk", "buildings", "population", "map", "earthquake";
+	dct:license "https://creativecommons.org/licenses/by/4.0/"^^xsd:anyURI;
+	dct:conformsTo <https://www.epos-eu.org/epos-dcat-ap/Seismology/WebService/EFEHR/APIDocumentation> ;
+.
+
+<https://www.epos-eu.org/epos-dcat-ap/Seismology/WebService/EFEHR/APIDocumentation> a hydra:ApiDocumentation ;
+      hydra:title "European Seismic Risk Model - API Documentation" ;
+      hydra:description "European Seismic Risk Model - API Documentation" ;
+      hydra:entrypoint "https://eu-risk.eucentre.it/esrm20/"^^xsd:anyURI ;
+.
+
+
+<https://www.epos-eu.org/epos-dcat-ap/Seismology/WebService/EFEHR/OGC/WMS/EU_SeismicRiskIndex/Operation> a hydra:Operation;
+	hydra:method "GET"^^xsd:string;
+	hydra:returns "image/png";
+	hydra:property[ a hydra:IriTemplate;
+		hydra:template "https://maps.eu-risk.eucentre.it/mapproxy/European_Risk_Index_Gridded/ows?{?service, version, request, layers, crs, format, width, height}&styles&bbox={minlatitude,minlongitude,maxlatitude,maxlongitude}"^^xsd:string;
+			
+            # WMS 1.3.0 bbox format is "minlatitude,minlongitude,maxlatitude,maxlongitude"
+			# bbox calculated by geoserver for this layer is
+			# minlatitude 32.39747
+			# minlongitude -31.26575
+			# maxlatitude 71.18811
+			# maxlongitude 44.83499
+
+			hydra:mapping[ a hydra:IriTemplateMapping;
+				hydra:variable "service"^^xsd:string;
+				rdfs:range "xsd:string";
+				rdfs:label "Service";
+				http:paramValue "WMS";
+				schema:defaultValue "WMS";
+				hydra:required "true"^^xsd:boolean;
+				schema:readonlyValue "true"^^xsd:boolean ; # true = hidden
+			];
+			hydra:mapping[ a hydra:IriTemplateMapping;
+				hydra:variable "version"^^xsd:string;
+				rdfs:range "xsd:string";
+				rdfs:label "WMS version";
+				http:paramValue "1.1.1";
+				http:paramValue "1.3.0";
+				schema:defaultValue "1.3.0";
+				hydra:required "true"^^xsd:boolean;
+			];
+			hydra:mapping[ a hydra:IriTemplateMapping;
+				hydra:variable "request"^^xsd:string;
+				rdfs:range "xsd:string";
+				rdfs:label "Request type";
+				http:paramValue "GetCapabilities";
+				http:paramValue "GetFeatureInfo";
+				http:paramValue "GetLegendGraphic";
+				http:paramValue "GetMap";
+				schema:defaultValue "GetMap";
+				schema:readonlyValue "true"^^xsd:boolean ; # true = hidden
+				hydra:required "true"^^xsd:boolean;
+			];
+			hydra:mapping[ a hydra:IriTemplateMapping;
+				hydra:variable "layers"^^xsd:string;
+				rdfs:range "xsd:string";
+				rdfs:label "Layers";
+				http:paramValue "seismic-risk";
+				schema:defaultValue "seismic-risk";
+				schema:readonlyValue "true"^^xsd:boolean ; # true = hidden
+				hydra:required "true"^^xsd:boolean;
+			];
+			hydra:mapping[ a hydra:IriTemplateMapping;
+				hydra:variable "crs"^^xsd:string;
+				rdfs:range "xsd:string";
+				rdfs:label "Spatial Reference System";
+				http:paramValue "CRS:84";
+				http:paramValue "EPSG:4326";
+				http:paramValue "EPSG:5837";
+				schema:defaultValue "EPSG:4326";
+				hydra:required "true"^^xsd:boolean;
+			];
+			hydra:mapping[ a hydra:IriTemplateMapping;
+				hydra:variable "format"^^xsd:string;
+				rdfs:range "xsd:string";
+				rdfs:label "Output format";
+				http:paramValue "text/plain";
+				http:paramValue "text/xml";
+				http:paramValue "text/html";
+				http:paramValue "image/jpeg";
+				http:paramValue "image/png";
+				schema:defaultValue "image/png";
+				hydra:required "true"^^xsd:boolean;
+				hydra:property "schema:encodingFormat";
+			];
+			hydra:mapping[ a hydra:IriTemplateMapping;
+				hydra:variable "width"^^xsd:string;
+				rdfs:range "xsd:string";
+				rdfs:label "Width of the output map";
+				http:paramValue "1536";
+				schema:defaultValue "1536";
+				schema:readonlyValue "true"^^xsd:boolean ; # true = hidden
+				hydra:required "true"^^xsd:boolean;
+			];
+			hydra:mapping[ a hydra:IriTemplateMapping;
+				hydra:variable "height"^^xsd:string;
+				rdfs:range "xsd:string";
+				rdfs:label "Height of the output map";
+				http:paramValue "811";
+				schema:defaultValue "811";
+				schema:readonlyValue "true"^^xsd:boolean ; # true = hidden
+				hydra:required "true"^^xsd:boolean;
+			];
+			hydra:mapping[ a hydra:IriTemplateMapping;
+				hydra:variable "minlatitude"^^xsd:string;
+				hydra:property "epos:southernmostLatitude";
+				rdfs:range "xsd:float";
+				rdfs:label "Minimum latitude";
+				schema:minValue "32.5000";
+				schema:maxValue "73.5000";
+				schema:defaultValue "32.5000";
+				hydra:required "true"^^xsd:boolean;
+			];
+			hydra:mapping[ a hydra:IriTemplateMapping;
+				hydra:variable "maxlatitude"^^xsd:string;
+				hydra:property "epos:northernmostLatitude";
+				rdfs:range "xsd:float";
+				rdfs:label "Maximum latitude";
+				schema:minValue "32.5000";
+				schema:maxValue "73.5000";
+				schema:defaultValue "73.5000";
+				hydra:required "true"^^xsd:boolean;
+			];
+			hydra:mapping[ a hydra:IriTemplateMapping;
+				hydra:variable "minlongitude"^^xsd:string;
+				hydra:property "epos:westernmostLongitude";
+				rdfs:range "xsd:float";
+				rdfs:label "Minimum longitude";
+				schema:minValue "-32.5000";
+				schema:maxValue "45.0000";
+				schema:defaultValue "-32.5000";
+				hydra:required "true"^^xsd:boolean;
+			];
+			hydra:mapping[ a hydra:IriTemplateMapping;
+				hydra:variable "maxlongitude"^^xsd:string;
+				hydra:property "epos:easternmostLongitude";
+				rdfs:range "xsd:float";
+				rdfs:label "Maximum longitude";
+				schema:minValue "-32.5000";
+				schema:maxValue "45.0000";
+				schema:defaultValue "45.0000";
+				hydra:required "true"^^xsd:boolean;
+			];
+	];
+.
