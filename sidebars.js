@@ -38,7 +38,6 @@ const sidebars = {
 			label: 'System Reference',
 			items: [
 				'documentation/system-reference/architecture',
-				'documentation/system-reference/data_model',
 				{
 					type: 'category',
 					label: 'Services',
@@ -62,6 +61,7 @@ const sidebars = {
 						},
 					],
 				},
+				'documentation/system-reference/data_model',
 				{
 					type: 'category',
 					label: 'Data Formats',
