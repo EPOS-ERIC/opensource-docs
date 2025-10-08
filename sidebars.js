@@ -17,13 +17,14 @@ const sidebars = {
 		'documentation/quickstart',
 		{
 			type: 'category',
-			label: 'Installation',
+			label: 'CLI Tool',
 			link: {
 				type: 'doc',
 				id: 'documentation/installation/index',
 			},
 			items: [
 				'documentation/installation/docker',
+				'documentation/installation/kubernetes',
 			],
 		},
 		{
@@ -86,7 +87,8 @@ const sidebars = {
 						},
 					],
 				},
-				'documentation/system-reference/repositories'
+				'documentation/system-reference/repositories',
+				'documentation/system-reference/glossary'
 			],
 		},
 		'documentation/license',

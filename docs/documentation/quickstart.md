@@ -54,6 +54,8 @@ epos-opensource --version
 
 You should see an output like `epos-opensource version v0.2.4` (the version number may vary).
 
+For more detailed installation instructions, including how to build from source, see the [CLI Tool documentation](./installation/cli.md).
+
 ## 2. Deploy the Platform
 
 Now, with Docker running, you can deploy the entire EPOS Platform with a single command.
@@ -68,28 +70,17 @@ This command will download all the necessary Docker images and start the service
 
 When it's done, you'll see a confirmation message with the access URLs for your new platform.
 
-![EPOS Platform Deployment](/img/epos_deploy.png)
+![EPOS Platform Deployment](/img/docker_deploy_urls.png)
 
 ## 3. Populate with Sample Data
 
-To see your platform in action, you can populate it with some sample metadata. This will create a few example entries in your data catalogue.
+To see your platform in action, you can populate it with some example metadata we provide. This will create a few example entries in your data catalogue.
 
 ```bash
-epos-opensource docker populate my-epos-platform ./my_sample_data
+epos-opensource docker populate my-epos-platform --example
 ```
 
-![Populating with sample data](/img/docker_populate_ingestion.png)
-![Population complete](/img/docker_populate.png)
-
-## 4. Explore Your New Platform
-
-Congratulations, your EPOS Platform is live!
-
-Open your web browser and go to the **EPOS Platform GUI** provided at the end of the deployment step. The default URL is [http://localhost:32000/](http://localhost:32000/).
-
-![The EPOS Platform](/img/dataportal_after_populate.png)
-
-You should see the main interface for browsing and searching for geospatial services. The sample metadata will appear on the top-left side of the interface.
+![Population example](/img/docker_populate_example.png)
 
 :::warning
 There is a known issue with the system where sometimes populated data might not show up immediatly. We are aware of this and currently working on a fix. In the meantime you can easily fix it by simply restarting the `resources-service` container.
@@ -104,6 +95,16 @@ Remember to change `my-epos-platform` with the name you used when deploying the 
 
 If that doesn't work feel free to open an issue on [GitHub](https://github.com/EPOS-ERIC/epos-opensource/issues).
 :::
+
+## 4. Explore Your New Platform
+
+Congratulations, your EPOS Platform is live!
+
+Open your web browser and go to the **EPOS Platform GUI** provided at the end of the deployment step. The default URL is [http://localhost:32000/](http://localhost:32000/).
+
+![The EPOS Platform](/img/dataportal_after_populate.png)
+
+You should see the main interface for browsing and searching for geospatial services. The sample metadata will appear on the top-left side of the interface.
 
 You can also explore the **API Documentation** at `http://localhost:33000/api/v1/ui`.
 

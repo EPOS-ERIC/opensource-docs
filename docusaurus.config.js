@@ -70,7 +70,7 @@ const config = {
 					},
 					{
 						type: 'doc',
-						docId: 'documentation/contributors',
+						docId: 'contributors/index',
 						position: 'right',
 						label: 'Contributors',
 					},

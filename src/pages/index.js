@@ -34,7 +34,7 @@ const featureList = [
 		title: 'Contribute & Extend',
 		imageUrl: '/img/components.png',
 		description: 'Built on modern microservices architecture using Docker and Kubernetes. Extend the platform with custom services, contribute improvements, report issues, or fork it for your own research infrastructure needs.',
-		link: '/documentation/contributors',
+		link: '/contributors',
 		linkLabel: 'Learn how to contribute',
 		isReversed: false,
 	},
