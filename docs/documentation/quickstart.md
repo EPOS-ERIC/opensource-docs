@@ -54,7 +54,7 @@ epos-opensource --version
 
 You should see an output like `epos-opensource version v0.2.4` (the version number may vary).
 
-For more detailed installation instructions, including how to build from source, see the [CLI Tool documentation](./installation/cli.md).
+For more detailed installation instructions, including how to build from source, see the [CLI Tool documentation](./installation/index.md).
 
 ## 2. Deploy the Platform
 
