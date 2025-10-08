@@ -33,8 +33,8 @@
 #########
 
 <category:ogcexample> a skos:ConceptScheme;
- skos:prefLabel "EXAMPLE" ; 
- dct:title "EPOS Example" ;
+ skos:prefLabel "OGC Example" ; 
+ dct:title "OGC Example" ;
  dct:description "Some OGC example" ;
  foaf:logo "https://raw.githubusercontent.com/epos-eu/platform-gui-icons/refs/heads/main/Open_Geospatial_Consortium_logo.png" ; 
  #foaf:homepage "" ; #todo
