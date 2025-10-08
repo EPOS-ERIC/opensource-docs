@@ -38,7 +38,7 @@
  dct:description "Some OGC example" ;
  foaf:logo "https://raw.githubusercontent.com/epos-eu/platform-gui-icons/refs/heads/main/Open_Geospatial_Consortium_logo.png" ; 
  #foaf:homepage "" ; #todo
- schema:color "#2e3486";
+ schema:color "#e70802";
  schema:orderItemNumber "2";
  skos:hasTopConcept <category:facets/dataset-theme>;
 .
