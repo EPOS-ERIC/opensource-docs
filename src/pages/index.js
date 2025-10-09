@@ -74,7 +74,7 @@ function HeroSection() {
 				<p className={styles.heroSubtitle}>The EPOS Platform is an open-source, service-based data integration and visualization system built on a microservices architecture.</p>
 				<div className={styles.buttons}>
 					<Link className="button button--primary button--lg" to="/documentation/quickstart">Quickstart</Link>
-					<Link className="button button--secondary button--lg" to="/documentation/system-reference/architecture">System Reference</Link>
+					<Link className="button button--secondary button--lg" to="/documentation/home">Documentation</Link>
 				</div>
 			</div>
 		</header>
