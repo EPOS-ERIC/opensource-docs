@@ -7,7 +7,7 @@ title: CLI Tool
 
 The EPOS Open-Source CLI (`epos-opensource`) is a command-line tool that simplifies the process of deploying, populating, and managing your platform, whether you're running a small local instance or a large-scale production deployment.
 
-![Image](https://github.com/user-attachments/assets/adb46bfd-b5b1-47d8-9c56-4aa7cfb24479)
+![Image](/img/docker_deploy_urls.png)
 
 ## Installation
 
