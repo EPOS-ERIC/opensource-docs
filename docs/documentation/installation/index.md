@@ -9,6 +9,33 @@ The EPOS Open-Source CLI (`epos-opensource`) is a command-line tool that simplif
 
 ![Image](/img/docker_deploy_urls.png)
 
+## Why a CLI?
+
+The `epos-opensource` CLI is designed to be the primary way to interact with your EPOS Platform instances. It provides a simple and consistent interface for managing the entire lifecycle of your deployments, from initial setup to ongoing maintenance.
+
+Here are some of the benefits of using the CLI:
+
+- **Simplicity:** A single command can deploy the entire platform, including all its microservices and dependencies.
+- **Consistency:** The same commands are used to manage both Docker and Kubernetes deployments, making it easy to switch between them.
+- **Automation:** The CLI can be easily integrated into scripts and automated workflows.
+- **Reproducibility:** The CLI ensures that your deployments are reproducible and consistent across different environments.
+
+## Core Concepts
+
+### Environments
+
+An "environment" is a named, isolated instance of the EPOS Platform, with its own configuration and data. You can have multiple environments for testing, development, or different production use cases. The CLI manages these environments for you, keeping track of their configuration and status.
+
+## Getting Help
+
+The CLI has a built-in help system that provides detailed information about each command and its options. To get help, you can use the `--help` flag.
+
+```shell
+epos-opensource --help
+epos-opensource docker --help
+epos-opensource kubernetes deploy --help
+```
+
 ## Installation
 
 ### Using the Installation Script (Linux/macOS)
@@ -58,22 +85,11 @@ To make sure the CLI is installed correctly, run:
 epos-opensource --version
 ```
 
-## Command Structure
+## Getting Help & Reporting Issues
 
-The CLI is organized into two main commands: `docker` and `kubernetes`. Each has its own set of subcommands for managing environments.
+If you encounter any issues while using the `epos-opensource` CLI, or if you have any suggestions for improvement, we encourage you to open an issue on our GitHub repository.
 
-*   **[Docker Commands](./docker.md):** For managing deployments on a single machine with Docker Compose.
-*   **[Kubernetes Commands](./kubernetes.md):** For managing deployments on a Kubernetes cluster.
-
-For more details on any command, you can use the `--help` flag.
-
-```shell
-epos-opensource --help
-epos-opensource docker --help
-epos-opensource kubernetes deploy --help
-```
-
----
+[**Open an Issue on GitHub**](https://github.com/epos-eu/epos-opensource/issues)
 
 ## Troubleshooting & Tips
 

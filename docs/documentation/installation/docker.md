@@ -1,92 +1,118 @@
 ---
-title: Docker Commands
+title: Managing Deployments with Docker
 ---
 
-# Docker Commands
+# Managing Deployments with Docker
 
-This page provides a detailed reference for the `docker` subcommands of the `epos-opensource` CLI. These commands are used to manage platform deployments on a single machine using Docker Compose.
+This guide provides real-world examples of how to use the `epos-opensource docker` commands to manage your EPOS Platform deployments on a single machine using Docker Compose.
 
-## `deploy`
+## Common Workflow
 
-Creates and starts a new EPOS Platform environment using Docker Compose.
+This section walks you through a typical workflow for creating, populating, and managing a new EPOS Platform environment.
 
-```bash
-epos-opensource docker deploy <your-platform-name>
-```
+### 1. Deploy a New Platform
 
-**Arguments:**
-
-*   `<your-platform-name>`: (Required) A unique name for your new environment.
-
-**Options:**
-
-*   `--host <hostname>`: Sets a specific IP address or hostname for the services (default: `localhost`).
-*   `--path <directory-path>`: Specifies a custom directory for the deployment files.
-*   `--update-images`: Pulls the latest Docker images before starting the services.
-*   `--compose-file <path>`: Uses a custom `docker-compose.yaml` file for deployment.
-*   `--env-file <path>`: Uses a custom `.env` file for deployment.
-
-## `populate`
-
-Ingests metadata into a running environment from `.ttl` files.
+First, you need to deploy a new environment. This command will create all the necessary Docker containers, networks, and volumes for a fully functional EPOS Platform instance.
 
 ```bash
-epos-opensource docker populate <your-platform-name> /path/to/your/data
+epos-opensource docker deploy my-test-platform
 ```
 
-**Arguments:**
+**When to use it:** Use this command when you want to create a new, clean instance of the EPOS Platform.
 
-*   `<your-platform-name>`: (Required) The name of the environment to populate.
-*   `<path/to/data>`: (Required) The path to a directory containing `.ttl` files or a single `.ttl` file.
+### 2. Populate with Sample Data
 
-**Options:**
-
-*   `--example`: Populates the environment with a small set of sample data provided with the platform.
-
-## `clean`
-
-Resets all the data in an environment (e.g., metadata, converter plugins) without deleting the deployment itself.
+Once your platform is running, you can populate it with some sample data to see it in action.
 
 ```bash
-epos-opensource docker clean <your-platform-name>
+epos-opensource docker populate my-test-platform --example
 ```
 
-## `delete`
+**When to use it:** Use this command to quickly add some sample data to your platform for testing or demonstration purposes. You can also use it to populate your platform with your own data by providing a path to your `.ttl` files instead of the `--example` flag.
 
-Stops and completely removes a Docker Compose environment, including all containers, volumes, and networks.
+### 3. Check the Status
 
-**Warning:** This action is irreversible and will delete all your data.
-
-```bash
-epos-opensource docker delete <your-platform-name>
-```
-
-## `export`
-
-Exports the default `docker-compose.yaml` and `.env` files to a directory. This is useful for creating customized deployments.
-
-```bash
-epos-opensource docker export ./my-custom-config
-```
-
-## `list`
-
-Lists all installed Docker environments, showing their status, access URLs, and file paths.
+You can check the status of your deployed environments at any time.
 
 ```bash
 epos-opensource docker list
 ```
 
-## `update`
+This command will show you a list of all your environments, their status, and the URLs to access them.
 
-Re-deploys an existing environment. This can be used to update Docker images or apply changes from a custom configuration file.
+**When to use it:** Use this command to get an overview of your deployed environments and their access URLs.
+
+### 4. Clean the Data
+
+If you want to reset the data in your environment without deleting the entire deployment, you can use the `clean` command.
 
 ```bash
-epos-opensource docker update <your-platform-name>
+epos-opensource docker clean my-test-platform
 ```
 
-**Options:**
+:::warning
 
-*   `--update-images`: Pulls the latest Docker images.
-*   `--compose-file <path>`: Applies changes from a custom `docker-compose.yaml` file.
-*   `--force`: Performs a full reset of the environment.
+This action is irreversible and will delete all your data, including metadata, converter plugins, and any data added through the Backoffice.
+
+:::
+
+**When to use it:** Use this command when you want to clear all the data from an environment and start over with a clean slate.
+
+### 5. Delete the Environment
+
+When you're finished with an environment, you can delete it completely.
+
+```bash
+epos-opensource docker delete my-test-platform
+```
+
+:::warning
+
+This action is irreversible and will delete all your data and the entire deployment, including all containers, volumes, and networks.
+
+:::
+
+## Advanced Usage
+
+This section covers some more advanced scenarios for managing your EPOS Platform deployments.
+
+### Using a Reverse Proxy for SSL
+
+For production environments, we recommend using a reverse proxy (like Nginx or Traefik) in front of your EPOS Platform deployment to handle SSL encryption. The Docker deployment does not handle SSL out of the box.
+
+Here is a conceptual example of how this would work:
+
+1.  Deploy your EPOS Platform instance using the `epos-opensource docker deploy` command.
+2.  Configure your reverse proxy to listen on port 443 (HTTPS) and forward traffic to the EPOS Platform's services on their respective ports (e.g., `http://localhost:32000` for the Data Portal).
+3.  Your reverse proxy would handle the SSL certificates and encrypt the traffic between the client and the proxy.
+
+This setup provides a secure and flexible way to expose your EPOS Platform instance to the internet.
+
+### Using an External Database
+
+By default, the EPOS Platform uses a Docker container for its PostgreSQL database. However, you can configure it to use an external PostgreSQL database instead.
+
+1.  Export the default environment file:
+
+    ```bash
+    epos-opensource docker export ./my-custom-config
+    ```
+
+2.  Edit the `.env` file in the `my-custom-config` directory and modify the `POSTGRESQL_CONNECTION_STRING` to point to your external database.
+
+    ```
+    POSTGRESQL_CONNECTION_STRING="jdbc:postgresql://your-external-db-host:5432/your-db-name?user=your-user&password=your-password"
+    ```
+
+3.  Deploy your platform using the custom environment file:
+
+    ```bash
+    epos-opensource docker deploy my-custom-db-platform --env-file ./my-custom-config/.env
+    ```
+
+Here is an example of the `.env` file for Docker. Note that this might be outdated, but the overall structure should be the same.
+
+import RemoteCodeBlock from '@site/src/components/RemoteCodeBlock';
+
+<RemoteCodeBlock url="https://raw.githubusercontent.com/EPOS-ERIC/epos-opensource/refs/heads/main/cmd/docker/dockercore/static/.env" language="env" />
+
