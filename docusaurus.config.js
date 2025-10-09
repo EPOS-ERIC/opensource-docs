@@ -175,7 +175,7 @@ const config = {
 						],
 					},
 				],
-				copyright: `Copyright © ${new Date().getFullYear()} EPOS Open Source. Released under the <a href="/documentation/license">GPLv3 license</a>.`,
+				copyright: `Copyright © ${new Date().getFullYear()} EPOS Open Source. Released under the <a href="/opensource-docs/documentation/license">GPLv3 license</a>.`,
 			},
 			prism: {
 				theme: prismThemes.github,
