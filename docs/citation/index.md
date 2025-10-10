@@ -34,95 +34,39 @@ If you're using the EPOS Platform Open Source to power your data portal or servi
   </TabItem>
 </Tabs>
 
-## Citing the EPOS Platform as a reference in any publication
+## Citing the EPOS Platform
 
-When referencing the EPOS Platform in publications, please use one or more of the following citations:
+When referencing the EPOS Platform in any publication, please use the following citation:
 
-- **Bailo, D., Paciello, R., Michalek, J., Cocco, M., Freda, C., & Jeffery, K. (2023).** The EPOS multi-disciplinary Data Portal for integrated access to solid Earth science datasets. _Scientific Data_, 10, 784. https://doi.org/10.1038/s41597-023-02697-9
+> **Bailo, D., Paciello, R., Michalek, J. et al.** The EPOS multi-disciplinary Data Portal for integrated access to solid Earth science datasets. Sci Data **10**, 784 (2023). https://doi.org/10.1038/s41597-023-02697-9
 
-    <Tabs>
-      <TabItem value="bibtex" label="BibTeX" default>
-        ```bibtex
-        @article{bailo2023epos,
-          title={The EPOS multi-disciplinary Data Portal for integrated access to solid Earth science datasets},
-          author={Bailo, Daniele and Paciello, Rossana and Michalek, Jan and Cocco, Massimo and Freda, Carmela and Jeffery, Keith},
-          journal={Scientific Data},
-          volume={10},
-          pages={784},
-          year={2023},
-          publisher={Nature Publishing Group},
-          doi={10.1038/s41597-023-02697-9}
-        }
-        ```
-      </TabItem>
-      <TabItem value="text" label="Text">
-        ```text
-        Bailo, D., Paciello, R., Michalek, J., Cocco, M., Freda, C., & Jeffery, K. (2023). The EPOS multi-disciplinary Data Portal for integrated access to solid Earth science datasets. Scientific Data, 10, 784. https://doi.org/10.1038/s41597-023-02697-9
-        ```
-      </TabItem>
-      <TabItem value="markdown" label="Markdown">
-        ```markdown
-        Bailo, D., Paciello, R., Michalek, J., Cocco, M., Freda, C., & Jeffery, K. (2023). The EPOS multi-disciplinary Data Portal for integrated access to solid Earth science datasets. *Scientific Data*, 10, 784. https://doi.org/10.1038/s41597-023-02697-9
-        ```
-      </TabItem>
-    </Tabs>
-
-- **Bailo, D., Paciello, R., Michalek, J., Freda, C., Jeffery, K., & Cocco, M. (2023).** The EPOS Data Portal: A Multidisciplinary Data Discovery Hub. In _Metadata and Semantic Research_ (MTSR 2022). Communications in Computer and Information Science, vol 1789. Springer, Cham. https://doi.org/10.1007/978-3-031-39141-5_16
-
-    <Tabs>
-      <TabItem value="bibtex" label="BibTeX" default>
-        ```bibtex
-        @inproceedings{bailo2023mtsr,
-          title={The EPOS Data Portal: A Multidisciplinary Data Discovery Hub},
-          author={Bailo, Daniele and Paciello, Rossana and Michalek, Jan and Freda, Carmela and Jeffery, Keith and Cocco, Massimo},
-          booktitle={Metadata and Semantic Research},
-          series={Communications in Computer and Information Science},
-          volume={1789},
-          year={2023},
-          publisher={Springer, Cham},
-          doi={10.1007/978-3-031-39141-5_16}
-        }
-        ```
-      </TabItem>
-      <TabItem value="text" label="Text">
-        ```text
-        Bailo, D., Paciello, R., Michalek, J., Freda, C., Jeffery, K., & Cocco, M. (2023). The EPOS Data Portal: A Multidisciplinary Data Discovery Hub. In Metadata and Semantic Research (MTSR 2022). Communications in Computer and Information Science, vol 1789. Springer, Cham. https://doi.org/10.1007/978-3-031-39141-5_16
-        ```
-      </TabItem>
-      <TabItem value="markdown" label="Markdown">
-        ```markdown
-        Bailo, D., Paciello, R., Michalek, J., Freda, C., Jeffery, K., & Cocco, M. (2023). The EPOS Data Portal: A Multidisciplinary Data Discovery Hub. In *Metadata and Semantic Research* (MTSR 2022). Communications in Computer and Information Science, vol 1789. Springer, Cham. https://doi.org/10.1007/978-3-031-39141-5_16
-        ```
-      </TabItem>
-    </Tabs>
-
-- **Vinciarelli, V., Bailo, D., Paciello, R., Michalek, J., Freda, C., & Cocco, M. (2023).** The EPOS Data Portal: new features and developments. _EGU General Assembly 2023_, Vienna, Austria, 24–28 Apr 2023, EGU23-6400. https://doi.org/10.5194/egusphere-egu23-6400
-
-    <Tabs>
-      <TabItem value="bibtex" label="BibTeX" default>
-        ```bibtex
-        @inproceedings{vinciarelli2023egu,
-          title={The EPOS Data Portal: new features and developments},
-          author={Vinciarelli, Valerio and Bailo, Daniele and Paciello, Rossana and Michalek, Jan and Freda, Carmela and Cocco, Massimo},
-          booktitle={EGU General Assembly 2023},
-          pages={EGU23--6400},
-          year={2023},
-          address={Vienna, Austria},
-          doi={10.5194/egusphere-egu23-6400}
-        }
-        ```
-      </TabItem>
-      <TabItem value="text" label="Text">
-        ```text
-        Vinciarelli, V., Bailo, D., Paciello, R., Michalek, J., Freda, C., & Cocco, M. (2023). The EPOS Data Portal: new features and developments. EGU General Assembly 2023, Vienna, Austria, 24–28 Apr 2023, EGU23-6400. https://doi.org/10.5194/egusphere-egu23-6400
-        ```
-      </TabItem>
-      <TabItem value="markdown" label="Markdown">
-        ```markdown
-        Vinciarelli, V., Bailo, D., Paciello, R., Michalek, J., Freda, C., & Cocco, M. (2023). The EPOS Data Portal: new features and developments. *EGU General Assembly 2023*, Vienna, Austria, 24–28 Apr 2023, EGU23-6400. https://doi.org/10.5194/egusphere-egu23-6400
-        ```
-      </TabItem>
-    </Tabs>
+<Tabs>
+  <TabItem value="bibtex" label="BibTeX">
+    ```bibtex
+    @article{bailo2023epos,
+      author       = {Bailo, Daniele and Paciello, Rossana and Michalek, Jan and Cocco, Massimo and Freda, Carmela and Jeffery, Keith G. and Atakan, Kuvvet},
+      title        = {The EPOS multi-disciplinary Data Portal for integrated access to solid Earth science datasets},
+      journal      = {Scientific Data},
+      volume       = {10},
+      number       = {1},
+      pages        = {784},
+      year         = {2023},
+      doi          = {10.1038/s41597-023-02697-9},
+      url          = {https://www.nature.com/articles/s41597-023-02697-9}
+    }
+    ```
+  </TabItem>
+  <TabItem value="text" label="Text" default>
+    ```text
+    Bailo, D., Paciello, R., Michalek, J. et al. The EPOS multi-disciplinary Data Portal for integrated access to solid Earth science datasets. Sci Data 10, 784 (2023). https://doi.org/10.1038/s41597-023-02697-9
+    ```
+  </TabItem>
+  <TabItem value="markdown" label="Markdown">
+    ```markdown
+> **Bailo, D., Paciello, R., Michalek, J. et al.** The EPOS multi-disciplinary Data Portal for integrated access to solid Earth science datasets. Sci Data 10, 784 (2023). https://doi.org/10.1038/s41597-023-02697-9
+```
+  </TabItem>
+</Tabs>
 
 ## Projects Using the EPOS Platform
 

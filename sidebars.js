@@ -33,6 +33,7 @@ const sidebars = {
 			label: 'Guides',
 			items: [
 				'documentation/guides/user-guide',
+				'documentation/guides/describing-data',
 			],
 		},
 		{
