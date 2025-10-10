@@ -91,9 +91,6 @@ If you encounter any issues while using the `epos-opensource` CLI, or if you hav
 
 [**Open an Issue on GitHub**](https://github.com/epos-eu/epos-opensource/issues)
 
-## Troubleshooting & Tips
+## Troubleshooting
 
-- **Docker/Kubernetes not found:** Make sure Docker and/or kubectl are installed and running.
-- **Environment/Directory already exists:** Use a new name, or delete the old environment first.
-- **Problems with `.ttl` files:** Make sure the directory exists and contains valid `.ttl` files and that their path are valid (no spaces, weird symbols, ...).
-- **Environment not found/Does not exists:** Make sure to be running the commands as the same user, the cli uses an user level sqlite database to store the environment information.
+For solutions to common issues, please refer to the [Troubleshooting](./installation/troubleshooting) page.

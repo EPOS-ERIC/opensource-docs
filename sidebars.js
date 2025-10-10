@@ -25,6 +25,7 @@ const sidebars = {
 			items: [
 				'documentation/installation/docker',
 				'documentation/installation/kubernetes',
+				'documentation/installation/troubleshooting',
 			],
 		},
 		{

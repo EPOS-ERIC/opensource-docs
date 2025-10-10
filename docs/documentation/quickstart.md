@@ -94,6 +94,8 @@ docker restart my-epos-platform-resources-service
 Remember to change `my-epos-platform` with the name you used when deploying the environment.
 
 If that doesn't work feel free to open an issue on [GitHub](https://github.com/EPOS-ERIC/epos-opensource/issues).
+
+For more solutions to common issues, please see our [Troubleshooting Guide](./installation/troubleshooting.md).
 :::
 
 ## 4. Explore Your New Platform
