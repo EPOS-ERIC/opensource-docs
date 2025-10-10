@@ -70,6 +70,12 @@ const config = {
 					},
 					{
 						type: 'doc',
+						docId: 'citation/index',
+						position: 'right',
+						label: 'How to cite',
+					},
+					{
+						type: 'doc',
 						docId: 'contributors/index',
 						position: 'right',
 						label: 'Contributors',
