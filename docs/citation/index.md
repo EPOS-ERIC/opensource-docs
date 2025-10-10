@@ -70,7 +70,7 @@ When referencing the EPOS Platform in any publication, please use the following 
 
 ## Projects Using the EPOS Platform
 
-Several research infrastructures and data portals across Europe have adopted the EPOS Platform Open Source:
+Several research infrastructures and web portals across Europe have adopted the EPOS Platform Open Source:
 
 ### [EPOS ERIC](http://www.ics-c.epos-eu.org/)
 

@@ -83,7 +83,7 @@ For production environments, we recommend using a reverse proxy (like Nginx or T
 Here is a conceptual example of how this would work:
 
 1.  Deploy your EPOS Platform instance using the `epos-opensource docker deploy` command.
-2.  Configure your reverse proxy to listen on port 443 (HTTPS) and forward traffic to the EPOS Platform's services on their respective ports (e.g., `http://localhost:32000` for the Data Portal).
+2.  Configure your reverse proxy to listen on port 443 (HTTPS) and forward traffic to the EPOS Platform's services on their respective ports (e.g., `http://localhost:32000` for the GUI).
 3.  Your reverse proxy would handle the SSL certificates and encrypt the traffic between the client and the proxy.
 
 This setup provides a secure and flexible way to expose your EPOS Platform instance to the internet.

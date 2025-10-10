@@ -19,7 +19,7 @@ const FeatureList = [
     link: '/docs/documentation/guides/user-guide',
     description: (
       <>
-        Learn how to use the data portal to search, visualize, and work with geospatial data.
+        Learn how to use the Platform to search, visualize, and work with geospatial data.
       </>
     ),
   },

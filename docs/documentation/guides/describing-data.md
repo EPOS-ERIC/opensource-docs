@@ -3,13 +3,13 @@ id: describing-data
 title: "Describing Your Data"
 ---
 
-This guide walks you through the process of describing your datasets and web services using the [EPOS-DCAT-AP](../system-reference/data-formats/dcat-ap.md) metadata standard. By understanding how to structure this metadata, you can integrate your own resources into the EPOS platform, making them discoverable in the data portal.
+This guide walks you through the process of describing your datasets and web services using the [EPOS-DCAT-AP](../system-reference/data-formats/dcat-ap.md) metadata standard. By understanding how to structure this metadata, you can integrate your own resources into the EPOS Platform, making them discoverable through the interface.
 
 We will dissect a real-world example: a metadata file for an OGC Web Map Service (WMS). This is one of the examples loaded when you run the `epos-opensource docker populate --example` command from the [Quickstart Guide](../quickstart.md).
 
 ## The Anatomy of a Metadata File
 
-A metadata file, written in the Turtle (TTL) format, tells the EPOS platform everything it needs to know about a resource: who provided it, what it contains, and how to access and display it.
+A metadata file, written in the Turtle (TTL) format, tells the EPOS Platform everything it needs to know about a resource: who provided it, what it contains, and how to access and display it.
 
 Let's break down the `ogc-wms.ttl` example section by section.
 
@@ -28,7 +28,7 @@ Each prefix defines a shorthand for a long URI. For example, instead of writing 
 
 ### Categorization
 
-This section defines how your dataset is grouped and displayed in the data portal's user interface. It uses the [SKOS](https://www.w3.org/2004/02/skos/) vocabulary to create a hierarchy.
+This section defines how your dataset is grouped and displayed in the graphical user interface. It uses the [SKOS](https://www.w3.org/2004/02/skos/) vocabulary to create a hierarchy.
 
 ```turtle
 <category:ogcexample> a skos:ConceptScheme;
@@ -87,14 +87,14 @@ This block represents the high-level, conceptual description of your resource. T
 .
 ```
 
-- `dct:title` & `dct:description`: These fields describe the conceptual dataset. While important for cataloguing, they are **not** what users directly see in the data portal.
+- `dct:title` & `dct:description`: These fields describe the conceptual dataset. While important for cataloguing, they are **not** what users directly see in the interface.
 - `dcat:keyword`: These keywords are used by the search functionality to help users find relevant datasets.
 - `dcat:theme`: **This is a mandatory field.** It links the dataset to a `skos:Concept` defined earlier, ensuring it appears in the correct category in the GUI.
 - `dcat:distribution`: This crucial property links the conceptual dataset to one or more `dcat:Distribution` instances, which define the concrete, user-facing ways to access the data.
 
 ### The Distribution
 
-This is the most important section for user interaction. The `Distribution` defines a specific, accessible form of the dataset, and its properties are what users will see and search for in the data portal.
+This is the most important section for user interaction. The `Distribution` defines a specific, accessible form of the dataset, and its properties are what users will see and search for in the Platform.
 
 **Snippet:**
 
@@ -108,7 +108,7 @@ This is the most important section for user interaction. The `Distribution` defi
 .
 ```
 
-- `dct:title` & `dct:description`: **This is the primary information displayed in the GUI.** The title is the main heading for your resource in the search results, and this description is what users read. The portal's search functionality operates on these fields.
+- `dct:title` & `dct:description`: **This is the primary information displayed in the GUI.** The title is the main heading for your resource in the search results, and this description is what users read. The Platform's search functionality operates on these fields.
 - `dct:license` & `dct:format`: Describes the license and specific data format.
 - `dcat:accessURL`: This is the critical link that points to the `hydra:Operation`, which contains the technical details for fetching the data.
 
@@ -138,7 +138,7 @@ This block describes the service that delivers the data and provides a link to i
 
 ### The Web Service Operation
 
-This is the most technical part of the file. It gives the EPOS platform the exact instructions needed to automatically query a web service and display its data.
+This is the most technical part of the file. It gives the EPOS Platform the exact instructions needed to automatically query a web service and display its data.
 
 ```turtle
 <...> a hydra:Operation;
@@ -160,7 +160,7 @@ This is the most technical part of the file. It gives the EPOS platform the exac
 For example, a mapping for a variable of type `xsd:string` will create a text input box. A `xsd:boolean` will create a checkbox, and a date-related type will create a calendar picker. The descriptions and default values you provide here directly configure the UI widgets that allow users to customize the API request before sending it.
 
 :::tip[Key Takeaway]
-The `hydra:Operation` block is what makes a dataset interactive. By carefully defining your API's parameters here, you enable the EPOS portal to build a user interface for it automatically.
+The `hydra:Operation` block is what makes a dataset interactive. By carefully defining your API's parameters here, you enable the EPOS Platform to build a user interface for it automatically.
 :::
 
 ## Full Sample
