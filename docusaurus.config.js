@@ -149,7 +149,7 @@ const config = {
 								html: `Phone: <a href="tel:(+39) 06 518601"> (+39) 06 518601</a>`,
 							},
 							{
-								html: `VAT: IT 12851871007`,
+								html: `VAT: IT15152381008`,
 							}
 						],
 					},
