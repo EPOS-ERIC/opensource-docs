@@ -18,14 +18,14 @@ const featureList = [
 	{
 		title: 'A Modern Map-Based Interface',
 		imageUrl: '/img/dataportal_example.png',
-		description: 'Search, discover, and visualize geospatial data through an intuitive and modern web portal. This interface was originally developed for and is proven in the production environment of EPOS ERIC. Built for researchers and data scientists.',
+		description: <>Search, discover, and visualize geospatial data through an intuitive and modern web portal. The production environment of <Link to="https://www.epos-eu.org/epos-eric">EPOS ERIC</Link> shares the same source code, which is constantly maintained, tested and supported. Built for researchers and data scientists.</>,
 		link: '/documentation/guides/user-guide',
 		linkLabel: 'Read the User Guide',
 	},
 	{
 		title: 'Powerful Data Management',
 		imageUrl: '/img/backoffice.png',
-		description: 'Manage all aspects of your data services, system configurations, and user access through a comprehensive back-office interface.',
+		description: <>Manage all aspects of your data services, system configurations, and user access through a comprehensive back-office graphical interface. The required metadata follows the <Link to="/documentation/system-reference/data-formats/dcat-ap">EPOS-DCAT-AP</Link> profile.</>,
 		link: '/documentation/system-reference/services/backoffice',
 		linkLabel: 'Explore Back-Office Docs',
 		isReversed: true,
@@ -33,15 +33,15 @@ const featureList = [
 	{
 		title: 'Contribute & Extend',
 		imageUrl: '/img/components.png',
-		description: 'Built on modern microservices architecture using Docker and Kubernetes. Extend the platform with custom services, contribute improvements, report issues, or fork it for your own research infrastructure needs.',
+		description: 'Built on modern microservices architecture using Docker and Kubernetes. Extend the platform with custom services, contribute improvements, report issues, or fork it for your own and your institution needs.',
 		link: '/contributors',
-		linkLabel: 'Learn how to contribute',
+		linkLabel: 'Meet our contributor hall of fame',
 		isReversed: false,
 	},
 	{
 		title: 'Free & Open Source',
 		imageUrl: '/img/epos-github.png',
-		description: 'The entire EPOS Platform is released under GPL v3, making it completely free to deploy, modify, and use for your research infrastructure. Every component and library is open source and community-owned.',
+		description: 'The entire EPOS Platform open source is released under GPL v3, making it completely free to deploy, modify, and use.. Every component and library is open source and community-owned.',
 		link: '/documentation/license',
 		linkLabel: 'View License Details',
 		isReversed: true,
@@ -56,7 +56,8 @@ const Feature = ({ imageUrl, title, description, link, linkLabel, isReversed }) 
 				<img src={useBaseUrl(imageUrl)} alt={title} className={styles.featureImage} />
 			</div>
 		</div>
-		<div className={clsx('col col--6', styles.featureTextContainer)}>
+		<div className="col col--1" />
+		<div className={clsx('col col--5', styles.featureTextContainer)}>
 			<Heading as="h2">{title}</Heading>
 			<p>{description}</p>
 			<Link to={link}>{linkLabel} &rarr;</Link>
@@ -71,7 +72,7 @@ function HeroSection() {
 			<div className="container">
 				<img src={useBaseUrl('/img/epos-logo.svg')} alt="EPOS Logo" className={styles.heroLogo} />
 				<Heading as="h1" className={styles.heroTitle}>EPOS Platform Open Source</Heading>
-				<p className={styles.heroSubtitle}>The EPOS Platform is an open-source, service-based data integration and visualization system built on a microservices architecture.</p>
+				<p className={styles.heroSubtitle}>The open-source edition of the EPOS Platform is a service-based data integration and visualization system built on a microservices architecture.</p>
 				<div className={styles.buttons}>
 					<Link className="button button--primary button--lg" to="/documentation/quickstart">Quickstart</Link>
 					<Link className="button button--secondary button--lg" to="/documentation/home">Documentation</Link>
