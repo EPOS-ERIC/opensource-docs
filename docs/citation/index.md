@@ -9,9 +9,34 @@ import TabItem from '@theme/TabItem';
 
 If you use the EPOS Platform Open Source in your research, publications, or projects, we encourage you to cite our work and acknowledge the platform. This helps us demonstrate the impact of the project and secure continued support and development.
 
-## Academic Citations
+## Acknowledgment for the EPOS Platform open source project in Your Platform
 
-When referencing the EPOS Platform in academic publications, please use one or more of the following citations:
+If you're using the EPOS Platform Open Source to power your data portal or service, you can add a simple acknowledgment on your website:
+
+<Tabs>
+  <TabItem value="html" label="HTML" default>
+    ```html
+    <p>
+      Powered by the
+      <a
+        href="https://epos-eric.github.io/opensource-docs/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >EPOS Platform Open Source Project</a
+      >
+    </p>
+    ```
+  </TabItem>
+  <TabItem value="markdown" label="Markdown">
+    ```markdown
+    Powered by the [EPOS Platform Open Source Project](https://epos-eric.github.io/opensource-docs/)
+    ```
+  </TabItem>
+</Tabs>
+
+## Citing the EPOS Platform as a reference in any publication
+
+When referencing the EPOS Platform in publications, please use one or more of the following citations:
 
 - **Bailo, D., Paciello, R., Michalek, J., Cocco, M., Freda, C., & Jeffery, K. (2023).** The EPOS multi-disciplinary Data Portal for integrated access to solid Earth science datasets. _Scientific Data_, 10, 784. https://doi.org/10.1038/s41597-023-02697-9
 
@@ -98,31 +123,6 @@ When referencing the EPOS Platform in academic publications, please use one or m
         ```
       </TabItem>
     </Tabs>
-
-## Acknowledgment for Your Website
-
-If you're using the EPOS Platform Open Source to power your data portal or service, you can add a simple acknowledgment on your website:
-
-<Tabs>
-  <TabItem value="html" label="HTML" default>
-    ```html
-    <p>
-      Powered by the
-      <a
-        href="https://epos-eu.github.io/epos-open-source/"
-        target="_blank"
-        rel="noopener noreferrer"
-        >EPOS Platform Open Source Project</a
-      >
-    </p>
-    ```
-  </TabItem>
-  <TabItem value="markdown" label="Markdown">
-    ```markdown
-    Powered by the [EPOS Platform Open Source Project](https://epos-eu.github.io/epos-open-source/)
-    ```
-  </TabItem>
-</Tabs>
 
 ## Projects Using the EPOS Platform
 

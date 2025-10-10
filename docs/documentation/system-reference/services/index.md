@@ -22,7 +22,7 @@ For a broader understanding of how these services fit into the overall system, p
 *   **Ingestor Service:** Manages the process of ingesting metadata into the EPOS Platform. It handles the parsing and storage of metadata (from `.ttl` files) into the system's Metadata Catalogue.
     {/* TODO: Add link to dedicated Ingestor Service documentation page when available. */}
 
-*   **Backoffice Service:** A web-based interface and its supporting backend service designed to provide intuitive, graphical management of metadata. It allows users to create, edit, and delete service descriptions, streamlining metadata curation and overcoming the complexities of manual file editing. It also includes robust user and group management for secure operations.
+*   **[Backoffice Service](./backoffice.md):** A web-based interface and its supporting backend service designed to provide intuitive, graphical management of metadata. It allows users to create, edit, and delete service descriptions, streamlining metadata curation and overcoming the complexities of manual file editing. It also includes robust user and group management for secure operations.
     {/* TODO: Add link to dedicated Backoffice Service documentation page when available. */}
 
 *   **Resources Service:** This service is responsible for managing the descriptions and catalogue information of all available data products and services within the EPOS Platform. It acts as the central registry for discoverable resources.

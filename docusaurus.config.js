@@ -72,7 +72,7 @@ const config = {
 						type: 'doc',
 						docId: 'citation/index',
 						position: 'right',
-						label: 'How to cite',
+						label: 'How to Cite',
 					},
 					{
 						type: 'doc',

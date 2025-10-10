@@ -41,7 +41,7 @@ const featureList = [
 	{
 		title: 'Free & Open Source',
 		imageUrl: '/img/epos-github.png',
-		description: 'The entire EPOS Platform open source is released under GPL v3, making it completely free to deploy, modify, and use.. Every component and library is open source and community-owned.',
+		description: 'The entire EPOS Platform open source is released under GPL v3, making it completely free to deploy, modify, and use. Every component and library is open source and community-owned.',
 		link: '/documentation/license',
 		linkLabel: 'View License Details',
 		isReversed: true,

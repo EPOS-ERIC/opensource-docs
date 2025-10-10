@@ -15,7 +15,7 @@ This section walks you through a typical workflow for creating, populating, and 
 First, you need to deploy a new environment. This command will create all the necessary Docker containers, networks, and volumes for a fully functional EPOS Platform instance.
 
 ```bash
-epos-opensource docker deploy my-test-platform
+epos-opensource docker deploy my-epos-platform
 ```
 
 **When to use it:** Use this command when you want to create a new, clean instance of the EPOS Platform.
@@ -25,7 +25,7 @@ epos-opensource docker deploy my-test-platform
 Once your platform is running, you can populate it with some sample data to see it in action.
 
 ```bash
-epos-opensource docker populate my-test-platform --example
+epos-opensource docker populate my-epos-platform --example
 ```
 
 **When to use it:** Use this command to quickly add some sample data to your platform for testing or demonstration purposes. You can also use it to populate your platform with your own data by providing a path to your `.ttl` files instead of the `--example` flag.
@@ -47,7 +47,7 @@ This command will show you a list of all your environments, their status, and th
 If you want to reset the data in your environment without deleting the entire deployment, you can use the `clean` command.
 
 ```bash
-epos-opensource docker clean my-test-platform
+epos-opensource docker clean my-epos-platform
 ```
 
 :::warning
@@ -63,7 +63,7 @@ This action is irreversible and will delete all your data, including metadata, c
 When you're finished with an environment, you can delete it completely.
 
 ```bash
-epos-opensource docker delete my-test-platform
+epos-opensource docker delete my-epos-platform
 ```
 
 :::warning

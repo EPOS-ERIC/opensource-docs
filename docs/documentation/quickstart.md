@@ -52,7 +52,7 @@ To make sure it's installed correctly, open a new terminal and run:
 epos-opensource --version
 ```
 
-You should see an output like `epos-opensource version v0.2.4` (the version number may vary).
+You should see an output like `epos-opensource version v0.6.0` (the version number may vary).
 
 For more detailed installation instructions, including how to build from source, see the [CLI Tool documentation](./installation/index.md).
 
