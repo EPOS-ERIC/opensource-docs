@@ -28,7 +28,7 @@ flowchart TB
             EAAPI[RESTful APIs]
             EADB[DB API]
         end
-        subgraph Converter[ <a href='../services/converter/index.md'> Converter Service </a>]
+        subgraph Converter[ <a href='./services/converter'> Converter Service </a>]
             CAPI[RESTful APIs]
             CDB[DB API]
         end

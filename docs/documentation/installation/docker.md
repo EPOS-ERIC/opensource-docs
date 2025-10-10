@@ -1,8 +1,8 @@
 ---
-title: Managing Deployments with Docker
+title: Managing Docker Deployments
 ---
 
-# Managing Deployments with Docker
+# Managing Docker Deployments
 
 This guide provides real-world examples of how to use the `epos-opensource docker` commands to manage your EPOS Platform deployments on a single machine using Docker Compose.
 

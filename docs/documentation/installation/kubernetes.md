@@ -1,8 +1,8 @@
 ---
-title: Managing Deployments with Kubernetes
+title: Managing Kubernetes Deployments
 ---
 
-# Managing Deployments with Kubernetes
+# Managing Kubernetes Deployments
 
 This guide provides real-world examples of how to use the `epos-opensource kubernetes` commands to manage your EPOS Platform deployments on a Kubernetes cluster.
 
