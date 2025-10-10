@@ -19,6 +19,7 @@
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix foaf: <http://xmlns.com/foaf/spec/#term_> .
 
+
 #########
 # Dataset Top Concept Scheme
 #########
@@ -37,8 +38,8 @@
  dct:title "OGC Example" ;
  dct:description "Some OGC example" ;
  foaf:logo "https://raw.githubusercontent.com/epos-eu/platform-gui-icons/refs/heads/main/Open_Geospatial_Consortium_logo.png" ; 
- #foaf:homepage "" ; #todo
- schema:color "#004926";
+ #foaf:homepage "" ;
+ schema:color "#2e3486";
  schema:orderItemNumber "2";
  skos:hasTopConcept <category:facets/dataset-theme>;
 .
@@ -54,6 +55,10 @@
  skos:inScheme <category:ogcexample>;
 .
 
+
+###############################################################################
+### Organisations ###
+###############################################################################
 
 <PIC:999472675> a schema:Organization;
   schema:identifier [ a schema:PropertyValue;
@@ -72,6 +77,10 @@
   schema:email "ufficiostampa@ingv.it";
 . 
 
+
+###############################################################################
+### Dataset ###
+###############################################################################
 
 <https://services.seismofaults.eu/EFSM20> a dcat:Dataset;
 		dct:title "Seismology/European Fault Source Model 2020";
@@ -100,6 +109,10 @@
 .
 
 
+###############################################################################
+### Distribution ###
+###############################################################################
+
 <Seismology/EFSM20/Distribution/WFS_CrustalFaults> a dcat:Distribution;
 	dct:identifier "Seismology/EFSM20/Distribution/WFS_CrustalFaults";
 	dct:title "European Fault Source Model 2020 - Crustal Faults (OGC WFS)";
@@ -112,6 +125,9 @@
 .
 
 
+###############################################################################
+### Web service ###
+###############################################################################
 
 <Seismology/EFSM20> a epos:WebService;
 	schema:identifier "Seismology/EFSM20";
@@ -128,12 +144,20 @@
 .
 
 
+###############################################################################
+###  Web service documentation ###
+###############################################################################
+
 <https://www.epos-eu.org/epos-dcat-ap/Seismology/WebService/EFSM20/APIDocumentation> a hydra:ApiDocumentation;
       hydra:title "Web Services documentation and metadata for EFSM20";
       hydra:description "The Seismofaults framework includes EFSM20 as well as related documentation and metadata.";
           hydra:entrypoint "https://seismofaults.eu/efsm20documentation"^^xsd:anyURI;
 .
 
+
+###############################################################################
+### Web service operations ###
+###############################################################################
 
 <Seismology/EFSM20/WFS-CrustalFaults> a hydra:Operation;
 		hydra:method "GET"^^xsd:string;
@@ -244,3 +268,4 @@
 				];
     ];
 .
+

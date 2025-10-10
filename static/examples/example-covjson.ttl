@@ -19,6 +19,7 @@
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix foaf: <http://xmlns.com/foaf/spec/#term_> .
 
+
 #########
 # Dataset Top Concept Scheme
 #########
@@ -36,8 +37,8 @@
  skos:prefLabel "EXAMPLE" ; 
  dct:title "EPOS Example" ;
  dct:description "Some payload example" ;
- foaf:logo "https://github.com/epos-eu/platform-gui-icons/blob/main/example.png?raw=true" ; #todo
- #foaf:homepage "" ; #todo
+ foaf:logo "https://github.com/epos-eu/platform-gui-icons/blob/main/example.png?raw=true" ; 
+ #foaf:homepage "" ;
  schema:color "#004926";
  schema:orderItemNumber "1";
  skos:hasTopConcept <category:facets/dataset-theme>;
@@ -72,7 +73,7 @@
     schema:streetAddress "Via di Vigna Murata";
     schema:addressLocality "Rome";
     schema:postalCode "00143";
-    schema:addressCountry "IT";
+    schema:addressCountry "IT"; #use standard ISO 3166-1 (alpha-2 code)
     ]; 
     schema:email "email@email.com";
     schema:telephone "+00 000 000 0000";

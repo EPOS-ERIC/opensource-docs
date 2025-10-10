@@ -33,11 +33,11 @@
 #########
 
 <category:payloadexample> a skos:ConceptScheme;
- skos:prefLabel "EXAMPLE" ; 
+ skos:prefLabel "EXAMPLE1" ; 
  dct:title "EPOS Example" ;
  dct:description "Some payload example" ;
- foaf:logo "https://github.com/epos-eu/platform-gui-icons/blob/main/example.png?raw=true" ; #todo
- #foaf:homepage "" ; #todo
+ foaf:logo "https://github.com/epos-eu/platform-gui-icons/blob/main/example.png?raw=true" ; 
+ #foaf:homepage "" ;
  schema:color "#004926";
  schema:orderItemNumber "1";
  skos:hasTopConcept <category:facets/dataset-theme>;

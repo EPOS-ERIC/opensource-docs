@@ -19,6 +19,7 @@
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix foaf: <http://xmlns.com/foaf/spec/#term_> .
 
+
 #########
 # Dataset Top Concept Scheme
 #########
@@ -37,8 +38,8 @@
  dct:title "OGC Example" ;
  dct:description "Some OGC example" ;
  foaf:logo "https://raw.githubusercontent.com/epos-eu/platform-gui-icons/refs/heads/main/Open_Geospatial_Consortium_logo.png" ; 
- #foaf:homepage "" ; #todo
- schema:color "#004926";
+ #foaf:homepage "" ;
+ schema:color "#2e3486";
  schema:orderItemNumber "2";
  skos:hasTopConcept <category:facets/dataset-theme>;
 .
@@ -55,6 +56,9 @@
 .
 
 
+###############################################################################
+### Organisations ###
+###############################################################################
 
 <PIC:999844476> a schema:Organization;
   schema:identifier [ a schema:PropertyValue;
@@ -74,6 +78,9 @@
 .
 
 
+###############################################################################
+### Dataset ###
+###############################################################################
 
 <https://www.epos-eu.org/epos-dcat-ap/Seismology/Dataset/EFEHR/EU_SeismicRiskIndex> a dcat:Dataset;
 	dct:identifier "https://www.epos-eu.org/epos-dcat-ap/Seismology/Dataset/EFEHR/EU_SeismicRiskIndex";
@@ -97,6 +104,11 @@
         ];
 .
 
+
+###############################################################################
+### Distribution ###
+###############################################################################
+
 <https://www.epos-eu.org/epos-dcat-ap/Seismology/Distribution/EFEHR/OGC/WMS/EU_SeismicRiskIndex> a dcat:Distribution;
 	dct:identifier "https://www.epos-eu.org/epos-dcat-ap/Seismology/Distribution/EFEHR/OGC/WMS/EU_SeismicRiskIndex";
 	dct:description "The OGC WMS web service providing a raster layer presenting the geographical distribution of the European seismic risk index calculated with the European Seismic Risk Model (ESRM20).";
@@ -108,6 +120,10 @@
 	dct:format "http://publications.europa.eu/resource/authority/file-type/PNG"^^xsd:anyURI;
 .
 
+
+###############################################################################
+### Web service ###
+###############################################################################
 
 <https://www.epos-eu.org/epos-dcat-ap/Seismology/WebService/EFEHR/OGC/WMS/EU_SeismicRiskIndex> a epos:WebService;
 	schema:identifier "https://www.epos-eu.org/epos-dcat-ap/Seismology/WebService/EFEHR/OGC/WMS/EU_SeismicRiskIndex";
@@ -121,12 +137,21 @@
 	dct:conformsTo <https://www.epos-eu.org/epos-dcat-ap/Seismology/WebService/EFEHR/APIDocumentation> ;
 .
 
+
+###############################################################################
+###  Web service documentation ###
+###############################################################################
+
 <https://www.epos-eu.org/epos-dcat-ap/Seismology/WebService/EFEHR/APIDocumentation> a hydra:ApiDocumentation ;
       hydra:title "European Seismic Risk Model - API Documentation" ;
       hydra:description "European Seismic Risk Model - API Documentation" ;
       hydra:entrypoint "https://eu-risk.eucentre.it/esrm20/"^^xsd:anyURI ;
 .
 
+
+###############################################################################
+### Web service operations ###
+###############################################################################
 
 <https://www.epos-eu.org/epos-dcat-ap/Seismology/WebService/EFEHR/OGC/WMS/EU_SeismicRiskIndex/Operation> a hydra:Operation;
 	hydra:method "GET"^^xsd:string;
