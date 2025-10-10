@@ -40,7 +40,7 @@ epos-opensource kubernetes deploy --help
 
 ### Using the Installation Script (Linux/macOS)
 
-The easiest way to install the CLI on Linux, macOS, or Windows Subsystem for Linux (WSL) is with the following script. It will also handle updates for you.
+The easiest way to install or update the CLI on Linux, macOS, or Windows Subsystem for Linux (WSL) is with the following script. This script should be used for both the initial installation and for updating an existing version to the latest one.
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/EPOS-ERIC/epos-opensource/main/install.sh | bash
