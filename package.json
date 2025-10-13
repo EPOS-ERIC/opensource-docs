@@ -20,6 +20,7 @@
     "@docusaurus/theme-mermaid": "^3.9.1",
     "@easyops-cn/docusaurus-search-local": "^0.52.1",
     "@mdx-js/react": "^3.0.0",
+    "@mermaid-js/layout-elk": "^0.1.9",
     "card": "^2.5.4",
     "clsx": "^2.0.0",
     "grid": "^4.10.8",

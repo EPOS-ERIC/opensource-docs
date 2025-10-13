@@ -14,7 +14,8 @@ The following class diagram provides a comprehensive overview of the EPOS Data M
 
 <MermaidFullscreen
 title="EPOS Data Model Overview"
-maxPreviewHeight={400}
+maxPreviewHeight={450}
+useElkLayout={true} 
 chart={`classDiagram
 direction LR
 class Distribution {

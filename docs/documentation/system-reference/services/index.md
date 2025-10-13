@@ -28,7 +28,7 @@ For a broader understanding of how these services fit into the overall system, p
 *   **Resources Service:** This service is responsible for managing the descriptions and catalogue information of all available data products and services within the EPOS Platform. It acts as the central registry for discoverable resources.
     {/* TODO: Add link to dedicated Resources Service documentation page when available. */}
 
-*   **Queueing System:** (e.g., RabbitMQ) Facilitates asynchronous communication and task processing between the various microservices. This ensures efficient and reliable operation, especially for long-running tasks like data ingestion or conversion.
+*   **RabbitMQ:** Facilitates asynchronous communication and task processing between the various microservices. This ensures efficient and reliable operation, especially for long-running tasks like data ingestion or conversion.
     {/* TODO: Add more details about the Queueing System's implementation and role. */}
 
 *   **Metadata Catalogue:** The central repository where all metadata about data products and services is stored. It's the backbone for data discovery and management within the EPOS Platform.

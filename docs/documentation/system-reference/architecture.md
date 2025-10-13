@@ -12,85 +12,99 @@ This document provides a high-level overview of the platform's architecture, ill
 
 <MermaidFullscreen
 title="EPOS Platform Architecture Overview"
+useElkLayout={true} 
+maxPreviewHeight={450}
 chart={`
-flowchart TB
-    %% Esterni
-    AAAI[AAAI Manager]
-    TCS[TCS Services]
-    subgraph EPOS[EPOS System]
-        subgraph Clients[ ]
-            GUI[EPOS Platform GUI]
-            Other[Any other client]
-            BackofficeGUI[GUI Backoffice]
-        end
-        APIGW[EPOS API Gateway]
-        subgraph ExternalAccess[External Access Service]
-            EAAPI[RESTful APIs]
-            EADB[DB API]
-        end
-        subgraph Converter[ <a href='./services/converter'> Converter Service </a>]
-            CAPI[RESTful APIs]
-            CDB[DB API]
-        end
-        subgraph Ingestor[Ingestor Service]
-            IAPI[RESTful APIs]
-            IDB[DB API]
-        end
-        subgraph Backoffice[Backoffice Service]
-            BAPI[RESTful APIs]
-            BDB[DB API]
-        end
-        subgraph Resources[Resources Service]
-            RAPI[RESTful APIs]
-            RDB[DB API]
-        end
-        Queue[Queueing System]
-        subgraph Metadata[ ]
-            MC[Metadata Catalogue]
-            MDB[DB API]
-        end
-    end
-
-    %% Connessioni
-    AAAI --> ExternalAccess
+flowchart LR
+ subgraph Clients["Clients"]
+        GUI["EPOS Platform GUI"]
+        Other["Any other client"]
+        BackofficeGUI["GUI Backoffice"]
+  end
+ subgraph subGraph1["External Entities"]
+    direction TB
+        Clients
+        AAAI["AAAI Manager"]
+        TCS["TCS Services"]
+  end
+ subgraph Entrypoint["Entrypoint"]
+    direction TB
+        APIGW["EPOS API Gateway"]
+  end
+ subgraph Services["Services"]
+        ExternalAccess["External Access Service"]
+        Ingestor["Ingestor Service"]
+        Backoffice@{ label: "<a href=\"./services/backoffice\"> Backoffice Service </a>" }
+        Resources["Resources Service"]
+        EmailSender["Email Sender Service"]
+        Sharing["Sharing Service"]
+        Routine["Routine Service"]
+        Converter@{ label: "<a href=\"./services/converter\"> Converter Service </a>" }
+  end
+ subgraph subGraph4["Shared Infrastructure"]
+        Queue["RabbitMQ"]
+        SharedVol["Shared Volume"]
+  end
+ subgraph subGraph5["Application Layer"]
+    direction TB
+        Services
+        subGraph4
+  end
+ subgraph subGraph6["Data Layer"]
+    direction TB
+        MDB["Database (MDB)"]
+  end
+ subgraph subGraph7["EPOS Core System"]
+    direction LR
+        Entrypoint
+        subGraph5
+        subGraph6
+  end
+    Clients --> APIGW
+    AAAI --> APIGW
     TCS --> ExternalAccess
-    GUI --> APIGW
-    Other --> APIGW
-    BackofficeGUI --> APIGW
-    APIGW --> ExternalAccess
-    APIGW --> Converter
-    APIGW --> Ingestor
-    APIGW --> Backoffice
-    APIGW --> Resources
-    ExternalAccess --> Queue
+    APIGW --> ExternalAccess & Converter & Ingestor & Backoffice & Resources & EmailSender & Sharing & Routine
     Converter --> Queue
-    Ingestor --> Queue
-    Backoffice --> Queue
-    Resources --> Queue
-    Queue --> MC
-    MDB --> MC
-    %% Definizione colori
-    classDef gateway fill:#fff7b2,stroke:#d4aa00,stroke-width:2px;
-    classDef external fill:#cce5ff,stroke:#004085,stroke-width:2px;
-    classDef converter fill:#ffe0cc,stroke:#cc5200,stroke-width:2px;
-    classDef ingestor fill:#f2d9f2,stroke:#660066,stroke-width:2px;
-    classDef backoffice fill:#e6ffe6,stroke:#006600,stroke-width:2px;
-    classDef resources fill:#d9f2f2,stroke:#006666,stroke-width:2px;
-    classDef client fill:#ffe6e6,stroke:#ffe6e6,stroke:#990000,stroke-width:2px;
-    classDef queue fill:#f2f2f2,stroke:#333,stroke-width:1px;
-    classDef metadata fill:#fff,stroke:#333,stroke-width:1px;
-    %% Assegnazione classi
-    class APIGW gateway
-    class EAAPI,EADB,ExternalAccess external
-    class CAPI,CDB,Converter converter
-    class IAPI,IDB,Ingestor ingestor
-    class BAPI,BDB,Backoffice backoffice
-    class RAPI,RDB,Resources resources
-    class GUI,Other,BackofficeGUI client
-    class Queue queue
-    class MC,MDB metadata
-`}
-/>
+    Resources --> Queue & MDB
+    ExternalAccess --> Queue & MDB
+    Routine --- SharedVol
+    SharedVol --- Converter
+    Ingestor --> MDB
+    Backoffice --> MDB
+    EmailSender --> MDB
+    Sharing --> MDB
+    Routine --> MDB
+    Backoffice@{ shape: rect}
+    Converter@{ shape: rect}
+     GUI:::client
+     Other:::client
+     BackofficeGUI:::client
+     Clients:::client
+     APIGW:::gateway
+     ExternalAccess:::external
+     Ingestor:::ingestor
+     Backoffice:::backoffice
+     Resources:::resources
+     EmailSender:::emailsender
+     Sharing:::sharing
+     Routine:::routine
+     Converter:::converter
+     Queue:::queue
+     MDB:::metadata
+    classDef gateway fill:#fff7b2,stroke:#d4aa00,stroke-width:2px
+    classDef external fill:#cce5ff,stroke:#004085,stroke-width:2px
+    classDef converter fill:#ffe0cc,stroke:#cc5200,stroke-width:2px
+    classDef ingestor fill:#f2d9f2,stroke:#660066,stroke-width:2px
+    classDef backoffice fill:#e6ffe6,stroke:#006600,stroke-width:2px
+    classDef resources fill:#d9f2f2,stroke:#006666,stroke-width:2px
+    classDef emailsender fill:#fff0e6,stroke:#cc6600,stroke-width:2px
+    classDef sharing fill:#e6f0ff,stroke:#0066cc,stroke-width:2px
+    classDef routine fill:#fffbe6,stroke:#ccb300,stroke-width:2px
+    classDef client fill:#ffe6e6,stroke:#990000,stroke-width:2px
+    classDef queue fill:#f2f2f2,stroke:#333,stroke-width:1px
+    classDef metadata fill:#fff,stroke:#333,stroke-width:1px
+`
+}/>
 
 ## Core Components Overview
 
@@ -102,7 +116,7 @@ The EPOS Platform is composed of several interconnected microservices, each resp
 *   **Ingestor Service:** Manages the ingestion of metadata (e.g., from `.ttl` files) into the system's metadata catalogue.
 *   **[Backoffice Service](./services/backoffice.md):** Provides administrative functionalities, including metadata management and system configuration.
 *   **Resources Service:** Manages service descriptions and catalogue information.
-*   **Queueing System:** Facilitates asynchronous communication between services, ensuring efficient and reliable data processing.
+*   **RabbitMQ:** Facilitates asynchronous communication between services, ensuring efficient and reliable data processing.
 *   **Metadata Catalogue:** The central repository for all service descriptions and catalogue information.
 
 ## Key Architectural Principles
