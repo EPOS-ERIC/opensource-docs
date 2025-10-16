@@ -3,7 +3,7 @@ id: describing-data
 title: "Describing Your Data"
 ---
 
-This guide walks you through the process of describing your datasets and web services using the [EPOS-DCAT-AP](../system-reference/data-formats/dcat-ap.md) metadata standard. By understanding how to structure this metadata, you can integrate your own resources into the EPOS Platform, making them discoverable through the interface.
+This guide walks you through the process of describing your datasets and web services using the [EPOS-DCAT-AP](../system-reference/data-formats/dcat-ap.md) metadata specification. By understanding how to structure this metadata, you can integrate your own resources into the EPOS Platform, making them discoverable through the interface.
 
 We will dissect a real-world example: a metadata file for an OGC Web Map Service (WMS). This is one of the examples loaded when you run the `epos-opensource docker populate --example` command from the [Quickstart Guide](../quickstart.md).
 
