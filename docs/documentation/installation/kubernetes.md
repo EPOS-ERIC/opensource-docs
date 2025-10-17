@@ -36,7 +36,17 @@ epos-opensource kubernetes populate my-kube-platform --example
 
 **When to use it:** Use this command to quickly add some sample data to your platform for testing or demonstration purposes. You can also use it to populate your platform with your own data by providing a path to your `.ttl` files instead of the `--example` flag.
 
-### 3. Check the Status
+### 3. Update the Environment
+
+If you need to update an existing environment with new configuration settings, such as changing environment variables or using different manifests, you can use the `update` command.
+
+```bash
+epos-opensource kubernetes update my-kube-platform --env-file ./my-updated-manifests/.env
+```
+
+**When to use it:** Use this command when you want to apply configuration changes to an existing Kubernetes environment without deleting and recreating it from scratch. You can update the environment variables, manifests directory, force recreation of the namespace, or change the host settings.
+
+### 4. Check the Status
 
 You can check the status of your deployed environments at any time.
 
@@ -48,7 +58,7 @@ This command will show you a list of all your Kubernetes environments and their 
 
 **When to use it:** Use this command to get an overview of your deployed environments on Kubernetes.
 
-### 4. Delete the Environment
+### 5. Delete the Environment
 
 When you're finished with an environment, you can delete it completely.
 
@@ -61,6 +71,14 @@ epos-opensource kubernetes delete my-kube-platform
 This action is irreversible and will delete the entire namespace and all its resources, including all your data, metadata, and any data added through the Backoffice.
 
 :::
+
+:::tip
+
+This command will prompt for confirmation before proceeding. Use the `--force` (`-f`) flag to bypass the prompt, which is useful for scripts or CI/CD pipelines.
+
+:::
+
+**When to use it:** Use this command when you want to completely remove a Kubernetes environment and all its associated resources.
 
 ## Advanced Usage
 

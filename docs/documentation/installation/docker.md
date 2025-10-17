@@ -56,9 +56,25 @@ This action is irreversible and will delete all your data, including metadata, c
 
 :::
 
+:::tip
+
+This command will prompt for confirmation before proceeding. Use the `--force` (`-f`) flag to bypass the prompt, which is useful for scripts or CI/CD pipelines.
+
+:::
+
 **When to use it:** Use this command when you want to clear all the data from an environment and start over with a clean slate.
 
-### 5. Delete the Environment
+### 5. Update the Environment
+
+If you need to update an existing environment with new configuration settings, such as changing environment variables or using a different Docker Compose file, you can use the `update` command.
+
+```bash
+epos-opensource docker update my-epos-platform --env-file ./my-updated-config/.env
+```
+
+**When to use it:** Use this command when you want to apply configuration changes to an existing environment without deleting and recreating it from scratch. You can update the environment variables, Docker Compose file, force recreation of containers, update Docker images, or change the host settings.
+
+### 6. Delete the Environment
 
 When you're finished with an environment, you can delete it completely.
 
@@ -71,6 +87,14 @@ epos-opensource docker delete my-epos-platform
 This action is irreversible and will delete all your data and the entire deployment, including all containers, volumes, and networks.
 
 :::
+
+:::tip
+
+This command will prompt for confirmation before proceeding. Use the `--force` (`-f`) flag to bypass the prompt, which is useful for scripts or CI/CD pipelines.
+
+:::
+
+**When to use it:** Use this command when you want to completely remove an environment and all its associated resources.
 
 ## Advanced Usage
 
@@ -115,4 +139,3 @@ Here is an example of the `.env` file for Docker. Note that this might be outdat
 import RemoteCodeBlock from '@site/src/components/RemoteCodeBlock';
 
 <RemoteCodeBlock url="https://raw.githubusercontent.com/EPOS-ERIC/epos-opensource/refs/heads/main/cmd/docker/dockercore/static/.env" language="env" />
-
