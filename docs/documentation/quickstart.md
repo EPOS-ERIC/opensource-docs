@@ -7,6 +7,7 @@ title: Quickstart
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+
 This guide will get you up and running with a local instance of the EPOS Platform in just a few minutes. By the end, you'll have a fully functional data catalogue populated with sample data.
 
 ## Prerequisites
@@ -109,6 +110,8 @@ Open your web browser and go to the **EPOS Platform GUI** provided at the end of
 You should see the main interface for browsing and searching for geospatial services. The sample metadata will appear on the top-left side of the interface.
 
 You can also explore the **API Documentation** at `http://localhost:33000/api/v1/ui`.
+
+
 
 ## Next Steps
 

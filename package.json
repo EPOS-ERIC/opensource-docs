@@ -23,10 +23,12 @@
     "@mermaid-js/layout-elk": "^0.1.9",
     "card": "^2.5.4",
     "clsx": "^2.0.0",
+    "framer-motion": "^12.23.24",
     "grid": "^4.10.8",
     "prism-react-renderer": "^2.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-scroll-parallax": "^3.5.0",
     "react-zoom-pan-pinch": "^3.7.0",
     "styled-components": "^6.1.19"
   },
