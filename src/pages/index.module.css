@@ -11,7 +11,7 @@
 
 .heroBackground {
   position: absolute;
-  top: -800px;      /* move image higher */
+  top: -700px;      /* move image higher */
   left: 5%;
   width: 150%;
   max-width: none;
@@ -50,6 +50,13 @@
   display: flex;
   justify-content: center;
   gap: 1rem;
+}
+.heroLogo {
+  width: 350px;          /* adjust size as needed */
+  height: auto;
+  margin-bottom: 1.5rem; /* space between logo and heading */
+  z-index: 2;            /* above background globe */
+  pointer-events: none;  /* prevent clicks */
 }
 
 /* ============================= */
@@ -94,7 +101,7 @@
 .deploymentsSection {
   padding: 4rem 0;
   position: relative;
-  min-height: 100vh;
+  min-height: auto;
   display: flex;
   align-items: center;
   transition: background 0.5s ease;
@@ -152,7 +159,7 @@
 .aboutSection {
   padding: 5rem 0;
   position: relative;
-  min-height: 100vh;
+  min-height: auto;
   display: flex;
   align-items: center;
   transition: background 0.5s ease;

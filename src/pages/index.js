@@ -71,36 +71,46 @@ const Feature = ({ imageUrl, title, description, link, linkLabel, isReversed }) 
 function HeroSection() {
   return (
     <header className={clsx('hero', styles.heroBanner)}>
-      {/* Background image */}
+      {/* Spinning background globe */}
       <motion.img
         src={useBaseUrl('/img/epos-eric.png')}
         alt="EPOS ERIC Globe"
         className={styles.heroBackground}
         animate={{ rotate: 360 }}
-        transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+        transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
       />
 
-      {/* Centered content */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-      >
-        <Heading as="h1" className={styles.heroTitle}>
-          EPOS Platform Open Source
-        </Heading>
-        <p className={styles.heroSubtitle}>
-          The open-source edition of the EPOS Platform is a service-based data integration and visualization system built on a microservices architecture.
-        </p>
-        <div className={styles.buttons}>
-          <Link className="button button--primary button--lg" to="/documentation/quickstart">
-            Quickstart
-          </Link>
-          <Link className="button button--secondary button--lg" to="/documentation/system-reference/architecture">
-            System Reference
-          </Link>
-        </div>
-      </motion.div>
+      {/* Hero content */}
+      <div className="container">
+        {/* Top logo */}
+        <img
+          src={useBaseUrl('/img/epos-logo.svg')}
+          alt="EPOS Logo"
+          className={styles.heroLogo}
+        />
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          <Heading as="h1" className={styles.heroTitle}>
+            EPOS Platform Open Source
+          </Heading>
+          <p className={styles.heroSubtitle}>
+            The open-source edition of the EPOS Platform is a service-based data integration
+            and visualization system built on a microservices architecture.
+          </p>
+          <div className={styles.buttons}>
+            <Link className="button button--primary button--lg" to="/documentation/quickstart">
+              Quickstart
+            </Link>
+            <Link className="button button--secondary button--lg" to="/documentation/system-reference/architecture">
+              System Reference
+            </Link>
+          </div>
+        </motion.div>
+      </div>
     </header>
   );
 }
