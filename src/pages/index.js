@@ -72,13 +72,22 @@ function HeroSection() {
   return (
     <header className={clsx('hero', styles.heroBanner)}>
       {/* Spinning background globe */}
-      <motion.img
-        src={useBaseUrl('/img/epos-eric.png')}
-        alt="EPOS ERIC Globe"
-        className={styles.heroBackground}
-        animate={{ rotate: 360 }}
-        transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
-      />
+      {/* Fisso interno */}
+<img
+  src={useBaseUrl('/img/Partnership_3_Tenerife_1_interno.png')}
+  alt="EPOS ERIC Inner Globe"
+  className={clsx(styles.heroBackgroundInnerRing)}
+/>
+
+{/* Esterno che gira */}
+<motion.img
+  src={useBaseUrl('/img/Partnership_3_Tenerife_1_esterno.png')}
+  alt="EPOS ERIC Outer Globe"
+  className={clsx(styles.heroBackgroundOuterRing)}
+  animate={{ rotate: 360 }}
+  transition={{ duration: 137, repeat: Infinity, ease: 'linear' }}
+/>
+
 
       {/* Hero content */}
       <div className="container">
@@ -92,7 +101,7 @@ function HeroSection() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 0.2 }}
         >
           <Heading as="h1" className={styles.heroTitle}>
             EPOS Platform Open Source
