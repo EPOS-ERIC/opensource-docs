@@ -33,14 +33,14 @@
 # Concept Scheme
 #########
 
-<category:ogcexample> a skos:ConceptScheme;
- skos:prefLabel "OGC Example" ; 
- dct:title "OGC Example" ;
- dct:description "Some OGC example" ;
- foaf:logo "https://raw.githubusercontent.com/epos-eu/platform-gui-icons/refs/heads/main/Open_Geospatial_Consortium_logo.png" ; 
+<category:payloadexample> a skos:ConceptScheme;
+ skos:prefLabel "EXAMPLE1" ; 
+ dct:title "EPOS Example" ;
+ dct:description "Some payload example" ;
+ foaf:logo "https://github.com/epos-eu/platform-gui-icons/blob/main/example.png?raw=true" ; 
  #foaf:homepage "" ;
  schema:color "#2e3486";
- schema:orderItemNumber "2";
+ schema:orderItemNumber "1";
  skos:hasTopConcept <category:facets/dataset-theme>;
 .
 
@@ -49,10 +49,10 @@
 # Concepts
 #########
 
-<category:ogcexamplewfs> a skos:Concept;
+<category:ogcwfs> a skos:Concept;
  skos:prefLabel "OGC WFS Example"; #GUI
  skos:definition "This is an example";
- skos:inScheme <category:ogcexample>;
+ skos:inScheme <category:payloadexample>;
 .
 
 
@@ -97,7 +97,7 @@
 		dct:spatial [ a dct:Location;
 			locn:geometry "POLYGON((-46.9529304504394531 15.2370843887329102, -46.9529304504394531 82.8685073852539063, 53.4622154235839844 82.8685073852539063, 53.4622154235839844 15.2370843887329102, -46.9529304504394531 15.2370843887329102))"^^gsp:wktLiteral;
 		];
-		dcat:theme <category:ogcexamplewfs>;
+		dcat:theme <category:ogcwfs>;
 		dcat:keyword "active fault", "seismogenic fault", "seismogenic source", "seismogenic zone", "earthquake", "subduction", "crust", "slab", "hazard", "magnitude", "slip rate", "crustal fault", "subduction fault", "seismic hazard", "hazard model", "seismic hazard model", "fault", "seismology", "geology", "geohazard", "INGV", "seismofaults", "strike", "dip","rake", "magnitude", "SERA", "ESHM20", "EFSM20", "EFEHR";
 		dqv:hasQualityAnnotation [ a oa:Annotation ;
 			oa:hasBody "https://seismofaults.eu/documentation/dqa"^^xsd:anyURI  ;
@@ -268,4 +268,3 @@
 				];
     ];
 .
-

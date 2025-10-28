@@ -19,6 +19,7 @@
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix foaf: <http://xmlns.com/foaf/spec/#term_> .
 
+
 #########
 # Dataset Top Concept Scheme
 #########
@@ -38,7 +39,7 @@
  dct:description "Some payload example" ;
  foaf:logo "https://github.com/epos-eu/platform-gui-icons/blob/main/example.png?raw=true" ; 
  #foaf:homepage "" ;
- schema:color "#004926";
+ schema:color "#2e3486";
  schema:orderItemNumber "1";
  skos:hasTopConcept <category:facets/dataset-theme>;
 .
@@ -55,11 +56,9 @@
 .
 
 
-
 ###############################################################################
 ### People ###
 ###############################################################################
-
 
 <http://orcid.org/0000-0000-0000-0000> a schema:Person;
     schema:identifier [ a schema:PropertyValue;
@@ -200,6 +199,7 @@
     schema:telephone "+00 000 000 0000";
     schema:contactPoint <http://orcid.org/0000-0000-0000-0022/ContactPoint>;
 .
+
 
 ###############################################################################
 ### Dataset ###

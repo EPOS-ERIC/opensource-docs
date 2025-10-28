@@ -120,7 +120,7 @@
         dct:issued "2025-10-08"^^xsd:date ;
         dct:modified "2025-10-08"^^xsd:date ;
         dct:type "http://publications.europa.eu/resource/authority/distribution-type/DOWNLOADABLE_FILE"^^xsd:anyURI ;
-        dct:format "http://publications.europa.eu/resource/authority/file-type/ZIP"^^xsd:anyURI ;
+        dct:format "http://publications.europa.eu/resource/authority/file-type/RDF_TURTLE"^^xsd:anyURI ;
         dcat:downloadURL "https://raw.githubusercontent.com/EPOS-ERIC/opensource-docs/refs/heads/main/static/examples/example-downloadablefile.ttl"^^xsd:anyURI ;
         dcat:accessURL "https://raw.githubusercontent.com/EPOS-ERIC/opensource-docs/refs/heads/main/static/examples/example-downloadablefile.ttl"^^xsd:anyURI ;
         dct:license "https://creativecommons.org/licenses/by/4.0/"^^xsd:anyURI ;

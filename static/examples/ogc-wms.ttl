@@ -33,14 +33,14 @@
 # Concept Scheme
 #########
 
-<category:ogcexample> a skos:ConceptScheme;
- skos:prefLabel "OGC Example" ; 
- dct:title "OGC Example" ;
- dct:description "Some OGC example" ;
- foaf:logo "https://raw.githubusercontent.com/epos-eu/platform-gui-icons/refs/heads/main/Open_Geospatial_Consortium_logo.png" ; 
+<category:payloadexample> a skos:ConceptScheme;
+ skos:prefLabel "EXAMPLE1" ; 
+ dct:title "EPOS Example" ;
+ dct:description "Some payload example" ;
+ foaf:logo "https://github.com/epos-eu/platform-gui-icons/blob/main/example.png?raw=true" ; 
  #foaf:homepage "" ;
  schema:color "#2e3486";
- schema:orderItemNumber "2";
+ schema:orderItemNumber "1";
  skos:hasTopConcept <category:facets/dataset-theme>;
 .
 
@@ -49,10 +49,10 @@
 # Concepts
 #########
 
-<category:ogcexamplewms> a skos:Concept;
+<category:ogcwms> a skos:Concept;
  skos:prefLabel "OGC WMS Example"; #GUI
  skos:definition "This is an example";
- skos:inScheme <category:ogcexample>;
+ skos:inScheme <category:payloadexample>;
 .
 
 
@@ -95,7 +95,7 @@
 	dct:spatial [ a dct:Location;
 		locn:geometry "POLYGON((-32.5 73.5,45.0 73.5,45.0 32.5,-32.5 32.5,-32.5 73.5))"^^gsp:wktLiteral;
 	];
-	dcat:theme <category:ogcexamplewms>;
+	dcat:theme <category:ogcwms>;
 	dcat:keyword "seismic risk", "buildings", "population", "map", "earthquake";
 	dct:publisher <PIC:999844476>;
 	dcat:distribution <https://www.epos-eu.org/epos-dcat-ap/Seismology/Distribution/EFEHR/OGC/WMS/EU_SeismicRiskIndex>;
@@ -112,7 +112,7 @@
 <https://www.epos-eu.org/epos-dcat-ap/Seismology/Distribution/EFEHR/OGC/WMS/EU_SeismicRiskIndex> a dcat:Distribution;
 	dct:identifier "https://www.epos-eu.org/epos-dcat-ap/Seismology/Distribution/EFEHR/OGC/WMS/EU_SeismicRiskIndex";
 	dct:description "The OGC WMS web service providing a raster layer presenting the geographical distribution of the European seismic risk index calculated with the European Seismic Risk Model (ESRM20).";
-	dct:title "European Seismic Risk Index (ESRM20)";
+	dct:title "European Seismic Risk Index - ESRM20 (OGC WMS)";
 	dct:type "http://publications.europa.eu/resource/authority/distribution-type/WEB_SERVICE"^^xsd:anyURI;
 	dct:conformsTo <https://www.epos-eu.org/epos-dcat-ap/Seismology/WebService/EFEHR/OGC/WMS/EU_SeismicRiskIndex>;
 	dcat:accessURL <https://www.epos-eu.org/epos-dcat-ap/Seismology/WebService/EFEHR/OGC/WMS/EU_SeismicRiskIndex/Operation>;
