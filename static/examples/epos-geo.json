@@ -1,421 +1,415 @@
 {
-  "type": "FeatureCollection",
-  "@epos_style": {
-    "character_marker": {
-      "label": "Character Marker with Pin",
-      "marker": {
-        "character": "S",
-        "pin": true,
-        "clustering": true
-      }
-    },
-    "fontawesome_marker": {
-      "label": "Font Awesome Icon Marker",
-      "marker": {
-        "fontawesome_class": "fas fa-star",
-        "pin": false,
-        "clustering": false,
-        "anchor": "C"
-      }
-    },
-    "raw_image_marker": {
-      "label": "Base64 Raw Image Marker",
-      "marker": {
-        "anchor": "C",
-        "clustering": false,
-        "pin": false,
-        "raw": "iVBORw0KGgoAAAANSUhEUgAAAIEAAACBCAYAAADnoNlQAAAE30lEQVR4nOyd247bOgxFmaL//8spZgoniiJZN1LiZa+ngxYnlsXlTdqeTv4QCM/f0wsQ4in42Q/Bzz6ClxOaLvrz+aTHY2kbzO+h1RO4LfpPYUe5RGj9nx0bZm5PLS24Wp+ZolNS+OYB7j5j6a91YGGRX7WZLfpFKf65hojKhqreZ62LK9aEu/iHpkd1e65tQexXPW0ufvH4Q3+8HzULyWvjofg5hc1Wsf8aFsFefMoEOF18Sja6ckt6tA4nHxaFKH6J61yTtV5LPSLDKQNf9ZEoPikTIE2B4t9/rn17TXa/O3hKC/BUJkAP2T5sP4Wd7YC9+DTwpE87lRaxJRV2JYHI1e9FgJRCKogjLcGW+PfG7vYg2Q4Q/wvsbA9SSQABmNjRHiQkgADMSIvALQEEyGg9I+hFUgROCSCAMFIicEkAATYhIQKHBBBgM9wirEoAAQ7BKQJLO4AAZ+Da9xUJnpwL8QjXncEdyWdPH2RWApGzQgosM7V1MxJgDlDG6nww3Q4ggC5W6jEqAeYAxczOByMSYA6wRfeWDrcDtIE+dtwZlJg5Xq8EaAOGGG0Lx35JhecUsEaPBEgBg4ykQUsCDIMTnJoHbrhdSFc7UHQyYIDeut1JgBTwRXXLm0mAFLBNT/223h1ESAGF80CTmgS4I3BE605hWxJESAGrlCRAnXzzVd9qEuAdwTia54G7NeF3G4MvCTAQOqY2IIonAVqBftAOACQAnxKwzwNoBfoozQVIAgAJACRYxlIrqHFJgHkgEPlcgCQAkGAFD62AIAEgSABISoIIQ6GXVkBIAkCQYA5PKUCQABAkAAQJxvHWCiiVwNNJgTZpvV8SLH59fAg8pUBab7QDAAl68ZQCOZAAQIIePKcAQQJAkAAQJGjjvRUQJAAECe6JkAIECQAlEvxKj0fHbzynQFLn3/9AEgBIUMJzCpQQkeD1te8SHy5MNAEokwBzQQDyeYDQDj6JmAIECQBBgjdRU4AKErDNBZaHQ6+U5gFCEvwncgrQnQRR7hKiCHBXz5IEMaofl6/6irYD7XNBlBRoUZMAD44cURsIL8IOhkiBN00JVtNAY0uIJEBP/e4k0FQ3sE61nl3twNNsgBT4piUBS/W1tIRIAmTcbn1PEuBOwSCtO4KUbXcHp9MgcAo06ZXAdBpEE2AkBWgmCayJEFiAbkYkWK7+6ZYQjO5tHk0CU20hcAoMFWh6MJwVYVcaBBZgmBkJHqsHlhYhuADD2zqbBDb6QTym6rLynGBpPpBKg8ApML2VLA+LtAyKgQVYYlWCpfmAMw2CC7C0hRxJcFwECLAG17uD5TsG0Ae3AMT8AmlahJU0iJQCEgKQwFvErSJAAB4kXiVvaQ0QgA+pnyeYEqE3DSAA8zEkPjTho0q9Rbv7Sr0oAhQuHrFa7Rrl39/QvCBCUAHEa7Trx8uG20PeGiCA4DF3HCRhuD2km+JZgJ3xn7P7n6E9RlPBc+EvClf/1ovz5OO9qaHREyev/uMHzWjK8BoSnYiipfgqDp5RlCHfMMsiaCv+hYpFJBQrfP2h1TuEyuyjZu/VLCSjKoMVEW6GXnV7rm5BBW6rrU0G7Vd9CdWLy6hW+6QIjdtcE/trYpEFjqVDx7MNc3tqbsEVpqv+I8ziK2/ze2j+BCpI9gevewYi8y8AAP//rhU3ukdRrhQAAAAASUVORK5CYII="
-      }
-    },
-    "image_url_marker": {
-      "label": "Image URL Marker with Pin",
-      "marker": {
-        "href": "https://raw.githubusercontent.com/EPOS-ERIC/opensource-docs/refs/heads/main/static/examples/image-marker.png",
-        "pin": true,
-        "clustering": false
-      }
-    }
-  },
-  "features": [
-    {
-      "type": "Feature",
-      "properties": {
-        "@epos_type": "character_marker",
-        "@epos_label_key": "FeatureType",
-        "@epos_map_keys": [
-          "FeatureType",
-          "Description",
-          "StyleDetails",
-          "@epos_links"
-        ],
-        "@epos_data_keys": [
-          "FeatureType",
-          "Description",
-          "GeometryType"
-        ],
-        "FeatureType": "Character Marker (Point)",
-        "Description": "Uses a single character 'S' as the marker symbol. Character markers are ideal for simple, text-based map symbols.",
-        "StyleDetails": "Configured with pin=true for the classic pin appearance and clustering=true to group nearby markers when zoomed out.",
-        "GeometryType": "Point",
-        "@epos_links": [
-          {
-            "href": "https://YOUR_DOCS_URL/geojson#character-example",
-            "label": "Character Marker Documentation",
-            "type": "text/html",
-            "authenticatedDownload": false
-          }
-        ]
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.4050,
-          52.5200
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "@epos_type": "character_marker",
-        "@epos_label_key": "FeatureType",
-        "@epos_map_keys": [
-          "FeatureType",
-          "Description",
-          "StyleDetails"
-        ],
-        "@epos_data_keys": [
-          "FeatureType",
-          "Description",
-          "GeometryType"
-        ],
-        "FeatureType": "Character Marker (Clustered)",
-        "Description": "Another character marker nearby to demonstrate the clustering feature. When multiple markers are close together, they automatically group into a cluster marker.",
-        "StyleDetails": "This marker shares the same @epos_type, so it will cluster with other character_marker features when zoomed out.",
-        "GeometryType": "Point"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.0058,
-          52.0285
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "@epos_type": "character_marker",
-        "@epos_label_key": "FeatureType",
-        "@epos_map_keys": [
-          "FeatureType",
-          "Description",
-          "StyleDetails"
-        ],
-        "@epos_data_keys": [
-          "FeatureType",
-          "Description",
-          "GeometryType"
-        ],
-        "FeatureType": "Character Marker (Clustered)",
-        "Description": "Another character marker nearby to demonstrate the clustering feature. When multiple markers are close together, they automatically group into a cluster marker.",
-        "StyleDetails": "This marker shares the same @epos_type, so it will cluster with other character_marker features when zoomed out.",
-        "GeometryType": "Point"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.0058,
-          52.4285
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "@epos_type": "character_marker",
-        "@epos_label_key": "FeatureType",
-        "@epos_map_keys": [
-          "FeatureType",
-          "Description",
-          "StyleDetails"
-        ],
-        "@epos_data_keys": [
-          "FeatureType",
-          "Description",
-          "GeometryType"
-        ],
-        "FeatureType": "Character Marker (Clustered)",
-        "Description": "Another character marker nearby to demonstrate the clustering feature. When multiple markers are close together, they automatically group into a cluster marker.",
-        "StyleDetails": "This marker shares the same @epos_type, so it will cluster with other character_marker features when zoomed out.",
-        "GeometryType": "Point"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.5058,
-          52.4285
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "@epos_type": "fontawesome_marker",
-        "@epos_label_key": "FeatureType",
-        "@epos_map_keys": [
-          "FeatureType",
-          "Description",
-          "StyleDetails",
-          "@epos_links"
-        ],
-        "@epos_data_keys": [
-          "FeatureType",
-          "Description",
-          "GeometryType"
-        ],
-        "FeatureType": "Font Awesome Icon (Point)",
-        "Description": "Uses a Font Awesome icon class (fas fa-star) as the marker. Any Font Awesome icon can be used this way.",
-        "StyleDetails": "Configured with pin=false and anchor=C to center the icon at the coordinate point without a pin stem.",
-        "GeometryType": "Point",
-        "@epos_links": [
-          {
-            "href": "https://YOUR_DOCS_URL/geojson#fontawesome-example",
-            "label": "Font Awesome Marker Documentation",
-            "type": "text/html",
-            "authenticatedDownload": false
-          },
-          {
-            "href": "https://fontawesome.com/icons",
-            "label": "Browse Font Awesome Icons",
-            "type": "text/html",
-            "authenticatedDownload": false
-          }
-        ]
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.3522,
-          41.8566
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "@epos_type": "raw_image_marker",
-        "@epos_label_key": "FeatureType",
-        "@epos_map_keys": [
-          "FeatureType",
-          "Description",
-          "StyleDetails",
-          "@epos_links"
-        ],
-        "@epos_data_keys": [
-          "FeatureType",
-          "Description",
-          "GeometryType"
-        ],
-        "FeatureType": "Raw Base64 Image (Point)",
-        "Description": "Embeds a base64-encoded image directly in the GeoJSON payload. This allows custom markers without external image files.",
-        "StyleDetails": "The raw image data is included in the @epos_style definition. Useful when you need complete control over marker appearance without depending on external resources.",
-        "GeometryType": "Point",
-        "@epos_links": [
-          {
-            "href": "https://YOUR_DOCS_URL/geojson#raw-image-example",
-            "label": "Raw Image Marker Documentation",
-            "type": "text/html",
-            "authenticatedDownload": false
-          }
-        ]
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.4964,
-          41.9028
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "@epos_type": "image_url_marker",
-        "@epos_label_key": "FeatureType",
-        "@epos_map_keys": [
-          "FeatureType",
-          "Description",
-          "StyleDetails",
-          "@epos_links"
-        ],
-        "@epos_data_keys": [
-          "FeatureType",
-          "Description",
-          "GeometryType"
-        ],
-        "FeatureType": "Image URL Marker (Point)",
-        "Description": "References an external image URL for the marker icon. The image is loaded from the specified href.",
-        "StyleDetails": "Configured with pin=true to display the image inside a pin marker. The href property in @epos_style points to the image location.",
-        "GeometryType": "Point",
-        "@epos_links": [
-          {
-            "href": "https://YOUR_DOCS_URL/geojson#image-example",
-            "label": "Image URL Marker Documentation",
-            "type": "text/html",
-            "authenticatedDownload": false
-          }
-        ]
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -3.7038,
-          40.4168
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "@epos_label_key": "FeatureType",
-        "@epos_map_keys": [
-          "FeatureType",
-          "Description",
-          "StyleDetails"
-        ],
-        "@epos_data_keys": [
-          "FeatureType",
-          "Description",
-          "GeometryType"
-        ],
-        "FeatureType": "Polygon (Default Style)",
-        "Description": "Demonstrates polygon geometry support. When no @epos_type is specified, default styling is applied.",
-        "StyleDetails": "Polygons are rendered as filled areas with borders. This example shows a region in France without custom marker styling.",
-        "GeometryType": "Polygon"
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              2.0,
-              47.0
-            ],
-            [
-              3.5,
-              47.0
-            ],
-            [
-              4.5,
-              47.5
-            ],
-            [
-              3.5,
-              48.5
-            ],
-            [
-              2.0,
-              48.5
-            ],
-            [
-              1.5,
-              47.5
-            ],
-            [
-              2.0,
-              47.0
-            ]
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "@epos_label_key": "FeatureType",
-        "@epos_map_keys": [
-          "FeatureType",
-          "Description",
-          "StyleDetails",
-          "@epos_links"
-        ],
-        "@epos_data_keys": [
-          "FeatureType",
-          "Description",
-          "GeometryType"
-        ],
-        "FeatureType": "LineString (Default Style)",
-        "Description": "Demonstrates line geometry support. LineStrings are useful for representing paths, routes, or boundaries.",
-        "StyleDetails": "Lines are rendered with default stroke styling when no @epos_type is specified. This example traces a path across central Europe.",
-        "GeometryType": "LineString",
-        "@epos_links": [
-          {
-            "href": "https://YOUR_DOCS_URL/geojson#geometry-types",
-            "label": "Supported Geometry Types",
-            "type": "text/html",
-            "authenticatedDownload": false
-          }
-        ]
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            8.5417,
-            47.3769
-          ],
-          [
-            11.5820,
-            48.1351
-          ],
-          [
-            14.4378,
-            50.0755
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "@epos_type": "overlay",
-        "@epos_label_key": "FeatureType",
-        "@epos_map_keys": [
-          "FeatureType",
-          "Description",
-          "OverlayDetails",
-          "@epos_links"
-        ],
-        "@epos_data_keys": [
-          "FeatureType",
-          "Description"
-        ],
-        "FeatureType": "Image Overlay",
-        "Description": "Displays a geo-referenced image overlay on the map using bounding box coordinates.",
-        "OverlayDetails": "The image is positioned using bbox coordinates [lat1, lon1, lat2, lon2]. Supports common image formats (PNG, JPEG, GIF) and GeoTIFF for georeferenced data.",
-        "@epos_links": [
-          {
-            "href": "https://YOUR_DOCS_URL/geojson#image-overlays",
-            "label": "Image Overlay Documentation",
-            "type": "text/html",
-            "authenticatedDownload": false
-          }
-        ]
-      },
-      "@epos_image_overlay": {
-        "href": "https://raw.githubusercontent.com/EPOS-ERIC/opensource-docs/refs/heads/main/static/examples/image-overlay.png",
-        "bbox": [
-          36.461734,
-          12.42425,
-          38.588178,
-          15.650694
-        ],
-        "legend": {
-          "href": "https://raw.githubusercontent.com/EPOS-ERIC/opensource-docs/refs/heads/main/static/examples/legend.png"
+    "type": "FeatureCollection",
+    "@epos_style": {
+        "character_marker": {
+            "label": "Character Marker with Pin",
+            "marker": {
+                "character": "S",
+                "pin": true,
+                "clustering": true
+            }
+        },
+        "fontawesome_marker": {
+            "label": "Font Awesome Icon Marker",
+            "marker": {
+                "fontawesome_class": "fas fa-star",
+                "pin": false,
+                "clustering": false,
+                "anchor": "C"
+            }
+        },
+        "raw_image_marker": {
+            "label": "Base64 Raw Image Marker",
+            "marker": {
+                "anchor": "C",
+                "clustering": false,
+                "pin": false,
+                "raw": "iVBORw0KGgoAAAANSUhEUgAAAIEAAACBCAYAAADnoNlQAAAE30lEQVR4nOyd247bOgxFmaL//8spZgoniiJZN1LiZa+ngxYnlsXlTdqeTv4QCM/f0wsQ4in42Q/Bzz6ClxOaLvrz+aTHY2kbzO+h1RO4LfpPYUe5RGj9nx0bZm5PLS24Wp+ZolNS+OYB7j5j6a91YGGRX7WZLfpFKf65hojKhqreZ62LK9aEu/iHpkd1e65tQexXPW0ufvH4Q3+8HzULyWvjofg5hc1Wsf8aFsFefMoEOF18Sja6ckt6tA4nHxaFKH6J61yTtV5LPSLDKQNf9ZEoPikTIE2B4t9/rn17TXa/O3hKC/BUJkAP2T5sP4Wd7YC9+DTwpE87lRaxJRV2JYHI1e9FgJRCKogjLcGW+PfG7vYg2Q4Q/wvsbA9SSQABmNjRHiQkgADMSIvALQEEyGg9I+hFUgROCSCAMFIicEkAATYhIQKHBBBgM9wirEoAAQ7BKQJLO4AAZ+Da9xUJnpwL8QjXncEdyWdPH2RWApGzQgosM7V1MxJgDlDG6nww3Q4ggC5W6jEqAeYAxczOByMSYA6wRfeWDrcDtIE+dtwZlJg5Xq8EaAOGGG0Lx35JhecUsEaPBEgBg4ykQUsCDIMTnJoHbrhdSFc7UHQyYIDeut1JgBTwRXXLm0mAFLBNT/223h1ESAGF80CTmgS4I3BE605hWxJESAGrlCRAnXzzVd9qEuAdwTia54G7NeF3G4MvCTAQOqY2IIonAVqBftAOACQAnxKwzwNoBfoozQVIAgAJACRYxlIrqHFJgHkgEPlcgCQAkGAFD62AIAEgSABISoIIQ6GXVkBIAkCQYA5PKUCQABAkAAQJxvHWCiiVwNNJgTZpvV8SLH59fAg8pUBab7QDAAl68ZQCOZAAQIIePKcAQQJAkAAQJGjjvRUQJAAECe6JkAIECQAlEvxKj0fHbzynQFLn3/9AEgBIUMJzCpQQkeD1te8SHy5MNAEokwBzQQDyeYDQDj6JmAIECQBBgjdRU4AKErDNBZaHQ6+U5gFCEvwncgrQnQRR7hKiCHBXz5IEMaofl6/6irYD7XNBlBRoUZMAD44cURsIL8IOhkiBN00JVtNAY0uIJEBP/e4k0FQ3sE61nl3twNNsgBT4piUBS/W1tIRIAmTcbn1PEuBOwSCtO4KUbXcHp9MgcAo06ZXAdBpEE2AkBWgmCayJEFiAbkYkWK7+6ZYQjO5tHk0CU20hcAoMFWh6MJwVYVcaBBZgmBkJHqsHlhYhuADD2zqbBDb6QTym6rLynGBpPpBKg8ApML2VLA+LtAyKgQVYYlWCpfmAMw2CC7C0hRxJcFwECLAG17uD5TsG0Ae3AMT8AmlahJU0iJQCEgKQwFvErSJAAB4kXiVvaQ0QgA+pnyeYEqE3DSAA8zEkPjTho0q9Rbv7Sr0oAhQuHrFa7Rrl39/QvCBCUAHEa7Trx8uG20PeGiCA4DF3HCRhuD2km+JZgJ3xn7P7n6E9RlPBc+EvClf/1ovz5OO9qaHREyev/uMHzWjK8BoSnYiipfgqDp5RlCHfMMsiaCv+hYpFJBQrfP2h1TuEyuyjZu/VLCSjKoMVEW6GXnV7rm5BBW6rrU0G7Vd9CdWLy6hW+6QIjdtcE/trYpEFjqVDx7MNc3tqbsEVpqv+I8ziK2/ze2j+BCpI9gevewYi8y8AAP//rhU3ukdRrhQAAAAASUVORK5CYII="
+            }
+        },
+        "image_url_marker": {
+            "label": "Image URL Marker with Pin",
+            "marker": {
+                "href": "https://raw.githubusercontent.com/EPOS-ERIC/opensource-docs/refs/heads/main/static/examples/image-marker.png",
+                "pin": true,
+                "clustering": false
+            }
         }
-      },
-      "geometry": null
-    }
-  ]
+    },
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "@epos_type": "character_marker",
+                "@epos_label_key": "FeatureType",
+                "@epos_map_keys": [
+                    "FeatureType",
+                    "Description",
+                    "StyleDetails",
+                    "@epos_links"
+                ],
+                "@epos_data_keys": [
+                    "FeatureType",
+                    "Description",
+                    "GeometryType"
+                ],
+                "FeatureType": "Character Marker (Point)",
+                "Description": "Uses a single character 'S' as the marker symbol. Character markers are ideal for simple, text-based map symbols.",
+                "StyleDetails": "Configured with pin=true for the classic pin appearance and clustering=true to group nearby markers when zoomed out.",
+                "GeometryType": "Point",
+                "@epos_links": [
+                    {
+                        "href": "https://epos-eric.github.io/opensource-docs/documentation/system-reference/data-formats/geojson",
+                        "label": "Character Marker Documentation",
+                        "type": "text/html",
+                        "authenticatedDownload": false
+                    }
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.4050,
+                    52.5200
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "@epos_type": "character_marker",
+                "@epos_label_key": "FeatureType",
+                "@epos_map_keys": [
+                    "FeatureType",
+                    "Description",
+                    "StyleDetails"
+                ],
+                "@epos_data_keys": [
+                    "FeatureType",
+                    "Description",
+                    "GeometryType"
+                ],
+                "FeatureType": "Character Marker (Clustered)",
+                "Description": "Another character marker nearby to demonstrate the clustering feature. When multiple markers are close together, they automatically group into a cluster marker.",
+                "StyleDetails": "This marker shares the same @epos_type, so it will cluster with other character_marker features when zoomed out.",
+                "GeometryType": "Point"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.0058,
+                    52.0285
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "@epos_type": "character_marker",
+                "@epos_label_key": "FeatureType",
+                "@epos_map_keys": [
+                    "FeatureType",
+                    "Description",
+                    "StyleDetails"
+                ],
+                "@epos_data_keys": [
+                    "FeatureType",
+                    "Description",
+                    "GeometryType"
+                ],
+                "FeatureType": "Character Marker (Clustered)",
+                "Description": "Another character marker nearby to demonstrate the clustering feature. When multiple markers are close together, they automatically group into a cluster marker.",
+                "StyleDetails": "This marker shares the same @epos_type, so it will cluster with other character_marker features when zoomed out.",
+                "GeometryType": "Point"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.0058,
+                    52.4285
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "@epos_type": "character_marker",
+                "@epos_label_key": "FeatureType",
+                "@epos_map_keys": [
+                    "FeatureType",
+                    "Description",
+                    "StyleDetails"
+                ],
+                "@epos_data_keys": [
+                    "FeatureType",
+                    "Description",
+                    "GeometryType"
+                ],
+                "FeatureType": "Character Marker (Clustered)",
+                "Description": "Another character marker nearby to demonstrate the clustering feature. When multiple markers are close together, they automatically group into a cluster marker.",
+                "StyleDetails": "This marker shares the same @epos_type, so it will cluster with other character_marker features when zoomed out.",
+                "GeometryType": "Point"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.5058,
+                    52.4285
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "@epos_type": "fontawesome_marker",
+                "@epos_label_key": "FeatureType",
+                "@epos_map_keys": [
+                    "FeatureType",
+                    "Description",
+                    "StyleDetails",
+                    "@epos_links"
+                ],
+                "@epos_data_keys": [
+                    "FeatureType",
+                    "Description",
+                    "GeometryType"
+                ],
+                "FeatureType": "Font Awesome Icon (Point)",
+                "Description": "Uses a Font Awesome icon class (fas fa-star) as the marker. Any Font Awesome icon can be used this way.",
+                "StyleDetails": "Configured with pin=false and anchor=C to center the icon at the coordinate point without a pin stem.",
+                "GeometryType": "Point",
+                "@epos_links": [
+                    {
+                        "href": "https://fontawesome.com/icons",
+                        "label": "Browse Font Awesome Icons",
+                        "type": "text/html",
+                        "authenticatedDownload": false
+                    }
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    4.3522,
+                    41.8566
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "@epos_type": "raw_image_marker",
+                "@epos_label_key": "FeatureType",
+                "@epos_map_keys": [
+                    "FeatureType",
+                    "Description",
+                    "StyleDetails",
+                    "@epos_links"
+                ],
+                "@epos_data_keys": [
+                    "FeatureType",
+                    "Description",
+                    "GeometryType"
+                ],
+                "FeatureType": "Raw Base64 Image (Point)",
+                "Description": "Embeds a base64-encoded image directly in the GeoJSON payload. This allows custom markers without external image files.",
+                "StyleDetails": "The raw image data is included in the @epos_style definition. Useful when you need complete control over marker appearance without depending on external resources.",
+                "GeometryType": "Point",
+                "@epos_links": [
+                    {
+                        "href": "https://epos-eric.github.io/opensource-docs/documentation/system-reference/data-formats/geojson",
+                        "label": "Raw Image Marker Documentation",
+                        "type": "text/html",
+                        "authenticatedDownload": false
+                    }
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.4964,
+                    41.9028
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "@epos_type": "image_url_marker",
+                "@epos_label_key": "FeatureType",
+                "@epos_map_keys": [
+                    "FeatureType",
+                    "Description",
+                    "StyleDetails",
+                    "@epos_links"
+                ],
+                "@epos_data_keys": [
+                    "FeatureType",
+                    "Description",
+                    "GeometryType"
+                ],
+                "FeatureType": "Image URL Marker (Point)",
+                "Description": "References an external image URL for the marker icon. The image is loaded from the specified href.",
+                "StyleDetails": "Configured with pin=true to display the image inside a pin marker. The href property in @epos_style points to the image location.",
+                "GeometryType": "Point",
+                "@epos_links": [
+                    {
+                        "href": "https://epos-eric.github.io/opensource-docs/documentation/system-reference/data-formats/geojson",
+                        "label": "Image URL Marker Documentation",
+                        "type": "text/html",
+                        "authenticatedDownload": false
+                    }
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -3.7038,
+                    40.4168
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "@epos_label_key": "FeatureType",
+                "@epos_map_keys": [
+                    "FeatureType",
+                    "Description",
+                    "StyleDetails"
+                ],
+                "@epos_data_keys": [
+                    "FeatureType",
+                    "Description",
+                    "GeometryType"
+                ],
+                "FeatureType": "Polygon (Default Style)",
+                "Description": "Demonstrates polygon geometry support. When no @epos_type is specified, default styling is applied.",
+                "StyleDetails": "Polygons are rendered as filled areas with borders. This example shows a region in France without custom marker styling.",
+                "GeometryType": "Polygon"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            2.0,
+                            47.0
+                        ],
+                        [
+                            3.5,
+                            47.0
+                        ],
+                        [
+                            4.5,
+                            47.5
+                        ],
+                        [
+                            3.5,
+                            48.5
+                        ],
+                        [
+                            2.0,
+                            48.5
+                        ],
+                        [
+                            1.5,
+                            47.5
+                        ],
+                        [
+                            2.0,
+                            47.0
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "@epos_label_key": "FeatureType",
+                "@epos_map_keys": [
+                    "FeatureType",
+                    "Description",
+                    "StyleDetails",
+                    "@epos_links"
+                ],
+                "@epos_data_keys": [
+                    "FeatureType",
+                    "Description",
+                    "GeometryType"
+                ],
+                "FeatureType": "LineString (Default Style)",
+                "Description": "Demonstrates line geometry support. LineStrings are useful for representing paths, routes, or boundaries.",
+                "StyleDetails": "Lines are rendered with default stroke styling when no @epos_type is specified. This example traces a path across central Europe.",
+                "GeometryType": "LineString",
+                "@epos_links": [
+                    {
+                        "href": "https://epos-eric.github.io/opensource-docs/documentation/system-reference/data-formats/geojson",
+                        "label": "Supported Geometry Types",
+                        "type": "text/html",
+                        "authenticatedDownload": false
+                    }
+                ]
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        8.5417,
+                        47.3769
+                    ],
+                    [
+                        11.5820,
+                        48.1351
+                    ],
+                    [
+                        14.4378,
+                        50.0755
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "@epos_type": "overlay",
+                "@epos_label_key": "FeatureType",
+                "@epos_map_keys": [
+                    "FeatureType",
+                    "Description",
+                    "OverlayDetails",
+                    "@epos_links"
+                ],
+                "@epos_data_keys": [
+                    "FeatureType",
+                    "Description"
+                ],
+                "FeatureType": "Image Overlay",
+                "Description": "Displays a geo-referenced image overlay on the map using bounding box coordinates.",
+                "OverlayDetails": "The image is positioned using bbox coordinates [lat1, lon1, lat2, lon2]. Supports common image formats (PNG, JPEG, GIF) and GeoTIFF for georeferenced data.",
+                "@epos_links": [
+                    {
+                        "href": "https://epos-eric.github.io/opensource-docs/documentation/system-reference/data-formats/geojson",
+                        "label": "Image Overlay Documentation",
+                        "type": "text/html",
+                        "authenticatedDownload": false
+                    }
+                ]
+            },
+            "@epos_image_overlay": {
+                "href": "https://raw.githubusercontent.com/EPOS-ERIC/opensource-docs/refs/heads/main/static/examples/image-overlay.png",
+                "bbox": [
+                    36.461734,
+                    12.42425,
+                    38.588178,
+                    15.650694
+                ],
+                "legend": {
+                    "href": "https://raw.githubusercontent.com/EPOS-ERIC/opensource-docs/refs/heads/main/static/examples/legend.png"
+                }
+            },
+            "geometry": null
+        }
+    ]
 }
