@@ -25,7 +25,7 @@ First, you need to install the `epos-opensource` command-line interface (CLI). T
 
 <Tabs>
   <TabItem value="linux-macos" label="Linux / macOS">
-        You can install or update the CLI with a single command in your terminal. This command works for both initial installation and for updating an existing version:
+        You can install the CLI with a single command in your terminal:
         ```bash
         curl -fsSL https://raw.githubusercontent.com/EPOS-ERIC/epos-opensource/main/install.sh | bash
         ```
@@ -55,6 +55,14 @@ epos-opensource --version
 You should see an output like `epos-opensource version v0.6.0` (the version number may vary).
 
 For more detailed installation instructions, including how to build from source, see the [CLI Tool documentation](./installation/index.md).
+
+### Updating the CLI
+
+To keep your CLI up to date, you can use the `update` command. It is the recommended way to get the latest version.
+
+```bash
+epos-opensource update
+```
 
 ## 2. Deploy the Platform
 
