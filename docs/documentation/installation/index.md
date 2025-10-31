@@ -34,13 +34,14 @@ The CLI has a built-in help system that provides detailed information about each
 epos-opensource --help
 epos-opensource docker --help
 epos-opensource kubernetes deploy --help
+epos-opensource update --help
 ```
 
 ## Installation
 
 ### Using the Installation Script (Linux/macOS)
 
-The easiest way to install or update the CLI on Linux, macOS, or Windows Subsystem for Linux (WSL) is with the following script. This script should be used for both the initial installation and for updating an existing version to the latest one.
+The easiest way to install the CLI on Linux, macOS, or Windows Subsystem for Linux (WSL) is with the following script.
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/EPOS-ERIC/epos-opensource/main/install.sh | bash
@@ -83,6 +84,14 @@ To make sure the CLI is installed correctly, run:
 
 ```bash
 epos-opensource --version
+```
+
+## Updating the CLI
+
+To update the CLI to the latest version, you can use the `update` command. This is the recommended way to keep your CLI up to date.
+
+```bash
+epos-opensource update
 ```
 
 ## Getting Help & Reporting Issues

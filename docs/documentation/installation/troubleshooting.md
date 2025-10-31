@@ -8,6 +8,13 @@ This page provides solutions to common issues you may encounter while using the 
 
 ## CLI (Command Line Interface)
 
+### `update` vs `docker update`
+
+It is important to distinguish between the top-level `update` command and the `docker update` subcommand:
+
+-   `epos-opensource update`: This command updates the `epos-opensource` CLI tool itself to the latest version.
+-   `epos-opensource docker update`: This command is used to reconcile or update a deployed EPOS Platform environment. 
+
 Common problems and solutions when using the `epos-opensource` CLI.
 
 ### Docker/Kubernetes not found
