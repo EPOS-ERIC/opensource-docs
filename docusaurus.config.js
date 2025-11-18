@@ -55,11 +55,12 @@ const config = {
 			mermaid: {
 				theme: { light: 'neutral', dark: 'neutral' },
 			},
-			image: 'img/epos-logo.svg',
+			image: 'img/logo-opensource-2-light.png',
 			navbar: {
 				logo: {
 					alt: 'EPOS Logo',
-					src: 'img/epos-logo.svg',
+					src: 'img/logo-opensource-2-light.png',
+					srcDark: 'img/logo-opensource-2-dark.png',
 				},
 				items: [
 					{
@@ -93,19 +94,14 @@ const config = {
 				],
 			},
 			footer: {
-				style: 'light',
+				logo: {
+					alt: 'EPOS Logo',
+					src: 'img/logo-opensource-1-light.png',
+					srcDark: 'img/logo-opensource-1-dark.png',
+					width: 800,
+					height: 'auto',
+				},
 				links: [
-					{
-						title: ' ',
-						items: [
-							{
-								html: `
-           					<div class="firstcolumn">
-                			<img src="/opensource-docs/img/epos-logo.svg" alt="EPOS Logo" style="height:100px;"/>
-            				</div>`,
-							},
-						],
-					},
 					{
 						title: 'EPOS',
 						items: [

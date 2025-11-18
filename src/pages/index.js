@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import { useColorMode } from '@docusaurus/theme-common';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 
@@ -67,11 +68,12 @@ const Feature = ({ imageUrl, title, description, link, linkLabel, isReversed }) 
 
 // --- Page Sections ---
 function HeroSection() {
+	const { colorMode } = useColorMode();
+	const logoSrc = colorMode === 'dark' ? '/img/logo-opensource-1-dark.png' : '/img/logo-opensource-1-light.png';
 	return (
 		<header className={clsx('hero', styles.heroBanner)}>
 			<div className="container">
-				<img src={useBaseUrl('/img/epos-logo.svg')} alt="EPOS Logo" className={styles.heroLogo} />
-				<Heading as="h1" className={styles.heroTitle}>EPOS Platform Open Source</Heading>
+				<img src={useBaseUrl(logoSrc)} alt="EPOS Logo" className={styles.heroLogo} />
 				<p className={styles.heroSubtitle}>The open-source edition of the EPOS Platform is a service-based data integration and visualization system built on a microservices architecture.</p>
 				<div className={styles.buttons}>
 					<Link className="button button--primary button--lg" to="/documentation/quickstart">Quickstart</Link>
