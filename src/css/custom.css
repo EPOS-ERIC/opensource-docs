@@ -121,10 +121,21 @@
   justify-content: center;
   
 }
-.theme-layout-footer-column.col.footer__col:first-child{
-  display:flex;
+.footer__col {
+  display: flex;
   flex-direction: column;
-  justify-content: center; 
-  margin-right: 70px;
+  justify-content: flex-start;
+  padding-top: 1rem;
+}
 
+.footer__row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  gap: 2rem;
+}
+
+.footer__logo {
+  flex-shrink: 0;
+  max-width: 250px;
 }
