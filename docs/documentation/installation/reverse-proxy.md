@@ -4,7 +4,7 @@ title: Using a Reverse Proxy with Docker Deployments
 
 # Using a Reverse Proxy with Docker Deployments
 
-This guide explains how to set up a reverse proxy for your EPOS Platform Docker deployments. A reverse proxy allows you to expose your deployment behind a single domain with SSL termination, load balancing, and custom routing.
+This guide explains how to set up a reverse proxy for your EPOS Platform Docker deployments. A reverse proxy allows you to expose your deployment behind a single domain with SSL termination, load balancing, and custom routing. This guide has been tested and works for some users, though individual configurations may vary.
 
 :::warning
 
@@ -31,7 +31,21 @@ epos-opensource docker export ./my-reverse-proxy-config
 
 This creates a directory with the necessary files, including `docker-compose.yml` and `.env`.
 
-### 2. Modify the Docker Compose Configuration
+### 2. Modify the Environment Variables
+
+When using a custom `.env` file (as in the deployment command with `--env-file`), you need to manually set certain port variables because the CLI cannot guess them. These variables are already present in the `.env` file but commented out.
+
+Uncomment the following lines in `./my-reverse-proxy-config/.env`:
+
+```bash
+DATAPORTAL_PORT=32000
+GATEWAY_PORT=33000
+BACKOFFICE_PORT=34000
+```
+
+These ports correspond to the GUI, API, and Backoffice services respectively. If you want to use different ports, modify these values accordingly. Note that if you change these ports, you may need to update the reverse proxy configuration accordingly. It is recommended to use the default values unless necessary.
+
+### 3. Modify the Docker Compose Configuration
 
 Edit the `docker-compose.yml` file in your exported config directory. Change the `APIHOST` environment variable to your domain name:
 
@@ -47,7 +61,7 @@ Replace `your-domain.com` with your actual domain. Ensure the protocol is `https
 
 :::
 
-### 3. Deploy with Custom Configuration
+### 4. Deploy with Custom Configuration
 
 Deploy the platform using your modified configuration:
 
@@ -61,15 +75,15 @@ Do not use the `--host` flag when setting up a reverse proxy, as it changes the 
 
 :::
 
-### 4. Configure Reverse Proxy Mappings
+### 5. Configure Reverse Proxy Mappings
 
 Set up your reverse proxy to route traffic to the appropriate services. Here are the typical mappings:
 
-- **GUI**: Route `/` to the GUI service (usually port 32000).
-- **API**: Route `/api/v1` to the API service (usually port 8080).
-- **Backoffice**: Route `/backoffice` to the Backoffice service (usually port 8081).
+- **GUI**: Route `/` to the GUI service (port 3200 by default).
+- **API**: Route `/api/v1` to the API service (port 3300 by default).
+- **Backoffice**: Route `/backoffice` to the Backoffice service (port 3400 by default).
 
-Example Nginx configuration snippet:
+Working example Nginx configuration snippet:
 
 ```nginx
 server {
@@ -98,7 +112,7 @@ server {
 
 :::warning
 
-Adjust the ports and proxy settings based on your actual deployment. Ensure your reverse proxy handles SSL if needed.
+The provided example is designed to work with the default configuration. Modifying paths or routing rules may break functionality, so follow the example as closely as possible unless you are experienced with reverse proxy configurations. Adjust the ports and proxy settings based on your actual deployment. Ensure your reverse proxy handles SSL if needed.
 
 :::
 
