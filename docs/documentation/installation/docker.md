@@ -100,18 +100,6 @@ This command will prompt for confirmation before proceeding. Use the `--force` (
 
 This section covers some more advanced scenarios for managing your EPOS Platform deployments.
 
-### Using a Reverse Proxy for SSL
-
-For production environments, we recommend using a reverse proxy (like Nginx or Traefik) in front of your EPOS Platform deployment to handle SSL encryption. The Docker deployment does not handle SSL out of the box.
-
-Here is a conceptual example of how this would work:
-
-1.  Deploy your EPOS Platform instance using the `epos-opensource docker deploy` command.
-2.  Configure your reverse proxy to listen on port 443 (HTTPS) and forward traffic to the EPOS Platform's services on their respective ports (e.g., `http://localhost:32000` for the GUI).
-3.  Your reverse proxy would handle the SSL certificates and encrypt the traffic between the client and the proxy.
-
-This setup provides a secure and flexible way to expose your EPOS Platform instance to the internet.
-
 ### Using an External Database
 
 By default, the EPOS Platform uses a Docker container for its PostgreSQL database. However, you can configure it to use an external PostgreSQL database instead.
