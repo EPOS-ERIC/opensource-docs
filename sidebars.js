@@ -24,6 +24,7 @@ const sidebars = {
 			},
 			items: [
 				'documentation/installation/docker',
+				'documentation/installation/reverse-proxy',
 				'documentation/installation/kubernetes',
 				'documentation/installation/troubleshooting',
 			],
