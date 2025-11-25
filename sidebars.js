@@ -95,6 +95,7 @@ const sidebars = {
 			],
 		},
 		'documentation/license',
+		'documentation/changelog'
 	],
 };
 
