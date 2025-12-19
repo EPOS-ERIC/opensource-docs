@@ -92,7 +92,13 @@ Each @epos_type defined in the @epos_style object defines the following:
 | `marker (object)`   | If provided, attributes of this object define the marker for the `@epos_style`; else a default point marker will be used.                 |
 | `marker.pin`        | Defaults to `true` if absent; if true, the map symbol will be drawn with a pin.                                                           |
 | `marker.clustering` | Defaults to `true` if absent; if true, map markers in close proximity to each other will be "clustered".                                  |
-| `marker.anchor`     | If `pin` = `false`, the anchor point for the symbol can be defined using the eight points of the compass (N, NE, E, SE, S, SW, W, NW, C). |
+| `marker.anchor` | If `pin` = `false`, the anchor point for the symbol can be defined using the eight points of the compass (N, NE, E, SE, S, SW, W, NW, C). |
+
+:::info
+
+`@epos_style` is designed for styling map markers on point features only. It does not support custom styling for polygons, lines, or other geometry types; these geometries use default layer-wide styling instead.
+
+:::
 
 ## Symbols
 
