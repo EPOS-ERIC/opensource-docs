@@ -284,8 +284,8 @@
                     "GeometryType"
                 ],
                 "FeatureType": "Polygon (Default Style)",
-                "Description": "Demonstrates polygon geometry support. When no @epos_type is specified, default styling is applied.",
-                "StyleDetails": "Polygons are rendered as filled areas with borders. This example shows a region in France without custom marker styling.",
+                "Description": "Demonstrates polygon geometry support.",
+                "StyleDetails": "Polygons are rendered as filled areas with borders. This example shows a region in France. Note that @epos_style only applies to point markers; polygons use default layer-wide styling.",
                 "GeometryType": "Polygon"
             },
             "geometry": {
@@ -341,7 +341,7 @@
                 ],
                 "FeatureType": "LineString (Default Style)",
                 "Description": "Demonstrates line geometry support. LineStrings are useful for representing paths, routes, or boundaries.",
-                "StyleDetails": "Lines are rendered with default stroke styling when no @epos_type is specified. This example traces a path across central Europe.",
+                "StyleDetails": "Lines are rendered with default stroke styling. This example traces a path across central Europe. Note that @epos_style only applies to point markers; lines use default layer-wide styling.",
                 "GeometryType": "LineString",
                 "@epos_links": [
                     {
