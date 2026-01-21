@@ -27,6 +27,7 @@ const sidebars = {
 				'documentation/installation/reverse-proxy',
 				'documentation/installation/kubernetes',
 				'documentation/installation/troubleshooting',
+				'documentation/installation/tui'
 			],
 		},
 		{

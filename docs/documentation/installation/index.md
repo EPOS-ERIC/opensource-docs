@@ -7,7 +7,7 @@ title: CLI Tool
 
 The EPOS Open-Source CLI (`epos-opensource`) is a command-line tool that simplifies the process of deploying, populating, and managing your platform, whether you're running a small local instance or a large-scale production deployment.
 
-![Image](/img/docker_deploy_urls.png)
+![EPOS CLI TUI](/img/tui_details.png)
 
 ## Why a CLI?
 
@@ -19,6 +19,7 @@ Here are some of the benefits of using the CLI:
 - **Consistency:** The same commands are used to manage both Docker and Kubernetes deployments, making it easy to switch between them.
 - **Automation:** The CLI can be easily integrated into scripts and automated workflows.
 - **Reproducibility:** The CLI ensures that your deployments are reproducible and consistent across different environments.
+- **Interactive TUI:** v1.0.0+ includes an interactive Terminal User Interface for menu-driven operations without memorizing command syntax.
 
 ## Core Concepts
 
@@ -28,14 +29,17 @@ An "environment" is a named, isolated instance of the EPOS Platform, with its ow
 
 ## Getting Help
 
-The CLI has a built-in help system that provides detailed information about each command and its options. To get help, you can use the `--help` flag.
+The CLI has a built-in help system that provides detailed information about each command and its options. To get help, you can use the `--help` flag. Alternatively, run the CLI without any arguments to launch the interactive Terminal User Interface (TUI).
 
 ```shell
-epos-opensource --help
+epos-opensource              # Launch interactive TUI
+epos-opensource --help       # Show CLI help
 epos-opensource docker --help
-epos-opensource kubernetes deploy --help
+epos-opensource k8s deploy --help
 epos-opensource update --help
 ```
+
+For detailed information about the TUI and its configuration options, see the [TUI Documentation](./tui.md).
 
 ## Installation
 

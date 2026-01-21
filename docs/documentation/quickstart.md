@@ -52,7 +52,7 @@ To make sure it's installed correctly, open a new terminal and run:
 epos-opensource --version
 ```
 
-You should see an output like `epos-opensource version v0.6.0` (the version number may vary).
+You should see an output like `epos-opensource version v1.0.0` (the version number may vary).
 
 For more detailed installation instructions, including how to build from source, see the [CLI Tool documentation](./installation/index.md).
 
@@ -66,29 +66,77 @@ epos-opensource update
 
 ## 2. Deploy the Platform
 
-Now, with Docker running, you can deploy the entire EPOS Platform with a single command.
+Now, with Docker running, you can deploy the entire EPOS Platform with a single command. Choose a name for your platform instance (e.g., `my-epos-platform`).
 
-Choose a name for your platform instance (e.g., `my-epos-platform`) and run:
+<Tabs defaultValue="tui">
+  <TabItem value="tui" label="Interactive TUI (Recommended)">
+
+Launch the interactive TUI:
+
+```bash
+epos-opensource
+```
+
+![TUI Home](/img/tui_home.png)
+
+Click on the `Create New Environment` in the `Docker Environments` section.
+
+![Deploy Nen Environment](/img/tui_deploy.png)
+
+Enter your environment name (e.g., `my-epos-platform`) and confirm to start the deployment.
+
+The TUI will show progress as Docker images are downloaded and services start.
+
+![TUI Deploy Progress](/img/tui_deploy_progress.png)
+
+  </TabItem>
+  <TabItem value="cli" label="Command Line">
+
+Deploy using the CLI command:
 
 ```bash
 epos-opensource docker deploy my-epos-platform
 ```
 
+![Deploy with CLI](/img/docker_deploy_urls.png)
+
 This command will download all the necessary Docker images and start the services. It might take a few minutes depending on your internet connection.
 
 When it's done, you'll see a confirmation message with the access URLs for your new platform.
 
-![EPOS Platform Deployment](/img/docker_deploy_urls.png)
+  </TabItem>
+</Tabs>
 
 ## 3. Populate with Sample Data
 
 To see your platform in action, you can populate it with some example metadata we provide. This will create a few example entries in your data catalogue.
 
+<Tabs defaultValue="tui">
+  <TabItem value="tui" label="Interactive TUI (Recommended)">
+
+Navigate to a deployed environment details by clicking on it
+
+![TUI Env Details](/img/tui_details.png)
+
+Here you can perform different actions on a deployed environment and see its options/status. As you can see in the `Ingested Files` section there is nothing, let's add data to our environment. Press on the `Populate` button
+
+![Populate with TUI](/img/tui_populate.png)
+
+Here you can specify the paths to directories or files to ingest. There also is the possibility to populate an environment with some pre provided example data, to do this, check the `Populate Examples` checkbox and proceed with the population by clicking on `Populate`.
+
+  </TabItem>
+  <TabItem value="cli" label="Command Line">
+
+Populate using the CLI command:
+
 ```bash
 epos-opensource docker populate my-epos-platform --example
 ```
 
-![Population example](/img/docker_populate_example.png)
+![Populate with CLI](/img/docker_populate_example.png)
+
+  </TabItem>
+</Tabs>
 
 :::warning
 There is a known issue with the system where sometimes populated data might not show up immediatly. We are aware of this and currently working on a fix. In the meantime you can easily fix it by simply restarting the `resources-service` container.
@@ -110,7 +158,7 @@ For more solutions to common issues, please see our [Troubleshooting Guide](./in
 
 Congratulations, your EPOS Platform is live!
 
-Open your web browser and go to the **EPOS Platform GUI** provided at the end of the deployment step. The default URL is [http://localhost:32000/](http://localhost:32000/).
+Open your web browser and go to the **EPOS Platform GUI** provided at the end of the deployment step. Or if you are using the TUI by clicking on the `Open` button near the `GUI` url. The default URL is [http://localhost:32000/](http://localhost:32000/).
 
 ![The EPOS Platform](/img/dataportal_after_populate.png)
 
