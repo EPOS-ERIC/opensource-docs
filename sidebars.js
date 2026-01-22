@@ -23,9 +23,10 @@ const sidebars = {
 				id: 'documentation/installation/index',
 			},
 			items: [
+				'documentation/installation/tui',
 				'documentation/installation/docker',
-				'documentation/installation/reverse-proxy',
 				'documentation/installation/kubernetes',
+				'documentation/installation/reverse-proxy',
 				'documentation/installation/troubleshooting',
 			],
 		},

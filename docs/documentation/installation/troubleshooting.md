@@ -8,6 +8,25 @@ This page provides solutions to common issues you may encounter while using the 
 
 ## CLI (Command Line Interface)
 
+### Interactive TUI
+
+**Launching TUI vs CLI commands**
+
+- Run `epos-opensource` without arguments to launch the interactive TUI
+- Run `epos-opensource --help` to see CLI command syntax
+- Press `Esc` or `Ctrl+C` to exit the TUI
+
+**TUI Navigation Tips**
+
+- Arrow keys to navigate menus
+- Enter to select/confirm
+- Space to toggle checkboxes
+- Tab to switch between panels
+
+**Customizing TUI**
+
+The TUI supports custom configuration. See [TUI Configuration](./tui.md) for details.
+
 ### `update` vs `docker update`
 
 It is important to distinguish between the top-level `update` command and the `docker update` subcommand:
