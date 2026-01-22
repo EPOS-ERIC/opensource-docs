@@ -25,7 +25,7 @@ This page provides solutions to common issues you may encounter while using the 
 
 **Customizing TUI**
 
-For power users, the TUI supports custom configuration. See [TUI Configuration](./tui.md) for details.
+The TUI supports custom configuration. See [TUI Configuration](./tui.md) for details.
 
 ### `update` vs `docker update`
 
