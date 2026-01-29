@@ -77,6 +77,7 @@ const sidebars = {
 					items: [
 						'documentation/system-reference/data-formats/dcat-ap',
 						'documentation/system-reference/data-formats/geojson',
+						'documentation/system-reference/data-formats/epos_geojson_schema',
 						{
 							type: 'category',
 							label: 'CoverageJSON',
