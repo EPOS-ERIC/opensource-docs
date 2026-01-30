@@ -2,17 +2,6 @@
 
 This document describes the **JSON Schema** for **EPOS-specific extensions** to the **GeoJSON** format. These extensions allow for richer visualization and interaction within the EPOS GUI while maintaining compatibility with standard GeoJSON.
 
----
-
-## Schema Information
-
-* **$schema**: `http://json-schema.org/draft-07/schema#`
-* **$id**: `https://epos-eric.eu/schemas/epos_geojson.schema.json`
-* **Title**: EPOS GeoJSON Extensions Schema
-* **Description**: Schema for EPOS-specific extensions to the GeoJSON format.
-
----
-
 ## Global Styling
 
 The `@epos_style` object allows you to define reusable styles for map markers. Features reference these styles via their `@epos_type` property.
