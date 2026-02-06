@@ -1,6 +1,6 @@
 # EPOS GeoJSON Schema
 
-This document describes the **JSON Schema** for **EPOS-specific extensions** to the **GeoJSON** format. These extensions allow for richer visualization and interaction within the EPOS GUI while maintaining compatibility with standard GeoJSON.
+This document describes the **JSON Schema** for **EPOS-specific extensions** to the **GeoJSON** format. These extensions allow for richer visualization and interaction within the EPOS GUI.
 
 ## Global Styling
 
@@ -87,6 +87,13 @@ Helper type that handles both standard booleans and string-based booleans (e.g.,
 
 EPOS-specific fields within a feature's `properties` object control how information is displayed in popups and data tables.
 
+| Property | Description |
+| :--- | :--- |
+| `@epos_type` | References a key in `@epos_style` to apply that style to the feature. |
+| `@epos_label_key` | Property name used for tooltips and labels. |
+| `@epos_map_keys` | Ordered list of properties to display in map popups. |
+| `@epos_data_keys` | Ordered list of properties to display in the data table. |
+| `@epos_links` | Array of external links associated with the feature. |
 
 ```json
 {
@@ -120,14 +127,6 @@ EPOS-specific fields within a feature's `properties` object control how informat
 }
 ```
 
-| Property | Description |
-| :--- | :--- |
-| `@epos_type` | References a key in `@epos_style` to apply that style to the feature. |
-| `@epos_label_key` | Property name used for tooltips and labels. |
-| `@epos_map_keys` | Ordered list of properties to display in map popups. |
-| `@epos_data_keys` | Ordered list of properties to display in the data table. |
-| `@epos_links` | Array of external links associated with the feature. |
-
 ---
 
 ## Actionable Links
@@ -157,7 +156,7 @@ The `@epos_links` property uses the `link_definition` to provide downloadable re
 
 ## Georeferenced Overlays
 
-Used to place static images (like PNGs or GeoTIFFs) directly onto the map.
+Used to place static images (like PNGs) directly onto the map.
 
 ### @epos_image_overlay
 
