@@ -84,7 +84,7 @@ The EMSO ERIC portal uses the EPOS Platform Open Source to support discovery and
 
 ENVRI-Hub provides a comprehensive catalogue of environmental research infrastructure services. The platform enables discovery and access to data and services from various environmental science domains.
 
-### [IPSES](https://prod.ipses-softdth.it:9091/)
+### [IPSES](https://www.ipses-ri.it/app/)
 
 The Italian Platform for Seismological and Earth Science data leverages the EPOS Platform Open Source to provide integrated access to geophysical datasets and services for the Italian research community.
 
