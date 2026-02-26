@@ -76,6 +76,10 @@ Several research infrastructures and web portals across Europe have adopted the 
 
 The European Plate Observing System (EPOS) integrates diverse Earth science data from distributed research infrastructures across Europe. The EPOS Platform serves as the primary access point for multidisciplinary solid Earth science datasets.
 
+### [EMSO ERIC](https://portal-dev.emso.eu/)
+
+The EMSO ERIC portal uses the EPOS Platform Open Source to support discovery and access to multidisciplinary marine and seafloor observation resources.
+
 ### [ENVRI-Hub NEXT](https://catalogue.staging.envri.eu/)
 
 ENVRI-Hub provides a comprehensive catalogue of environmental research infrastructure services. The platform enables discovery and access to data and services from various environmental science domains.
