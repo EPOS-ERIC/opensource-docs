@@ -11,6 +11,7 @@ import styles from './index.module.css';
 // --- Data for Sections ---
 const provenInProductionLinks = [
 	{ label: 'EPOS ERIC', href: 'http://www.ics-c.epos-eu.org/', src: 'img/epos-logo.svg' },
+	{ label: 'EMSO ERIC', href: 'https://portal-dev.emso.eu/', src: 'img/emso-logo.png' },
 	{ label: 'ENVRI-Hub NEXT', href: 'https://catalogue.staging.envri.eu/', src: 'img/envri-hub-next-logo.png' },
 	{ label: 'IPSES', href: 'https://prod.ipses-softdth.it:9091/', src: 'img/ipses-logo.png' },
 ];
