@@ -25,6 +25,13 @@
   justify-content: center;
   gap: 1rem;
 }
+.heroCtaButton {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  white-space: normal;
+}
 
 /* Features Section */
 .featuresSection {
@@ -129,11 +136,29 @@
 }
 
 @media (max-width: 768px) {
+  .heroButtons {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .heroCtaButton {
+    width: min(100%, 320px);
+    line-height: 1.25;
+  }
+
   .deploymentsLogos {
     gap: 2rem;
   }
   .deploymentLogo img {
     max-width: 130px;
     max-height: 60px;
+  }
+}
+
+@media (max-width: 380px) {
+  .heroCtaButton {
+    width: 100%;
+    padding-inline: 0.9rem;
+    font-size: 0.95rem;
   }
 }

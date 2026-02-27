@@ -76,9 +76,9 @@ function HeroSection() {
 			<div className="container">
 				<img src={useBaseUrl(logoSrc)} alt="EPOS Logo" className={styles.heroLogo} />
 				<p className={styles.heroSubtitle}>The open-source edition of the EPOS Platform is a service-based data integration and visualization system built on a microservices architecture.</p>
-				<div className={styles.buttons}>
-					<Link className="button button--primary button--lg" to="/documentation/quickstart">Quickstart</Link>
-					<Link className="button button--secondary button--lg" to="/documentation/system-reference/architecture">System Reference</Link>
+				<div className={clsx(styles.buttons, styles.heroButtons)}>
+					<Link className={clsx('button button--primary button--lg', styles.heroCtaButton)} to="/documentation/quickstart">Quickstart</Link>
+					<Link className={clsx('button button--secondary button--lg', styles.heroCtaButton)} to="/documentation/system-reference/architecture">System Reference</Link>
 				</div>
 			</div>
 		</header>
