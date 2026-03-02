@@ -102,14 +102,27 @@ Roles define *what* a user can do, while user groups define *on which data* a us
 
 ### Permission Matrix
 
-| External User | View | Draft | Submit | Publish | Discard |
-|---------------|------|-------|--------|---------|---------|
-| Viewer        | ✓ |   |        |         |         |
-| Editor        | ✓ | ✓ | ✓      |         |         |
-| Reviewer      | ✓ |   |        | ✓       | ✓       |
-| Admin         | ✓ | ✓ | ✓      | ✓       | ✓       |
+Legend: `○` = no access, `◑` = own entities only (`self`), `●` = all entities (`all`).
 
-{/* TODO: Add a detailed permission matrix table here, outlining which roles can perform which actions on entities in different states. */}
+#### View Permissions
+
+| Role          | Draft | Submit | Publish | Discard | Archived |
+|---------------|-------|--------|---------|---------|----------|
+| External user | ○     | ○      | ○       | ○       | ○        |
+| Viewer        | ○     | ○      | ●       | ○       | ●        |
+| Editor        | ◑     | ◑      | ●       | ◑       | ●        |
+| Reviewer      | ○     | ●      | ●       | ●       | ●        |
+| Admin         | ●     | ●      | ●       | ●       | ●        |
+
+#### Write Permissions
+
+| Role          | Draft (create) | Submit (create) | Publish (create) | Discard (create) |
+|---------------|----------------|-----------------|------------------|------------------|
+| External user | ○              | ○               | ○                | ○                |
+| Viewer        | ○              | ○               | ○                | ○                |
+| Editor        | ●              | ◑               | ○                | ○                |
+| Reviewer      | ○              | ○               | ●                | ●                |
+| Admin         | ●              | ●               | ●                | ●                |
 
 ## Accessing the Backoffice
 
