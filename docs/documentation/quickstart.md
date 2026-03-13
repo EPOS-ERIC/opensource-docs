@@ -138,20 +138,18 @@ epos-opensource docker populate my-epos-platform --example
   </TabItem>
 </Tabs>
 
-:::warning
-There is a known issue with the system where sometimes populated data might not show up immediatly. We are aware of this and currently working on a fix. In the meantime you can easily fix it by simply restarting the `resources-service` container.
+:::info
+After you populate the platform, new data may take a short time to appear in the catalogue. This is expected: the platform refreshes its data in the background every so often, so waiting a little is usually enough.
 
-Try running:
+If you do not want to wait, you can restart the `resources-service` container:
 
 ```bash
 docker restart my-epos-platform-resources-service
 ```
 
-Remember to change `my-epos-platform` with the name you used when deploying the environment.
+Remember to replace `my-epos-platform` with the name you used when deploying the environment.
 
-If that doesn't work feel free to open an issue on [GitHub](https://github.com/EPOS-ERIC/epos-opensource/issues).
-
-For more solutions to common issues, please see our [Troubleshooting Guide](./installation/troubleshooting.md).
+If the data still does not appear after a short wait or a restart, please open an issue on [GitHub](https://github.com/EPOS-ERIC/epos-opensource/issues).
 :::
 
 ## 4. Explore Your New Platform

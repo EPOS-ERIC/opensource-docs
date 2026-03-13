@@ -68,11 +68,15 @@ Common problems and solutions when using the `epos-opensource` CLI.
 
 ### Populated Data Not Appearing
 
--   **Issue:** After populating the system with data, the new information does not appear in the user interface.
--   **Solution:** This is a known issue that we are working to resolve. In the meantime, you can typically fix this by restarting the `resources-service` container. You can do this by finding the container ID and using `docker restart <container-id>`.
+-   **Issue:** After populating the system with data, the new information may take a short time to appear in the user interface.
+-   **Solution:** This is expected. The platform refreshes its data in the background every so often, so waiting a little is usually enough. If you do not want to wait, you can restart the `resources-service` container:
+    ```bash
+    docker restart <your-environment-name>-resources-service
+    ```
+    If the data still does not appear after a short wait or a restart, please open an issue on GitHub.
 
 ## Reporting Issues
 
 If you have tried the solutions on this page and are still experiencing problems, please let us know so we can help.
 
--   **Open a GitHub Issue:** The best way to report a bug or request a feature is by [opening an issue on our GitHub repository](https://github.com/epos-eu/epos-opensource/issues). Please provide as much detail as possible, including steps to reproduce the issue, error messages, and your system configuration.
+-   **Open a GitHub Issue:** The best way to report a bug or request a feature is by [opening an issue on our GitHub repository](https://github.com/EPOS-ERIC/epos-opensource/issues). Please provide as much detail as possible, including steps to reproduce the issue, error messages, and your system configuration.
