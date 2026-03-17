@@ -113,7 +113,7 @@ To see which fields in the Backoffice interface map to which EPOS-DCAT-AP entity
 ### 5. Save every section you change
 
 :::danger[Save after each change]
-Saving is one of the most important parts of the Backoffice workflow. When you edit a section, make sure you click the relevant save button for that section. Depending on where you are working, you may need to save both the Data Product and the Distribution changes separately.
+**Pay attention**: saving is one of the most important parts of the Backoffice workflow. When you edit a section, make sure you click the relevant save button for that section. Depending on where you are working, you may need to save both the Data Product and the Distribution changes separately.
 
 If you move away from a section without saving, your latest edits may not be stored.
 
@@ -149,14 +149,14 @@ If the draft is approved, it becomes the new published version. If it is discard
 
 ## Create a new entry instead of updating an existing one
 
-From the list view, you can either open an existing row to modify it or use the creation controls available to your role to start a new record.
+To create a new Data Product from scratch you can use the **Add New Data Product** button in both the **Distributions** or **Data Product** sections. You only have to start from scratch if you want to create a new **Data Product**, if you just want to create a new **Distribution** but not a new **Data Product** you can just select an existing **Data Product** and add the new **Distribution** there.
 
 ![Create or Modify from the Distribution List](/img/backoffice-user-guide/distribution-list-create-or-modify.png)
 
-If you are creating a new service from scratch, the workflow is the same after the draft exists:
+If you are creating a new **Data Product** from scratch, the workflow is the same after the draft exists:
 
-1. fill in the Data Product details
-2. add and complete the related Distribution details
+1. fill in the **Data Product** details
+2. add and complete the related **Distribution** details
 3. save each section you changed
 4. preview the result on the Platform
 5. submit the draft for review
