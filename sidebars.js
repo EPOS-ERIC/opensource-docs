@@ -35,6 +35,7 @@ const sidebars = {
 			label: 'Guides',
 			items: [
 				'documentation/guides/user-guide',
+				'documentation/guides/backoffice-user-guide',
 				'documentation/guides/describing-data',
 			],
 		},
@@ -51,18 +52,7 @@ const sidebars = {
 						id: 'documentation/system-reference/services/index',
 					},
 					items: [
-						{
-							type: 'category',
-							label: 'Backoffice',
-							link: {
-								type: 'doc',
-								id: 'documentation/system-reference/services/backoffice/backoffice',
-							},
-							items: [
-								'documentation/system-reference/services/backoffice/backoffice',
-								'documentation/system-reference/services/backoffice/user-guide',
-							],
-						},
+						'documentation/system-reference/services/backoffice',
 						{
 							type: 'category',
 							label: 'Converter',
