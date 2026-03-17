@@ -54,10 +54,10 @@ The left sidebar groups the main entity types you can manage:
 
 For first-time users, the two most important terms are:
 
-- **Data Product**: the main catalogue record
-- **Distribution**: a concrete way to access that data, such as a specific service endpoint or format
+- **Data Product**: A conceptual entity that represents the information published.
+- **Distribution**: A physical embodiment of the Dataset in a particular format.
 
-A Data Product can contain one or more Distributions. On the Platform, the Distribution is often the part users notice most, because it is what appears as the service entry they open and inspect.
+A Data Product can be made available by one or more Distributions. On the Platform, the Distribution is often the part users notice most, because it is what appears as the service entry they open and interact with.
 
 ![Distribution on the Platform](/img/backoffice-user-guide/data-portal-distribution-card.jpeg)
 
@@ -73,28 +73,28 @@ From the Backoffice home page, open the **Distribution** section.
 
 ### 2. Find the record you want to update
 
-The list shows the distributions you are allowed to access based on your groups and role. It typically includes information such as the name, current status, last update, and author.
+The list shows the Distributions you are allowed to access based on your groups and role. It typically includes information such as the **Title**, **Last Change**, **Status** and **Author**.
 
 ![Distribution List](/img/backoffice-user-guide/distribution-list-all-services.png)
 
 The status tells you where the record is in the workflow:
 
-| Status | What it means for you |
-| --- | --- |
-| `DRAFT` | Editable working copy |
-| `SUBMITTED` | Waiting for review |
+| Status      | What it means for you            |
+| ----------- | -------------------------------- |
+| `DRAFT`     | Editable working copy            |
+| `SUBMITTED` | Waiting for review               |
 | `PUBLISHED` | Publicly visible on the Platform |
-| `DISCARDED` | Sent back for changes |
-| `ARCHIVED` | Older version kept for history |
+| `DISCARDED` | Sent back for changes            |
+| `ARCHIVED`  | Older version kept for history   |
 
 ### 3. Open the record and create a draft if needed
 
-Select the row you want to edit.
+Select the record from the table that you want to edit.
 
 ![Data Product Sections](/img/backoffice-user-guide/data-product-general-information.png)
 
 :::info
-When you click a distribution from the table, the Backoffice may first open the parent Data Product page. This is expected: the Distribution belongs to that Data Product. Use the internal sidebar to move between the general Data Product sections and the specific Distribution sections.
+When you click a Distribution record from the table, the Backoffice may first open the parent Data Product page. This is expected: the Distribution belongs to that Data Product. Use the internal sidebar to move between the general Data Product sections and the specific Distribution sections.
 :::
 
 If the selected record is already published, create a new draft before editing. This copies the current published Data Product and its Distributions into an editable working version.
@@ -103,12 +103,12 @@ If the selected record is already published, create a new draft before editing. 
 
 ### 4. Edit the draft
 
-Use the page sidebar to move through the available sections and update the fields you need.
+Use the page sidebar on the left to move through the available sections and update the fields you need.
 
 - Update **Data Product** fields when you are changing the main catalogue information for the record.
 - Update **Distribution** fields when you are changing the concrete service details that users interact with in the Platform.
 
-If you are unsure which fields map to which EPOS entity, see the [Data Model](../system-reference/data_model.md) and [EPOS-DCAT-AP](../system-reference/data-formats/dcat-ap.md) references.
+To see which fields in the Backoffice interface map to which EPOS-DCAT-AP entity, you can reference the [Data Model](../system-reference/data_model.md) and [EPOS-DCAT-AP](../system-reference/data-formats/dcat-ap.md) references.
 
 ### 5. Save every section you change
 
@@ -117,20 +117,23 @@ Saving is one of the most important parts of the Backoffice workflow. When you e
 
 If you move away from a section without saving, your latest edits may not be stored.
 
-When in doubt, save everything you can before moving on.
+**When in doubt, save everything you can before moving on.**
 :::
 
 ![Save Buttons](/img/backoffice-user-guide/save-data-product-and-distribution-buttons.jpg)
 
 ### 6. Preview your changes on the Platform
 
-After saving, go back to the main Platform interface and log in with the same account. If your deployment enables **Metadata Preview**, turn it on to inspect your draft before it is published.
+After saving, go to the main Platform interface and log in with the same account. When you log in with your Backoffice account you should see a dialog come up asking you if you want to enable the **Metadata Preview** mode. Turn it on to inspect your drafts before they are published.
+
+![Draft on the Platform](/img/backoffice-user-guide/data-portal-metadata-preview-draft.png)
 
 This mode lets you see the records you have permission to access, including drafts, instead of only the currently published catalogue entries. It is the fastest way to check whether your title, description, and service details look right in the user-facing interface.
 
+![Platform Backoffice Mapping](/img/backoffice-user-guide/backoffice-gui-mapping.png)
+
 For more context on the Platform interface, see the [User Guide](./user-guide.md).
 
-![Draft on the Platform](/img/backoffice-user-guide/data-portal-metadata-preview-draft.png)
 
 ### 7. Submit the draft for review
 
