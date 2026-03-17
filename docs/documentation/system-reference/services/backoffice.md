@@ -12,6 +12,8 @@ import MermaidFullscreen from '@site/src/components/MermaidFullScreen';
 
 The Backoffice Service is a web-based interface designed to provide intuitive and comprehensive management of the EPOS Platform's metadata. It works in conjunction with a dedicated backend service to streamline the process of curating and maintaining service descriptions within your data catalogue.
 
+If you want a task-oriented walkthrough of the interface, see the [How to use the Backoffice](../../guides/backoffice-user-guide.md) guide.
+
 ## Why the Backoffice?
 
 Previously, managing metadata involved manual editing of complex Turtle files, a process prone to errors and requiring significant technical expertise. The Backoffice was developed to overcome these challenges by:
@@ -126,7 +128,15 @@ Legend: `○` = no access, `◑` = own entities only (`self`), `●` = all entit
 
 ## Accessing the Backoffice
 
-{/* TODO: Provide instructions on how to access the Backoffice interface, including the URL and any login procedures. */}
+The Backoffice frontend is typically exposed at `/backoffice/home` on an EPOS Platform deployment.
+
+Access requires:
+
+- a valid user account
+- successful authentication through the deployment's configured login flow
+- the appropriate role and group membership if the user needs to edit, review, or administer metadata
+
+Users can authenticate successfully and still have limited access if they do not belong to the relevant groups or do not have a role with write permissions. For the step-by-step workflow to request access, create drafts, preview changes, and submit metadata for review, see the [How to use the Backoffice](../../guides/backoffice-user-guide.md) guide.
 
 ## Benefits
 
