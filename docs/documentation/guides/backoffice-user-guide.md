@@ -55,7 +55,7 @@ The left sidebar groups the main entity types you can manage:
 For first-time users, the two most important terms are:
 
 - **Data Product**: A conceptual entity that represents the information published.
-- **Distribution**: A physical embodiment of the Dataset in a particular format.
+- **Distribution**: A physical embodiment of the Data Product in a particular format.
 
 A Data Product can be made available by one or more Distributions. On the Platform, the Distribution is often the part users notice most, because it is what appears as the service entry they open and interact with.
 
