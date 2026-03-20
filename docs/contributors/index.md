@@ -7,7 +7,7 @@ import ContributorCard from '@site/src/components/contributorsCard';
 
 # Meet the Team
 
-The EPOS open-source platform is built by a diverse team of contributors from across the globe. The individuals listed on this page have shaped the project through a wide range of contributions: from writing code and fixing bugs to improving documentation and testing new features.
+The EPOS open source platform is built by a diverse team of contributors from across the globe. The individuals listed on this page have shaped the project through a wide range of contributions: from writing code and fixing bugs to improving documentation and testing new features.
 
 Their collective effort is what makes it possible to provide a free and open platform for integrating geospatial data. We are immensely grateful for their dedication and for fostering a spirit of innovation and knowledge sharing within the geoscience community.
 

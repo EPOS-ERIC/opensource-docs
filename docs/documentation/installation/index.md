@@ -3,49 +3,81 @@ sidebar_position: 4
 title: CLI Tool
 ---
 
-# EPOS Open Source CLI
+# EPOS open source CLI
 
-The EPOS Open-Source CLI (`epos-opensource`) is a command-line tool that simplifies the process of deploying, populating, and managing your platform, whether you're running a small local instance or a large-scale production deployment.
+The EPOS open source CLI (`epos-opensource`) is the primary way to deploy, configure, and manage EPOS Platform environments.
 
 ![EPOS CLI TUI](/img/tui_details.png)
 
-## Why a CLI?
+## What's New in v2.0.0
 
-The `epos-opensource` CLI is designed to be the primary way to interact with your EPOS Platform instances. It provides a simple and consistent interface for managing the entire lifecycle of your deployments, from initial setup to ongoing maintenance.
+Starting from `v2.x`, environment management is config-driven:
 
-Here are some of the benefits of using the CLI:
+- **Docker** uses YAML config (`docker-config.yaml`) rendered into `.env` and `docker-compose.yaml`.
+- **K8s** uses an embedded [Helm](https://helm.sh/) chart with values from `k8s-config.yaml`.
+- Both command groups support `export`, `render`, and `get` workflows.
 
-- **Simplicity:** A single command can deploy the entire platform, including all its microservices and dependencies.
-- **Consistency:** The same commands are used to manage both Docker and Kubernetes deployments, making it easy to switch between them.
-- **Automation:** The CLI can be easily integrated into scripts and automated workflows.
-- **Reproducibility:** The CLI ensures that your deployments are reproducible and consistent across different environments.
-- **Interactive TUI:** v1.0.0+ includes an interactive Terminal User Interface for menu-driven operations without memorizing command syntax.
+:::warning Breaking Change in v2.0.0
+
+Updating to `v2.0.0` resets the CLI local database.
+
+Previously deployed environments will no longer appear in CLI lists after the update, even if Docker containers or Kubernetes resources still exist. Clean old resources manually with Docker or `kubectl` if needed.
+
+:::
 
 ## Core Concepts
 
 ### Environments
 
-An "environment" is a named, isolated instance of the EPOS Platform, with its own configuration and data. You can have multiple environments for testing, development, or different production use cases. The CLI manages these environments for you, keeping track of their configuration and status.
+An environment is an isolated EPOS Platform instance identified by a name (for example `my-epos-platform`).
+
+- For Docker, the CLI tracks environments in local SQLite state.
+- For K8s, the CLI discovers environments from Helm releases in your cluster/context.
+
+### Config-First Workflow
+
+Use this workflow when you want to customize an environment before deployment:
+
+```bash
+# 1) Export default templates
+epos-opensource docker export ./my-config
+epos-opensource k8s export ./my-config
+
+# 2) Edit generated files
+# - ./my-config/docker-config.yaml
+# - ./my-config/k8s-config.yaml
+
+# 3) Render files locally for review (optional)
+epos-opensource docker render my-docker --config ./my-config/docker-config.yaml --output ./rendered/docker
+epos-opensource k8s render my-k8s --config ./my-config/k8s-config.yaml --output ./rendered/k8s
+
+# 4) Deploy using your config
+epos-opensource docker deploy my-docker --config ./my-config/docker-config.yaml
+epos-opensource k8s deploy my-k8s --config ./my-config/k8s-config.yaml
+
+# 5) Inspect currently applied config
+epos-opensource docker get my-docker --output ./applied-docker-config.yaml
+epos-opensource k8s get my-k8s --output ./applied-k8s-config.yaml
+```
 
 ## Getting Help
 
-The CLI has a built-in help system that provides detailed information about each command and its options. To get help, you can use the `--help` flag. Alternatively, run the CLI without any arguments to launch the interactive Terminal User Interface (TUI).
+The CLI has built-in help for every command:
 
-```shell
+```bash
 epos-opensource              # Launch interactive TUI
-epos-opensource --help       # Show CLI help
+epos-opensource --help       # Root help
 epos-opensource docker --help
-epos-opensource k8s deploy --help
+epos-opensource k8s --help
+epos-opensource init-config --help
 epos-opensource update --help
 ```
 
-For detailed information about the TUI and its configuration options, see the [TUI Documentation](./tui.md).
+For TUI-specific behavior and keyboard navigation, see [Terminal User Interface (TUI)](./tui.md).
 
 ## Installation
 
-### Using the Installation Script (Linux/macOS)
-
-The easiest way to install the CLI on Linux, macOS, or Windows Subsystem for Linux (WSL) is with the following script.
+### Installation Script (Linux/macOS/WSL)
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/EPOS-ERIC/epos-opensource/main/install.sh | bash
@@ -53,38 +85,31 @@ curl -fsSL https://raw.githubusercontent.com/EPOS-ERIC/epos-opensource/main/inst
 
 :::caution
 
-For security, we recommend you inspect the installation script before running it. You can view the script's source code [here](https://raw.githubusercontent.com/EPOS-ERIC/epos-opensource/main/install.sh).
+Inspect scripts before running them. You can review the installer source code [here](https://raw.githubusercontent.com/EPOS-ERIC/epos-opensource/main/install.sh).
 
 :::
 
 ### Pre-built Binaries (Windows, Linux, macOS)
 
-You can also install the CLI by downloading a pre-built binary for your operating system.
-
-1. Download the appropriate archive from the [releases page](https://github.com/epos-eu/epos-opensource/releases).
-2. Make the binary executable and move it to a directory in your system's `$PATH`.
+1. Download the appropriate binary from the [releases page](https://github.com/EPOS-ERIC/epos-opensource/releases).
+2. Make it executable and place it in your `PATH` (Linux/macOS example):
 
    ```shell
-   # For Linux/macOS
    chmod +x epos-opensource-{your-version}
    mv epos-opensource-{your-version} /usr/local/bin/epos-opensource
    ```
 
-   For Windows, you can place the `.exe` file in a folder and add that folder to the `Path` environment variable.
+3. On Windows, place `epos-opensource.exe` in a folder included in your `Path` environment variable.
 
 ### Build from Source
 
-If you have Go installed (version 1.24.4 or later), you can build the CLI from source.
+If you have Go installed (version `1.26` or later):
 
 ```shell
-go install github.com/epos-eu/epos-opensource@latest
+go install github.com/EPOS-ERIC/epos-opensource@latest
 ```
 
-Make sure `$GOPATH/bin` or `$HOME/go/bin` is in your system's `$PATH`.
-
 ## Verify Installation
-
-To make sure the CLI is installed correctly, run:
 
 ```bash
 epos-opensource --version
@@ -92,17 +117,24 @@ epos-opensource --version
 
 ## Updating the CLI
 
-To update the CLI to the latest version, you can use the `update` command. This is the recommended way to keep your CLI up to date.
-
 ```bash
 epos-opensource update
 ```
 
-## Getting Help & Reporting Issues
+The updater prompts before major upgrades and links to release notes.
 
-If you encounter any issues while using the `epos-opensource` CLI, or if you have any suggestions for improvement, we encourage you to open an issue on our GitHub repository.
+## Next Steps
 
-[**Open an Issue on GitHub**](https://github.com/epos-eu/epos-opensource/issues)
+- [Managing Docker Deployments](./docker.md)
+- [Managing Kubernetes Deployments](./kubernetes.md)
+- [Terminal User Interface (TUI)](./tui.md)
+- [Troubleshooting](./troubleshooting.md)
+
+## Reporting Issues
+
+If you encounter issues, open an issue on GitHub:
+
+[**Open an Issue on GitHub**](https://github.com/EPOS-ERIC/epos-opensource/issues)
 
 ## Troubleshooting
 

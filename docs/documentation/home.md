@@ -1,12 +1,12 @@
 ---
 sidebar_position: 1
 id: home
-title: EPOS Platform Open Source
+title: EPOS Platform open source
 ---
 
-# EPOS Platform Open Source
+# EPOS Platform open source
 
-Welcome to the official documentation for the EPOS Platform, an open-source, self-hostable system for integrating and managing geospatial data services.
+Welcome to the official documentation for the EPOS Platform, an open source, self-hostable system for integrating and managing geospatial data services.
 
 The EPOS Platform allows you to create a centralized catalogue of web services, making it easy for your users to discover, visualize, and access a wide range of geographic and geophysical data.
 
@@ -35,11 +35,11 @@ Ready to dive in? Here’s how you can get started:
 
 ## About the EPOS Project
 
-The EPOS Platform is the open-source heart of the **European Plate Observing System (EPOS)**, a long-term plan to facilitate the integrated use of data from solid Earth science research infrastructures across Europe. You can learn more about EPOS [here](https://www.epos-eu.org/).
+The EPOS Platform is the open source heart of the **European Plate Observing System (EPOS)**, a long-term plan to facilitate the integrated use of data from solid Earth science research infrastructures across Europe. You can learn more about EPOS [here](https://www.epos-eu.org/).
 
 ## Community and Support
 
 Have questions or want to get involved?
 
-- **[GitHub Repository](https://github.com/epos-eu/epos-opensource):** Find the source code, report issues, and contribute.
+- **[GitHub Repository](https://github.com/EPOS-ERIC/epos-opensource):** Find the source code, report issues, and contribute.
 - **Community Discussions:** Join the conversation on our GitHub repository.

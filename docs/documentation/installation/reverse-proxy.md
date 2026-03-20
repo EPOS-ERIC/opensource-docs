@@ -2,88 +2,155 @@
 title: Using a Reverse Proxy with Docker Deployments
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Using a Reverse Proxy with Docker Deployments
 
-This guide explains how to set up a reverse proxy for your EPOS Platform Docker deployments. A reverse proxy allows you to expose your deployment behind a single domain with SSL termination, load balancing, and custom routing. This guide has been tested and works for some users, though individual configurations may vary.
+This guide explains how to expose a Docker-based EPOS environment behind a reverse proxy.
 
-:::warning
-
-Native support for reverse proxies in the EPOS Platform is not yet available but is actively being developed. This guide provides a workaround for current deployments.
-
-:::
+In this setup, EPOS services continue running on local Docker ports, while the reverse proxy handles the public domain, path routing, and optional TLS termination.
 
 ## Prerequisites
 
-- A running EPOS Platform Docker deployment (see [Managing Docker Deployments](docker.md)).
-- A reverse proxy server (e.g., Nginx, Traefik, or Apache).
-- A domain name pointing to your server.
-- SSL certificates (e.g., from Let's Encrypt).
+- A running Docker deployment (see [Managing Docker Deployments](docker.md))
+- A reverse proxy (for example Nginx, Traefik, Apache)
+- A domain name pointing to your host
+- TLS certificates if you want HTTPS
 
-## Step-by-Step Guide
+## How Routing Works
 
-### 1. Export the Configuration
+Your `docker-config.yaml` and proxy rules should match each other:
 
-First, export the default Docker configuration to a custom directory:
+- `components.platform_gui.base_url` matches the public GUI route (usually `/`)
+- `components.gateway.base_url` matches the public API route (usually `/api/v1`)
+- `components.backoffice.gui.base_url` matches the public Backoffice route (if enabled)
+
+For the API, `gateway.base_url` must start with `/` and end with `/api/v1`.
+
+## Step-by-Step
+
+Choose the workflow that matches your case.
+
+<Tabs defaultValue="new-environment">
+  <TabItem value="new-environment" label="New Environment">
+
+#### 1. Export Docker Config
 
 ```bash
 epos-opensource docker export ./my-reverse-proxy-config
 ```
 
-This creates a directory with the necessary files, including `docker-compose.yml` and `.env`.
+This creates `./my-reverse-proxy-config/docker-config.yaml`.
 
-### 2. Modify the Environment Variables
+#### 2. Configure Domain, Protocol, Paths, and Ports
 
-When using a custom `.env` file (as in the deployment command with `--env-file`), you need to manually set certain port variables because the CLI cannot guess them. These variables are already present in the `.env` file but commented out.
+Edit `docker-config.yaml`.
 
-Uncomment the following lines in `./my-reverse-proxy-config/.env`:
+For the full default template, see [Default Docker Config](./docker.md#default-docker-config).
 
-```bash
-DATAPORTAL_PORT=32000
-GATEWAY_PORT=33000
-BACKOFFICE_PORT=34000
-```
+Use `protocol: "https"` if your public endpoint is HTTPS.
 
-These ports correspond to the GUI, API, and Backoffice services respectively. If you want to use different ports, modify these values accordingly. Note that if you change these ports, you may need to update the reverse proxy configuration accordingly. It is recommended to use the default values unless necessary.
-
-### 3. Modify the Docker Compose Configuration
-
-Edit the `docker-compose.yml` file in your exported config directory. Change the `APIHOST` environment variable to your domain name:
+Example:
 
 ```yaml
-# In docker-compose.yml, under the resource-service component
-environment:
-  - APIHOST=https://your-domain.com
+domain: "your-domain.com"
+protocol: "https"
+
+components:
+  platform_gui:
+    base_url: "/"
+    port: 32000
+
+  gateway:
+    base_url: "/api/v1"
+    port: 33000
+
+  backoffice:
+    enabled: true
+    gui:
+      base_url: "/backoffice"
+      port: 34000
 ```
 
-:::tip
-
-Replace `your-domain.com` with your actual domain. Ensure the protocol is `https` if using SSL.
-
-:::
-
-### 4. Deploy with Custom Configuration
-
-Deploy the platform using your modified configuration:
+#### 3. Render Runtime Files (Optional)
 
 ```bash
-epos-opensource docker deploy my-reverse-proxy-platform --env-file ./my-reverse-proxy-config/.env --compose-file ./my-reverse-proxy-config/docker-compose.yml
+epos-opensource docker render my-reverse-proxy-platform --config ./my-reverse-proxy-config/docker-config.yaml --output ./rendered-reverse-proxy
 ```
 
-:::tip
+This lets you inspect generated `.env` and `docker-compose.yaml` before applying changes.
 
-Do not use the `--host` flag when setting up a reverse proxy, as it changes the exposed host but keeps the ports. The `--host` flag is intended for deployments where you want to expose the platform on a different hostname or IP without a reverse proxy, e.g., `http://somehost.com:32000/`.
+#### 4. Deploy with Custom Config
 
-:::
+```bash
+epos-opensource docker deploy my-reverse-proxy-platform --config ./my-reverse-proxy-config/docker-config.yaml
+```
 
-### 5. Configure Reverse Proxy Mappings
+  </TabItem>
+  <TabItem value="existing-environment" label="Existing Environment">
 
-Set up your reverse proxy to route traffic to the appropriate services. Here are the typical mappings:
+#### 1. Export Applied Config from Your Existing Environment
 
-- **GUI**: Route `/` to the GUI service (port 3200 by default).
-- **API**: Route `/api/v1` to the API service (port 3300 by default).
-- **Backoffice**: Route `/backoffice` to the Backoffice service (port 3400 by default).
+```bash
+epos-opensource docker get my-reverse-proxy-platform --output ./docker-config.yaml
+```
 
-Working example Nginx configuration snippet:
+This gives you the currently applied config, so you can update reverse-proxy settings without losing existing customizations.
+
+#### 2. Configure Domain, Protocol, Paths, and Ports
+
+Edit `./my-reverse-proxy-config/docker-config.yaml`.
+
+For the full default template, see [Default Docker Config](./docker.md#default-docker-config).
+
+Use `protocol: "https"` if your public endpoint is HTTPS.
+
+Example fields to review:
+
+```yaml
+domain: "your-domain.com"
+protocol: "https"
+
+components:
+  platform_gui:
+    base_url: "/"
+
+  gateway:
+    base_url: "/api/v1"
+
+  backoffice:
+    enabled: true
+    gui:
+      base_url: "/backoffice"
+```
+
+Keep existing ports unless you have a specific reason to change them.
+
+#### 3. Render Runtime Files (Optional)
+
+```bash
+epos-opensource docker render my-reverse-proxy-platform --config ./my-reverse-proxy-config/docker-config.yaml --output ./rendered-reverse-proxy
+```
+
+#### 4. Update Existing Environment with Custom Config
+
+```bash
+epos-opensource docker update my-reverse-proxy-platform --config ./my-reverse-proxy-config/docker-config.yaml
+```
+
+  </TabItem>
+</Tabs>
+
+## Configure Proxy Routes
+
+Map public routes to local Docker ports:
+
+- `/` -> `http://localhost:32000`
+- `/api/v1` -> `http://localhost:33000/api/v1`
+- `/backoffice` -> `http://localhost:34000` (if enabled)
+
+Nginx example:
 
 ```nginx
 server {
@@ -94,47 +161,53 @@ server {
         proxy_pass http://localhost:32000;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-Proto $scheme;
     }
 
     location /api/v1 {
         proxy_pass http://localhost:33000/api/v1;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-Proto $scheme;
     }
 
     location /backoffice {
         proxy_pass http://localhost:34000;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-Proto $scheme;
     }
 }
 ```
 
-:::warning
+## Verify the Setup
 
-The provided example is designed to work with the default configuration. Modifying paths or routing rules may break functionality, so follow the example as closely as possible unless you are experienced with reverse proxy configurations. Adjust the ports and proxy settings based on your actual deployment. Ensure your reverse proxy handles SSL if needed.
+```bash
+epos-opensource docker list
+epos-opensource docker get my-reverse-proxy-platform --output ./applied-docker-config.yaml
+```
 
-:::
+Then verify:
 
-## Populating Your Environment
+- GUI at `https://your-domain.com/` (or your configured GUI route)
+- API docs at `https://your-domain.com/api/v1/ui`
+- Backoffice at `https://your-domain.com/backoffice` (if enabled)
 
-Once your deployment is running behind the reverse proxy, you can populate it with data using the standard populate commands:
+## Populate Data
 
 ```bash
 epos-opensource docker populate my-reverse-proxy-platform --example
 ```
 
-This adds sample data for testing or demonstration purposes. You can also populate with your own data by providing paths to `.ttl` files instead of using the `--example` flag.
+If you already have your own `.ttl` data, use it instead:
 
-For more details on populate commands, see [Managing Docker Deployments](docker.md).
+```bash
+epos-opensource docker populate my-reverse-proxy-platform ./metadata ./more-data/file.ttl
+```
 
 ## Troubleshooting
 
-If you encounter issues, check the following:
-
-- Verify that your domain DNS points to your server.
-- Ensure the `APIHOST` is correctly set in the Docker Compose file.
-- Check reverse proxy logs for routing errors.
-- Confirm that the EPOS Platform services are running and accessible on their internal ports.
-
-For any problems, please open a GitHub issue at [EPOS-ERIC/epos-opensource](https://github.com/EPOS-ERIC/epos-opensource/issues).
+- Confirm reverse proxy routes match `docker-config.yaml` base paths and ports
+- If API routes fail, verify `components.gateway.base_url` still ends with `/api/v1`
+- If expected ports are not reachable, inspect the applied config from `docker get` and update proxy upstreams accordingly
+- If Backoffice returns 404, verify `components.backoffice.enabled: true` and proxy route `/backoffice`

@@ -7,7 +7,7 @@ title: Quickstart
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This guide will get you up and running with a local instance of the EPOS Platform in just a few minutes. By the end, you'll have a fully functional data catalogue populated with sample data.
+This guide will get you up and running with a local instance of the EPOS Platform in just a few minutes. By the end, you'll have a fully functional data catalogue populated with example metadata.
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ First, you need to install the `epos-opensource` command-line interface (CLI). T
   <TabItem value="windows" label="Windows">
     <p>For Windows, you'll download the command-line tool directly:</p>
     <ol>
-      <li>Go to the <a href="https://github.com/EPOS-ERIC/epos-opensource/releases">EPOS Open-Source Releases page</a>.</li>
+      <li>Go to the <a href="https://github.com/EPOS-ERIC/epos-opensource/releases">EPOS open source releases page</a>.</li>
       <li>Download the latest file named <code>epos-opensource-windows-amd64.exe</code>.</li>
       <li>Rename the downloaded file to <code>epos-opensource.exe</code>.</li>
       <li>Move this file to a memorable location, for example, <code>C:\epos</code>.</li>
@@ -52,7 +52,7 @@ To make sure it's installed correctly, open a new terminal and run:
 epos-opensource --version
 ```
 
-You should see an output like `epos-opensource version v1.0.0` (the version number may vary).
+You should see an output like `epos-opensource version v2.0.0` (the exact version number may vary).
 
 For more detailed installation instructions, including how to build from source, see the [CLI Tool documentation](./installation/index.md).
 
@@ -63,6 +63,12 @@ To keep your CLI up to date, you can use the `update` command. It is the recomme
 ```bash
 epos-opensource update
 ```
+
+:::warning
+
+When upgrading across major versions (for example, from `v1.x` to `v2.x`), read the release notes carefully. `v2.0.0` introduces breaking changes in local state handling.
+
+:::
 
 ## 2. Deploy the Platform
 
@@ -81,7 +87,7 @@ epos-opensource
 
 Click on the `Create New Environment` in the `Docker Environments` section.
 
-![Deploy Nen Environment](/img/tui_deploy.png)
+![Deploy New Environment](/img/tui_deploy.png)
 
 Enter your environment name (e.g., `my-epos-platform`) and confirm to start the deployment.
 
@@ -107,9 +113,9 @@ When it's done, you'll see a confirmation message with the access URLs for your 
   </TabItem>
 </Tabs>
 
-## 3. Populate with Sample Data
+## 3. Populate with Example Data
 
-To see your platform in action, you can populate it with some example metadata we provide. This will create a few example entries in your data catalogue.
+To see your platform in action, you can populate it with example metadata we provide. This will create a few entries in your data catalogue.
 
 <Tabs defaultValue="tui">
   <TabItem value="tui" label="Interactive TUI (Recommended)">
@@ -122,7 +128,7 @@ Here you can perform different actions on a deployed environment and see its opt
 
 ![Populate with TUI](/img/tui_populate.png)
 
-Here you can specify the paths to directories or files to ingest. There also is the possibility to populate an environment with some pre provided example data, to do this, check the `Populate Examples` checkbox and proceed with the population by clicking on `Populate`.
+Here you can specify the paths to directories or files to ingest. You can also populate an environment with pre-provided example data by checking the `Populate Examples` checkbox and clicking `Populate`.
 
   </TabItem>
   <TabItem value="cli" label="Command Line">
@@ -131,6 +137,12 @@ Populate using the CLI command:
 
 ```bash
 epos-opensource docker populate my-epos-platform --example
+```
+
+Or, if you already have your own `.ttl` data, you can use that instead:
+
+```bash
+epos-opensource docker populate my-epos-platform ./metadata ./more-data/file.ttl
 ```
 
 ![Populate with CLI](/img/docker_populate_example.png)
@@ -156,13 +168,13 @@ If the data still does not appear after a short wait or a restart, please open a
 
 Congratulations, your EPOS Platform is live!
 
-Open your web browser and go to the **EPOS Platform GUI** provided at the end of the deployment step. Or if you are using the TUI by clicking on the `Open` button near the `GUI` url. The default URL is [http://localhost:32000/](http://localhost:32000/).
+Open your web browser and go to the **EPOS Platform GUI** URL shown after deployment (or click `Open` in the TUI). The default URL is [http://localhost:32000/](http://localhost:32000/), but use the printed URL if your machine required different ports.
 
 ![The EPOS Platform](/img/dataportal_after_populate.png)
 
-You should see the main interface for browsing and searching for geospatial services. The sample metadata will appear on the top-left side of the interface.
+You should see the main interface for browsing and searching for geospatial services. The example metadata will appear on the top-left side of the interface.
 
-You can also explore the **API Documentation** at `http://localhost:33000/api/v1/ui`.
+You can also explore the **API Documentation** at `http://localhost:33000/api/v1/ui` (or the API URL printed by the CLI).
 
 ## Next Steps
 

@@ -41,7 +41,7 @@ const featureList = [
 		isReversed: false,
 	},
 	{
-		title: 'Free & Open Source',
+		title: 'Free & open source',
 		imageUrl: '/img/epos-github.png',
 		description: 'The entire EPOS Platform open source is released under GPL v3, making it completely free to deploy, modify, and use. Every component and library is open source and community-owned.',
 		link: '/documentation/license',
@@ -75,7 +75,7 @@ function HeroSection() {
 		<header className={clsx('hero', styles.heroBanner)}>
 			<div className="container">
 				<img src={useBaseUrl(logoSrc)} alt="EPOS Logo" className={styles.heroLogo} />
-				<p className={styles.heroSubtitle}>The open-source edition of the EPOS Platform is a service-based data integration and visualization system built on a microservices architecture.</p>
+				<p className={styles.heroSubtitle}>The open source edition of the EPOS Platform is a service-based data integration and visualization system built on a microservices architecture.</p>
 				<div className={clsx(styles.buttons, styles.heroButtons)}>
 					<Link className={clsx('button button--primary button--lg', styles.heroCtaButton)} to="/documentation/quickstart">Quickstart</Link>
 					<Link className={clsx('button button--secondary button--lg', styles.heroCtaButton)} to="/documentation/system-reference/architecture">System Reference</Link>
@@ -101,7 +101,7 @@ function ProductionDeploymentsSection() {
 			<div className="container">
 				<div className={styles.deploymentsHeader}>
 					<Heading as="h2">Adopted Across Europe</Heading>
-					<p>The EPOS Platform Open Source is actively powering research infrastructures across Europe</p>
+					<p>The EPOS Platform open source is actively powering research infrastructures across Europe</p>
 				</div>
 				<div className={styles.deploymentsLogos}>
 					{provenInProductionLinks.map((link, idx) => (
@@ -122,7 +122,7 @@ function AboutSection() {
 				<Heading as="h2">About EPOS</Heading>
 				<p className={styles.aboutDescription}>
 					The EPOS Platform is backed by EPOS ERIC (European Plate Observing System), a long-term
-					research infrastructure supported by the European Commission. This open-source release
+					research infrastructure supported by the European Commission. This open source release
 					makes the same technology powering pan-European Earth science data accessible to research
 					communities worldwide.
 				</p>
@@ -142,7 +142,7 @@ export default function Home() {
 	return (
 		<Layout
 			title={`${siteConfig.title}`}
-			description="An open-source, service-based data integration and visualization system.">
+			description="An open source, service-based data integration and visualization system.">
 			<HeroSection />
 			<main>
 				<AlternatingFeaturesSection />

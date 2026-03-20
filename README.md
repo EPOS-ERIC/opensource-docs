@@ -1,6 +1,6 @@
-# EPOS Platform Open Source Documentation
+# EPOS Platform open source documentation
 
-This repository contains the documentation for the EPOS Platform Open Source, built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+This repository contains the documentation for the EPOS Platform open source, built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
 ## Contributing
 

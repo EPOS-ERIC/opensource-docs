@@ -6,7 +6,7 @@ title: License
 
 # License
 
-The EPOS Open-Source Platform and all its associated repositories, components, and documentation are licensed under the **GNU General Public License v3.0 (GPLv3)**. This ensures that the software remains free and open for everyone to use, study, share, and improve.
+The EPOS open source platform and all its associated repositories, components, and documentation are licensed under the **GNU General Public License v3.0 (GPLv3)**. This ensures that the software remains free and open for everyone to use, study, share, and improve.
 
 ## What does this mean for you?
 
@@ -25,4 +25,4 @@ For the complete terms and conditions of the license, please refer to the offici
 
 *   **[GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html)**
 
-We encourage you to read the full license to understand your rights and obligations when using, distributing, or modifying the EPOS Open-Source Platform.
+We encourage you to read the full license to understand your rights and obligations when using, distributing, or modifying the EPOS open source platform.

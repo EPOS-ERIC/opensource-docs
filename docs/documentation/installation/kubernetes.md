@@ -2,140 +2,145 @@
 title: Managing Kubernetes Deployments
 ---
 
+import RemoteCodeBlock from '@site/src/components/RemoteCodeBlock';
+
 # Managing Kubernetes Deployments
 
-This guide provides real-world examples of how to use the `epos-opensource kubernetes` commands to manage your EPOS Platform deployments on a Kubernetes cluster.
+This guide covers the `epos-opensource k8s` commands for deploying and managing EPOS on Kubernetes.
+
+Starting from `v2.x`, K8s deployments are managed through an embedded [Helm](https://helm.sh/) chart and YAML values.
 
 ## Prerequisites
 
-Before you begin, you should have a Kubernetes cluster up and running. You should also have an Nginx Ingress Controller installed and configured on your cluster. The `epos-opensource` CLI assumes that you have an Ingress Controller that can handle Ingress resources.
+- A running Kubernetes cluster
+- `kubectl` installed and configured
+- An ingress controller using class `nginx`
 
-By default, the `INGRESS_CLASS` variable in the `.env` file is set to `nginx`. If you are using a different Ingress Controller, you will need to change this variable to match the ingress class of your controller.
+:::info
+
+You do **not** need to install Helm CLI separately. Helm logic is embedded in the `epos-opensource` cli.
+
+:::
 
 ## Common Workflow
 
-This section walks you through a typical workflow for creating, populating, and managing a new EPOS Platform environment on Kubernetes.
-
-### 1. Deploy a New Platform
-
-First, you need to deploy a new environment. This command will create a new namespace and all the necessary Kubernetes resources for a fully functional EPOS Platform instance.
+### 1. Deploy a New Environment
 
 ```bash
-epos-opensource kubernetes deploy my-kube-platform
+epos-opensource k8s deploy my-kube-platform
 ```
 
-**When to use it:** Use this command when you want to create a new, clean instance of the EPOS Platform on your Kubernetes cluster.
+`k8s deploy` creates a namespace and deploys EPOS services using the embedded Helm chart and config values. Use it for first-time creation of a new environment in the cluster. If you want to inspect generated manifests first, run `k8s render` (optionally providing a custom config file); if the environment already exists, use `k8s update` instead.
 
-### 2. Populate with Sample Data
+Useful options:
 
-Once your platform is running, you can populate it with some sample data to see it in action.
+- `--config <path>`: use a custom `k8s-config.yaml`
+- `--context <name>`: choose kubectl context
+- `--timeout <duration>`: override default timeout (`5m`)
+
+### 2. Populate with Example Data
 
 ```bash
-epos-opensource kubernetes populate my-kube-platform --example
+epos-opensource k8s populate my-kube-platform --example
 ```
 
-**When to use it:** Use this command to quickly add some sample data to your platform for testing or demonstration purposes. You can also use it to populate your platform with your own data by providing a path to your `.ttl` files instead of the `--example` flag.
+`k8s populate` loads metadata into the running environment using bundled examples (`--example`) or your `.ttl` files. Use it after deployment or after a reset when you need fresh metadata ingestion. If old populated data must be removed first, run `k8s clean` before populating.
 
-### 3. Update the Environment
-
-If you need to update an existing environment with new configuration settings, such as changing environment variables or using different manifests, you can use the `update` command.
+If you are ingesting custom metadata instead of bundled examples, pass one or more `.ttl` file or directory paths:
 
 ```bash
-epos-opensource kubernetes update my-kube-platform --env-file ./my-updated-manifests/.env
+epos-opensource k8s populate my-kube-platform ./metadata ./more-data/file.ttl
 ```
 
-**When to use it:** Use this command when you want to apply configuration changes to an existing Kubernetes environment without deleting and recreating it from scratch. You can update the environment variables, manifests directory, force recreation of the namespace, or change the host settings.
-
-### 4. Check the Status
-
-You can check the status of your deployed environments at any time.
+### 3. List Environments
 
 ```bash
-epos-opensource kubernetes list
+epos-opensource k8s list
 ```
 
-This command will show you a list of all your Kubernetes environments and their status.
+`k8s list` discovers EPOS environments and shows their context and endpoint URLs. Use it as a quick inventory of what is deployed and where it is reachable, then continue with whichever command fits your next step (for example `k8s get`, `k8s update`, `k8s populate`, `k8s clean`, or `k8s delete`).
 
-**When to use it:** Use this command to get an overview of your deployed environments on Kubernetes.
+By default, this checks all available kubectl contexts. Use `--context` to scope to one context.
 
-### 5. Delete the Environment
-
-When you're finished with an environment, you can delete it completely.
+### 4. Update an Environment
 
 ```bash
-epos-opensource kubernetes delete my-kube-platform
+epos-opensource k8s update my-kube-platform
 ```
+
+`k8s update` updates an existing environment using its applied config or a file passed with `--config`. Use it for iterative changes without redeploying an environment. A safe workflow is to export current values with `k8s get`, edit them, and apply with `k8s update --config`; use `k8s deploy` for new environment.
+
+Useful options:
+
+- `--config <path>`: apply custom YAML config
+- `--reset`: reset to embedded default config (see [Default K8s Config](#default-k8s-config))
+- `--force`: reinstall from scratch (delete namespace + reinstall)
+
+### 5. Clean Environment Data
+
+```bash
+epos-opensource k8s clean my-kube-platform
+```
+
+`k8s clean` runs cleanup jobs to remove populated data without a full redeploy. Use it when you want to reset data but keep the same namespace and deployment. After cleaning, run `k8s populate` to ingest data again; use `k8s delete` if you need complete removal of all resources.
+
+### 6. Delete an Environment
+
+```bash
+epos-opensource k8s delete my-kube-platform
+```
+
+`k8s delete` deletes the environment namespace and associated resources. Use it for permanent cleanup of one or more environments. It is good practice to check names and contexts with `k8s list` first; if you only need a data reset, use `k8s clean` instead.
 
 :::warning
 
-This action is irreversible and will delete the entire namespace and all its resources, including all your data, metadata, and any data added through the Backoffice.
+`delete` removes the namespace and all associated resources.
 
 :::
 
-:::tip
+Use `--force` to skip confirmation.
 
-This command will prompt for confirmation before proceeding. Use the `--force` (`-f`) flag to bypass the prompt, which is useful for scripts or CI/CD pipelines.
+## Config-First Workflow
 
-:::
+### 1. Export the Default K8s Template
 
-**When to use it:** Use this command when you want to completely remove a Kubernetes environment and all its associated resources.
+```bash
+epos-opensource k8s export ./my-k8s-config
+```
 
-## Advanced Usage
+`k8s export` writes the default `k8s-config.yaml` template to the target directory. Use it to begin customization from a valid default config, then edit the file and continue with `k8s render`, `k8s deploy --config` or `k8s update --config`.
 
-This section covers some more advanced scenarios for managing your EPOS Platform deployments on Kubernetes.
+This creates `./my-k8s-config/k8s-config.yaml`.
 
-### Enabling SSL
+Default template: see [Default K8s Config](#default-k8s-config).
 
-You can deploy your platform with SSL enabled using the `-s` or `--secure` flag. This will create Ingress resources with a TLS section, which requires you to provide a TLS secret.
+### 2. Render Manifests Locally
 
-1.  Create a TLS secret in your Kubernetes cluster containing your SSL certificate and key.
+```bash
+epos-opensource k8s render my-kube-platform --config ./my-k8s-config/k8s-config.yaml --output ./rendered-k8s
+```
 
-2.  Export the default environment file:
+`k8s render` renders Kubernetes manifests from config without deploying to a cluster. Use it for review, diff, or CI validation before applying changes. After review, apply the same config with `k8s deploy --config` for new environments or `k8s update --config` for existing ones.
 
-    ```bash
-    epos-opensource kubernetes export ./my-custom-manifests
-    ```
+### 3. Deploy or Update with Config
 
-3.  Edit the `.env` file in the `my-custom-manifests` directory and set the `TLS_SECRET_NAME` to the name of your TLS secret.
+```bash
+epos-opensource k8s deploy my-kube-platform --config ./my-k8s-config/k8s-config.yaml
+epos-opensource k8s update my-kube-platform --config ./my-k8s-config/k8s-config.yaml
+```
 
-    ```
-    TLS_SECRET_NAME=your-tls-secret-name
-    ```
+These commands apply your custom config for creation (`deploy`) or modification (`update`). Use this path for repeatable, version-controlled environment changes. For updates, you can start with `k8s get`, edit the exported config, and apply it back with `--config`.
 
-4.  Deploy your platform using the `--secure` flag and your custom environment file:
+### 4. Inspect Applied Config
 
-    ```bash
-    epos-opensource kubernetes deploy my-secure-platform -s -e ./my-custom-manifests/.env
-    ```
+```bash
+epos-opensource k8s get my-kube-platform --output ./applied-k8s-config.yaml
+```
 
-This will create Ingress resources similar to the following, with the `tls` section configured to use your secret:
+`k8s get` prints the configuration currently applied to an environment (or writes it to `--output`). Use it for audit, backup, and as a safe baseline for updates. A common flow is to export with `k8s get`, edit the YAML, and apply it with `k8s update --config`.
 
-import RemoteCodeBlock from '@site/src/components/RemoteCodeBlock';
+If `--output` is omitted, YAML is printed to stdout.
 
-<RemoteCodeBlock url="https://raw.githubusercontent.com/EPOS-ERIC/epos-opensource/refs/heads/main/cmd/k8s/k8score/static/manifests/ingresses-secure.yaml" language="yaml" />
+## Default K8s Config
 
-### Using an External Database
-
-By default, the EPOS Platform uses a container for its PostgreSQL database. However, you can configure it to use an external PostgreSQL database instead.
-
-1.  Export the default environment file:
-
-    ```bash
-    epos-opensource kubernetes export ./my-custom-manifests
-    ```
-
-2.  Edit the `.env` file in the `my-custom-manifests` directory and modify the `POSTGRESQL_CONNECTION_STRING` to point to your external database.
-
-    ```
-    POSTGRESQL_CONNECTION_STRING="jdbc:postgresql://your-external-db-host:5432/your-db-name?user=your-user&password=your-password"
-    ```
-
-3.  Deploy your platform using the custom environment file:
-
-    ```bash
-    epos-opensource kubernetes deploy my-custom-db-platform -e ./my-custom-manifests/.env
-    ```
-
-Here is an example of the `.env` file for Kubernetes.
-
-<RemoteCodeBlock url="https://raw.githubusercontent.com/EPOS-ERIC/epos-opensource/refs/heads/main/cmd/k8s/k8score/static/.env" language="env" />
+<RemoteCodeBlock url="https://raw.githubusercontent.com/EPOS-ERIC/epos-opensource/refs/heads/main/pkg/k8s/config/helm/values.yaml" language="yaml" />

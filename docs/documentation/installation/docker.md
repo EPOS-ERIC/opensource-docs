@@ -2,128 +2,150 @@
 title: Managing Docker Deployments
 ---
 
+import RemoteCodeBlock from '@site/src/components/RemoteCodeBlock';
+
 # Managing Docker Deployments
 
-This guide provides real-world examples of how to use the `epos-opensource docker` commands to manage your EPOS Platform deployments on a single machine using Docker Compose.
+This guide covers the `epos-opensource docker` commands for deploying and managing EPOS locally with Docker Compose.
+
+Starting from `v2.x`, Docker deployments are managed through YAML config and rendered [Docker Compose](https://docs.docker.com/compose/) runtime files.
 
 ## Common Workflow
 
-This section walks you through a typical workflow for creating, populating, and managing a new EPOS Platform environment.
-
-### 1. Deploy a New Platform
-
-First, you need to deploy a new environment. This command will create all the necessary Docker containers, networks, and volumes for a fully functional EPOS Platform instance.
+### 1. Deploy a New Environment
 
 ```bash
 epos-opensource docker deploy my-epos-platform
 ```
 
-**When to use it:** Use this command when you want to create a new, clean instance of the EPOS Platform.
+`docker deploy` creates a new Docker Compose EPOS environment from the embedded defaults or a file passed with `--config`. Use it for first-time creation of a new environment. If you want to inspect generated runtime files first, run `docker render` (optionally providing a custom config file); if the environment already exists, use `docker update` instead.
 
-### 2. Populate with Sample Data
-
-Once your platform is running, you can populate it with some sample data to see it in action.
+### 2. Populate with Example Data
 
 ```bash
 epos-opensource docker populate my-epos-platform --example
 ```
 
-**When to use it:** Use this command to quickly add some sample data to your platform for testing or demonstration purposes. You can also use it to populate your platform with your own data by providing a path to your `.ttl` files instead of the `--example` flag.
+`docker populate` loads metadata into the environment from bundled examples (`--example`) or from your `.ttl` files. Use it right after deployment or after a reset when you need fresh data. If you want to clear existing populated data first, run `docker clean` before it.
 
-### 3. Check the Status
+If you are ingesting custom metadata instead of bundled examples, pass one or more `.ttl` file or directory paths:
 
-You can check the status of your deployed environments at any time.
+```bash
+epos-opensource docker populate my-epos-platform ./metadata ./more-data/file.ttl
+```
+
+### 3. List Environments
 
 ```bash
 epos-opensource docker list
 ```
 
-This command will show you a list of all your environments, their status, and the URLs to access them.
+`docker list` shows all Docker environments tracked by the CLI, together with GUI, API, and Backoffice URLs. Use it as a quick inventory of what is deployed and where it is reachable, then continue with whichever command fits your next step (for example `docker get`, `docker update`, `docker populate`, `docker clean`, or `docker delete`).
 
-**When to use it:** Use this command to get an overview of your deployed environments and their access URLs.
+### 4. Update an Environment
 
-### 4. Clean the Data
+```bash
+epos-opensource docker update my-epos-platform
+```
 
-If you want to reset the data in your environment without deleting the entire deployment, you can use the `clean` command.
+`docker update` updates an existing environment using its applied config or a custom one passed with `--config`. Use it for iterative changes without redeploying an environment. A safe workflow is to export current values with `docker get`, edit them, and apply with `docker update --config`; use `docker deploy` for a new environment.
+
+Useful options:
+
+- `--config <path>`: apply a custom YAML config
+- `--update-images`: pull images before starting
+- `--force`: recreate containers from scratch
+- `--reset`: reset to embedded default config (see [Default Docker Config](#default-docker-config))
+
+### 5. Clean Environment Data
 
 ```bash
 epos-opensource docker clean my-epos-platform
 ```
 
+`docker clean` removes populated data and ingestion records, then restarts services and restores base ontologies while keeping the same deployment. Use it when you need a data reset without tearing the environment down. After cleaning, run `docker populate` to load data again; use `docker delete` if you need complete removal of all resources.
+
 :::warning
 
-This action is irreversible and will delete all your data, including metadata, converter plugins, and any data added through the Backoffice.
+`clean` permanently removes populated environment data.
 
 :::
 
-:::tip
+Use `--force` to skip confirmation.
 
-This command will prompt for confirmation before proceeding. Use the `--force` (`-f`) flag to bypass the prompt, which is useful for scripts or CI/CD pipelines.
-
-:::
-
-**When to use it:** Use this command when you want to clear all the data from an environment and start over with a clean slate.
-
-### 5. Update the Environment
-
-If you need to update an existing environment with new configuration settings, such as changing environment variables or using a different Docker Compose file, you can use the `update` command.
-
-```bash
-epos-opensource docker update my-epos-platform --env-file ./my-updated-config/.env
-```
-
-**When to use it:** Use this command when you want to apply configuration changes to an existing environment without deleting and recreating it from scratch. You can update the environment variables, Docker Compose file, force recreation of containers, update Docker images, or change the host settings.
-
-### 6. Delete the Environment
-
-When you're finished with an environment, you can delete it completely.
+### 6. Delete an Environment
 
 ```bash
 epos-opensource docker delete my-epos-platform
 ```
 
+`docker delete` permanently removes the Docker environment, including containers, volumes, and tracked metadata. Use it for full removal of one or more environments. It is best to confirm targets with `docker list` first; if you only need a data reset, use `docker clean` instead.
+
 :::warning
 
-This action is irreversible and will delete all your data and the entire deployment, including all containers, volumes, and networks.
+`delete` permanently removes the full Docker environment (containers, volumes, and metadata).
 
 :::
 
-:::tip
+Use `--force` to skip confirmation.
 
-This command will prompt for confirmation before proceeding. Use the `--force` (`-f`) flag to bypass the prompt, which is useful for scripts or CI/CD pipelines.
+## Config-First Workflow
+
+### 1. Export the Default Docker Template
+
+```bash
+epos-opensource docker export ./my-docker-config
+```
+
+`docker export` writes the default `docker-config.yaml` template to the target directory. Use it to begin customization from a valid default config, then edit the file and continue with `docker render`, `docker deploy --config` or `docker update --config`.
+
+This creates `./my-docker-config/docker-config.yaml`.
+
+### 2. Edit `docker-config.yaml`
+
+Default template: see [Default Docker Config](#default-docker-config).
+
+Example: enable the Backoffice module by setting `enabled` to `true`:
+
+```yaml
+components:
+  backoffice:
+    enabled: true
+```
+
+### 3. Render Runtime Files (optional)
+
+```bash
+epos-opensource docker render my-epos-platform --config ./my-docker-config/docker-config.yaml --output ./rendered-docker
+```
+
+`docker render` generates `.env` and `docker-compose.yaml` locally from the default config or a file passed with `--config`, without deploying anything. Use it to validate runtime output before making changes to running environments. After review, apply the same config with `docker deploy --config` for new environments or `docker update --config` for existing ones.
+
+### 4. Deploy or Update with Config
+
+```bash
+epos-opensource docker deploy my-epos-platform --config ./my-docker-config/docker-config.yaml
+epos-opensource docker update my-epos-platform --config ./my-docker-config/docker-config.yaml
+```
+
+These commands apply your customized config during creation (`deploy`) or modification (`update`). This is the recommended path for reproducible, version-controlled environment changes. For updates, you can start from `docker get`, edit that config, and apply it back with `--config`.
+
+### 5. Inspect Applied Config
+
+```bash
+epos-opensource docker get my-epos-platform --output ./applied-docker-config.yaml
+```
+
+`docker get` reads the config currently stored for a deployed environment and prints YAML to stdout (or writes it to `--output`). Use it for backup, audit, and as a safe baseline for updates. A common flow is to export with `docker get`, edit the file, then apply it with `docker update --config`.
+
+If `--output` is omitted, YAML is printed to stdout.
+
+:::info
+
+In `v2.x`, Docker commands are config-driven. Use `--config` instead of older `.env`/compose-file flags.
 
 :::
 
-**When to use it:** Use this command when you want to completely remove an environment and all its associated resources.
+## Default Docker Config
 
-## Advanced Usage
-
-This section covers some more advanced scenarios for managing your EPOS Platform deployments.
-
-### Using an External Database
-
-By default, the EPOS Platform uses a Docker container for its PostgreSQL database. However, you can configure it to use an external PostgreSQL database instead.
-
-1.  Export the default environment file:
-
-    ```bash
-    epos-opensource docker export ./my-custom-config
-    ```
-
-2.  Edit the `.env` file in the `my-custom-config` directory and modify the `POSTGRESQL_CONNECTION_STRING` to point to your external database.
-
-    ```
-    POSTGRESQL_CONNECTION_STRING="jdbc:postgresql://your-external-db-host:5432/your-db-name?user=your-user&password=your-password"
-    ```
-
-3.  Deploy your platform using the custom environment file:
-
-    ```bash
-    epos-opensource docker deploy my-custom-db-platform --env-file ./my-custom-config/.env
-    ```
-
-Here is an example of the `.env` file for Docker. Note that this might be outdated, but the overall structure should be the same.
-
-import RemoteCodeBlock from '@site/src/components/RemoteCodeBlock';
-
-<RemoteCodeBlock url="https://raw.githubusercontent.com/EPOS-ERIC/epos-opensource/refs/heads/main/cmd/docker/dockercore/static/.env" language="env" />
+<RemoteCodeBlock url="https://raw.githubusercontent.com/EPOS-ERIC/epos-opensource/refs/heads/main/pkg/docker/config/default.yaml" language="yaml" />

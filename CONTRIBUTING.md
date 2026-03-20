@@ -1,6 +1,6 @@
-# Contributing to EPOS Platform Open Source Documentation
+# Contributing to EPOS Platform open source documentation
 
-This repository hosts the EPOS Platform Open Source documentation using Docusaurus. Contributions are welcome from anyone—whether fixing a typo or adding comprehensive guides.
+This repository hosts the EPOS Platform open source documentation using Docusaurus. Contributions are welcome from anyone—whether fixing a typo or adding comprehensive guides.
 
 ## Prerequisites
 

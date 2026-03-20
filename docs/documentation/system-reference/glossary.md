@@ -73,7 +73,7 @@ A tool for defining and running multi-container Docker applications. It uses a Y
 
 ## Kubernetes
 
-An open-source container orchestration platform for automating the deployment, scaling, and management of containerized applications. It is the recommended deployment method for production environments of the EPOS Platform. More information can be found on the [official Kubernetes website](https://kubernetes.io/).
+An open source container orchestration platform for automating the deployment, scaling, and management of containerized applications. It is the recommended deployment method for production environments of the EPOS Platform. More information can be found on the [official Kubernetes website](https://kubernetes.io/).
 
 ## Microservice
 

@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # EPOS-DCAT-AP
 
-EPOS-DCAT-AP is a specialized metadata standard integral to the EPOS Open-Source Platform. It is designed to help users organize and make accessible their diverse scientific data and services within the solid-Earth sciences community. By extending the DCAT-AP (Data Catalog Application Profile) specification, EPOS-DCAT-AP provides comprehensive and standardized metadata descriptions, crucial for building a discoverable and interoperable geospatial data catalogue.
+EPOS-DCAT-AP is a specialized metadata standard integral to the EPOS open source platform. It is designed to help users organize and make accessible their diverse scientific data and services within the solid-Earth sciences community. By extending the DCAT-AP (Data Catalog Application Profile) specification, EPOS-DCAT-AP provides comprehensive and standardized metadata descriptions, crucial for building a discoverable and interoperable geospatial data catalogue.
 
 ## What is EPOS-DCAT-AP?
 
@@ -21,13 +21,13 @@ Key characteristics of EPOS-DCAT-AP include:
 
 ## Why EPOS-DCAT-AP?
 
-For users deploying the EPOS Open-Source Platform, EPOS-DCAT-AP is the crucial common language that allows you to describe your diverse data and service resources in a consistent and standardized way. This consistency enables your EPOS Platform instance to effectively collect, organize, and make sense of all the metadata, facilitating seamless metadata exchange and ensuring that your geospatial data catalogue is discoverable and interoperable.
+For users deploying the EPOS open source platform, EPOS-DCAT-AP is the crucial common language that allows you to describe your diverse data and service resources in a consistent and standardized way. This consistency enables your EPOS Platform instance to effectively collect, organize, and make sense of all the metadata, facilitating seamless metadata exchange and ensuring that your geospatial data catalogue is discoverable and interoperable.
 
-## Key Features for Your Open-Source Deployment
+## Key Features for Your Deployment
 
 <!-- TODO: Add a very brief, high-level sentence or two to each feature for more context. -->
 
-EPOS-DCAT-AP empowers your open-source EPOS Platform deployment by enhancing standard metadata descriptions with features such as:
+EPOS-DCAT-AP empowers your open source EPOS Platform deployment by enhancing standard metadata descriptions with features such as:
 
 - **Extending DCAT-AP**: Building on an established standard while adding domain-specific properties relevant to solid-Earth sciences.
 - **Enriching Descriptions**: Incorporating other descriptive languages to provide richer and more comprehensive metadata for your resources.

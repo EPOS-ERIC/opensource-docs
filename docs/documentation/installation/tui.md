@@ -5,7 +5,7 @@ sidebar_position: 5.5
 
 # Terminal User Interface (TUI)
 
-The EPOS CLI v1.0.0 introduces an interactive Terminal User Interface (TUI) built with the tview library. This provides a menu-driven experience for managing Docker and Kubernetes deployments without needing to remember command syntax.
+The EPOS CLI includes an interactive Terminal User Interface (TUI) built with `tview`. It provides a menu-driven experience for managing Docker and K8s environments without memorizing command syntax.
 
 ## Launching the TUI
 
@@ -17,7 +17,7 @@ epos-opensource
 
 Press `q` or `Ctrl+C` to exit at any time.
 
-In any moment you can press `?` to open the help menu for the current section. In the help there will be all the keys that you can use and what actions they will do.
+At any time, press `?` to open the help menu for the current section.
 
 ## Navigation
 
@@ -30,13 +30,21 @@ Full mouse navigation is supported, but if you prefer you can also use the keybo
 
 ## Custom Configuration
 
-Advanced users can customize TUI behavior by creating a configuration file at the platform-specific path:
+You can customize TUI behavior with a user config file.
+
+To create the default config file automatically:
+
+```bash
+epos-opensource init-config
+```
+
+The file location is platform-specific:
 
 | Platform | Path                                             |
 | -------- | ------------------------------------------------ |
 | macOS    | `$HOME/.config/epos-opensource.yaml`             |
 | Linux    | `$HOME/.config/epos-opensource.yaml`             |
-| Windows  | `%APPDATA%\epos-opensource\epos-opensource.yaml` |
+| Windows  | `%APPDATA%\epos-opensource.yaml`                |
 
 ### Configuration Options
 
@@ -53,7 +61,7 @@ tui:
 
 ### Example Custom Configuration
 
-If using yazi and neovim on linux you can use them:
+If you use `yazi` and `neovim` on Linux:
 
 ```yaml
 tui:

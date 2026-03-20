@@ -27,13 +27,11 @@
     "prism-react-renderer": "^2.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-zoom-pan-pinch": "^3.7.0",
-    "styled-components": "^6.1.19"
+    "react-zoom-pan-pinch": "^3.7.0"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.9.2",
-    "@docusaurus/types": "^3.9.2",
-    "@types/styled-components": "^5.1.34"
+    "@docusaurus/types": "^3.9.2"
   },
   "browserslist": {
     "production": [

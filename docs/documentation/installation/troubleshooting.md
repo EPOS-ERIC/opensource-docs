@@ -4,79 +4,94 @@ title: Troubleshooting
 
 # Troubleshooting
 
-This page provides solutions to common issues you may encounter while using the EPOS Platform, including the CLI and deployed environments.
+This page covers common issues with the EPOS CLI and environment management.
 
-## CLI (Command Line Interface)
+## CLI Basics
 
-### Interactive TUI
+### TUI vs CLI Commands
 
-**Launching TUI vs CLI commands**
-
-- Run `epos-opensource` without arguments to launch the interactive TUI
-- Run `epos-opensource --help` to see CLI command syntax
+- Run `epos-opensource` to launch the interactive TUI
+- Run `epos-opensource --help` to see CLI syntax
 - Press `Esc` or `Ctrl+C` to exit the TUI
 
-**TUI Navigation Tips**
+### `update` vs `docker update` vs `k8s update`
 
-- Arrow keys to navigate menus
-- Enter to select/confirm
-- Space to toggle checkboxes
-- Tab to switch between panels
+- `epos-opensource update`: updates the CLI binary itself
+- `epos-opensource docker update <env-name>`: updates a Docker environment
+- `epos-opensource k8s update <env-name>`: updates a K8s environment
 
-**Customizing TUI**
+## v2 Migration Issues
 
-The TUI supports custom configuration. See [TUI Configuration](./tui.md) for details.
+### Environments Disappeared After Updating to `v2.0.0`
 
-### `update` vs `docker update`
+- **Issue:** previously deployed environments no longer appear in `docker list` or `k8s list`.
+- **Cause:** `v2.0.0` includes a breaking change that resets local CLI database state.
+- **Solution:** this is expected behavior. Existing Docker/Kubernetes resources are not automatically removed. Clean old resources manually if needed and redeploy/import using v2 workflows.
 
-It is important to distinguish between the top-level `update` command and the `docker update` subcommand:
+## Command and Flag Changes in v2
 
--   `epos-opensource update`: This command updates the `epos-opensource` CLI tool itself to the latest version.
--   `epos-opensource docker update`: This command is used to reconcile or update a deployed EPOS Platform environment. 
+### Old Syntax No Longer Works
 
-Common problems and solutions when using the `epos-opensource` CLI.
+- **Issue:** commands like `epos-opensource kubernetes ...` fail.
+- **Solution:** use `epos-opensource k8s ...`.
 
-### Docker/Kubernetes not found
+### Deprecated Flags No Longer Work
 
--   **Issue:** The CLI reports that Docker or Kubernetes cannot be found.
--   **Solution:** Ensure that Docker is installed, running, and accessible from your terminal. If you are using Kubernetes, make sure `kubectl` is installed and configured correctly to connect to your cluster.
+- **Issue:** flags such as `--env-file`, `--compose-file`, `--manifests-dir`, `--secure`, or `--host` are rejected.
+- **Solution:** use config files with `--config`:
+  - Docker: `docker-config.yaml`
+  - K8s: `k8s-config.yaml`
 
-### Environment or Directory Already Exists
+## Runtime and Environment Issues
 
--   **Issue:** When creating a new environment, the CLI reports that the environment or directory already exists.
--   **Solution:** Choose a unique name for your new environment. If you intend to replace an old environment, you must first delete it using the appropriate CLI command before creating a new one with the same name.
+### Docker or kubectl Not Found
 
-### Problems with `.ttl` Files
+- **Issue:** the CLI cannot run Docker or K8s operations.
+- **Solution:** ensure Docker is installed/running for Docker commands, and `kubectl` is installed/configured for K8s commands.
 
--   **Issue:** The CLI fails to process `.ttl` (Turtle) files during data population.
--   **Solution:** Verify that the directory containing the `.ttl` files exists and that the files are valid. Ensure that the file paths do not contain spaces or special characters that might interfere with processing.
+### Wrong K8s Context
+
+- **Issue:** K8s commands target the wrong cluster or return no environments.
+- **Solution:** check current context with `kubectl config current-context`, or pass `--context <name>` explicitly.
+
+### Environment Already Exists
+
+- **Issue:** deploy fails because name is already used.
+- **Solution:** choose another environment name or delete the existing environment first.
 
 ### Environment Not Found
 
--   **Issue:** The CLI reports that an environment cannot be found, even though it was created previously.
--   **Solution:** The CLI stores environment information in a user-level database. Ensure you are running commands as the same user who created the environment. If you switch users, the environment will not be visible.
+- **Issue:** update/clean/populate/delete reports missing environment.
+- **Solution:**
+  - First, list available environments to confirm the exact environment name:
+    - Docker: `epos-opensource docker list`
+    - K8s: `epos-opensource k8s list` (or `epos-opensource k8s list --context <name>`)
+  - Docker: run commands as the same user profile used to create the environment
+  - K8s: verify cluster context and release name
 
-### Docker Environment Not Starting Correctly
+## Data Population Issues
 
--   **Issue:** After restarting your machine or the Docker daemon, your EPOS Docker environment does not start up automatically or function as expected.
--   **Solution:** You can manually trigger a restart and reconciliation of the environment by running the `update` command. This will check the environment's state and restart any services that are not running correctly.
-    ```bash
-    epos-opensource docker update <your-environment-name>
-    ```
+### Problems with `.ttl` Files
 
-## Data Population
+- **Issue:** populate fails.
+- **Solution:** verify paths exist, files use `.ttl` extension, and data is valid.
 
-### Populated Data Not Appearing
+### Populated Data Not Visible Immediately
 
--   **Issue:** After populating the system with data, the new information may take a short time to appear in the user interface.
--   **Solution:** This is expected. The platform refreshes its data in the background every so often, so waiting a little is usually enough. If you do not want to wait, you can restart the `resources-service` container:
-    ```bash
-    docker restart <your-environment-name>-resources-service
-    ```
-    If the data still does not appear after a short wait or a restart, please open an issue on GitHub.
+- **Issue:** metadata does not appear right after populate.
+- **Solution:** wait briefly for background refresh. For Docker, you can restart resources-service:
+
+```bash
+docker restart <your-environment-name>-resources-service
+```
 
 ## Reporting Issues
 
-If you have tried the solutions on this page and are still experiencing problems, please let us know so we can help.
+If the problem persists, open a GitHub issue with:
 
--   **Open a GitHub Issue:** The best way to report a bug or request a feature is by [opening an issue on our GitHub repository](https://github.com/EPOS-ERIC/epos-opensource/issues). Please provide as much detail as possible, including steps to reproduce the issue, error messages, and your system configuration.
+- CLI version (`epos-opensource --version`)
+- Full command used
+- Full error output
+- OS and runtime details (Docker/K8s context)
+
+[**Open an Issue on GitHub**](https://github.com/EPOS-ERIC/epos-opensource/issues)
