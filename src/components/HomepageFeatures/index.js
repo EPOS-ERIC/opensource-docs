@@ -7,7 +7,7 @@ import Link from '@docusaurus/Link';
 const FeatureList = [
   {
     title: 'Installation',
-    link: '/docs/documentation/installation',
+    link: '/documentation/installation',
     description: (
       <>
         Set up the EPOS Platform on your own infrastructure using Docker or from source.
@@ -15,17 +15,17 @@ const FeatureList = [
     ),
   },
   {
-    title: 'User Guide',
-    link: '/docs/documentation/guides/user-guide',
+    title: 'Platform Usage Guides',
+    link: '/documentation/guides/platform-usage',
     description: (
       <>
-        Learn how to use the Platform to search, visualize, and work with geospatial data.
+        Learn the main Platform workflows for discovering, visualizing, and working with geospatial data.
       </>
     ),
   },
   {
     title: 'System Reference',
-    link: '/docs/documentation/system-reference/architecture',
+    link: '/documentation/system-reference/architecture',
     description: (
       <>
         A detailed look into the architecture, data models, and services that power the platform.

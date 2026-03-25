@@ -34,7 +34,18 @@ const sidebars = {
 			type: 'category',
 			label: 'Guides',
 			items: [
-				'documentation/guides/user-guide',
+				{
+					type: 'category',
+					label: 'Platform Usage Guides',
+					link: {
+						type: 'doc',
+						id: 'documentation/guides/platform-usage/index',
+					},
+					items: [
+						'documentation/guides/platform-usage/explore-platform-interface',
+						'documentation/guides/platform-usage/use-jupyter-notebooks-vre',
+					],
+				},
 				'documentation/guides/backoffice-user-guide',
 				'documentation/guides/describing-data',
 			],

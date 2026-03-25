@@ -6,7 +6,7 @@ title: How to use the Backoffice
 
 # EPOS Backoffice
 
-Use the Backoffice to create, update, review, and publish metadata in an EPOS Platform instance without editing TTL files by hand. This guide focuses on the everyday workflow for editors and other content managers. For lifecycle diagrams, roles, and the full permission model, see the [Backoffice Service](../system-reference/services/backoffice.md) reference.
+Use the Backoffice to create, update, review, and publish metadata in an EPOS Platform instance without editing TTL files by hand. This guide focuses on the day-to-day editing process for editors and other content managers. For lifecycle diagrams, roles, and the full permission model, see the [Backoffice Service](../system-reference/services/backoffice.md) reference.
 
 ## What the Backoffice is
 
@@ -14,7 +14,7 @@ The Backoffice is the metadata management interface for your EPOS Platform insta
 
 If you want more background on the underlying metadata model, see:
 
-- [Describing Your Data](./describing-data.md) for the manual TTL workflow
+- [Describing Your Data](./describing-data.md) for the manual TTL approach
 - [Data Model](../system-reference/data_model.md) for how entities relate to each other
 - [Glossary](../system-reference/glossary.md) for short definitions of EPOS terms
 
@@ -61,7 +61,7 @@ A Data Product can be made available by one or more Distributions. On the Platfo
 
 ![Distribution on the Platform](/img/backoffice-user-guide/data-portal-distribution-card.jpeg)
 
-This guide uses the Distribution workflow as the main example because it is one of the most common editing tasks.
+This guide uses the Distribution editing process as the main example because it is one of the most common editing tasks.
 
 ## Update an existing service
 
@@ -77,7 +77,7 @@ The list shows the Distributions you are allowed to access based on your groups 
 
 ![Distribution List](/img/backoffice-user-guide/distribution-list-all-services.png)
 
-The status tells you where the record is in the workflow:
+The status tells you where the record is in the publication process:
 
 | Status      | What it means for you            |
 | ----------- | -------------------------------- |
@@ -113,7 +113,7 @@ To see which fields in the Backoffice interface map to which EPOS-DCAT-AP entity
 ### 5. Save every section you change
 
 :::danger[Save after each change]
-**Pay attention**: saving is one of the most important parts of the Backoffice workflow. When you edit a section, make sure you click the relevant save button for that section. Depending on where you are working, you may need to save both the Data Product and the Distribution changes separately.
+**Pay attention**: saving is one of the most important parts of the Backoffice editing process. When you edit a section, make sure you click the relevant save button for that section. Depending on where you are working, you may need to save both the Data Product and the Distribution changes separately.
 
 If you move away from a section without saving, your latest edits may not be stored.
 
@@ -132,7 +132,7 @@ This mode lets you see the records you have permission to access, including draf
 
 ![Platform Backoffice Mapping](/img/backoffice-user-guide/backoffice-gui-mapping.png)
 
-For more context on the Platform interface, see the [User Guide](./user-guide.md).
+For more context on the main Platform interface, see [How to explore the Platform interface](./platform-usage/explore-platform-interface.md).
 
 
 ### 7. Submit the draft for review
@@ -153,7 +153,7 @@ To create a new Data Product from scratch you can use the **Add New Data Product
 
 ![Create or Modify from the Distribution List](/img/backoffice-user-guide/distribution-list-create-or-modify.png)
 
-If you are creating a new **Data Product** from scratch, the workflow is the same after the draft exists:
+If you are creating a new **Data Product** from scratch, the same process applies after the draft exists:
 
 1. fill in the **Data Product** details
 2. add and complete the related **Distribution** details
@@ -171,7 +171,7 @@ If you are creating a new **Data Product** from scratch, the workflow is the sam
 
 ## Need the technical details?
 
-Use this guide for the day-to-day workflow, then switch to the technical pages when you need deeper background:
+Use this guide for the day-to-day editing process, then switch to the technical pages when you need deeper background:
 
 - [Backoffice Service](../system-reference/services/backoffice.md) for lifecycle, permissions, and service behavior
 - [Data Model](../system-reference/data_model.md) for entity relationships

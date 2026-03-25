@@ -180,7 +180,7 @@ You can also explore the **API Documentation** at `http://localhost:33000/api/v1
 
 Now that you have a running instance, you can:
 
-- **[Learn how to use the platform](./guides/user-guide.md)** with our User Guide.
+- **[Learn how to use the platform](./guides/platform-usage/index.md)** with the Platform Usage Guides.
 - **[Explore advanced deployment options](./installation/index.md)** in the Installation Guide.
 - **[Understand the system design](./system-reference/architecture.md)** by reading about the architecture.
 - **[Add your own data](./guides/describing-data.md)** by learning how to describe web services using [EPOS-DCAT-AP](./system-reference/data-formats/)
