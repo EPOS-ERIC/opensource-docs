@@ -58,10 +58,66 @@
 - Keep MDX imports minimal and only add them when the doc actually uses them.
 - Prefer ASCII unless a source file already uses non-ASCII content intentionally.
 
+## Documentation Types
+
+- Landing pages should orient the reader quickly, define the scope of the section, and link to the most important next pages.
+- Guides should focus on helping the reader complete a task. Start with the goal, include prerequisites only when they materially affect success, and present the workflow in a clear order.
+- Reference pages should explain concepts, fields, options, formats, constraints, and examples. Avoid turning reference pages into long procedural walkthroughs.
+- Standalone navbar pages such as `citation` or `contributors` should stay focused and self-contained, because readers may land on them outside the main sidebar flow.
+
+## Writing Style
+
+- Lead with what the page helps the reader do or understand.
+- Prefer direct, practical, reader-focused prose over promotional or generic language.
+- Use second person in task guides when you are telling the reader what to do.
+- Keep paragraphs short and specific. Break up dense sections with headings, lists, tables, or examples.
+- Prefer linking to existing reference pages instead of repeating the same technical background in multiple guides.
+- Match the depth to the page type: orient on landing pages, instruct in guides, and define precisely in reference pages.
+
+## Terminology
+
+- Use `docs/documentation/system-reference/glossary.md` as the first terminology reference.
+- Check the glossary and nearby reference pages before introducing, renaming, or rephrasing domain-specific terms.
+- Reuse established names already present in page titles, the glossary, and linked reference docs.
+- Avoid synonym drift: use one term consistently for the same concept within a page and across related pages.
+- If a term is not in the glossary, stay consistent with the nearest existing docs rather than casually inventing a new label. If needed you can ask the user to add a term to the glossary.
+
+## Formatting and Markdown
+
+- Use front matter on docs with at least `title`.
+- Use `##` and deeper headings to make sections scannable. In guides, numbered section headings are appropriate when the workflow is sequential.
+- Use numbered lists for ordered steps and bullet lists for requirements, options, summaries, or unordered sets of facts.
+- Always use fenced code blocks with language tags such as `bash`, `json`, `yaml`, or `turtle`.
+- Keep command examples copy-pasteable. Use inline comments sparingly and only when they help the reader understand a command or sequence.
+- Use inline code for commands, file paths, config keys, environment names, field names, and identifiers.
+- Use tables for structured reference content such as fields, permissions, options, or comparisons.
+- Use admonitions only when the note changes how the reader should act or assess risk. Prefer `info`, `warning`, `caution`, and `danger` based on severity.
+- Use tabs only for genuinely alternative flows, such as OS-specific instructions or TUI versus command-line workflows.
+- Use Mermaid only when a diagram explains architecture, workflow, or logic more clearly than prose.
+- Avoid raw HTML unless Markdown or MDX is not enough.
+
+## Images, Screenshots, and Examples
+
+- Add screenshots when UI state, navigation, or visual mapping would otherwise be ambiguous.
+- Place screenshots close to the step or explanation they support.
+- Write alt text that describes what the reader should notice, not just the object name.
+- Keep screenshots current and focused on the relevant UI when possible.
+- Store screenshots and attachments in `static/` with descriptive kebab-case filenames.
+- Prefer realistic examples and placeholders already used in the repo, such as `my-epos-platform` for environment names.
+- In guides, use fuller end-to-end examples when they help the reader follow a workflow. In reference pages, prefer smaller focused examples that isolate a field, format, or behavior.
+
+## Linking and Reader Flow
+
+- Landing pages should route readers toward the most likely next actions or deeper sections.
+- Guides should link to reference pages where deeper explanation is useful, instead of duplicating all technical background inline.
+- Reference pages should link back to guides when readers may need a practical workflow.
+- Avoid dead-end pages. When a reader finishes a page, they should have an obvious next link or related section.
+- Use link text that tells the reader what they will get from the destination, not generic phrasing.
+
 ## File Naming Conventions
 
 - For markdown docs and folders, use lowercase kebab-case.
-- Use `index.md` for nested overview pages and section landing pages. Top-level docs under `docs/documentation/` currently use descriptive filenames instead of `index.md`.
+- Use `index.md` for documentation landing pages, section landing pages, and overview pages.
 - For static assets, prefer descriptive lowercase kebab-case names.
 - For components in `src/components/`, prefer PascalCase filenames.
 - Keep related style files next to the component they belong to, following the existing directory-based pattern used by `src/components/HomepageFeatures/`.
@@ -73,6 +129,17 @@
 - When editing `.tsx` components, keep the explicit prop typing pattern already used in `MermaidFullScreen.tsx`.
 - Keep filename and symbol casing aligned when renaming or importing components.
 - Add comments only when the reason for a non-obvious implementation needs explaining.
+
+## Authoring Checklist
+
+- The page type is clear and the content matches it.
+- The opening paragraph states what the page helps the reader do or understand.
+- Terminology matches `docs/documentation/system-reference/glossary.md` and nearby reference pages.
+- Headings, lists, and sections are easy to scan.
+- Commands and examples are accurate, copy-pasteable, and use realistic placeholders.
+- Screenshots, diagrams, tabs, and admonitions add value instead of decoration.
+- Cross-links and assets point to the correct destinations.
+- If you changed doc structure, navigation, MDX imports, or other rendering behavior, run `npm run build`.
 
 ## Verification Checklist
 
