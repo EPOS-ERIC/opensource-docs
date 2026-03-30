@@ -30,6 +30,7 @@ const config = {
 					sidebarPath: './sidebars.js',
 					routeBasePath: '/',
 				},
+				blog: false,
 				theme: {
 					customCss: './src/css/custom.css',
 				},
@@ -43,6 +44,7 @@ const config = {
 			{
 				hashed: true,
 				indexDocs: true,
+				indexBlog: false,
 				indexPages: true,
 				docsRouteBasePath: '/',
 			},
@@ -65,7 +67,7 @@ const config = {
 				items: [
 					{
 						type: 'docSidebar',
-						sidebarId: 'tutorialSidebar',
+						sidebarId: 'documentationSidebar',
 						position: 'left',
 						label: 'Documentation',
 					},
@@ -167,10 +169,10 @@ const config = {
             <img src="/opensource-docs/img/linkedin.svg" alt="LinkedIn" style="height:30px;margin-right:0.5rem"/>
           </a>
         <a href="https://www.youtube.com/c/EposProjectEu" target="_blank" rel="noopener noreferrer">
-            <img src="/opensource-docs/img/YouTube.svg" alt="YouTube" style="height:30px;margin-right:0.5rem"/>
+            <img src="/opensource-docs/img/youtube.svg" alt="YouTube" style="height:30px;margin-right:0.5rem"/>
           </a>
          <a href="https://www.flickr.com/photos/eposeu/" target="_blank" rel="noopener noreferrer">
-            <img src="/opensource-docs/img/Flickr.svg" alt="YouTube" style="height:30px;"/>
+            <img src="/opensource-docs/img/flickr.svg" alt="YouTube" style="height:30px;"/>
           </a>
           `,
 							},

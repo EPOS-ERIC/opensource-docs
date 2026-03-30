@@ -1,6 +1,5 @@
 ---
 title: Glossary
-sidebar_position: 100
 ---
 
 # Glossary

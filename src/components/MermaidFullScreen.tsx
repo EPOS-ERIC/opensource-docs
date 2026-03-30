@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect, JSX } from 'react';
 import Mermaid from '@theme/Mermaid';
 import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
 
-interface MermaidFullscreenProps {
+interface MermaidFullScreenProps {
 	chart: string;
 	title?: string;
 	className?: string;
@@ -10,13 +10,13 @@ interface MermaidFullscreenProps {
 	useElkLayout?: boolean;
 }
 
-export default function MermaidFullscreen({
+export default function MermaidFullScreen({
 	chart,
 	title = 'Diagram',
 	className,
 	maxPreviewHeight = 600,
 	useElkLayout = false
-}: MermaidFullscreenProps): JSX.Element {
+}: MermaidFullScreenProps): JSX.Element {
 	const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 	const [previewHeight, setPreviewHeight] = useState<number>(500);
 	const normalRef = useRef<HTMLDivElement>(null);

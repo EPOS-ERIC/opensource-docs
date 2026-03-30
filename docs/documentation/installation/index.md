@@ -1,5 +1,4 @@
 ---
-sidebar_position: 4
 title: CLI Tool
 ---
 
@@ -7,7 +6,7 @@ title: CLI Tool
 
 The EPOS open source CLI (`epos-opensource`) is the primary way to deploy, configure, and manage EPOS Platform environments.
 
-![EPOS CLI TUI](/img/tui_details.png)
+![EPOS CLI TUI](/img/tui-details.png)
 
 ## What's New in v2.0.0
 

@@ -1,8 +1,12 @@
+---
+title: Scatter Plot
+---
+
 # Scatter Plot
 
 The EPOS GUI supports displaying time series as scatter plots, enhancing the visualization of your data:
 
-![Scatter Plot](/img/covjson_scatter_plot.png)
+![Scatter Plot](/img/covjson-scatter-plot.png)
 
 ## Usage
 
@@ -41,11 +45,11 @@ To correctly display a CoverageJSON as a Scatter Plot, follow these steps:
    - Currently, the EPOS GUI supports two plot types:
      1. **Scatter Plot**: Identified using `https://www.data-to-viz.com/graph/scatter.html`
 
-        ![Scatter Plot](/img/covjson_scatter_plot.png)
+        ![Scatter Plot](/img/covjson-scatter-plot.png)
 
      2. **Line Plot**: Identified using `https://www.data-to-viz.com/graph/line.html`
 
-        ![Line Plot](/img/covjson_line_plot.png)
+         ![Line Plot](/img/covjson-line-plot.png)
 
 :::info Default Plot Type
 

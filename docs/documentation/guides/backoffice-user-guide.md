@@ -1,5 +1,4 @@
 ---
-sidebar_position: 2
 id: backoffice-user-guide
 title: How to use the Backoffice
 ---
@@ -15,14 +14,14 @@ The Backoffice is the metadata management interface for your EPOS Platform insta
 If you want more background on the underlying metadata model, see:
 
 - [Describing Your Data](./describing-data.md) for the manual TTL approach
-- [Data Model](../system-reference/data_model.md) for how entities relate to each other
+- [Data Model](../system-reference/data-model.md) for how entities relate to each other
 - [Glossary](../system-reference/glossary.md) for short definitions of EPOS terms
 
 ## Before you begin
 
 - The Backoffice is usually available at `/backoffice/home` on your deployed EPOS Platform instance. For example: `https://www.ics-c.epos-eu.org/backoffice/home`.
 - You need a deployed environment, a valid user account, and permission to work on the records you want to manage.
-- If you still need a local or test deployment, start from the [Quickstart](../quickstart.md).
+- If you still need a local or test deployment, start from the [Quickstart](../quickstart/index.md).
 
 ## Get access to edit
 
@@ -108,7 +107,7 @@ Use the page sidebar on the left to move through the available sections and upda
 - Update **Data Product** fields when you are changing the main catalogue information for the record.
 - Update **Distribution** fields when you are changing the concrete service details that users interact with in the Platform.
 
-To see which fields in the Backoffice interface map to which EPOS-DCAT-AP entity, you can reference the [Data Model](../system-reference/data_model.md) and [EPOS-DCAT-AP](../system-reference/data-formats/dcat-ap.md) references.
+To see which fields in the Backoffice interface map to which EPOS-DCAT-AP entity, you can reference the [Data Model](../system-reference/data-model.md) and [EPOS-DCAT-AP](../system-reference/data-formats/dcat-ap.md) references.
 
 ### 5. Save every section you change
 
@@ -174,5 +173,5 @@ If you are creating a new **Data Product** from scratch, the same process applie
 Use this guide for the day-to-day editing process, then switch to the technical pages when you need deeper background:
 
 - [Backoffice Service](../system-reference/services/backoffice.md) for lifecycle, permissions, and service behavior
-- [Data Model](../system-reference/data_model.md) for entity relationships
+- [Data Model](../system-reference/data-model.md) for entity relationships
 - [EPOS-DCAT-AP](../system-reference/data-formats/dcat-ap.md) for the metadata standard behind the interface

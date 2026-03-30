@@ -12,9 +12,9 @@
  @type {import('@docusaurus/plugin-content-docs').SidebarsConfig}
  */
 const sidebars = {
-	tutorialSidebar: [
-		'documentation/home',
-		'documentation/quickstart',
+		documentationSidebar: [
+			'documentation/index',
+			'documentation/quickstart/index',
 		{
 			type: 'category',
 			label: 'CLI Tool',
@@ -78,7 +78,7 @@ const sidebars = {
 						},
 					],
 				},
-				'documentation/system-reference/data_model',
+				'documentation/system-reference/data-model',
 				{
 					type: 'category',
 					label: 'Data Formats',
@@ -97,8 +97,8 @@ const sidebars = {
 								id: 'documentation/system-reference/data-formats/coveragejson/index',
 							},
 							items: [
-								'documentation/system-reference/data-formats/coveragejson/error_bars',
-								'documentation/system-reference/data-formats/coveragejson/scatter_plot_guide',
+								'documentation/system-reference/data-formats/coveragejson/error-bars',
+								'documentation/system-reference/data-formats/coveragejson/scatter-plot-guide',
 							],
 						},
 					],
@@ -107,8 +107,8 @@ const sidebars = {
 				'documentation/system-reference/glossary'
 			],
 		},
-		'documentation/license',
-	],
+			'documentation/license/index',
+		],
 };
 
 export default sidebars;

@@ -3,7 +3,7 @@ title: Contributors
 sidebar: null
 ---
 
-import ContributorCard from '@site/src/components/contributorsCard';
+import ContributorCard from '@site/src/components/ContributorCard';
 
 # Meet the Team
 

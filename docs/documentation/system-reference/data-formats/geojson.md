@@ -1,9 +1,9 @@
 ---
-sidebar_position: 1
 id: geojson
+title: EPOS GeoJSON
 ---
 
-import MermaidFullscreen from '@site/src/components/MermaidFullScreen';
+import MermaidFullScreen from '@site/src/components/MermaidFullScreen';
 
 # EPOS GeoJSON
 
@@ -106,9 +106,9 @@ The EPOS GeoJSON extensions support four distinct types of map markers, configur
 
 | Type                       | Example                   | pin = false                                                              | pin = true                                                           |
 | -------------------------- | ------------------------- | ------------------------------------------------------------------------ | -------------------------------------------------------------------- |
-| `marker.href`              | `www.thing.com/thing.png` | ![Marker href without pin](/img/markerHrefWithoutPin.png)                | ![Marker href with pin](/img/markerHrefWithPin.png)                  |
-| `marker.fontawesome_class` | `fas fa-star`             | ![Font Awesome marker without pin](/img/fontAwesomeMarkerWithoutPin.png) | ![Font Awesome marker with pin](/img/fontAwesomeMarkerWithStar.png)  |
-| `marker.character`         | `S`                       | ![Character marker without pin](/img/markerCharacter.png)                | ![Character marker with pin](/img/fontAwesomeMarkerWithPinSmall.png) |
+| `marker.href`              | `www.thing.com/thing.png` | ![Marker href without pin](/img/marker-href-without-pin.png)                | ![Marker href with pin](/img/marker-href-with-pin.png)                  |
+| `marker.fontawesome_class` | `fas fa-star`             | ![Font Awesome marker without pin](/img/font-awesome-marker-without-pin.png) | ![Font Awesome marker with pin](/img/font-awesome-marker-with-star.png)  |
+| `marker.character`         | `S`                       | ![Character marker without pin](/img/marker-character.png)                | ![Character marker with pin](/img/font-awesome-marker-with-pin-small.png) |
 | `marker.raw`               | `iVBORw0KGgo...`          | The raw image is rendered as-is.                                         | The raw image is rendered inside a pin.                              |
 
 ### Image Example
@@ -171,7 +171,7 @@ This example uses a base64 encoded image as the marker. The `raw` property shoul
 
 ### Symbol Logic
 
-![Font Awesome marker with pin](/img/markerFlow.png)
+![Font Awesome marker with pin](/img/marker-flow.png)
 
 ### Colour
 
@@ -181,11 +181,11 @@ A note on color, to prevent accidental reuse of the same color by multiple map l
 
 Legends are constructed by combining the map marker and label from the corresponding @epos_type within the the @epos_style object.
 
-![Character marker without pin](/img/fontAwesomeMarkerWithPinAndLegend.png)
+![Character marker without pin](/img/font-awesome-marker-with-pin-and-legend.png)
 
 ### Legend Logic
 
-<MermaidFullscreen
+<MermaidFullScreen
 title="Legend logic"
 maxPreviewHeight={600}
 chart={`

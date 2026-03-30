@@ -1,6 +1,4 @@
 ---
-sidebar_position: 1
-id: home
 title: EPOS Platform open source
 ---
 
@@ -30,7 +28,7 @@ The EPOS Platform allows you to create a centralized catalogue of web services, 
 
 Ready to dive in? Here’s how you can get started:
 
-- **[Quickstart](./quickstart.md):** The fastest way to get a local instance of the EPOS Platform up and running in minutes.
+- **[Quickstart](./quickstart/index.md):** The fastest way to get a local instance of the EPOS Platform up and running in minutes.
 - **[Installation Guide](./installation/index.md):** Detailed instructions for deploying the platform in different environments.
 
 ## About the EPOS Project

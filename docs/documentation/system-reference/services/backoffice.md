@@ -1,10 +1,9 @@
 ---
-sidebar_position: 1
 id: backoffice
 title: Backoffice Service
 ---
 
-import MermaidFullscreen from '@site/src/components/MermaidFullScreen';
+import MermaidFullScreen from '@site/src/components/MermaidFullScreen';
 
 # Backoffice Service
 
@@ -47,7 +46,7 @@ The Backoffice introduces a structured workflow for managing metadata entities, 
 
 ### Life Cycle of an Entity
 
-<MermaidFullscreen
+<MermaidFullScreen
 title="Entity Lifecycle"
 chart={`
 flowchart LR
@@ -70,7 +69,7 @@ flowchart LR
 3.  **Review and Publication:** A reviewer checks the submitted instance. If approved, the changes are published (PUBLISHED state), and the previously published version is moved to ARCHIVED state.
 4.  **Discarding:** If the reviewer disapproves, the changes are discarded (DISCARDED state). An editor can then create a new draft from this discarded version.
 
-<MermaidFullscreen
+<MermaidFullScreen
 title="Metadata Approval Flow"
 chart={`
 flowchart TD

@@ -19,7 +19,7 @@ const provenInProductionLinks = [
 const featureList = [
 	{
 		title: 'Platform Usage Guides',
-		imageUrl: '/img/dataportal_example.png',
+		imageUrl: '/img/dataportal-example.png',
 		description: <>Search, discover, and visualize geospatial data through the main EPOS Platform workflows. The production environment of <Link to="https://www.epos-eu.org/epos-eric">EPOS ERIC</Link> shares the same source code, which is constantly maintained, tested and supported. Built for researchers and data scientists.</>,
 		link: '/documentation/guides/platform-usage',
 		linkLabel: 'Read the Platform Usage Guides',

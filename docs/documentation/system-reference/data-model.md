@@ -2,7 +2,7 @@
 title: Data Model
 ---
 
-import MermaidFullscreen from '@site/src/components/MermaidFullScreen';
+import MermaidFullScreen from '@site/src/components/MermaidFullScreen';
 
 # EPOS Data Model
 
@@ -12,7 +12,7 @@ The EPOS Data Model defines the fundamental structure of information managed and
 
 The following class diagram provides a comprehensive overview of the EPOS Data Model, illustrating the key entities and their relationships.
 
-<MermaidFullscreen
+<MermaidFullScreen
 title="EPOS Data Model Overview"
 maxPreviewHeight={450}
 useElkLayout={true} 
@@ -213,4 +213,4 @@ The EPOS Data Model is central to the platform's functionality:
 
 For a more in-depth understanding, you can download the complete EPOS Data Model specification:
 
-<a href="/opensource-docs/documents/epos_data_model.pdf" download="EPOS_DATA_MODEL.pdf">**Download EPOS Data Model PDF**</a>
+<a href="/opensource-docs/documents/epos-data-model.pdf" download="EPOS_DATA_MODEL.pdf">**Download EPOS Data Model PDF**</a>

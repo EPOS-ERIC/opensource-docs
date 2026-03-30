@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+title: EPOS CoverageJSON
 ---
 
 # EPOS CoverageJSON
@@ -26,7 +26,7 @@ EPOS CoverageJSON introduces extensions primarily in two areas:
 - **Visualization Enhancements**: To support advanced graphical representations beyond the standard, such as custom color mapping, scaling, and display preferences. This includes capabilities for visualizing data with specific plotting types like scatter plots.
 - **Error Handling**: To integrate crucial scientific information like data uncertainties and quality indicators, which are vital for robust data interpretation. This enables features like displaying error bars directly on time series.
 
-For detailed information on how to implement these extensions, please refer to the [Error Bars Guide](./error_bars.md) and the [Scatter Plot Guide](./scatter_plot_guide.md).
+For detailed information on how to implement these extensions, please refer to the [Error Bars Guide](./error-bars.md) and the [Scatter Plot Guide](./scatter-plot-guide.md).
 
 ## Usage in the EPOS Platform
 
@@ -40,15 +40,15 @@ These extensions enable sophisticated data visualization capabilities within the
 
 EPOS extensions for CoverageJSON are typically found within the `parameters` object, where they define specific behaviors for visualization (e.g., `plotType` for scatter plots) or data interpretation (e.g., `observedProperty.id` for error bar bounds). For concrete JSON examples demonstrating these extensions, please refer to the dedicated guides:
 
-- **[Error Bars Guide](./error_bars.md)**
-- **[Scatter Plot Guide](./scatter_plot_guide.md)**
+- **[Error Bars Guide](./error-bars.md)**
+- **[Scatter Plot Guide](./scatter-plot-guide.md)**
 
 ## Related Documentation
 
 For more information about CoverageJSON extensions:
 
-- **[Error Bars Guide](./error_bars.md)** - Detailed information about error bar implementation
-- **[Scatter Plot Guide](./scatter_plot_guide.md)** - Scatter plot visualization with CoverageJSON
+- **[Error Bars Guide](./error-bars.md)** - Detailed information about error bar implementation
+- **[Scatter Plot Guide](./scatter-plot-guide.md)** - Scatter plot visualization with CoverageJSON
 
 ## Standards Compliance
 

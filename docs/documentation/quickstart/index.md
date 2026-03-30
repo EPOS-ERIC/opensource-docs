@@ -1,6 +1,4 @@
 ---
-sidebar_position: 2
-id: quickstart
 title: Quickstart
 ---
 
@@ -54,7 +52,7 @@ epos-opensource --version
 
 You should see an output like `epos-opensource version v2.0.0` (the exact version number may vary).
 
-For more detailed installation instructions, including how to build from source, see the [CLI Tool documentation](./installation/index.md).
+For more detailed installation instructions, including how to build from source, see the [CLI Tool documentation](../installation/index.md).
 
 ### Updating the CLI
 
@@ -83,17 +81,17 @@ Launch the interactive TUI:
 epos-opensource
 ```
 
-![TUI Home](/img/tui_home.png)
+![TUI Home](/img/tui-home.png)
 
 Click on the `Create New Environment` in the `Docker Environments` section.
 
-![Deploy New Environment](/img/tui_deploy.png)
+![Deploy New Environment](/img/tui-deploy.png)
 
 Enter your environment name (e.g., `my-epos-platform`) and confirm to start the deployment.
 
 The TUI will show progress as Docker images are downloaded and services start.
 
-![TUI Deploy Progress](/img/tui_deploy_progress.png)
+![TUI Deploy Progress](/img/tui-deploy-progress.png)
 
   </TabItem>
   <TabItem value="cli" label="Command Line">
@@ -104,7 +102,7 @@ Deploy using the CLI command:
 epos-opensource docker deploy my-epos-platform
 ```
 
-![Deploy with CLI](/img/docker_deploy_urls.png)
+![Deploy with CLI](/img/docker-deploy-urls.png)
 
 This command will download all the necessary Docker images and start the services. It might take a few minutes depending on your internet connection.
 
@@ -122,11 +120,11 @@ To see your platform in action, you can populate it with example metadata we pro
 
 Navigate to a deployed environment details by clicking on it
 
-![TUI Env Details](/img/tui_details.png)
+![TUI Env Details](/img/tui-details.png)
 
 Here you can perform different actions on a deployed environment and see its options/status. As you can see in the `Ingested Files` section there is nothing, let's add data to our environment. Press on the `Populate` button
 
-![Populate with TUI](/img/tui_populate.png)
+![Populate with TUI](/img/tui-populate.png)
 
 Here you can specify the paths to directories or files to ingest. You can also populate an environment with pre-provided example data by checking the `Populate Examples` checkbox and clicking `Populate`.
 
@@ -145,7 +143,7 @@ Or, if you already have your own `.ttl` data, you can use that instead:
 epos-opensource docker populate my-epos-platform ./metadata ./more-data/file.ttl
 ```
 
-![Populate with CLI](/img/docker_populate_example.png)
+![Populate with CLI](/img/docker-populate-example.png)
 
   </TabItem>
 </Tabs>
@@ -170,7 +168,7 @@ Congratulations, your EPOS Platform is live!
 
 Open your web browser and go to the **EPOS Platform GUI** URL shown after deployment (or click `Open` in the TUI). The default URL is [http://localhost:32000/](http://localhost:32000/), but use the printed URL if your machine required different ports.
 
-![The EPOS Platform](/img/dataportal_after_populate.png)
+![The EPOS Platform](/img/dataportal-after-populate.png)
 
 You should see the main interface for browsing and searching for geospatial services. The example metadata will appear on the top-left side of the interface.
 
@@ -180,7 +178,7 @@ You can also explore the **API Documentation** at `http://localhost:33000/api/v1
 
 Now that you have a running instance, you can:
 
-- **[Learn how to use the platform](./guides/platform-usage/index.md)** with the Platform Usage Guides.
-- **[Explore advanced deployment options](./installation/index.md)** in the Installation Guide.
-- **[Understand the system design](./system-reference/architecture.md)** by reading about the architecture.
-- **[Add your own data](./guides/describing-data.md)** by learning how to describe web services using [EPOS-DCAT-AP](./system-reference/data-formats/)
+- **[Learn how to use the platform](../guides/platform-usage/index.md)** with the Platform Usage Guides.
+- **[Explore advanced deployment options](../installation/index.md)** in the Installation Guide.
+- **[Understand the system design](../system-reference/architecture.md)** by reading about the architecture.
+- **[Add your own data](../guides/describing-data.md)** by learning how to describe web services using [EPOS-DCAT-AP](../system-reference/data-formats/index.md)

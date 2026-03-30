@@ -2,7 +2,7 @@
 title: Architecture
 ---
 
-import MermaidFullscreen from '@site/src/components/MermaidFullScreen';
+import MermaidFullScreen from '@site/src/components/MermaidFullScreen';
 
 # EPOS Platform Architecture
 
@@ -10,7 +10,7 @@ The EPOS Platform is built as a robust, scalable, and modular microservice-based
 
 This document provides a high-level overview of the platform's architecture, illustrating how its various services interact to provide a unified geospatial data integration system.
 
-<MermaidFullscreen
+<MermaidFullScreen
 title="EPOS Platform Architecture Overview"
 useElkLayout={true} 
 maxPreviewHeight={450}
@@ -127,7 +127,3 @@ The platform's design adheres to several key architectural principles:
 *   **Extensibility:** The plugin-based Converter Service allows for easy integration of new or custom data formats.
 *   **Scalability:** Services can be scaled independently to handle varying loads, ensuring high availability and performance.
 *   **Standards Compliance:** Built upon open standards (e.g., OGC, DCAT-AP) to ensure interoperability and broad compatibility.
-
-## Data Flow (High-Level)
-
-{/* TODO: Add a brief explanation of the typical data flow. */}

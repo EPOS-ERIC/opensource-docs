@@ -1,8 +1,12 @@
+---
+title: Error Bars
+---
+
 # Error Bars
 
 Error bars are a crucial component in scientific data visualization, as they graphically represent the variability or uncertainty of reported measurements. The EPOS GUI supports displaying time series with error bars, significantly enhancing the visualization of data uncertainties and aiding in more robust data interpretation:
 
-![Error bars](/img/covjson_error_bars.png)
+![Error bars](/img/covjson-error-bars.png)
 
 ## Usage
 

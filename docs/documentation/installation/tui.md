@@ -1,6 +1,5 @@
 ---
 title: Terminal User Interface (TUI)
-sidebar_position: 5.5
 ---
 
 # Terminal User Interface (TUI)
