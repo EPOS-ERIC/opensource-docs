@@ -126,6 +126,7 @@ The updater prompts before major upgrades and links to release notes.
 
 - [Managing Docker Deployments](./docker.md)
 - [Managing Kubernetes Deployments](./kubernetes.md)
+- [Enable Backoffice with a Custom Docker Config](./enable-backoffice-docker.md)
 - [Terminal User Interface (TUI)](./tui.md)
 - [Troubleshooting](./troubleshooting.md)
 

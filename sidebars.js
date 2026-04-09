@@ -26,6 +26,7 @@ const sidebars = {
 				'documentation/installation/tui',
 				'documentation/installation/docker',
 				'documentation/installation/kubernetes',
+				'documentation/installation/enable-backoffice-docker',
 				'documentation/installation/reverse-proxy',
 				'documentation/installation/troubleshooting',
 			],
