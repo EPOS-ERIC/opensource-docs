@@ -12,7 +12,7 @@ import styles from './index.module.css';
 const provenInProductionLinks = [
 	{ label: 'EPOS ERIC', href: 'http://www.ics-c.epos-eu.org/', src: 'img/epos-logo.svg' },
 	{ label: 'EMSO ERIC', href: 'https://portal-dev.emso.eu/', src: 'img/emso-logo.png' },
-	{ label: 'ENVRI-Hub NEXT', href: 'https://catalogue.staging.envri.eu/', src: 'img/envri-hub-next-logo.png' },
+	{ label: 'ENVRI-Hub NEXT', href: 'https://catalogue.envri.eu/', src: 'img/envri-hub-next-logo.png' },
 	{ label: 'IPSES', href: 'https://www.ipses-ri.it/app/', src: 'img/ipses-logo.png' },
 ];
 
@@ -27,23 +27,23 @@ const featureList = [
 	{
 		title: 'Powerful Data Management',
 		imageUrl: '/img/backoffice.png',
-		description: <>Manage all aspects of your data services, system configurations, and user access through a comprehensive back-office graphical interface. The required metadata follows the <Link to="/documentation/system-reference/data-formats/dcat-ap">EPOS-DCAT-AP</Link> profile.</>,
-		link: '/documentation/system-reference/services/backoffice',
-		linkLabel: 'Explore Back-Office Docs',
+		description: <>Manage all aspects of your data services, system configurations, and user access through a comprehensive Backoffice graphical interface. The required metadata follows the <Link to="/documentation/system-reference/data-formats/dcat-ap">EPOS-DCAT-AP</Link> profile.</>,
+		link: '/documentation/guides/backoffice-user-guide',
+		linkLabel: 'Explore Backoffice Docs',
 		isReversed: true,
 	},
 	{
 		title: 'Contribute & Extend',
 		imageUrl: '/img/components.png',
-		description: 'Built on modern microservices architecture using Docker and Kubernetes. Extend the platform with custom services, contribute improvements, report issues, or fork it for your own and your institution needs.',
+		description: 'Built on modern microservices architecture using Docker and Kubernetes. Extend the Platform with custom services, contribute improvements, report issues, or fork it for your own and your institution needs.',
 		link: '/contributors',
 		linkLabel: 'Meet our contributor hall of fame',
 		isReversed: false,
 	},
 	{
 		title: 'Free & open source',
-		imageUrl: '/img/epos-github.png',
-		description: 'The entire EPOS Platform open source is released under GPL v3, making it completely free to deploy, modify, and use. Every component and library is open source and community-owned.',
+		imageUrl: '/img/epos-eric-github.png',
+		description: <>The entire EPOS Platform open source is released under <Link to="https://www.gnu.org/licenses/gpl-3.0.en.html">GPL v3</Link>, making it completely free to deploy, modify, and use. Every component and library is open source and community-owned.</>,
 		link: '/documentation/license',
 		linkLabel: 'View License Details',
 		isReversed: true,
