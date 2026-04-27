@@ -163,17 +163,17 @@ const config = {
 							{
 								html: `
         <a href="https://www.facebook.com/EPOSeu" target="_blank" rel="noopener noreferrer">
-          <img src="/opensource-docs/img/facebook-logo.svg" alt="Facebook" style="height:30px; margin-right:0.5rem"/> 
+			<img src="/opensource-docs/img/facebook-logo.svg" alt="Facebook" style="height:30px; margin-right:0.5rem"/> 
         </a> 
         <a href="https://www.linkedin.com/company/eposeu" target="_blank" rel="noopener noreferrer">
             <img src="/opensource-docs/img/linkedin.svg" alt="LinkedIn" style="height:30px;margin-right:0.5rem"/>
-          </a>
+		</a>
         <a href="https://www.youtube.com/c/EposProjectEu" target="_blank" rel="noopener noreferrer">
             <img src="/opensource-docs/img/youtube.svg" alt="YouTube" style="height:30px;margin-right:0.5rem"/>
-          </a>
-         <a href="https://www.flickr.com/photos/eposeu/" target="_blank" rel="noopener noreferrer">
+        </a>
+        <a href="https://www.flickr.com/photos/eposeu/" target="_blank" rel="noopener noreferrer">
             <img src="/opensource-docs/img/flickr.svg" alt="YouTube" style="height:30px;"/>
-          </a>
+        </a>
           `,
 							},
 						],
